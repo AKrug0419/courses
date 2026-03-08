@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Research Outline: "The Vane Sisters" by Vladimir Nabokov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #fbeeb8;
+    --amber-text: #7a5a10;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --transition: 0.22s ease;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .page-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 28px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 30px 38px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -50px; bottom: -50px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .page-header .subtitle {
+    font-size: 14px;
+    color: var(--sage-dark);
+  }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 13px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sh-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .sh-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sh-dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
+  .sh-body   { background-color: #f5f5f5; color: var(--sage-deep); }
+
+  .section-body { padding: 24px 28px; }
+
+  /* ── OUTLINE PILL LABELS ── */
+  .pill {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  .p-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .p-gray   { background-color: #ced4d9; color: #333; }
+  .p-dkgrn  { background: linear-gradient(135deg, #3a6a4a 0%, #4a7a5a 100%); color: #fff; }
+  .p-yellow { background-color: var(--amber); color: var(--amber-text); }
+  .p-purple { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+
+  /* ── BODY PARAGRAPH BLOCKS ── */
+  .bp-block {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .bp-block:last-child { margin-bottom: 0; }
+
+  .bp-header {
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bp-header.intro { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); }
+  .bp-header.body  { background-color: #f5f5f5; }
+  .bp-header.concl { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); }
+
+  .bp-num {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .bp-num.intro { background-color: var(--slate-dark); color: #fff; }
+  .bp-num.body  { background-color: var(--sage-deep); color: #fff; }
+  .bp-num.concl { background-color: var(--plum-dark); color: #fff; }
+
+  .bp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .bp-body { padding: 20px 24px; }
+
+  /* ── OUTLINE ROW ── */
+  .o-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .o-row:last-child { margin-bottom: 0; }
+  .o-row .o-label { flex-shrink: 0; }
+  .o-row .o-content { flex: 1; }
+  .o-row .o-content p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin: 0;
+  }
+  .o-row .o-content p + p { margin-top: 4px; }
+
+  /* Sub-points with indentation */
+  .sub-a, .sub-b {
+    padding-left: 16px;
+    border-left: 2px solid #eee;
+    margin: 6px 0 6px 4px;
+  }
+  .sub-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+  .sub-item {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    position: relative;
+  }
+  .sub-item::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #bbb;
+  }
+
+  /* Placeholder / italics */
+  .placeholder {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    line-height: 1.7;
+    margin: 4px 0 4px 4px;
+  }
+  .placeholder-line {
+    font-size: 12px;
+    color: #aaa;
+    font-style: italic;
+    margin: 2px 0 0 4px;
+  }
+
+  /* ── STRUCTURE LEGEND ── */
+  .legend {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .legend-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 18px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .legend-row:last-child { border-bottom: none; }
+  .legend-row:nth-child(even) { background: #fafafa; }
+  .legend-row p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .legend-row strong { color: var(--text); }
+
+  /* ── TIPS ── */
+  .tips-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  @media (max-width: 600px) { .tips-row { grid-template-columns: 1fr; } }
+  .tip-box {
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .tip-box .tip-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .tip-box p { font-size: 12px; line-height: 1.6; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 16px;
+    margin: 12px 0;
+  }
+  .callout .callout-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 4px;
+  }
+  .callout p { font-size: 13px; color: #3a5e42; line-height: 1.7; }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 24px 0; }
+
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 10px; }
+
+  /* ── SECONDARY DIST BANNER ── */
+  .dist-banner {
+    background: #f0f7f2;
+    border: 3px solid var(--sage);
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 22px;
+  }
+  .dist-banner .icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .dist-banner p { font-size: 13px; color: #3a5e42; line-height: 1.8; margin: 0; }
+  .dist-banner strong { color: var(--sage-deep); }
+
+  /* ── FOOTER NAV ── */
+  .footer-banner {
+    background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 100%);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .footer-banner p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; }
+  .footer-banner strong { color: #fff; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.10s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.22s; }
+  .fade-in:nth-child(5) { animation-delay: 0.28s; }
+  .fade-in:nth-child(6) { animation-delay: 0.34s; }
+  .fade-in:nth-child(7) { animation-delay: 0.40s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Sample Outline &bull; Literary Research Essay &bull; Theme-Based Topic</div>
+    <h1>Sample Research Essay Outline</h1>
+    <p class="subtitle">The Supernatural and the Limits of Knowledge in Vladimir Nabokov's "The Vane Sisters" — Three Body Paragraphs</p>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">💡 How to Use This Sample Outline</div>
+    <div class="section-body">
+      <p>This sample outline models the structure your own outline should follow. Each body paragraph entry identifies a distinct aspect of the essay's central theme, outlines the evidence that will be used, and maps the analytical work that needs to happen around that evidence.</p>
+      <p style="margin-top:10px;">This is a <strong>research essay</strong> outline: every body paragraph must incorporate a quote from the short story (primary source), at least one quote or paraphrase from a scholarly article (secondary source), and your own analysis explaining how the evidence supports your argument. This differs from your first essay this semester, which required only primary source quotes.</p>
+      <div class="callout">
+        <div class="callout-label">🔖 Connecting to Prewriting &amp; Planning</div>
+        <p>Your outline is the bridge between prewriting and drafting. The three body paragraph topics in this sample grew out of close reading of "The Vane Sisters" — the same kind of analytical attention you brought to your study question responses. Use your own notes and responses as the raw material for your body paragraph topics.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY PARAGRAPH STRUCTURE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-dark">🔬 Body Paragraph Structure (Research Essay)</div>
+    <div class="section-body">
+      <p style="margin-bottom:16px;">Every body paragraph in your research essay should follow this six-part structure. The sample outline below is organized around this anatomy. As you plan each of your own paragraphs, use these six steps as your checklist.</p>
+      <div class="legend">
+        <div class="legend-row">
+          <span class="pill p-green">① Topic Sentence</span>
+          <p>Your own claim about what aspect of the theme you're analyzing and how it connects to the essay's argument. <strong>No sources here.</strong></p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-gray">② Primary Quote</span>
+          <p>A brief, specific quote from the short story that directly supports this paragraph's topic. Introduce with a signal phrase; include MLA citation.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">③ Your Analysis</span>
+          <p>Explain what the evidence means, why it matters, and how it supports your topic sentence. <strong>Sources never explain themselves.</strong></p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-yellow">④ Secondary Quote or Paraphrase</span>
+          <p>A brief direct quote or paraphrase from a scholarly article that supports your point. Introduce the scholar by name; include MLA citation.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">⑤ Your Analysis</span>
+          <p>Explain how the scholar's point deepens <em>your</em> argument — not just that they agree, but <em>how</em> and <em>why</em> their insight strengthens this paragraph's specific claim.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-purple">⑥ Closing Sentence</span>
+          <p>Wrap up the paragraph's argument and gesture toward the next paragraph's topic. Your own voice only — no new quotes.</p>
+        </div>
+      </div>
+      <div class="tips-row">
+        <div class="tip-box" style="background:#f0f7f2; border:2px solid var(--sage);">
+          <div class="tip-label" style="color:var(--sage-deep);">🔑 Your Voice Leads</div>
+          <p style="color:#3a5e42;">Your analysis should take up more space than your quotes. If quotes dominate a paragraph, add more of your own thinking.</p>
+        </div>
+        <div class="tip-box" style="background:#fff3ee; border:2px solid #C4937A;">
+          <div class="tip-label" style="color:#5a3e35;">🔑 Introduce Before You Quote</div>
+          <p style="color:#7a5545;">Never drop a quote into a paragraph without a signal phrase that tells the reader who is speaking and why it matters.</p>
+        </div>
+        <div class="tip-box" style="background:var(--plum-light); border:2px solid var(--plum);">
+          <div class="tip-label" style="color:var(--plum-dark);">🔑 Analyze After You Quote</div>
+          <p style="color:#5e4e7a;">Every quote needs your explanation immediately after it. Tell the reader what it means and how it proves your point.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- THE SAMPLE OUTLINE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-slate">📄 The Sample Outline</div>
+    <div class="section-body">
+
+      <!-- I. INTRODUCTION -->
+      <div class="bp-block">
+        <div class="bp-header intro">
+          <span class="bp-num intro">I.</span>
+          <span class="bp-title">Introduction Paragraph</span>
+        </div>
+        <div class="bp-body">
+          <p style="font-size:14px;"><strong>Topic Selected:</strong> The Supernatural and the Limits of Knowledge in Vladimir Nabokov's "The Vane Sisters."</p>
+          <p class="placeholder" style="margin-top:8px;">Note: You do not need to write the full introduction in your outline. Simply identify your topic, the author, and the title as shown here.</p>
+        </div>
+      </div>
+
+      <!-- II. BODY PARAGRAPH ONE -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">II.</span>
+          <span class="bp-title">Body Paragraph One: The Narrator's Rational Skepticism and Its Limits</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence Direction</span>
+            <div class="o-content">
+              <p>The unnamed narrator of "The Vane Sisters" is a self-described rationalist who dismisses the possibility of any supernatural reality — but his confident skepticism is quietly and systematically undermined by the events of the story, including details he fails to register consciously.</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Source Evidence</span>
+            <div class="o-content">
+              <div class="sub-a">
+                <div class="sub-label">A. Evidence of the narrator's dismissiveness toward the supernatural</div>
+                <div class="sub-item">His condescending attitude toward Sybil's belief in spirit communication — select a brief quote showing his tone when he describes her faith in occult signs and messages</div>
+                <div class="sub-item">His reaction to D.'s séance activities — evidence that he regards the whole enterprise as embarrassing self-delusion rather than legitimate experience</div>
+              </div>
+              <div class="sub-b">
+                <div class="sub-label">B. A moment where the narrative itself contradicts his certainty</div>
+                <div class="sub-item">The icicle passage at the opening — select a brief quote from the description of the shadow on the sidewalk, which Nabokov has noted encodes hidden meaning the narrator does not perceive</div>
+                <div class="sub-item">What his failure to "read" this image demonstrates about the gap between what he observes and what he understands</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <p>Explain how Nabokov establishes the narrator's rationalism as the story's central dramatic irony: the reader is positioned to perceive what the narrator cannot. What does this structural choice suggest about the relationship between intelligence, certainty, and genuine knowledge?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Secondary Source Evidence</span>
+            <div class="o-content">
+              <p class="placeholder">Plan to include here: a brief quote or paraphrase from one of your scholarly articles that addresses Nabokov's use of unreliable narration, his interest in hidden patterning, or the story's treatment of perception and knowledge. Introduce the scholar by name before the quote.</p>
+              <p class="placeholder-line">Placeholder: According to [Scholar's Last Name], "[relevant quote]" ([page number]).</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis of Secondary Source</span>
+            <div class="o-content">
+              <p>Connect the scholar's reading of Nabokov's narrative technique to your argument about the narrator's limited perception — how does their insight about the story's structural design or Nabokov's style strengthen your claim that rationalism is being exposed rather than endorsed?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑥ Closing Sentence Direction</span>
+            <div class="o-content">
+              <p>Summarize the argument about the narrator's compromised perspective and transition toward the sisters themselves — whose experiences with the supernatural the narrator has dismissed but whose influence on the story's structure cannot be explained away.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- III. BODY PARAGRAPH TWO -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">III.</span>
+          <span class="bp-title">Body Paragraph Two: The Sisters as Agents of Hidden Meaning</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence Direction</span>
+            <div class="o-content">
+              <p>Cynthia and Sybil Vane are not passive victims in the narrator's account but active presences — the story suggests that the dead sisters continue to shape and encode the narrative itself, embedding meaning beneath its surface that the narrator cannot consciously access.</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Source Evidence</span>
+            <div class="o-content">
+              <div class="sub-a">
+                <div class="sub-label">A. Cynthia's belief in "intervenient" supernatural signs during her life</div>
+                <div class="sub-item">Select a brief quote from the narrator's description of Cynthia's system of reading omens and coincidences — her conviction that the dead communicate through small disruptions in daily life</div>
+                <div class="sub-item">The specific "laws" of her supernatural worldview, as the narrator summarizes them — what she believed the dead could and could not do</div>
+              </div>
+              <div class="sub-b">
+                <div class="sub-label">B. Evidence that the sisters' influence is encoded in the narrative structure</div>
+                <div class="sub-item">The famous acrostic in the story's final paragraph: the first letters of each word spell out a message from Cynthia and Sybil — reference this without quoting the full passage; note that Nabokov confirmed this hidden message in correspondence</div>
+                <div class="sub-item">What it means that the narrator's own words carry a meaning he does not intend or perceive — how this literalizes the story's supernatural theme at the level of the text itself</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <p>Explain how Nabokov transforms the sisters from subjects of the narrator's story into co-authors of it. The acrostic is not merely a puzzle — it is a formal argument: if meaning can be hidden in plain sight within language itself, what does the story suggest about the limits of any single observer's ability to grasp the full reality of what they're reading or experiencing?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Secondary Source Evidence</span>
+            <div class="o-content">
+              <p class="placeholder">Plan to include here: a brief quote or paraphrase from one of your scholarly articles that addresses the story's hidden acrostic, Nabokov's use of concealment and layers of meaning, or the sisters as active narrative presences. Introduce the scholar by name before the quote.</p>
+              <p class="placeholder-line">Placeholder: According to [Scholar's Last Name], "[relevant quote]" ([page number]).</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis of Secondary Source</span>
+            <div class="o-content">
+              <p>Connect the scholar's analysis of the story's hidden architecture to your argument about the sisters as agents — how does their reading of the acrostic, or of Nabokov's layered technique, deepen the claim that knowledge in this story is always partial and that the supernatural operates through the very medium of language?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑥ Closing Sentence Direction</span>
+            <div class="o-content">
+              <p>Wrap up the sisters-as-agents argument and transition toward the story's broader implications: if the dead can encode messages in the narrator's own words without his awareness, what does the story ultimately argue about the relationship between knowledge, reality, and what lies beyond rational perception?</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IV. BODY PARAGRAPH THREE -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">IV.</span>
+          <span class="bp-title">Body Paragraph Three: What the Story Argues About Knowledge and Its Limits</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence Direction</span>
+            <div class="o-content">
+              <p>Taken as a whole, "The Vane Sisters" does not simply present the supernatural as a possibility — it uses the narrator's blind spots and the story's hidden architecture to argue that knowledge is always incomplete, that the most important meanings may be invisible to those who are most certain they see clearly.</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Source Evidence</span>
+            <div class="o-content">
+              <div class="sub-a">
+                <div class="sub-label">A. The narrator's final state of mind</div>
+                <div class="sub-item">Select a brief quote from the story's closing paragraphs — the narrator's dream, or his waking reflection, that captures his continued inability to perceive what the reader now knows is encoded in his own language</div>
+                <div class="sub-item">His tone as the story ends: does he feel satisfied, unsettled, or still confidently detached? What does his emotional state reveal about his relationship with the unknown?</div>
+              </div>
+              <div class="sub-b">
+                <div class="sub-label">B. The story's final irony</div>
+                <div class="sub-item">The contrast between what the narrator believes he has told — a story about grief, a strange friendship, and a minor errand — and what the reader understands he has actually delivered: a posthumous message from the dead</div>
+                <div class="sub-item">What this gap between the narrator's intention and the story's actual meaning implies about consciousness, agency, and what we cannot know about our own experience</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <p>Explain why Nabokov's choice to leave the narrator completely unaware of what he has transmitted is the story's most important thematic statement. The rational mind, the story suggests, is not a reliable instrument for measuring the full range of what exists — and the most devastating thing about this limitation is that it cannot be perceived from the inside. What does this argue about the epistemological overconfidence that rationalism can produce?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Secondary Source Evidence</span>
+            <div class="o-content">
+              <p class="placeholder">Plan to include here: a brief quote or paraphrase from one of your scholarly articles that addresses the story's thematic conclusion, Nabokov's skepticism about rational certainty, or the story's treatment of death, consciousness, and what lies beyond. Introduce the scholar by name before the quote.</p>
+              <p class="placeholder-line">Placeholder: According to [Scholar's Last Name], "[relevant quote]" ([page number]).</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis of Secondary Source</span>
+            <div class="o-content">
+              <p>Connect the scholar's reading of the story's philosophical or thematic stakes to your argument about the limits of knowledge — how does their analysis of Nabokov's relationship to the supernatural, or to the problem of consciousness, reinforce your claim about what the story ultimately argues?</p>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑥ Closing Sentence Direction</span>
+            <div class="o-content">
+              <p>Synthesize the argument about knowledge and its limits and gesture toward the conclusion's broader claim: that "The Vane Sisters" uses the supernatural not as a cheap trick but as a rigorous formal and philosophical argument about the incompleteness of any observer's perspective.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- LAST. CONCLUSION -->
+      <div class="bp-block">
+        <div class="bp-header concl">
+          <span class="bp-num concl">LAST.</span>
+          <span class="bp-title">Conclusion Paragraph</span>
+        </div>
+        <div class="bp-body">
+          <p style="font-size:14px;">You can leave this blank in your outline. The conclusion is typically easier to write after the body paragraphs are fully drafted, since it synthesizes arguments you've already made.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECONDARY SOURCE REMINDER -->
+  <div class="dist-banner fade-in">
+    <span class="icon">📌</span>
+    <div>
+      <strong style="font-size:13px; display:block; margin-bottom:6px;">Secondary Source Distribution Reminder</strong>
+      <p>Over the full essay, you will quote <strong>six times total</strong> from your three secondary sources combined. In a three-body-paragraph essay, a simple distribution is <strong>two secondary source quotes per body paragraph</strong>. In a four-body-paragraph essay, you might distribute as <strong>2 + 2 + 1 + 1</strong> — six total either way.</p>
+      <p style="margin-top:8px;">As you build your outline, note next to each secondary source slot <em>which</em> of your three articles you plan to draw from. Planning this during the outline stage will save significant time during drafting.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-banner fade-in">
+    <p style="margin-bottom:4px; font-size:12px; color:rgba(255,255,255,0.6);">📄 Sample Outlines</p>
+    <strong>Return to the Prewriting &amp; Planning page to begin your own outline.</strong>
+    <p style="margin-top:4px;">Use the module navigation to access the Outline Assignment when you're ready.</p>
+  </div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>

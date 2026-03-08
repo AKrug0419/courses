@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Writing Process: Prewriting &amp; Planning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --slate-light:#f0f6f9;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #E6C5B3;
+    --amber-dark: #5a3e35;
+    --amber-light:#fff8f4;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,0.13);
+    --transition: 0.25s ease;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 28px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 36px 42px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    pointer-events: none;
+  }
+  .page-header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .page-header .subtitle {
+    font-size: 15px;
+    color: var(--sage-dark);
+  }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 14px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-header.green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .section-header.slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .section-header.plum   { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+  .section-header.amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+  .section-header.dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
+
+  .section-body { padding: 28px 32px; }
+
+  /* ── TWO-COL IMAGE LAYOUT ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 28px;
+    align-items: start;
+  }
+  .two-col img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-top: 18px;
+  }
+  .callout .callout-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 5px;
+  }
+  .callout p {
+    font-size: 13px;
+    color: #3a5e42;
+    line-height: 1.7;
+  }
+
+  /* ── STEP LIST ── */
+  .step-list { display: flex; flex-direction: column; gap: 0; }
+  .step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-num.pink   { background: linear-gradient(135deg, #D8B5C5 0%, #E8CED8 100%); color: #4a2e3e; }
+  .step-num.purple { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+  .step-num.green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .step-desc  { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── OUTLINE STRUCTURE TABLE ── */
+  .outline-table {
+    width: 100%;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .outline-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .outline-row:last-child { border-bottom: none; }
+  .outline-row:nth-child(even) { background: #fafafa; }
+  .outline-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .pill-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .pill-gray   { background-color: #ced4d9; color: #333; }
+  .pill-dkgreen{ background: linear-gradient(135deg, #3a6a4a 0%, #4a7a5a 100%); color: #fff; }
+  .pill-yellow { background-color: #fbeeb8; color: #7a5a10; }
+  .pill-purple { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+
+  /* ── TOPIC CARDS ── */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .topics-grid.single {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 680px) {
+    .topics-grid { grid-template-columns: 1fr; }
+  }
+
+  .topic-card {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    background: var(--white);
+    position: relative;
+  }
+  .topic-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .topic-card.selected {
+    border-color: var(--sage-dark);
+    box-shadow: 0 0 0 3px rgba(46,74,53,0.15), var(--shadow-md);
+  }
+  .topic-card.selected .topic-check {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .topic-card-header {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topic-label-group { display: flex; flex-direction: column; gap: 2px; }
+  .topic-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .topic-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .topic-check {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .topic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 18px 10px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .topic-body {
+    padding: 0 18px 18px;
+  }
+  .topic-expand-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px 0 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition);
+  }
+  .topic-expand-btn .arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+    font-size: 10px;
+  }
+  .topic-expand-btn.open .arrow { transform: rotate(180deg); }
+
+  .topic-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .topic-detail.open {
+    max-height: 600px;
+    opacity: 1;
+  }
+  .topic-detail-inner {
+    padding-top: 12px;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+  .topic-detail-inner strong { color: var(--text); }
+
+  /* Guide pills inside topic detail */
+  .guide-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .guide-step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .guide-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .guide-step p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ── TOPIC COLORS: One = sage, Two = plum, Three = amber ── */
+  .tc-one .topic-card-header  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); }
+  .tc-one .topic-num          { color: var(--sage-dark); }
+  .tc-one .topic-title        { color: var(--sage-deep); }
+  .tc-one .topic-check        { background: var(--sage-dark); color: #fff; }
+  .tc-one .tag                { background: var(--sage-light); color: var(--sage-dark); }
+  .tc-one .topic-expand-btn   { color: var(--sage-dark); }
+  .tc-one .topic-expand-btn:hover { color: var(--sage-deep); }
+  .tc-one .guide-pill.first   { background: var(--sage); color: var(--sage-deep); }
+  .tc-one .guide-pill.next    { background: var(--sage-mid); color: var(--sage-deep); }
+  .tc-one .guide-pill.finally { background: var(--sage-dark); color: #fff; }
+  .tc-one.selected            { border-color: var(--sage-dark); }
+
+  .tc-two .topic-card-header  { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); }
+  .tc-two .topic-num          { color: #5e4e7a; }
+  .tc-two .topic-title        { color: var(--plum-dark); }
+  .tc-two .topic-check        { background: var(--plum-dark); color: #fff; }
+  .tc-two .tag                { background: var(--plum-light); color: var(--plum-dark); }
+  .tc-two .topic-expand-btn   { color: var(--plum-dark); }
+  .tc-two .topic-expand-btn:hover { color: #2e1e4a; }
+  .tc-two .guide-pill.first   { background: var(--plum); color: var(--plum-dark); }
+  .tc-two .guide-pill.next    { background: #D0C5E0; color: var(--plum-dark); }
+  .tc-two .guide-pill.finally { background: var(--plum-dark); color: #fff; }
+  .tc-two.selected            { border-color: var(--plum-dark); }
+
+  .tc-three .topic-card-header  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); }
+  .tc-three .topic-num          { color: #7a5545; }
+  .tc-three .topic-title        { color: var(--amber-dark); }
+  .tc-three .topic-check        { background: var(--amber-dark); color: #fff; }
+  .tc-three .tag                { background: var(--amber-light); color: var(--amber-dark); }
+  .tc-three .topic-expand-btn   { color: var(--amber-dark); }
+  .tc-three .topic-expand-btn:hover { color: #3a2010; }
+  .tc-three .guide-pill.first   { background: var(--amber); color: var(--amber-dark); }
+  .tc-three .guide-pill.next    { background: #F0D7C8; color: var(--amber-dark); }
+  .tc-three .guide-pill.finally { background: var(--amber-dark); color: #fff; }
+  .tc-three.selected            { border-color: var(--amber-dark); }
+
+  /* ── TOPIC SELECTION NOTICE ── */
+  .select-notice {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 10px 0 4px;
+    transition: color var(--transition);
+  }
+  .select-notice.chosen { color: var(--sage-dark); font-weight: 600; }
+
+  /* ── OUTLINE STRUCTURE MINI ── */
+  .mini-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 4px;
+  }
+
+  /* ── RESOURCE TILES ── */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+  }
+  @media (max-width: 600px) {
+    .resource-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .resource-tile {
+    border-radius: 8px;
+    padding: 20px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .resource-tile:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .resource-tile .tile-icon { font-size: 28px; margin-bottom: 8px; }
+  .resource-tile .tile-label { font-size: 12px; line-height: 1.5; font-weight: 500; }
+  .rt-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .rt-plum   { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+  .rt-amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+  .rt-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 100%);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .cta-banner h3 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .cta-banner p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.7;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 32px 0; }
+
+  /* ── BODY TEXT HELPERS ── */
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 12px; }
+  strong { color: var(--text); }
+
+  /* ── FADE-IN ANIMATION ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.5s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.05s; }
+  .fade-in:nth-child(2) { animation-delay: 0.12s; }
+  .fade-in:nth-child(3) { animation-delay: 0.19s; }
+  .fade-in:nth-child(4) { animation-delay: 0.26s; }
+  .fade-in:nth-child(5) { animation-delay: 0.33s; }
+  .fade-in:nth-child(6) { animation-delay: 0.40s; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+  .checklist li::before {
+    content: '✓';
+    width: 18px; height: 18px;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── OUTLINE STRUCTURE BADGE ROW ── */
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 8px;
+    align-items: center;
+  }
+  .badge-arrow {
+    font-size: 11px;
+    color: #bbb;
+  }
+  @media (max-width: 600px) {
+    .badge-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Week 10 &bull; The Literary Research Essay</div>
+    <h1>The Writing Process: Prewriting &amp; Planning</h1>
+    <p class="subtitle">Organizing your thinking before you draft your Literary Research Essay</p>
+  </div>
+
+  <!-- SECTION 1: WRITING PROCESS -->
+  <div class="section-card fade-in">
+    <div class="section-header green">✍️ The Writing Process</div>
+    <div class="section-body">
+
+      <div class="two-col">
+        <div>
+          <h3 style="font-family:'Lora',serif; font-size:18px; color:var(--sage-dark); margin-bottom:12px;">Stage One: Prewriting</h3>
+          <p>In earlier modules this semester, you completed close-reading and analysis assignments on three short stories: Zora Neale Hurston's <strong>"Sweat,"</strong> Angela Carter's <strong>"The Company of Wolves,"</strong> and Philip Roth's <strong>"The Conversion of the Jews."</strong> In terms of the traditional writing process, those study question assignments functioned as your <strong>prewriting</strong> — the analytical work a writer does before drafting an essay.</p>
+          <p style="margin-top:12px;">Prewriting isn't a detour; it's how writers discover what they actually think. The close reading and analysis you practiced in those earlier assignments gave you the raw material you'll now shape into a research argument supported by secondary sources.</p>
+        </div>
+        <div>
+          <img src="https://online.valenciacollege.edu/courses/257240/files/69087403/download?wrap=1" alt="The Writing Process: Prewriting" />
+        </div>
+      </div>
+
+      <hr style="border:0; border-top:1px solid #ddeee3; margin:24px 0;" />
+
+      <div class="two-col">
+        <div>
+          <h3 style="font-family:'Lora',serif; font-size:18px; color:var(--sage-dark); margin-bottom:12px;">Stage Two: Planning &amp; Organizing</h3>
+          <p>The next stage is <strong>planning and organizing</strong> — deciding what your essay will argue and how it will be structured. For this stage, you'll create a formal outline before you begin drafting.</p>
+          <p style="margin-top:12px;">As with your first essay this semester, you'll plan and organize your body paragraphs before writing a single sentence of prose. Each of the three available topics below is built around the story you analyzed earlier, so your study question responses are a natural starting point as you plan your argument.</p>
+          <div class="callout">
+            <div class="callout-label">💡 Why Outline First?</div>
+            <p>Writers who outline before drafting produce more focused, organized essays — because the structural decisions have already been made. The draft becomes the place to develop ideas and find the right language, not to figure out the argument from scratch.</p>
+          </div>
+        </div>
+        <div>
+          <img src="https://online.valenciacollege.edu/courses/257240/files/69087851/preview" alt="The Writing Process: Planning and Organizing" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 2: OUTLINE STRUCTURE -->
+  <div class="section-card fade-in">
+    <div class="section-header slate">📋 What Your Outline Needs to Include</div>
+    <div class="section-body">
+      <p>Your outline maps out the paragraph-by-paragraph structure of your essay before you begin drafting. Each Roman numeral represents one paragraph. Since your essay will be a minimum of <strong>1,200 words</strong>, it will need <strong>3–4 body paragraphs</strong> — and therefore <strong>5–6 total paragraphs</strong>, including introduction and conclusion.</p>
+
+      <div class="badge-row">
+        <span class="outline-pill pill-slate" style="background:#e8e8e8; color:#444;">I. Introduction</span>
+        <span class="badge-arrow">→</span>
+        <span class="outline-pill pill-dkgreen">II. Body ¶ 1</span>
+        <span class="badge-arrow">→</span>
+        <span class="outline-pill pill-dkgreen">III. Body ¶ 2</span>
+        <span class="badge-arrow">→</span>
+        <span class="outline-pill pill-dkgreen">IV. Body ¶ 3</span>
+        <span class="badge-arrow">→</span>
+        <span class="outline-pill pill-dkgreen" style="opacity:0.65;">V. Body ¶ 4 (optional)</span>
+        <span class="badge-arrow">→</span>
+        <span class="outline-pill pill-purple">LAST. Conclusion</span>
+      </div>
+
+      <p style="margin-bottom:18px;">Here is what each section of the outline should contain:</p>
+
+      <div class="outline-table">
+        <div class="outline-row">
+          <span class="outline-pill pill-gray">I.</span>
+          <div>
+            <strong style="font-size:13px;">Introduction Paragraph</strong>
+            <p style="margin-top:4px; font-size:13px;">Identify the topic you selected — for example, <em>"The Theme of Domestic Violence and Literary Symbolism in Hurston's 'Sweat.'"</em> You don't need to write the full introduction in your outline, just name the topic clearly.</p>
+          </div>
+        </div>
+        <div class="outline-row">
+          <span class="outline-pill pill-dkgreen">II–IV.</span>
+          <div>
+            <strong style="font-size:13px;">Body Paragraphs</strong>
+            <p style="margin-top:4px; font-size:13px;">Each Roman numeral is one body paragraph. Give each paragraph a descriptive title, then list sub-points A, B, etc. Under each sub-point, add numbered details — the specific scenes, quotes, or ideas you plan to discuss. Every body paragraph must incorporate a quote from the story (primary source) and at least one quote or paraphrase from a scholarly article (secondary source).</p>
+          </div>
+        </div>
+        <div class="outline-row">
+          <span class="outline-pill pill-purple">LAST.</span>
+          <div>
+            <strong style="font-size:13px;">Conclusion Paragraph</strong>
+            <p style="margin-top:4px; font-size:13px;">You can leave this blank in your outline. The conclusion is easier to write after the body paragraphs are fully drafted, since it synthesizes arguments you've already made.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--sage-light); border: 2px solid var(--sage); border-radius: 8px; padding: 18px 22px; margin-top:8px;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="font-size:24px; flex-shrink:0; margin-top:2px;">📌</span>
+          <div>
+            <strong style="font-size:13px; color:var(--sage-deep);">Secondary Source Distribution</strong>
+            <p style="font-size:13px; color:#3a5e42; margin-top:6px;">Over the full essay, you will quote <strong>six times total</strong> from your three secondary sources combined. In a three-body-paragraph essay, a simple distribution is <strong>two secondary source quotes per body paragraph</strong>. In a four-paragraph essay, you might distribute as <strong>2 + 2 + 1 + 1</strong>. Plan this during the outline stage — it saves time during drafting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 3: TOPIC SELECTION -->
+  <div class="section-card fade-in">
+    <div class="section-header plum">📖 Choose Your Essay Topic</div>
+    <div class="section-body">
+
+      <p style="margin-bottom:20px;">The three available topics are based on the short stories you've already analyzed this semester. Each is focused on a <strong>theme</strong>; the study questions you completed earlier are your starting point for each. Select <strong>one topic only</strong> for your essay. Click a card to select it, and click <strong>"Read Full Topic"</strong> to expand the complete prompt.</p>
+
+      <!-- TOP ROW: Topics 1 & 2 -->
+      <div class="topics-grid">
+
+        <!-- TOPIC ONE -->
+        <div class="topic-card tc-one fade-in" id="card-1" onclick="selectTopic(1)">
+          <div class="topic-card-header">
+            <div class="topic-label-group">
+              <span class="topic-num">Topic One</span>
+              <span class="topic-title">Zora Neale Hurston's "Sweat"</span>
+            </div>
+            <div class="topic-check">✓</div>
+          </div>
+          <div class="topic-tags">
+            <span class="tag">Domestic Violence</span>
+            <span class="tag">Literary Symbolism</span>
+            <span class="tag">Religion</span>
+            <span class="tag">Renewal</span>
+          </div>
+          <div class="topic-body">
+            <button class="topic-expand-btn" onclick="toggleDetail(event, 'detail-1', this)">
+              Read Full Topic <span class="arrow">▼</span>
+            </button>
+            <div class="topic-detail" id="detail-1">
+              <div class="topic-detail-inner">
+                <p>Discuss the <strong>theme of domestic violence</strong> as well as Hurston's use of <strong>literary symbolism</strong> in "Sweat."</p>
+                <div class="guide-steps" style="margin-top:12px;">
+                  <div class="guide-step">
+                    <span class="guide-pill first">First</span>
+                    <p>Provide evidence of the emotional and physical abuse Delia endures throughout her marriage. What specific incidents reveal the full scope of Sykes's cruelty?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill next">Next</span>
+                    <p>Explain the <strong>symbolic functions</strong> of the rattlesnake: How does it symbolize Sykes, both biologically and in terms of the serpent's traditional symbolism within Christianity?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill finally">Finally</span>
+                    <p>Discuss how the rattlesnake also symbolizes Delia's <strong>renewal and rebirth</strong> once she is finally able to escape her abusive relationship.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOPIC TWO -->
+        <div class="topic-card tc-two fade-in" id="card-2" onclick="selectTopic(2)">
+          <div class="topic-card-header">
+            <div class="topic-label-group">
+              <span class="topic-num">Topic Two</span>
+              <span class="topic-title">Angela Carter's "The Company of Wolves"</span>
+            </div>
+            <div class="topic-check">✓</div>
+          </div>
+          <div class="topic-tags">
+            <span class="tag">Gender Stereotypes</span>
+            <span class="tag">Female Agency</span>
+            <span class="tag">Masculinity</span>
+            <span class="tag">Representation</span>
+          </div>
+          <div class="topic-body">
+            <button class="topic-expand-btn" onclick="toggleDetail(event, 'detail-2', this)">
+              Read Full Topic <span class="arrow">▼</span>
+            </button>
+            <div class="topic-detail" id="detail-2">
+              <div class="topic-detail-inner">
+                <p>Discuss the <strong>themes of gender stereotypes and representation</strong> in Perrault's "Little Red Riding Hood" and Carter's "The Company of Wolves."</p>
+                <div class="guide-steps" style="margin-top:12px;">
+                  <div class="guide-step">
+                    <span class="guide-pill first">First</span>
+                    <p>How do the characters in Perrault's story conform to <strong>gender stereotypes</strong>? What image of women — and of men — does the original tale reinforce?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill next">Next</span>
+                    <p>What criticism about <strong>masculinity and male violence</strong> might Carter be making through her depiction of the werewolves? What female gender stereotypes does her version of the heroine <em>not</em> conform to?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill finally">Finally</span>
+                    <p>By using a combination of intelligence and sexuality to save herself, what might Carter be suggesting about how women's <strong>intelligence and sexuality</strong> are frequently portrayed — especially by men?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end topics-grid -->
+
+      <!-- BOTTOM ROW: Topic 3 centered -->
+      <div class="topics-grid single" style="max-width:540px; margin:0 auto 0;">
+        <!-- TOPIC THREE -->
+        <div class="topic-card tc-three fade-in" id="card-3" onclick="selectTopic(3)">
+          <div class="topic-card-header">
+            <div class="topic-label-group">
+              <span class="topic-num">Topic Three</span>
+              <span class="topic-title">Philip Roth's "The Conversion of the Jews"</span>
+            </div>
+            <div class="topic-check">✓</div>
+          </div>
+          <div class="topic-tags">
+            <span class="tag">Intellectual Intolerance</span>
+            <span class="tag">Faith &amp; Doubt</span>
+            <span class="tag">Authority</span>
+          </div>
+          <div class="topic-body">
+            <button class="topic-expand-btn" onclick="toggleDetail(event, 'detail-3', this)">
+              Read Full Topic <span class="arrow">▼</span>
+            </button>
+            <div class="topic-detail" id="detail-3">
+              <div class="topic-detail-inner">
+                <p>Discuss the <strong>theme of intellectual intolerance</strong> in Philip Roth's "The Conversion of the Jews."</p>
+                <div class="guide-steps" style="margin-top:12px;">
+                  <div class="guide-step">
+                    <span class="guide-pill first">First</span>
+                    <p>What specific tenets of Jewish theology is Ozzie confused about — and therefore questions? What is the actual logical structure of his argument?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill next">Next</span>
+                    <p>How do his mother and Rabbi Binder both demonstrate <strong>intolerance</strong> toward Ozzie and his questions? What forms does that intolerance take?</p>
+                  </div>
+                  <div class="guide-step">
+                    <span class="guide-pill finally">Finally</span>
+                    <p>Discuss the thematic significance of the rooftop climax: Though Ozzie isn't literally converting anyone to Christianity, he wants his mother and Rabbi Binder to <em>change</em>. What does he want them to change <strong>about themselves</strong> by forcing them to "believe that God can do anything"?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="select-notice" id="select-notice">Click a topic card to select it. You will write on <strong>one topic only</strong>.</div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 4: SAMPLE OUTLINE -->
+  <div class="section-card fade-in">
+    <div class="section-header dark">📄 Sample Outline</div>
+    <div class="section-body">
+
+      <div style="display:grid; grid-template-columns:1fr 260px; gap:24px; align-items:start;">
+        <div>
+          <h3 style="font-family:'Lora',serif; font-size:17px; color:var(--text); margin-bottom:12px;">Review the Sample Before You Start</h3>
+          <p>A sample research essay outline is available for you to review before completing your own. The sample is based on <strong>Vladimir Nabokov's "The Vane Sisters"</strong> and focuses on the theme of <strong>the supernatural and the limits of knowledge</strong>. It models the exact structure — Roman numerals, sub-points, primary and secondary source slots, and analysis directions — that your own outline should follow.</p>
+          <p style="margin-top:12px;">The sample outline shows you how to break a thematic topic into three distinct body paragraph arguments, how to plan your primary and secondary source evidence, and how to frame your analytical moves at each stage. Review it carefully before beginning your own outline.</p>
+          <div class="callout">
+            <div class="callout-label">🔖 This Is a Research Essay Outline</div>
+            <p>Unlike your first essay, this outline must account for both primary sources (quotes from the story itself) and secondary sources (quotes or paraphrases from scholarly articles). The sample shows how those two source types work together in each body paragraph.</p>
+          </div>
+        </div>
+        <div>
+          <div style="background: var(--sage-light); border: 2px solid var(--sage); border-radius: 8px; overflow: hidden;">
+            <div style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); padding: 12px 16px;">
+              <div style="font-size: 12px; font-weight:600; color: var(--sage-deep);">📄 Sample Research Outline</div>
+              <div style="font-size: 11px; color: var(--sage-dark); margin-top:2px;">Nabokov — "The Vane Sisters"</div>
+            </div>
+            <div style="padding: 16px 18px;">
+              <p style="font-size:13px; color:#3a5e42; margin-bottom:14px;">Theme of the Supernatural &amp; the Limits of Knowledge — Three Body Paragraphs</p>
+              <a href="sample_outline_vane_sisters.html" target="_blank"
+                 style="display:block; background: var(--sage-dark); color:#fff; text-align:center; padding:10px 16px; border-radius:6px; font-size:13px; font-weight:600; text-decoration:none; transition: background var(--transition);"
+                 onmouseover="this.style.background='var(--sage-deep)'"
+                 onmouseout="this.style.background='var(--sage-dark)'">
+                Open Sample Outline ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 5: BEFORE YOU START -->
+  <div class="section-card fade-in">
+    <div class="section-header amber">✅ Before You Start Writing</div>
+    <div class="section-body">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <p style="margin-bottom:16px;">Make sure you can check off each of the following before opening the Outline Assignment:</p>
+          <ul class="checklist">
+            <li>You've chosen your topic (Topic One, Two, or Three)</li>
+            <li>You know which short story you're writing about</li>
+            <li>You've reviewed the sample outline</li>
+            <li>You know the general focus of each body paragraph</li>
+            <li>Each body paragraph has a distinct aspect of the theme to analyze</li>
+            <li>You've identified which of your study question responses connect to your chosen topic</li>
+            <li>You're ready to open the Outline Assignment</li>
+          </ul>
+        </div>
+        <div style="background:var(--slate-light); border: 2px solid var(--slate); border-radius:8px; padding:20px;">
+          <div style="font-size:13px; font-weight:600; color:var(--slate-dark); margin-bottom:10px;">🗂️ Using Your Study Questions as Prewriting</div>
+          <p style="font-size:13px; color:#4e5e6a; line-height:1.7;">Your study question responses from earlier in the course are the best starting point for your outline. Look back at your answers for the story you've chosen. The evidence you gathered and the analysis you wrote in those responses is the raw material for your body paragraph sub-points. You don't need to start from scratch — you're building on work you've already done.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- RESOURCES -->
+  <div class="section-card fade-in">
+    <div class="section-header green">🔗 Resources</div>
+    <div class="section-body">
+      <div class="resource-grid">
+        <a href="sample_outline_vane_sisters.html" target="_blank" class="resource-tile rt-green">
+          <div class="tile-icon">📄</div>
+          <div class="tile-label">Sample Research Outline</div>
+        </a>
+        <a href="#" class="resource-tile rt-amber">
+          <div class="tile-icon">📐</div>
+          <div class="tile-label">MLA Format Handout</div>
+        </a>
+        <a href="mailto:cholliday@valenciacollege.edu" class="resource-tile rt-slate">
+          <div class="tile-icon">📞</div>
+          <div class="tile-label">Instructor Email</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner fade-in">
+    <h3>🎯 Ready to Outline?</h3>
+    <p>Once you've reviewed the sample outline and chosen your topic, click <strong>Next</strong> in the lower right to proceed to the Literary Research Essay Outline Assignment.</p>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+let selectedCard = null;
+
+function selectTopic(num) {
+  // Deselect previous
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('selected'));
+  const card = document.getElementById('card-' + num);
+  card.classList.add('selected');
+  selectedCard = num;
+
+  const topicNames = {
+    1: 'Topic One: Hurston\'s "Sweat"',
+    2: 'Topic Two: Carter\'s "The Company of Wolves"',
+    3: 'Topic Three: Roth\'s "The Conversion of the Jews"'
+  };
+
+  const notice = document.getElementById('select-notice');
+  notice.classList.add('chosen');
+  notice.innerHTML = '✓ You have selected <strong>' + topicNames[num] + '</strong>. Remember: write on one topic only.';
+}
+
+function toggleDetail(event, id, btn) {
+  event.stopPropagation();
+  const detail = document.getElementById(id);
+  const isOpen = detail.classList.contains('open');
+
+  // Close all details
+  document.querySelectorAll('.topic-detail').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.topic-expand-btn').forEach(b => {
+    b.classList.remove('open');
+    b.innerHTML = 'Read Full Topic <span class="arrow">▼</span>';
+  });
+
+  if (!isOpen) {
+    detail.classList.add('open');
+    btn.classList.add('open');
+    btn.innerHTML = 'Hide Topic <span class="arrow">▼</span>';
+  }
+}
+</script>
+
+</body>
+</html>
