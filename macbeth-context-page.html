@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macbeth – Context & Introduction | ENC 1102</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment:     #e8dfc8;
+    --parchment-dark:#c9b99a;
+    --ink:           #1e1a14;
+    --stone:         #4a4640;
+    --stone-light:   #7a736a;
+    --moss:          #3b4a35;
+    --moss-light:    #536b4a;
+    --blood:         #6b1f1f;
+    --blood-light:   #8b3a2a;
+    --gold:          #b8860b;
+    --gold-light:    #d4a830;
+    --cream:         #f5f0e6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--ink);
+    color: var(--parchment);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 4rem 3.5rem;
+    overflow: hidden;
+    background:
+      linear-gradient(to bottom, rgba(10,8,5,0.2) 0%, rgba(10,8,5,0.85) 70%, var(--ink) 100%),
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.01) 40px,
+        rgba(255,255,255,0.01) 80px
+      ),
+      radial-gradient(ellipse at 70% 30%, #2a1a0e 0%, #0d0b08 60%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(107,31,31,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(59,74,53,0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.9rem;
+    position: relative; z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    position: relative; z-index: 1;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.8);
+  }
+
+  .hero h1 em {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--parchment);
+  }
+
+  .hero-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--parchment-dark);
+    margin-top: 0.8rem;
+    max-width: 520px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, var(--blood), var(--gold));
+    margin: 1.4rem 0 0;
+    position: relative; z-index: 1;
+  }
+
+  /* ── ORNAMENTAL RUNE MARK ── */
+  .rune-mark {
+    position: absolute;
+    top: 2rem; right: 3rem;
+    font-family: 'Cinzel', serif;
+    font-size: 7rem;
+    color: rgba(255,255,255,0.03);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    user-select: none;
+    z-index: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    position: relative; z-index: 1;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-light), transparent);
+    opacity: 0.4;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  h3 {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--parchment); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── CONTENT BLOCKS ── */
+  .content-block {
+    margin: 3rem 0;
+  }
+
+  /* ── PARCHMENT CARD ── */
+  .parchment-card {
+    background:
+      linear-gradient(135deg, rgba(232,223,200,0.07) 0%, rgba(201,185,154,0.04) 100%);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 1.8rem 2rem;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .parchment-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, rgba(184,134,11,0.06), transparent 60%);
+  }
+
+  /* ── MOSS CARD (for context panels) ── */
+  .moss-card {
+    background: linear-gradient(135deg, rgba(59,74,53,0.25), rgba(42,53,38,0.15));
+    border: 1px solid rgba(83,107,74,0.3);
+    border-top: 3px solid var(--moss-light);
+    border-radius: 2px;
+    padding: 1.6rem 1.8rem;
+    margin: 1.2rem 0;
+  }
+
+  /* ── BLOOD ACCENT CARD ── */
+  .blood-card {
+    background: linear-gradient(135deg, rgba(107,31,31,0.2), rgba(60,15,15,0.1));
+    border: 1px solid rgba(139,58,42,0.25);
+    border-left: 3px solid var(--blood-light);
+    border-radius: 2px;
+    padding: 1.6rem 1.8rem;
+    margin: 1.2rem 0;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .play-quote {
+    margin: 2rem 0;
+    padding: 1.5rem 2.5rem;
+    border-left: 4px solid var(--blood);
+    background: rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .play-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.2rem;
+    font-family: 'IM Fell English', serif;
+    font-size: 4rem;
+    color: var(--blood);
+    opacity: 0.4;
+    line-height: 1;
+  }
+  .play-quote p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+  .play-quote cite {
+    font-size: 0.8rem;
+    color: var(--stone-light);
+    letter-spacing: 0.1em;
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* ── THEME PILLS ── */
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .theme-pill {
+    padding: 1.2rem 1.4rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .theme-pill.masculinity {
+    background: linear-gradient(135deg, rgba(59,74,53,0.3), rgba(30,40,25,0.2));
+    border: 1px solid rgba(83,107,74,0.4);
+  }
+  .theme-pill.ambition {
+    background: linear-gradient(135deg, rgba(107,31,31,0.3), rgba(60,15,15,0.2));
+    border: 1px solid rgba(139,58,42,0.4);
+  }
+  .theme-pill.witches {
+    background: linear-gradient(135deg, rgba(50,40,70,0.35), rgba(25,20,40,0.2));
+    border: 1px solid rgba(120,100,160,0.3);
+  }
+  .theme-pill-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .theme-pill-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .theme-pill p {
+    font-size: 0.88rem;
+    color: var(--parchment-dark);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1.5rem 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.6rem; bottom: 0.6rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--blood), var(--moss));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 1.2rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.25rem;
+    top: 0.55rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .timeline-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .timeline-item h4 {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+  .timeline-item p {
+    font-size: 0.9rem;
+    color: var(--parchment-dark);
+    margin: 0;
+  }
+
+  /* ── ACTIVITY BOX ── */
+  .activity-box {
+    border: 1px solid rgba(184,134,11,0.35);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .activity-header {
+    background: linear-gradient(to right, rgba(184,134,11,0.25), rgba(107,31,31,0.15));
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(184,134,11,0.2);
+  }
+  .activity-header-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1px;
+    font-weight: 700;
+  }
+  .activity-header span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+  .activity-body {
+    padding: 1.5rem;
+    background: rgba(0,0,0,0.15);
+  }
+  .activity-body ol, .activity-body ul {
+    padding-left: 1.4rem;
+    color: var(--parchment);
+  }
+  .activity-body li {
+    margin-bottom: 0.6rem;
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+  .activity-body li::marker { color: var(--gold); }
+  .activity-note {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(107,31,31,0.12);
+    border-left: 2px solid var(--blood);
+    font-size: 0.85rem;
+    color: var(--parchment-dark);
+    font-style: italic;
+  }
+
+  /* ── SEPARATOR ── */
+  .ornamental-sep {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--gold);
+    opacity: 0.4;
+    font-size: 1.1rem;
+    letter-spacing: 1em;
+  }
+
+  /* ── NAVIGATION FOOTER ── */
+  .nav-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(184,134,11,0.15);
+  }
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border: none;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: opacity 0.2s;
+  }
+  .nav-btn:hover { opacity: 0.85; }
+  .nav-btn svg { width: 14px; height: 14px; }
+
+  /* ── ANNOTATION NOTE ── */
+  .instructor-note {
+    background: rgba(59,74,53,0.12);
+    border: 1px dashed rgba(83,107,74,0.3);
+    border-radius: 2px;
+    padding: 1rem 1.3rem;
+    font-size: 0.82rem;
+    color: var(--stone-light);
+    font-style: italic;
+    margin: 1.2rem 0;
+  }
+  .instructor-note strong {
+    color: var(--moss-light);
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .hero { padding: 2rem 1.5rem 2.5rem; }
+    .page-wrap { padding: 0 1.2rem 3rem; }
+    .parchment-card, .activity-body { padding: 1.2rem; }
+  }
+
+  /* ── FADE IN ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.7s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero h1     { animation-delay: 0.25s; }
+  .hero-sub    { animation-delay: 0.4s; }
+  .hero-divider{ animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="rune-mark">☽</div>
+  <p class="hero-eyebrow">ENC 1102 · Valencia College &nbsp;|&nbsp; Module 3</p>
+  <h1><em>Macbeth</em><br>Context &amp; Introduction</h1>
+  <p class="hero-sub">Before the first sword is drawn, a world must be understood.</p>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ═══════════════════════════════════════════ MAIN CONTENT -->
+<main class="page-wrap">
+
+  <!-- ── OVERVIEW ── -->
+  <section class="content-block">
+    <p class="section-label">Page Overview</p>
+    <h2>Setting the Stage</h2>
+    <p>
+      Before we open the text, we need to understand the world Shakespeare was writing in, writing <em>for</em>, and writing <em>about</em>. <em>Macbeth</em> is not simply a story of murder and madness — it is a play saturated with the political anxieties, gender ideologies, and supernatural beliefs of early seventeenth-century England. This page orients you in that world.
+    </p>
+    <p>
+      As you work through this module, you will trace three interlocking themes across the whole arc of the play. Keep them in mind as you read this context material — you will start to see their roots here, before Act I even begins.
+    </p>
+
+    <div class="theme-grid">
+      <div class="theme-pill masculinity">
+        <span class="theme-pill-icon">⚔️</span>
+        <span class="theme-pill-title">Masculinity</span>
+        <p>What does it mean to be a "man" in Macbeth's Scotland — and who gets to decide?</p>
+      </div>
+      <div class="theme-pill ambition">
+        <span class="theme-pill-icon">👑</span>
+        <span class="theme-pill-title">Unchecked Ambition</span>
+        <p>Ambition is the engine of the tragedy. When does drive become destruction?</p>
+      </div>
+      <div class="theme-pill witches">
+        <span class="theme-pill-icon">🌑</span>
+        <span class="theme-pill-title">Fate vs. Free Will</span>
+        <p>Do the witches control Macbeth, or do they merely reveal a path he chooses to walk?</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── HISTORICAL CONTEXT ── -->
+  <section class="content-block">
+    <p class="section-label">Historical Context</p>
+    <h2>Shakespeare's World, 1606</h2>
+
+    <p>
+      <em>Macbeth</em> was written around 1606 and almost certainly first performed for King James I of England — who had also been James VI of Scotland since 1567. This is not a minor detail. Understanding <em>who</em> was in the audience shapes everything about why the play is the way it is.
+    </p>
+
+    <div class="parchment-card">
+      <h3>King James I and the Politics of the Play</h3>
+      <p>
+        James was obsessed with witchcraft. In 1597 he published <em>Daemonologie</em>, a book defending the reality of witches and advocating for their prosecution. He believed himself a target of witch-covens. When Shakespeare wrote three witches into the very opening scenes of <em>Macbeth</em>, he was speaking directly to his king's deepest fears — and his most cherished beliefs.
+      </p>
+      <p>
+        James was also a direct descendant of the historical Banquo, which explains why Shakespeare transforms Banquo into a noble, innocent figure — and why the witches' prophecy promises Banquo a line of kings. It was royal flattery written in iambic pentameter.
+      </p>
+    </div>
+
+    <div class="moss-card">
+      <h3>The Gunpowder Plot, 1605</h3>
+      <p>
+        Just one year before <em>Macbeth</em> was performed, a group of Catholic conspirators attempted to blow up the Houses of Parliament and assassinate King James. The Gunpowder Plot sent shockwaves through English society. Questions of treachery, loyalty, and the murder of a king were not abstract — they were raw, recent, and terrifying. Shakespeare's audience would have felt Macbeth's regicide viscerally in a way that is difficult for us to fully recover.
+      </p>
+    </div>
+
+    <div class="blood-card">
+      <h3>The Divine Right of Kings</h3>
+      <p>
+        In Shakespeare's England, the monarch was believed to rule by divine appointment — to kill a king was not merely murder but a cosmic transgression, an offense against God's order. This theology is embedded in the play's fabric. When Macbeth kills Duncan, he does not just take a man's life; he ruptures the natural order. The unnatural storms, the horses eating each other, the darkness at noon — all of these omens reflect a universe thrown out of alignment.
+      </p>
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── TIMELINE ── -->
+  <section class="content-block">
+    <p class="section-label">Historical Timeline</p>
+    <h2>Key Dates to Know</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">~1040</div>
+        <h4>The Historical Macbeth</h4>
+        <p>The real Macbeth was King of Scotland from 1040–1057. He did kill King Duncan I, but in open battle — not by treachery. His reign was long and reportedly stable. Shakespeare transformed history into tragedy.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">1587</div>
+        <h4>Holinshed's <em>Chronicles</em></h4>
+        <p>Shakespeare's primary source. Holinshed's account fused the historical Macbeth with legends and moral lessons. Shakespeare borrowed the broad strokes but invented the psychological depth.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">1597</div>
+        <h4>James VI publishes <em>Daemonologie</em></h4>
+        <p>James's treatise on witchcraft established the theological framework that would give the Weird Sisters their menace for a Jacobean audience.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">1603</div>
+        <h4>James VI becomes James I of England</h4>
+        <p>Shakespeare's company becomes The King's Men. The relationship between playwright and monarch grows intimate — and consequential for what Shakespeare writes.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">1605</div>
+        <h4>The Gunpowder Plot</h4>
+        <p>The foiled assassination attempt on the king makes regicide a live, terrifying topic in the playhouses of London.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">~1606</div>
+        <h4><em>Macbeth</em> is written and performed</h4>
+        <p>Likely first performed at Hampton Court for King James I. The shortest of Shakespeare's tragedies — and perhaps his most concentrated.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── GENDER & MASCULINITY CONTEXT ── -->
+  <section class="content-block">
+    <p class="section-label">Contextualizing Theme</p>
+    <h2>Masculinity in Early Modern Scotland</h2>
+    <p>
+      One of <em>Macbeth</em>'s most persistent preoccupations is with what it means to be a man. But "masculinity" in Shakespeare's world had a very specific set of meanings — and they are not exactly the same as ours.
+    </p>
+
+    <div class="parchment-card">
+      <h3>Valor, Violence, and Virtue</h3>
+      <p>
+        In the world of the play, masculine identity is almost entirely bound up in military valor. The opening scenes describe Macbeth as a warrior of extraordinary ferocity — he "unseam'd" an enemy "from the nave to th' chops." This is presented as <em>admirable</em>. Courage in battle, willingness to kill, and physical dominance are the markers of a "real man."
+      </p>
+      <p>
+        But the play will complicate this immediately. Lady Macbeth weaponizes the language of masculinity to goad her husband into murder. Macbeth's hesitation is coded as feminine weakness — and "courage" becomes a tool of manipulation. As you read, ask: <em>who gets to define what a man is in this play?</em>
+      </p>
+    </div>
+
+    <div class="play-quote">
+      <p>Was the hope drunk<br>Wherein you dress'd yourself? hath it slept since?<br>And wakes it now, to look so green and pale<br>At what it did so freely? From this time<br>Such I account thy love. Art thou afeard<br>To be the same in thine own act and valour<br>As thou art in desire?</p>
+      <cite>— Lady Macbeth, Act I, Scene 7 (a preview of what's to come)</cite>
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── WITCHCRAFT CONTEXT ── -->
+  <section class="content-block">
+    <p class="section-label">Contextualizing Theme</p>
+    <h2>Witchcraft, Prophecy &amp; Free Will</h2>
+
+    <p>
+      The Weird Sisters are not simply dramatic devices — they reflect genuine early modern terror. Witchcraft trials were common across Europe; Scotland alone saw thousands of executions. When the witches appear in Act I, Shakespeare's audience was not watching fantasy. They were watching something they believed was real.
+    </p>
+
+    <div class="moss-card">
+      <h3>What Did People Believe About Witches?</h3>
+      <p>
+        The prevailing theology held that witches were real agents of the Devil, capable of manipulating the natural world — causing disease, storms, failed crops, and death. Crucially, witches were believed capable of prophecy: not because they could see the future, but because the Devil, as a fallen angel, had knowledge of probable futures and could whisper them to his servants.
+      </p>
+      <p>
+        This means the witches' prophecies are not necessarily <em>true</em> — they may be lures, half-truths designed to damn Macbeth by encouraging him to act. Whether he would have acted without the prophecy is one of the play's deepest questions.
+      </p>
+    </div>
+
+    <div class="blood-card">
+      <h3>A Question to Carry Into Your Reading</h3>
+      <p>
+        Do the witches <em>cause</em> Macbeth to commit murder? Or do they simply reveal an ambition that was already there? Is Macbeth a man seduced by fate — or a man who uses fate as an excuse? There is no single correct answer. But the question will drive your reading of every scene they appear in, and it will be central to the essay you write at the end of this module.
+      </p>
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── ACTIVITY ── -->
+  <section class="content-block">
+    <p class="section-label">Learning Activity</p>
+    <h2>Before You Begin Reading</h2>
+
+    <div class="activity-box">
+      <div class="activity-header">
+        <span class="activity-header-badge">Discuss</span>
+        <span>Discussion Board · Pre-Reading Reflection</span>
+      </div>
+      <div class="activity-body">
+        <p style="font-size:0.94rem; margin-bottom:1rem;">
+          Before reading a word of the play, respond to the following prompt in the Module 3 Discussion Board. There are no wrong answers — this is about capturing your thinking <em>before</em> the text shapes it.
+        </p>
+        <ol>
+          <li>
+            <strong>On ambition:</strong> Think of a time — in your own life, in current events, or in a story you know — when someone's desire for success or power led them to cross a moral or ethical line. What happened? What drove them? Did they succeed?
+          </li>
+          <li>
+            <strong>On fate vs. choice:</strong> If someone told you exactly what your future would be, would that change how you acted? Would knowing a destiny make it more or less likely to come true?
+          </li>
+          <li>
+            <strong>On masculinity:</strong> What does our culture currently say a "real man" should be? Where do those messages come from — and do you agree with them?
+          </li>
+        </ol>
+        <div class="activity-note">
+          Your post should be 150–250 words. You will also reply to at least one classmate's post before we begin Act I. This discussion will come back to haunt you — in the best way.
+        </div>
+      </div>
+    </div>
+
+    <div class="instructor-note">
+      <strong>Instructor Note</strong> — This pre-reading activity is designed to activate students' prior knowledge and personal frameworks before the text introduces Shakespeare's own. Drawing on students' lived experience with all three themes makes the play immediately relevant for first-year students who may approach it with anxiety.
+    </div>
+  </section>
+
+  <div class="ornamental-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── WHAT'S NEXT ── -->
+  <section class="content-block">
+    <p class="section-label">Coming Up</p>
+    <h2>Next: Act I — Blood and Prophecy</h2>
+    <p>
+      With this context in hand, you are ready to enter the play. In the next section, we will read Act I with a focus on three key moments: the witches' first prophecy, Macbeth's "aside" soliloquies as he processes it, and Lady Macbeth's invocation scene. The myShakespeare interactive scenes are embedded directly into that page for easy access.
+    </p>
+    <p>
+      Come to the text with your discussion post fresh in your mind. You will be surprised how quickly the play starts answering — and complicating — the questions you have already raised.
+    </p>
+
+    <nav class="nav-footer">
+      <a href="#" class="nav-btn">
+        Proceed to Act I
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </section>
+
+</main>
+</body>
+</html>

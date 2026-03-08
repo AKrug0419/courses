@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macbeth – Act I | ENC 1102</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment:      #e8dfc8;
+    --parchment-dark: #c9b99a;
+    --ink:            #1a1713;
+    --ink-mid:        #252018;
+    --stone:          #4a4640;
+    --stone-light:    #7a736a;
+    --moss:           #3b4a35;
+    --moss-light:     #536b4a;
+    --blood:          #6b1f1f;
+    --blood-light:    #8b3a2a;
+    --gold:           #b8860b;
+    --gold-light:     #d4a830;
+    --cream:          #f5f0e6;
+    --scene-bg:       #0f0d0a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--ink);
+    color: var(--parchment);
+    /* Source Serif 4: optical-size aware, excellent at small sizes, highly legible on screens */
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 4rem 3rem;
+    overflow: hidden;
+    background:
+      linear-gradient(to bottom, rgba(8,6,4,0.15) 0%, rgba(10,8,5,0.88) 65%, var(--ink) 100%),
+      radial-gradient(ellipse at 75% 25%, #1a0e08 0%, #080604 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 85%, rgba(107,31,31,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 15%, rgba(59,74,53,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    position: relative; z-index: 1;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.9);
+  }
+  .hero h1 em {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+  }
+  .hero-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--parchment-dark);
+    margin-top: 0.7rem;
+    max-width: 480px;
+    position: relative; z-index: 1;
+  }
+  .hero-divider {
+    width: 70px; height: 2px;
+    background: linear-gradient(to right, var(--blood), var(--gold));
+    margin-top: 1.2rem;
+    position: relative; z-index: 1;
+  }
+  .rune-mark {
+    position: absolute;
+    top: 1.5rem; right: 3rem;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.025);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    user-select: none; z-index: 0;
+  }
+
+  /* ─── LAYOUT ─── */
+  .page-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    position: relative; z-index: 1;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, rgba(184,134,11,0.5), transparent);
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--parchment); }
+  p:last-child { margin-bottom: 0; }
+
+  .content-block { margin: 3rem 0; }
+
+  /* ─── SCENE BLOCK ─── */
+  /* Each scene = label + reading note + embedded iframe + quote(s) + annotation */
+  .scene-block {
+    margin: 2.5rem 0;
+    border: 1px solid rgba(184,134,11,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.18);
+  }
+  .scene-block-header {
+    background: linear-gradient(to right, rgba(59,74,53,0.35), rgba(30,26,20,0.4));
+    padding: 1rem 1.6rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(184,134,11,0.15);
+    flex-wrap: wrap;
+  }
+  .scene-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .scene-title {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+  .scene-block-body {
+    padding: 1.5rem 1.6rem;
+  }
+  .reading-note {
+    font-size: 0.9rem;
+    color: var(--parchment-dark);
+    font-style: italic;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    line-height: 1.65;
+  }
+  .reading-note strong {
+    font-style: normal;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ─── IFRAME EMBED ─── */
+  .scene-embed-wrap {
+    position: relative;
+    margin: 1.2rem 0;
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--scene-bg);
+  }
+  .scene-embed-label {
+    background: linear-gradient(to right, var(--moss), rgba(59,74,53,0.6));
+    padding: 0.45rem 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--parchment-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .scene-embed-label::before {
+    content: '▶';
+    font-size: 0.55rem;
+    color: var(--gold);
+  }
+  .scene-embed-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 520px;
+    border: none;
+  }
+  .embed-caption {
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+    color: var(--stone-light);
+    font-style: italic;
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  /* ─── VERSE QUOTE ─── */
+  /* Source Serif 4 is used here — designed for sustained reading,
+     optical sizes ensure crisp rendering at 15–16px on small screens */
+  .verse-quote {
+    margin: 1.5rem 0;
+    padding: 1.4rem 1.6rem 1.4rem 2rem;
+    background: rgba(0,0,0,0.25);
+    border-left: 3px solid var(--blood);
+    position: relative;
+  }
+  .verse-cite {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 0.8rem;
+  }
+  .verse-lines {
+    list-style: none;
+    padding: 0;
+  }
+  .verse-lines li {
+    /* Source Serif 4 at optical size 'text' = beautifully legible at small sizes */
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1rem;
+    font-optical-sizing: auto;
+    color: var(--cream);
+    line-height: 1.7;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.2rem;
+    align-items: baseline;
+  }
+  .verse-lines li .ln {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    color: var(--stone-light);
+    letter-spacing: 0.08em;
+    min-width: 2.8rem;
+    text-align: right;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+  .verse-lines li .vtext {
+    font-style: italic;
+  }
+  .verse-speaker {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  /* ─── ANNOTATION ─── */
+  .annotation {
+    background: linear-gradient(135deg, rgba(184,134,11,0.07), rgba(107,31,31,0.05));
+    border: 1px solid rgba(184,134,11,0.18);
+    border-radius: 2px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--parchment-dark);
+  }
+  .annotation-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+
+  /* ─── THINK BOX ─── */
+  .think-box {
+    border: 1px solid rgba(83,107,74,0.4);
+    border-left: 3px solid var(--moss-light);
+    border-radius: 2px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(59,74,53,0.1);
+  }
+  .think-box-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--moss-light);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .think-box p {
+    font-size: 0.92rem;
+    color: var(--parchment-dark);
+    margin-bottom: 0.5rem;
+  }
+  .think-box p:last-child { margin-bottom: 0; }
+
+  /* ─── ACTIVITY BOX ─── */
+  .activity-box {
+    border: 1px solid rgba(184,134,11,0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 2.5rem 0;
+  }
+  .activity-header {
+    background: linear-gradient(to right, rgba(107,31,31,0.3), rgba(184,134,11,0.15));
+    padding: 0.75rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(184,134,11,0.2);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 1px;
+    font-weight: 700;
+  }
+  .badge-gold  { background: var(--gold); color: var(--ink); }
+  .badge-blood { background: var(--blood-light); color: var(--cream); }
+  .badge-moss  { background: var(--moss-light); color: var(--cream); }
+  .activity-header-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+  }
+  .activity-body {
+    padding: 1.5rem 1.6rem;
+    background: rgba(0,0,0,0.15);
+  }
+  .activity-body ol, .activity-body ul {
+    padding-left: 1.5rem;
+  }
+  .activity-body li {
+    font-size: 0.92rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--parchment);
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+  }
+  .activity-body li::marker { color: var(--gold); }
+  .activity-note {
+    margin-top: 1.1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(107,31,31,0.1);
+    border-left: 2px solid var(--blood);
+    font-size: 0.83rem;
+    font-style: italic;
+    color: var(--parchment-dark);
+  }
+
+  /* ─── THEME TAG ─── */
+  .theme-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0 0.2rem;
+  }
+  .theme-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.6rem;
+    border-radius: 1px;
+    border: 1px solid;
+  }
+  .tag-m  { border-color: rgba(83,107,74,0.5);  color: var(--moss-light); }
+  .tag-a  { border-color: rgba(139,58,42,0.5);  color: #c06040; }
+  .tag-w  { border-color: rgba(120,100,160,0.4); color: #a090c8; }
+
+  /* ─── SEPARATOR ─── */
+  .sep {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--gold);
+    opacity: 0.35;
+    font-size: 1rem;
+    letter-spacing: 1.2em;
+  }
+
+  /* ─── NAV FOOTER ─── */
+  .nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(184,134,11,0.15);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: none;
+  }
+  .nav-btn:hover { opacity: 0.82; }
+  .nav-btn.prev { background: rgba(184,134,11,0.15); color: var(--parchment-dark); border: 1px solid rgba(184,134,11,0.25); }
+  .nav-btn.next { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: var(--ink); }
+  .nav-btn svg  { width: 13px; height: 13px; }
+
+  /* ─── INSTRUCTOR NOTE ─── */
+  .instructor-note {
+    background: rgba(59,74,53,0.1);
+    border: 1px dashed rgba(83,107,74,0.3);
+    border-radius: 2px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.8rem;
+    color: var(--stone-light);
+    font-style: italic;
+    margin: 1rem 0;
+  }
+  .instructor-note strong {
+    font-style: normal;
+    color: var(--moss-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .hero { padding: 2rem 1.4rem 2.2rem; }
+    .page-wrap { padding: 0 1rem 3rem; }
+    .scene-block-body { padding: 1.1rem 1rem; }
+    .activity-body { padding: 1.1rem 1rem; }
+    .verse-quote { padding: 1.1rem 1rem 1.1rem 1.2rem; }
+    .verse-lines li .ln { min-width: 2.2rem; font-size: 0.55rem; }
+    .scene-embed-wrap iframe { height: 400px; }
+  }
+
+  /* ─── FADE IN ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.65s ease both; }
+  .hero-eyebrow  { animation-delay: 0.1s; }
+  .hero h1       { animation-delay: 0.22s; }
+  .hero-sub      { animation-delay: 0.36s; }
+  .hero-divider  { animation-delay: 0.46s; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="rune-mark">I</div>
+  <p class="hero-eyebrow">ENC 1102 · Valencia College &nbsp;|&nbsp; Module 3 · Act I</p>
+  <h1><em>Macbeth</em><br>Act I — Blood &amp; Prophecy</h1>
+  <p class="hero-sub">The witches speak. A warrior listens. A kingdom begins to tremble.</p>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ══════════════════════════════════ MAIN -->
+<main class="page-wrap">
+
+  <!-- ── PAGE OVERVIEW ── -->
+  <section class="content-block">
+    <p class="section-label">Act I Overview</p>
+    <h2>Reading Guide &amp; Learning Goals</h2>
+    <p>
+      Act I introduces every major force in the play — Macbeth's valor, his ambition, the witches' destabilizing prophecy, and Lady Macbeth's electrifying will. By the end of this act, the decision to kill King Duncan has been made. The scenes below are embedded directly from <em>myShakespeare</em> for easy reading; use the annotation and audio features within each scene as you go.
+    </p>
+    <p>
+      As you work through each scene, keep your three themes in mind. The theme tags beneath each scene marker show you which themes are most active in that scene.
+    </p>
+
+    <div class="think-box">
+      <span class="think-box-label">Before You Read</span>
+      <p>Return briefly to your pre-reading discussion post. You reflected on ambition, fate, and masculinity from your own experience. Hold those reflections loosely as you read — notice when the play pushes back on your assumptions.</p>
+    </div>
+  </section>
+
+  <div class="sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ══════════════════════════════════ SCENE 1 -->
+  <section class="content-block">
+    <p class="section-label">Act I, Scene 1</p>
+
+    <div class="scene-block">
+      <div class="scene-block-header">
+        <span class="scene-number">Act I · Scene 1</span>
+        <span class="scene-title">The Witches on the Heath</span>
+      </div>
+      <div class="scene-block-body">
+
+        <p class="reading-note">
+          <strong>Reading Note</strong> — This scene is only twelve lines, but do not rush it. Notice what it does <em>not</em> tell you. We do not know yet who Macbeth is, what the battle is, or why these three figures are meeting. Shakespeare withholds context deliberately. What feeling does that create?
+        </p>
+
+        <div class="theme-tags">
+          <span class="theme-tag tag-w">Fate vs. Free Will</span>
+        </div>
+
+        <div class="scene-embed-wrap">
+          <div class="scene-embed-label">myShakespeare · Act I, Scene 1 — Interactive Text &amp; Audio</div>
+          <iframe
+            src="https://myshakespeare.com/macbeth/act-1-scene-1"
+            title="Macbeth Act I Scene 1 – myShakespeare"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+          <div class="embed-caption">If the embed does not load, <a href="https://myshakespeare.com/macbeth/act-1-scene-1" target="_blank" style="color:var(--gold-light);">open Scene 1 directly at myShakespeare.com ↗</a></div>
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 1</span>
+          <span class="verse-speaker">All Witches</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.1.10</span><span class="vtext">Fair is foul, and foul is fair,</span></li>
+            <li><span class="ln">1.1.11</span><span class="vtext">Hover through the fog and filthy air.</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading</span>
+          This chiasmus — "Fair is foul, and foul is fair" — is the play's thesis in ten syllables. It announces that nothing in this world can be trusted to be what it appears. Macbeth will be called brave and be a murderer. Duncan will trust his host and die for it. Lady Macbeth will appear gracious and harbor violence. Every major deception in the play echoes this line. Underline it. You will come back to it.
+        </div>
+
+        <div class="think-box">
+          <span class="think-box-label">Stop &amp; Think</span>
+          <p>In just twelve lines, what mood has Shakespeare established? List three specific word choices that contribute to it. (You can jot these in the margin or your reading notes — you may use them in the study questions.)</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SCENE 2 -->
+  <section class="content-block">
+    <p class="section-label">Act I, Scene 2</p>
+
+    <div class="scene-block">
+      <div class="scene-block-header">
+        <span class="scene-number">Act I · Scene 2</span>
+        <span class="scene-title">The Captain's Report — Macbeth as Warrior</span>
+      </div>
+      <div class="scene-block-body">
+
+        <p class="reading-note">
+          <strong>Reading Note</strong> — We hear about Macbeth before we meet him, entirely through the eyes of other men. Pay close attention to the <em>language</em> used to describe him. What kind of valor is being praised — and what does that say about what this society values in a man?
+        </p>
+
+        <div class="theme-tags">
+          <span class="theme-tag tag-m">Masculinity</span>
+          <span class="theme-tag tag-a">Ambition</span>
+        </div>
+
+        <div class="scene-embed-wrap">
+          <div class="scene-embed-label">myShakespeare · Act I, Scene 2 — Interactive Text &amp; Audio</div>
+          <iframe
+            src="https://myshakespeare.com/macbeth/act-1-scene-2"
+            title="Macbeth Act I Scene 2 – myShakespeare"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+          <div class="embed-caption">If the embed does not load, <a href="https://myshakespeare.com/macbeth/act-1-scene-2" target="_blank" style="color:var(--gold-light);">open Scene 2 at myShakespeare.com ↗</a></div>
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 2</span>
+          <span class="verse-speaker">Captain</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.2.15</span><span class="vtext">For brave Macbeth — well he deserves that name —</span></li>
+            <li><span class="ln">1.2.16</span><span class="vtext">Disdaining Fortune, with his brandish'd steel,</span></li>
+            <li><span class="ln">1.2.17</span><span class="vtext">Which smok'd with bloody execution,</span></li>
+            <li><span class="ln">1.2.18</span><span class="vtext">Like valour's minion carv'd out his passage</span></li>
+            <li><span class="ln">1.2.19</span><span class="vtext">Till he fac'd the slave;</span></li>
+            <li><span class="ln">1.2.20</span><span class="vtext">Which ne'er shook hands, nor bade farewell to him,</span></li>
+            <li><span class="ln">1.2.21</span><span class="vtext">Till he unseam'd him from the nave to th' chops,</span></li>
+            <li><span class="ln">1.2.22</span><span class="vtext">And fix'd his head upon our battlements.</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · Masculinity Theme</span>
+          Notice the Captain's almost ecstatic admiration here. Macbeth's brutality — splitting a man "from the nave to th' chops" (navel to jaw) and mounting his head — is presented as <em>heroic</em>. The phrase "valour's minion" means valour's servant, its favorite. In this world, extreme violence in service of the king is not just permitted; it is the definition of a good man. Keep this image in mind when Lady Macbeth later questions whether her husband is "man enough" to act. The play is asking: is there a difference between killing in battle and killing a sleeping king?
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SCENE 3 -->
+  <section class="content-block">
+    <p class="section-label">Act I, Scene 3</p>
+
+    <div class="scene-block">
+      <div class="scene-block-header">
+        <span class="scene-number">Act I · Scene 3</span>
+        <span class="scene-title">The Prophecy — "All hail, Macbeth, that shalt be King hereafter"</span>
+      </div>
+      <div class="scene-block-body">
+
+        <p class="reading-note">
+          <strong>Reading Note</strong> — This is the scene that sets the entire tragedy in motion. Read it at least twice: once to follow the action, once to watch Macbeth's internal reaction in his asides. An <em>aside</em> is when a character speaks directly to the audience — other characters on stage cannot hear it. These are the moments when we see what Macbeth is <em>really</em> thinking, beneath what he says aloud.
+        </p>
+
+        <div class="theme-tags">
+          <span class="theme-tag tag-w">Fate vs. Free Will</span>
+          <span class="theme-tag tag-a">Ambition</span>
+        </div>
+
+        <div class="scene-embed-wrap">
+          <div class="scene-embed-label">myShakespeare · Act I, Scene 3 — Interactive Text &amp; Audio</div>
+          <iframe
+            src="https://myshakespeare.com/macbeth/act-1-scene-3"
+            title="Macbeth Act I Scene 3 – myShakespeare"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+          <div class="embed-caption">If the embed does not load, <a href="https://myshakespeare.com/macbeth/act-1-scene-3" target="_blank" style="color:var(--gold-light);">open Scene 3 at myShakespeare.com ↗</a></div>
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 3 · The Prophecy</span>
+          <span class="verse-speaker">First Witch</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.3.48</span><span class="vtext">All hail, Macbeth! hail to thee, Thane of Glamis!</span></li>
+          </ul>
+          <span class="verse-speaker" style="margin-top:0.5rem;">Second Witch</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.3.49</span><span class="vtext">All hail, Macbeth! hail to thee, Thane of Cawdor!</span></li>
+          </ul>
+          <span class="verse-speaker" style="margin-top:0.5rem;">Third Witch</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.3.50</span><span class="vtext">All hail, Macbeth, that shalt be King hereafter!</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · Fate vs. Free Will Theme</span>
+          The structure of the prophecy is crucial. The first title (Glamis) Macbeth already holds. The second (Cawdor) he is about to be given — he just doesn't know it yet. The third (King) is what the prophecy promises. When Macbeth learns moments later that he <em>is</em> now Thane of Cawdor, the second prophecy has come true without him doing anything. This is the witches' trap: they have made the prophecies feel inevitable, like facts rather than possibilities. But notice — nothing in the prophecy says <em>how</em> Macbeth becomes king, or <em>when</em>. The gap between "you will be king" and "you must kill the king to get there" is entirely Macbeth's own imagination filling in the blank.
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 3 · Macbeth's First Aside</span>
+          <span class="verse-speaker">Macbeth</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.3.130</span><span class="vtext">This supernatural soliciting</span></li>
+            <li><span class="ln">1.3.131</span><span class="vtext">Cannot be ill, cannot be good: if ill,</span></li>
+            <li><span class="ln">1.3.132</span><span class="vtext">Why hath it given me earnest of success,</span></li>
+            <li><span class="ln">1.3.133</span><span class="vtext">Commencing in a truth? I am Thane of Cawdor:</span></li>
+            <li><span class="ln">1.3.134</span><span class="vtext">If good, why do I yield to that suggestion</span></li>
+            <li><span class="ln">1.3.135</span><span class="vtext">Whose horrid image doth unfix my hair</span></li>
+            <li><span class="ln">1.3.136</span><span class="vtext">And make my seated heart knock at my ribs,</span></li>
+            <li><span class="ln">1.3.137</span><span class="vtext">Against the use of nature?</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · The "Horrid Image"</span>
+          This aside is one of the most important passages in the play for the fate vs. free will debate. Macbeth has not been told to kill anyone. Yet here — alone with the audience — he reveals that his mind has already leapt to murder. The "horrid image" that makes his hair stand up and his heart "knock at his ribs" is one he has generated himself. The witches said nothing about killing Duncan. Where is this thought coming from? Is it the witches' influence — or Macbeth's own desire revealing itself?
+        </div>
+
+        <div class="think-box">
+          <span class="think-box-label">Stop &amp; Think — Fate vs. Free Will</span>
+          <p>Reread lines 1.3.134–137. Macbeth says the prophecy cannot be good because it produces a "horrid image" in him. What does the existence of that image tell us about Macbeth's inner life before the witches arrived?</p>
+          <p>Write 3–5 sentences in your reading notes. You may use this observation in your Act I Study Questions.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SCENES 4–6 (grouped) -->
+  <section class="content-block">
+    <p class="section-label">Act I, Scenes 4–6</p>
+
+    <div class="scene-block">
+      <div class="scene-block-header">
+        <span class="scene-number">Act I · Scenes 4–6</span>
+        <span class="scene-title">Duncan Names Malcolm His Heir · Lady Macbeth Receives the Letter</span>
+      </div>
+      <div class="scene-block-body">
+
+        <p class="reading-note">
+          <strong>Reading Note</strong> — Three scenes, two pivots. In Scene 4, Duncan announces that his son Malcolm will be his heir — not Macbeth. Read Macbeth's brief aside after this announcement carefully. In Scene 5, we meet Lady Macbeth reading her husband's letter. In Scene 6, Duncan arrives at Inverness as a guest. The dramatic irony in Scene 6 — where Duncan praises the castle's pleasant air as he walks toward his death — is something to sit with.
+        </p>
+
+        <div class="theme-tags">
+          <span class="theme-tag tag-a">Ambition</span>
+          <span class="theme-tag tag-m">Masculinity</span>
+          <span class="theme-tag tag-w">Fate vs. Free Will</span>
+        </div>
+
+        <div class="scene-embed-wrap">
+          <div class="scene-embed-label">myShakespeare · Act I, Scene 5 — Lady Macbeth's Soliloquy</div>
+          <iframe
+            src="https://myshakespeare.com/macbeth/act-1-scene-5"
+            title="Macbeth Act I Scene 5 – myShakespeare"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+          <div class="embed-caption">
+            Also read: <a href="https://myshakespeare.com/macbeth/act-1-scene-4" target="_blank" style="color:var(--gold-light);">Scene 4 ↗</a> &nbsp;|&nbsp; <a href="https://myshakespeare.com/macbeth/act-1-scene-6" target="_blank" style="color:var(--gold-light);">Scene 6 ↗</a>
+          </div>
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 5 · Lady Macbeth's Invocation</span>
+          <span class="verse-speaker">Lady Macbeth</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.5.39</span><span class="vtext">Come, you spirits</span></li>
+            <li><span class="ln">1.5.40</span><span class="vtext">That tend on mortal thoughts, unsex me here,</span></li>
+            <li><span class="ln">1.5.41</span><span class="vtext">And fill me from the crown to the toe top-full</span></li>
+            <li><span class="ln">1.5.42</span><span class="vtext">Of direst cruelty!</span></li>
+            <li><span class="ln">1.5.43</span><span class="vtext">Make thick my blood;</span></li>
+            <li><span class="ln">1.5.44</span><span class="vtext">Stop up the access and passage to remorse,</span></li>
+            <li><span class="ln">1.5.45</span><span class="vtext">That no compunctious visitings of nature</span></li>
+            <li><span class="ln">1.5.46</span><span class="vtext">Shake my fell purpose.</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · Masculinity &amp; Gender Theme</span>
+          "Unsex me here" is one of the most discussed phrases in Shakespeare. Lady Macbeth is asking to have her femininity stripped away — to have the qualities associated with women in her culture (compassion, remorse, tenderness) surgically removed so she can act with the violence she associates with men. This speech reveals something crucial about the play's gender logic: in Macbeth's world, cruelty and ambition are considered masculine traits. Lady Macbeth does not reject this framework — she <em>internalizes</em> it. She believes she must become "less of a woman" to act. Consider: what does that say about the world she lives in?
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SCENE 7 -->
+  <section class="content-block">
+    <p class="section-label">Act I, Scene 7</p>
+
+    <div class="scene-block">
+      <div class="scene-block-header">
+        <span class="scene-number">Act I · Scene 7</span>
+        <span class="scene-title">"If it were done when 'tis done" — The Decision</span>
+      </div>
+      <div class="scene-block-body">
+
+        <p class="reading-note">
+          <strong>Reading Note</strong> — This is the hinge of Act I. Macbeth, alone, talks himself toward the murder — and then back from it. Then Lady Macbeth enters and reverses his reversal. Read the opening soliloquy slowly: this is Macbeth at his most intellectually honest. Then watch how Lady Macbeth's argument works. What exactly does she say to change his mind?
+        </p>
+
+        <div class="theme-tags">
+          <span class="theme-tag tag-m">Masculinity</span>
+          <span class="theme-tag tag-a">Ambition</span>
+        </div>
+
+        <div class="scene-embed-wrap">
+          <div class="scene-embed-label">myShakespeare · Act I, Scene 7 — Interactive Text &amp; Audio</div>
+          <iframe
+            src="https://myshakespeare.com/macbeth/act-1-scene-7"
+            title="Macbeth Act I Scene 7 – myShakespeare"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+          <div class="embed-caption">If the embed does not load, <a href="https://myshakespeare.com/macbeth/act-1-scene-7" target="_blank" style="color:var(--gold-light);">open Scene 7 at myShakespeare.com ↗</a></div>
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 7 · Macbeth's Soliloquy (opening)</span>
+          <span class="verse-speaker">Macbeth</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.7.1</span><span class="vtext">If it were done when 'tis done, then 'twere well</span></li>
+            <li><span class="ln">1.7.2</span><span class="vtext">It were done quickly: if th' assassination</span></li>
+            <li><span class="ln">1.7.3</span><span class="vtext">Could trammel up the consequence, and catch</span></li>
+            <li><span class="ln">1.7.4</span><span class="vtext">With his surcease success; that but this blow</span></li>
+            <li><span class="ln">1.7.5</span><span class="vtext">Might be the be-all and the end-all here,</span></li>
+            <li><span class="ln">1.7.6</span><span class="vtext">But here, upon this bank and shoal of time,</span></li>
+            <li><span class="ln">1.7.7</span><span class="vtext">We'd jump the life to come.</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · Unchecked Ambition</span>
+          Macbeth's worry here is not moral — it is practical. He is not saying "this is wrong." He is saying "this might not work." He fears the consequences: reputation, justice, divine punishment. His reasons for hesitating are almost entirely about self-interest. This is worth noting: Macbeth's conscience is real, but it is tangled up with self-preservation in a way that will make it easier for Lady Macbeth to override it. She will reframe the question from "is this right?" to "are you man enough?"
+        </div>
+
+        <div class="verse-quote">
+          <span class="verse-cite">Act I, Scene 7 · Lady Macbeth Challenges His Manhood</span>
+          <span class="verse-speaker">Lady Macbeth</span>
+          <ul class="verse-lines">
+            <li><span class="ln">1.7.49</span><span class="vtext">Was the hope drunk</span></li>
+            <li><span class="ln">1.7.50</span><span class="vtext">Wherein you dress'd yourself? hath it slept since?</span></li>
+            <li><span class="ln">1.7.51</span><span class="vtext">And wakes it now, to look so green and pale</span></li>
+            <li><span class="ln">1.7.52</span><span class="vtext">At what it did so freely?</span></li>
+          </ul>
+          <ul class="verse-lines" style="margin-top:0.6rem;">
+            <li><span class="ln">1.7.61</span><span class="vtext">Art thou afeard</span></li>
+            <li><span class="ln">1.7.62</span><span class="vtext">To be the same in thine own act and valour</span></li>
+            <li><span class="ln">1.7.63</span><span class="vtext">As thou art in desire? Wouldst thou have that</span></li>
+            <li><span class="ln">1.7.64</span><span class="vtext">Which thou esteem'st the ornament of life,</span></li>
+            <li><span class="ln">1.7.65</span><span class="vtext">And live a coward in thine own esteem,</span></li>
+            <li><span class="ln">1.7.66</span><span class="vtext">Letting "I dare not" wait upon "I would,"</span></li>
+            <li><span class="ln">1.7.67</span><span class="vtext">Like the poor cat i' th' adage?</span></li>
+          </ul>
+        </div>
+
+        <div class="annotation">
+          <span class="annotation-label">Close Reading · Masculinity Theme</span>
+          Lady Macbeth does not argue that the murder is a good idea. She argues that refusing to commit it makes Macbeth a coward — less of a man. This is a manipulation tactic, and a devastatingly effective one, because it targets exactly the identity that Macbeth's entire social world has built for him. The soldier who "unseamed" an enemy in battle cannot now be afraid of a sleeping old man. Notice that Macbeth's final response — "If we should fail?" — is not a moral objection. He has already been converted. He is asking about logistics.
+        </div>
+
+        <div class="think-box">
+          <span class="think-box-label">Stop &amp; Think — All Three Themes</span>
+          <p>By the end of Scene 7, Macbeth has agreed to murder King Duncan. Consider: at what point in Act I did this become inevitable? Was there a moment where a different choice was genuinely available to him — or has he been moving toward this since the witches first spoke?</p>
+          <p>There is no single right answer. Write a paragraph in your reading notes arguing for a specific moment. You will likely use this thinking in your Act I Study Questions.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="sep">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ══════════════════════════════════ STUDY QUESTIONS -->
+  <section class="content-block">
+    <p class="section-label">Assessment</p>
+    <h2>Act I Study Questions</h2>
+
+    <div class="activity-box">
+      <div class="activity-header">
+        <span class="badge badge-blood">Graded</span>
+        <span class="activity-header-title">Act I Study Questions — Submit via Canvas Assignment</span>
+      </div>
+      <div class="activity-body">
+        <p style="font-size:0.9rem; margin-bottom:1.1rem; color:var(--parchment-dark); font-style:italic;">
+          Answer each question in complete sentences. Responses should demonstrate that you have read carefully and are engaging with specific moments in the text. Each answer should be 100–150 words. Cite line numbers when referring to specific passages.
+        </p>
+        <ol>
+          <li>
+            <strong>On the Witches:</strong> In Act I, Scene 3, Macbeth has a private aside after receiving the prophecy (lines 1.3.130–142). What does this aside reveal about Macbeth's state of mind — and what does it suggest about the relationship between the witches' words and his own desires?
+          </li>
+          <li>
+            <strong>On Masculinity:</strong> Lady Macbeth's argument in Act I, Scene 7 relies on a specific idea of what a man should be. Explain her argument in your own words. Do you think her argument is effective? What does it reveal about the values of this play's world?
+          </li>
+          <li>
+            <strong>On Ambition:</strong> Trace Macbeth's decision-making across Act I. At what point does his ambition shift from a passive desire into an active plan? What role, if any, do outside forces (the witches, Lady Macbeth) play in that shift — and what responsibility does Macbeth himself bear?
+          </li>
+        </ol>
+        <div class="activity-note">
+          Due before our next class session. These responses prepare you for the Acts II &amp; III reading — the consequences of the decision made in Act I begin immediately.
+        </div>
+      </div>
+    </div>
+
+    <div class="instructor-note">
+      <strong>Instructor Note</strong> — The three study questions map directly to the three module themes and mirror the essay prompt options students will encounter in Module 4. Answering them carefully is, in effect, pre-writing for the essay.
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ NAV -->
+  <nav class="nav-footer">
+    <a href="#" class="nav-btn prev">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Context &amp; Introduction
+    </a>
+    <a href="#" class="nav-btn next">
+      Acts II &amp; III — The Deed &amp; Its Undoing
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </nav>
+
+</main>
+</body>
+</html>
