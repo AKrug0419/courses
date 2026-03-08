@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primary & Secondary Sources — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --slate-light:#f0f6f9;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #E6C5B3;
+    --amber-dark: #5a3e35;
+    --amber-light:#fff8f4;
+    --pink:       #D8B5C5;
+    --pink-dark:  #4a2e3e;
+    --pink-light: #fdf2f6;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --transition: 0.22s ease;
+  }
+
+  html, body { min-height: 100%; width: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .page-wrap {
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 30px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    pointer-events: none;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .page-header .subtitle {
+    font-size: 14px;
+    color: var(--sage-dark);
+  }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 13px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sh-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .sh-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sh-amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+  .sh-dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
+  .sh-pink   { background: linear-gradient(135deg, var(--pink) 0%, #E8CED8 100%); color: var(--pink-dark); }
+
+  .section-body { padding: 24px 28px; }
+  @media (max-width: 480px) { .section-body { padding: 18px 16px; } }
+
+  /* ── VIDEO EMBED ── */
+  .video-wrap {
+    background: var(--sage-light);
+    border: 2px solid var(--sage);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .video-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sage-deep);
+  }
+  .video-body {
+    padding: 20px;
+    text-align: center;
+  }
+  .video-body p { font-size: 13px; color: var(--text-mid); margin-bottom: 14px; }
+  .video-body iframe { border-radius: 6px; border: none; max-width: 100%; }
+
+  /* ── REFLECTION BOXES ── */
+  .reflect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  @media (max-width: 640px) { .reflect-grid { grid-template-columns: 1fr; } }
+  .reflect-item {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .reflect-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sage-dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .reflect-item p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+  /* ── SOURCE TYPE COMPARISON ── */
+  .source-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  @media (max-width: 580px) { .source-compare { grid-template-columns: 1fr; } }
+
+  .source-box {
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .source-box-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .sb-primary { background: var(--slate-light); border: 2px solid var(--slate); }
+  .sb-primary .source-box-label { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sb-secondary { background: var(--amber-light); border: 2px solid var(--amber); }
+  .sb-secondary .source-box-label { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+
+  .source-detail {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+  .source-detail:first-of-type { margin-top: 0; }
+  .source-val { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 6px; }
+
+  .source-examples {
+    background: white;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+
+  /* ── PRIMARY SOURCES STORY CARDS ── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  @media (max-width: 620px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 400px) { .story-grid { grid-template-columns: 1fr; } }
+
+  .story-card {
+    background: var(--slate-light);
+    border: 2px solid var(--slate);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .story-card .story-label {
+    font-size: 12px;
+    color: var(--slate-dark);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .story-card .story-title {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--slate-dark);
+    font-weight: 600;
+  }
+
+  /* ── ACCEPTABLE SOURCES ── */
+  .acceptable-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  @media (max-width: 560px) { .acceptable-grid { grid-template-columns: 1fr; } }
+  .accept-box {
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .accept-box .accept-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .accept-box ul {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* ── SCHOLAR EXAMPLES ── */
+  .scholar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  @media (max-width: 600px) { .scholar-grid { grid-template-columns: 1fr 1fr; } }
+  .scholar-card {
+    background: var(--amber-light);
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .scholar-name { font-size: 13px; font-weight: 600; color: var(--amber-dark); margin-bottom: 3px; }
+  .scholar-inst { font-size: 11px; color: #7a5e55; line-height: 1.5; margin-bottom: 2px; }
+  .scholar-spec { font-size: 11px; color: #9a6e65; font-style: italic; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 16px;
+    margin: 14px 0 0;
+  }
+  .callout .callout-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 4px;
+  }
+  .callout p { font-size: 13px; color: #3a5e42; line-height: 1.7; margin: 0; }
+
+  .callout-amber {
+    border-left-color: var(--amber);
+    background: var(--amber-light);
+  }
+  .callout-amber .callout-label { color: var(--amber-dark); }
+  .callout-amber p { color: #7a5e55; }
+
+  /* ── PINNED BOX ── */
+  .pinned-box {
+    background: var(--amber-light);
+    border: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .pinned-box .pin-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .pinned-box .pin-title { font-size: 13px; font-weight: 600; color: var(--amber-dark); margin-bottom: 8px; }
+  .pinned-box p { font-size: 13px; color: #7a5545; line-height: 1.8; margin: 0; }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 26px 0; }
+
+  /* ── BODY TEXT ── */
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 12px; }
+  strong { color: var(--text); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.10s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.22s; }
+  .fade-in:nth-child(5) { animation-delay: 0.28s; }
+  .fade-in:nth-child(6) { animation-delay: 0.34s; }
+  .fade-in:nth-child(7) { animation-delay: 0.40s; }
+  .fade-in:nth-child(8) { animation-delay: 0.46s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Week 10 &bull; The Literary Research Essay</div>
+    <h1>Primary &amp; Secondary Sources: What's the Difference?</h1>
+    <p class="subtitle">Understanding the two kinds of sources you'll use in your Literary Research Essay</p>
+  </div>
+
+  <!-- SECTION 1: VIDEO -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">📖 Primary Sources vs. Secondary Sources</div>
+    <div class="section-body">
+      <p>One of the principal reasons most students are required to take ENC 1102 is to gain some basic experience with the different kinds of research sources they'll encounter in upper-level courses in their majors. With your Literary Research Essay, you'll be learning about <strong>primary sources</strong> and <strong>secondary sources</strong> — and you'll be incorporating both into your essay.</p>
+      <p style="margin-top:12px;">This brief video, produced by librarians at Hartness Library in Vermont, illustrates the difference between these two source types in a way that applies not only to our course but also to most academic fields:</p>
+      <div class="video-wrap" style="margin-top:18px;">
+        <div class="video-header">🎬 Watch: Primary Sources vs. Secondary Sources</div>
+        <div class="video-body">
+          <iframe title="Primary Sources vs Secondary Sources" src="https://www.youtube.com/embed/FZRxYfWYEBI?si=jLL3tfpXilA7zLU4" width="560" height="315" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+
+      <!-- REFLECTION PROMPTS -->
+      <div style="margin-top:22px;">
+        <p style="margin-bottom:4px; font-size:13px; font-weight:600; color:var(--text);">After Watching — Apply It to Your Essay</p>
+        <p style="font-size:13px; color:var(--text-mid); margin-bottom:0;">Before reading on, take a moment to connect what you just watched to your own assignment. These questions aren't graded — they're here to help you make the connection between the general concept and your specific essay.</p>
+        <div class="reflect-grid">
+          <div class="reflect-item">
+            <div class="reflect-num">① Identify Your Primary Source</div>
+            <p>Based on the video, what is your primary source for this essay? Name the specific short story you're writing about. Why does it qualify as a primary source rather than a secondary one?</p>
+          </div>
+          <div class="reflect-item">
+            <div class="reflect-num">② Predict Your Secondary Sources</div>
+            <p>Before reading the section below on secondary sources, try to predict: what kind of article or essay would count as a secondary source for your essay? Who might write it, and what would it be about?</p>
+          </div>
+          <div class="reflect-item">
+            <div class="reflect-num">③ Explain the Difference</div>
+            <p>In your own words, what is the core difference between a primary and secondary source? Try to explain it in one or two sentences without using the video's exact phrasing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 2: PRIMARY SOURCES -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-slate">📄 Primary Sources for ENC 1102</div>
+    <div class="section-body">
+      <p>Primary sources look different in each course you take — they're determined largely by the academic subject you're studying. For ENC 1102, <strong>primary sources are the works of literature you've studied this semester</strong>. Any work of art — a painting, photograph, film, song, poem, or short story — is considered a primary source in the field of literary or cultural studies.</p>
+      <p>Remember all of the quotes you included in the body paragraphs of your Literary Analysis Essay? Without knowing it, you were already quoting from a primary source. Your study question responses for each short story this semester? Also built around primary source evidence.</p>
+      <p>For your Literary Research Essay, your primary source is the short story you've selected to write about. You'll be quoting from it directly in each body paragraph — just as you did in your first essay, but now combined with secondary source evidence as well.</p>
+
+      <div style="margin-top:6px;">
+        <p style="font-size:13px; color:var(--slate-dark); font-weight:600; margin-bottom:2px;">Your Primary Source Options for This Essay</p>
+        <div class="story-grid">
+          <div class="story-card">
+            <div class="story-label">Zora Neale Hurston</div>
+            <div class="story-title">"Sweat"</div>
+          </div>
+          <div class="story-card">
+            <div class="story-label">Angela Carter</div>
+            <div class="story-title">"The Company of Wolves"</div>
+          </div>
+          <div class="story-card">
+            <div class="story-label">Philip Roth</div>
+            <div class="story-title">"The Conversion of the Jews"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 3: SECONDARY SOURCES -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-amber">🔍 Secondary Sources for ENC 1102</div>
+    <div class="section-body">
+      <p>For ENC 1102, secondary sources are <strong>essays and articles written by literary scholars</strong> — professors and published critics with expertise in literature and literary analysis. In their articles, they explain, analyze, or interpret the short story you're writing about. You'll use the insights and arguments of these experts as additional evidence to support your thesis and body paragraphs.</p>
+      <p>Unlike your first essay, you'll now be quoting not only from a primary source (the short story itself) but also from <strong>three secondary sources</strong>.</p>
+
+      <div class="pinned-box">
+        <div class="pin-icon">📌</div>
+        <div>
+          <div class="pin-title">What Counts as a Valid Secondary Source for This Essay</div>
+          <p>The scope of acceptable secondary sources is intentionally narrow. Your three secondary sources must be <strong>literary criticism focused specifically on the short story you are analyzing</strong> — scholarly articles that interpret, analyze, or argue something about the themes, characters, symbols, or narrative techniques of your chosen story.</p>
+          <div class="acceptable-grid" style="margin-top:14px;">
+            <div class="accept-box" style="background:var(--sage-light); border:2px solid var(--sage);">
+              <div class="accept-label" style="color:var(--sage-dark);">✅ Acceptable Secondary Sources</div>
+              <ul style="color:#3a5e42;">
+                <li>A scholarly article analyzing the themes, characters, or symbols of your chosen short story</li>
+                <li>An academic essay interpreting the narrative structure or literary techniques of your chosen story</li>
+                <li>A chapter from a literary criticism book focused on your story or its author</li>
+              </ul>
+            </div>
+            <div class="accept-box" style="background:var(--pink-light); border:2px solid var(--pink);">
+              <div class="accept-label" style="color:var(--pink-dark);">❌ Not Acceptable for This Essay</div>
+              <ul style="color:#6a4e5e;">
+                <li>Biographical articles about the author's life that don't analyze the story itself</li>
+                <li>Historical or cultural context essays not focused on literary analysis of your specific story</li>
+                <li>General encyclopedia or summary articles (Wikipedia, SparkNotes, Cliffs Notes)</li>
+                <li>Sources about a different work by the same author</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:18px;">To give you a sense of what these secondary sources look like and who writes them, here are examples of the kinds of scholars whose articles and essays you'll be finding — though it likely won't be these exact individuals:</p>
+
+      <div class="scholar-grid">
+        <div class="scholar-card">
+          <div class="scholar-name">Professor Valerie Boyd</div>
+          <div class="scholar-inst">University of Georgia</div>
+          <div class="scholar-spec">Zora Neale Hurston Scholar &amp; Biographer</div>
+        </div>
+        <div class="scholar-card">
+          <div class="scholar-name">Dr. Aidan Day</div>
+          <div class="scholar-inst">University of Edinburgh</div>
+          <div class="scholar-spec">Angela Carter Scholar</div>
+        </div>
+        <div class="scholar-card">
+          <div class="scholar-name">Dr. Debra Shostak</div>
+          <div class="scholar-inst">College of Wooster</div>
+          <div class="scholar-spec">Philip Roth Scholar</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:18px;">
+        <div class="callout-label">💡 Where You'll Find These Sources</div>
+        <p>You won't find valid secondary sources through a Google search. Your three secondary sources must come from <strong>Valencia College's academic library databases</strong> — specifically the literary criticism databases you'll learn to use on the next page. Articles found outside these databases will not be accepted.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION 4: AT A GLANCE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">📊 Primary vs. Secondary Sources — At a Glance</div>
+    <div class="section-body">
+      <p style="margin-bottom:18px;">Here's how both source types will work together in your Literary Research Essay:</p>
+      <div class="source-compare">
+
+        <div class="source-box sb-primary">
+          <div class="source-box-label">Primary Source</div>
+          <div class="source-detail">What it is</div>
+          <div class="source-val">The short story you are analyzing</div>
+          <div class="source-detail">How many</div>
+          <div class="source-val">One — the story you chose for your topic</div>
+          <div class="source-detail">How you use it</div>
+          <div class="source-val">Direct quotes from the text to support your analysis in each body paragraph — 2 to 3 quotes per paragraph</div>
+          <div class="source-examples">
+            📖 <em>"Sweat"</em> — Hurston<br>
+            📖 <em>"The Company of Wolves"</em> — Carter<br>
+            📖 <em>"The Conversion of the Jews"</em> — Roth
+          </div>
+        </div>
+
+        <div class="source-box sb-secondary">
+          <div class="source-box-label">Secondary Sources</div>
+          <div class="source-detail">What they are</div>
+          <div class="source-val">Scholarly articles or literary criticism written about your chosen story</div>
+          <div class="source-detail">How many</div>
+          <div class="source-val">Three — found through Valencia's academic databases</div>
+          <div class="source-detail">How you use them</div>
+          <div class="source-val">Quotes or paraphrases from expert scholars to support or enrich your own analysis — distributed as approximately 2 per body paragraph</div>
+          <div class="source-examples">
+            🎓 Literature professors<br>
+            🎓 Published literary critics<br>
+            🎓 Found in: <em>Literary Reference Center Plus</em>, <em>Literature Resource Center</em>, <em>JSTOR</em>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout" style="margin-top:18px;">
+        <div class="callout-label">🔖 What's New About This Essay</div>
+        <p>Your first essay this semester required only primary source quotes — you quoted from the story and analyzed those quotes yourself. Your Literary Research Essay adds a second layer: in addition to quoting the story, you'll also be bringing in what scholars have argued about it, and then using your own analysis to connect those scholarly insights to your argument. The essay still centers on your own argument — but now it's supported by both kinds of evidence.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>

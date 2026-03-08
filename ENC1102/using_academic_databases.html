@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Using Academic Databases — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --slate-light:#f0f6f9;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #E6C5B3;
+    --amber-dark: #5a3e35;
+    --amber-light:#fff8f4;
+    --pink:       #D8B5C5;
+    --pink-dark:  #4a2e3e;
+    --pink-light: #fdf2f6;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --transition: 0.22s ease;
+  }
+
+  html, body { min-height: 100%; width: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .page-wrap {
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 30px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    pointer-events: none;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .page-header .subtitle { font-size: 14px; color: var(--sage-dark); }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 13px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sh-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .sh-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sh-dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
+  .sh-amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+
+  .section-body { padding: 24px 28px; }
+  @media (max-width: 480px) { .section-body { padding: 18px 16px; } }
+
+  /* ── STEP ITEMS ── */
+  .step-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .step-row:last-child { margin-bottom: 0; }
+  .step-badge {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    color: var(--sage-deep);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 11px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .step-badge.slate {
+    background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%);
+    color: var(--slate-dark);
+  }
+  .step-row p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+  /* ── STEPS BOX ── */
+  .steps-box {
+    background: var(--sage-light);
+    border: 2px solid var(--sage);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .steps-box-label { font-size: 13px; color: var(--sage-dark); font-weight: 600; margin-bottom: 12px; }
+
+  .steps-box-slate {
+    background: var(--slate-light);
+    border-color: var(--slate);
+  }
+  .steps-box-slate .steps-box-label { color: var(--slate-dark); }
+
+  /* ── FIVE STAGES ── */
+  .stages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stage-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .stage-pill {
+    background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%);
+    color: var(--plum-dark);
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+  .stage-item p { font-size: 13px; color: var(--plum-dark); margin: 0; }
+
+  /* ── TWO-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── VIDEO EMBEDS ── */
+  .video-card {
+    background: var(--sage-light);
+    border: 2px solid var(--sage);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .video-card:last-child { margin-bottom: 0; }
+  .video-card-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    padding: 10px 16px;
+  }
+  .video-card-header .vc-title { font-size: 13px; font-weight: 600; color: var(--sage-deep); margin-bottom: 2px; }
+  .video-card-header .vc-sub { font-size: 11px; color: var(--sage-dark); }
+  .video-card-body { padding: 16px; text-align: center; }
+  .video-card-body iframe { border-radius: 4px; border: none; max-width: 100%; display: block; margin: 0 auto; }
+
+  /* ── TIP CARDS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 720px) { .tips-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 420px) { .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .tip-card .tip-icon { font-size: 18px; margin-bottom: 6px; }
+  .tip-card .tip-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .tip-card p { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin: 0; }
+  .tip-card ul { margin: 0; padding-left: 14px; font-size: 12px; color: var(--text-mid); line-height: 1.8; }
+
+  /* ── SEARCH EXAMPLES ── */
+  .search-example {
+    background: white;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+  .search-example .ex-label { font-size: 11px; color: #aaa; margin-bottom: 4px; display: block; }
+  .search-example em { font-style: italic; color: #333; }
+
+  /* ── QUICK CHECK ── */
+  .quick-check {
+    background: var(--amber-light);
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 16px;
+  }
+  .quick-check .qc-label { font-size: 13px; color: var(--amber-dark); font-weight: 600; margin-bottom: 10px; }
+  .check-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .check-pill {
+    background: white;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    flex: 1;
+    min-width: 180px;
+  }
+  .check-pill .yes { color: var(--sage-dark); }
+  .check-pill .no { color: #c0392b; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+  }
+  .callout .callout-label { font-size: 12px; font-weight: 600; color: var(--sage-dark); margin-bottom: 4px; }
+  .callout p { font-size: 13px; color: #3a5e42; line-height: 1.7; margin: 0; }
+
+  /* ── PLUM BOX ── */
+  .plum-box {
+    background: var(--plum-light);
+    border: 2px solid var(--plum);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .plum-box .pb-label { font-size: 13px; font-weight: 600; color: var(--plum-dark); margin-bottom: 10px; }
+  .plum-box p { font-size: 13px; color: #5e4e7a; line-height: 1.7; margin: 0; }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 26px 0; }
+
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 10px; }
+  strong { color: var(--text); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.10s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.22s; }
+  .fade-in:nth-child(5) { animation-delay: 0.28s; }
+  .fade-in:nth-child(6) { animation-delay: 0.34s; }
+  .fade-in:nth-child(7) { animation-delay: 0.40s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Week 10 &bull; The Literary Research Essay</div>
+    <h1>Using Academic Databases for Literary Research</h1>
+    <p class="subtitle">How to find the three secondary sources required for your Literary Research Essay</p>
+  </div>
+
+  <!-- STEP ONE: ORIENT -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">🗺️ Step One: Get Oriented — ENC 1102 Research Process Overview</div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <p>A team of Valencia College librarians and English faculty created an overview of conducting research specifically for ENC 1102 students. It's available through the <em>Valencia Reader</em> and will help you understand the difference between general internet research and the kind of academic database research you'll be doing for this essay.</p>
+          <p style="margin-top:12px;"><strong>Note:</strong> You may need your MyVC login username and password to access it.</p>
+
+          <div class="steps-box" style="margin-top:16px;">
+            <div class="steps-box-label">📋 How to Access the Research Overview</div>
+            <div class="step-row">
+              <span class="step-badge">1</span>
+              <p>Click this link: <a href="https://libguides.valenciacollege.edu/valencia_reader" target="_blank" rel="noopener" style="color:var(--sage-dark); font-weight:500;"><em>Valencia Reader</em> ↗</a></p>
+            </div>
+            <div class="step-row">
+              <span class="step-badge">2</span>
+              <p>If prompted, log in using your MyVC username and password.</p>
+            </div>
+            <div class="step-row">
+              <span class="step-badge">3</span>
+              <p>In the Table of Contents at the top of the screen, click <strong>Literary Databases</strong>.</p>
+            </div>
+            <div class="step-row">
+              <span class="step-badge">4</span>
+              <p>The overview takes you through five stages of the research process — shown on the right.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="plum-box">
+            <div class="pb-label">The Five Stages of the Research Overview</div>
+            <div class="stages-list">
+              <div class="stage-item"><span class="stage-pill">Stage 1</span><p>Where do I start?</p></div>
+              <div class="stage-item"><span class="stage-pill">Stage 2</span><p>What sources do I need?</p></div>
+              <div class="stage-item"><span class="stage-pill">Stage 3</span><p>How do I find sources?</p></div>
+              <div class="stage-item"><span class="stage-pill">Stage 4</span><p>How do I pick sources?</p></div>
+              <div class="stage-item"><span class="stage-pill">Stage 5</span><p>How do I cite sources?</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- STEP TWO: ACCESS DATABASES -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-slate">🔓 Step Two: Access the Library Databases Through Canvas</div>
+    <div class="section-body">
+      <p>Follow these steps to reach Valencia's academic databases from within Canvas:</p>
+
+      <div class="steps-box steps-box-slate" style="margin-top:16px;">
+        <div class="steps-box-label" style="color:var(--slate-dark);">Steps 1–5: Navigating to the Literary Databases</div>
+        <div class="step-row">
+          <span class="step-badge slate">1</span>
+          <p>Click on <strong>Library</strong> in the left Navigation Menu in Canvas.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-badge slate">2</span>
+          <p>Click <strong>Open in New Tab</strong>. If you're taken to the MyVC login page, log in to MyVC first.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-badge slate">3</span>
+          <p>At the top of the Library page, click <strong>Databases A-Z</strong>.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-badge slate">4</span>
+          <p>Click the <strong>"All Subjects"</strong> drop-down box.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-badge slate">5</span>
+          <p>From the subject list, select <strong>"Literature"</strong>. The databases now displayed are Valencia's literary criticism databases — browse these to find your three secondary sources.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:4px;">
+        <div class="callout-label">💡 You're Looking for the Literature Subject</div>
+        <p>Since you're writing a literary analysis essay, all of your secondary sources will come from the <strong>Literature</strong> subject databases — not Arts &amp; Humanities or any other subject category. The key databases to look for include <em>Literary Reference Center Plus</em>, <em>Literature Resource Center</em>, and <em>JSTOR</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- STEP THREE: SEARCH TIPS -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-dark">💡 Step Three: Search Smarter — Tips Before You Start</div>
+    <div class="section-body">
+      <p>Before you start clicking through databases, spend two minutes thinking about how you'll search. Academic databases reward specific, well-constructed searches. The strategies below will help you find usable results faster and avoid the frustration of hundreds of irrelevant results — or none at all.</p>
+
+      <div class="tips-grid" style="margin-top:18px;">
+        <div class="tip-card">
+          <div class="tip-icon">🔑</div>
+          <div class="tip-title">Use Specific Search Terms</div>
+          <p>Always search using <strong>both the author's last name and the title of the story</strong>. This narrows the results to scholarship about your specific work.</p>
+          <div class="search-example">
+            <span class="ex-label">Example searches:</span>
+            <em>"Hurston" + "Sweat"</em><br>
+            <em>"Carter" + "Company of Wolves"</em><br>
+            <em>"Roth" + "Conversion of the Jews"</em>
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🚫</div>
+          <div class="tip-title">Avoid These Mistakes</div>
+          <p>Broad searches return too many results; overly narrow searches return none.</p>
+          <ul>
+            <li>Searching only a genre term like "short story analysis"</li>
+            <li>Searching the author's name alone without the title</li>
+            <li>Searching complete sentences or questions</li>
+            <li>Using Google instead of the library databases</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">✅</div>
+          <div class="tip-title">What a Good Source Looks Like</div>
+          <p>Once you find a result, quickly scan it before reading the whole thing:</p>
+          <ul>
+            <li>It <strong>analyzes or interprets</strong> your specific story — not just summarizes it</li>
+            <li>It's written by a <strong>scholar or critic</strong>, not a student</li>
+            <li>It appears in an <strong>academic journal</strong> or reputable publication</li>
+            <li>The abstract mentions your story and makes an argument about it</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📚</div>
+          <div class="tip-title">Don't Forget eBooks</div>
+          <p>The library also provides access to <strong>eBooks</strong> — books available electronically on your computer. These can be used as secondary sources for literary criticism of your chosen story.</p>
+          <div style="background:var(--sage-light); border-radius:6px; padding:8px 10px; margin-top:8px; font-size:11px; color:#3a5e42; line-height:1.65;">Access eBooks using the <strong>eBook links</strong> in the Literature Database list, or search the library's homepage directly.</div>
+        </div>
+      </div>
+
+      <div class="quick-check">
+        <div class="qc-label">⚡ Quick Check: Is This Source Acceptable for My Essay?</div>
+        <div class="check-pills">
+          <div class="check-pill"><span class="yes">✅ Yes</span> — It interprets or analyzes the specific short story I'm writing about</div>
+          <div class="check-pill"><span class="yes">✅ Yes</span> — It's published in an academic journal or by a university press</div>
+          <div class="check-pill"><span class="no">❌ No</span> — It's mainly a biography or life history of the author, not an analysis of the story</div>
+          <div class="check-pill"><span class="no">❌ No</span> — It's a general internet article, a plot summary, or a Wikipedia-style entry</div>
+          <div class="check-pill"><span class="no">❌ No</span> — It's about a different work by the same author, not the story I'm analyzing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- STEP FOUR: DATABASE DEMONSTRATIONS -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">📖 Step Four: Locating Secondary Sources — Database Demonstrations</div>
+    <div class="section-body">
+      <p>The videos below were created specifically for this course and demonstrate how to search Valencia's literary criticism databases. There are two demonstrations — one for Roth's "The Conversion of the Jews" and one for Hurston's "Sweat" — each using a different database. Watch both to see how the process works across the databases you'll be using, even if you're writing about Carter's story.</p>
+      <p style="margin-top:10px;">The search process is identical regardless of which story you're writing about — only the search terms change.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;">
+        <div class="video-card">
+          <div class="video-card-header">
+            <div class="vc-title">Philip Roth's "The Conversion of the Jews"</div>
+            <div class="vc-sub">Database: Literary Reference Center Plus</div>
+          </div>
+          <div class="video-card-body">
+            <iframe src="https://www.youtube.com/embed/mLJaKiYTvXk" width="100%" height="240" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-card-header">
+            <div class="vc-title">Zora Neale Hurston's "Sweat"</div>
+            <div class="vc-sub">Database: Literature Resource Center</div>
+          </div>
+          <div class="video-card-body">
+            <iframe src="https://www.youtube.com/embed/V7XYlfqw4H8" width="100%" height="240" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:18px;">
+        <div class="callout-label">🔖 Writing About Carter's "The Company of Wolves"?</div>
+        <p>Search using <em>"Carter" + "Company of Wolves"</em> in the same literary databases shown above. Carter is widely studied and you will find multiple scholarly articles about her work and about <em>The Bloody Chamber</em> collection in both <em>Literary Reference Center Plus</em> and <em>Literature Resource Center</em>. The search process is identical to what's demonstrated in the videos.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>

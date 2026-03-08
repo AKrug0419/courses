@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Assignment — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --slate-light:#f0f6f9;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #E6C5B3;
+    --amber-dark: #5a3e35;
+    --amber-light:#fff8f4;
+    --pink:       #D8B5C5;
+    --pink-dark:  #4a2e3e;
+    --warm:       #c8c4c0;
+    --warm-dark:  #3a3836;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --transition: 0.22s ease;
+  }
+
+  html, body { min-height: 100%; width: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .page-wrap {
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 30px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    pointer-events: none;
+  }
+  .page-header .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 8px; }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .page-header .meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .meta-pill {
+    background: rgba(255,255,255,0.35);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sage-deep);
+  }
+
+  /* ── QUICK STATS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 360px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat-tile { border-radius: 8px; padding: 16px 14px; }
+  .stat-tile .stat-icon { font-size: 20px; margin-bottom: 5px; }
+  .stat-tile .stat-label { font-size: 10px; font-weight: 600; margin-bottom: 3px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .stat-tile .stat-value { font-size: 12px; line-height: 1.55; }
+  .st-green { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .st-slate { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .st-amber { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+  .st-pink  { background: linear-gradient(135deg, var(--pink) 0%, #E8CED8 100%); color: var(--pink-dark); }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 13px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sh-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .sh-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sh-amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
+  .sh-warm   { background: linear-gradient(135deg, var(--warm) 0%, #d8d4d0 100%); color: var(--warm-dark); }
+
+  .section-body { padding: 24px 28px; }
+  @media (max-width: 480px) { .section-body { padding: 18px 16px; } }
+
+  /* ── OUTCOMES ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  @media (max-width: 560px) { .outcomes-grid { grid-template-columns: 1fr; } }
+  .outcome-item {
+    background: var(--sage-light);
+    border-left: 4px solid var(--sage);
+    border-radius: 0 6px 6px 0;
+    padding: 11px 14px;
+    font-size: 13px;
+    color: #3a5e42;
+    line-height: 1.65;
+  }
+
+  /* ── STEP ITEMS ── */
+  .steps { display: flex; flex-direction: column; gap: 22px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-badge {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    color: var(--sage-deep);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; min-width: 0; }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+  }
+  .callout .callout-label { font-size: 12px; font-weight: 600; color: var(--sage-dark); margin-bottom: 4px; }
+  .callout p { font-size: 13px; color: #3a5e42; line-height: 1.7; margin: 0; }
+
+  .callout-amber { border-left-color: var(--amber); background: var(--amber-light); }
+  .callout-amber .callout-label { color: var(--amber-dark); }
+  .callout-amber p { color: #7a5e55; }
+
+  /* ── TEMPLATE CARD ── */
+  .template-card {
+    background: var(--sage-light);
+    border: 2px solid var(--sage);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  .template-card-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sage-deep);
+  }
+  .template-card-body { padding: 16px 20px; display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  .template-card-body p { font-size: 13px; color: #3a5e42; line-height: 1.75; margin: 0; flex: 1; min-width: 200px; }
+  .template-dl {
+    display: inline-block;
+    background: var(--sage-dark);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background var(--transition);
+  }
+  .template-dl:hover { background: var(--sage-deep); }
+
+  /* ── VIDEO ── */
+  .video-wrap {
+    background: var(--slate-light);
+    border: 2px solid var(--slate);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  .video-header {
+    background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%);
+    padding: 10px 18px;
+  }
+  .video-header .vh-title { font-size: 13px; font-weight: 600; color: var(--slate-dark); margin-bottom: 2px; }
+  .video-header .vh-sub { font-size: 11px; color: #5e6e7a; }
+  .video-body { padding: 20px; text-align: center; }
+  .video-body p { font-size: 13px; color: var(--text-mid); margin-bottom: 14px; }
+  .video-body iframe { border-radius: 6px; border: none; max-width: 100%; }
+
+  /* ── EVALUATION ── */
+  .eval-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 540px) { .eval-grid { grid-template-columns: 1fr; } }
+  .eval-box { border-radius: 8px; padding: 16px 18px; }
+  .eval-label { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+  .eval-box p { font-size: 13px; line-height: 1.7; margin: 0; }
+
+  /* ── INTEGRITY ── */
+  .integrity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 520px) { .integrity-grid { grid-template-columns: 1fr; } }
+  .int-box {
+    background: #f5f5f4;
+    border-left: 4px solid var(--warm);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 15px;
+  }
+  .int-box .int-label { font-size: 12px; font-weight: 600; color: var(--warm-dark); margin-bottom: 5px; }
+  .int-box p { font-size: 13px; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  /* ── AI POLICY ── */
+  .ai-wrap {
+    background: var(--amber-light);
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 14px;
+  }
+  .ai-header {
+    background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%);
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--amber-dark);
+  }
+  .ai-body { padding: 14px 18px; }
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 560px) { .ai-grid { grid-template-columns: 1fr; } }
+  .ai-item { background: white; border-radius: 6px; padding: 11px 13px; }
+  .ai-item .ai-label { font-size: 11px; font-weight: 600; color: var(--amber-dark); margin-bottom: 5px; }
+  .ai-item p { font-size: 12px; color: #7a5e55; line-height: 1.65; margin: 0; }
+  .ai-canvas { background: white; border-radius: 6px; padding: 11px 14px; }
+  .ai-canvas .ai-label { font-size: 11px; font-weight: 600; color: var(--amber-dark); margin-bottom: 4px; }
+  .ai-canvas p { font-size: 12px; color: #7a5e55; line-height: 1.65; margin: 0; }
+
+  /* ── SUMMARY TILES ── */
+  .summary-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 600px) { .summary-row { grid-template-columns: 1fr 1fr; } }
+  .sum-tile { border-radius: 8px; padding: 16px 16px; }
+  .sum-tile .sum-icon { font-size: 18px; margin-bottom: 5px; }
+  .sum-tile .sum-label { font-size: 11px; font-weight: 600; margin-bottom: 4px; letter-spacing: 0.03em; }
+  .sum-tile p { font-size: 12px; line-height: 1.6; margin: 0; }
+  .sum-tile a { text-decoration: none; font-weight: 500; }
+
+  /* ── SUPPORT ── */
+  .support-row { font-size: 13px; color: var(--text-mid); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .support-row a { color: var(--sage-dark); text-decoration: none; font-weight: 500; }
+  .support-row a:hover { text-decoration: underline; }
+  .support-sep { color: #ccc; margin: 0 8px; }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 26px 0; }
+
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 10px; }
+  strong { color: var(--text); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.10s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.22s; }
+  .fade-in:nth-child(5) { animation-delay: 0.28s; }
+  .fade-in:nth-child(6) { animation-delay: 0.34s; }
+  .fade-in:nth-child(7) { animation-delay: 0.40s; }
+  .fade-in:nth-child(8) { animation-delay: 0.46s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Week 10 &bull; The Literary Research Essay</div>
+    <h1>Literary Research Essay: Research Assignment</h1>
+    <div class="meta">
+      <span class="meta-pill">📋 Assignment</span>
+      <span class="meta-pill">50 Points</span>
+      <span class="meta-pill">2-Day Grace Period</span>
+    </div>
+  </div>
+
+  <!-- QUICK STATS -->
+  <div class="stats-row fade-in">
+    <div class="stat-tile st-green">
+      <div class="stat-icon">🔍</div>
+      <div class="stat-label">What You'll Do</div>
+      <div class="stat-value">Locate three scholarly secondary sources using Valencia's academic databases</div>
+    </div>
+    <div class="stat-tile st-slate">
+      <div class="stat-icon">📄</div>
+      <div class="stat-label">What You'll Submit</div>
+      <div class="stat-value">Completed Secondary Sources Template in .docx or .doc format</div>
+    </div>
+    <div class="stat-tile st-amber">
+      <div class="stat-icon">🌟</div>
+      <div class="stat-label">Points</div>
+      <div class="stat-value">50 homework points &bull; Formative assessment</div>
+    </div>
+    <div class="stat-tile st-pink">
+      <div class="stat-icon">🕐</div>
+      <div class="stat-label">Grace Period</div>
+      <div class="stat-value">2 days after due date for full credit</div>
+    </div>
+  </div>
+
+  <!-- LEARNING OUTCOMES -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">🎯 Learning Outcomes</div>
+    <div class="section-body">
+      <div class="outcomes-grid">
+        <div class="outcome-item">Document sources in accordance with MLA documentation style</div>
+        <div class="outcome-item">Demonstrate information literacy by locating credible academic sources</div>
+        <div class="outcome-item">Use academic databases to locate relevant secondary sources for a research essay</div>
+        <div class="outcome-item">Use the Citation Tool in databases to collect required bibliographic information</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ASSIGNMENT INSTRUCTIONS -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-slate">📝 Assignment Instructions</div>
+    <div class="section-body">
+      <p>If you haven't yet reviewed the database demonstration videos on the previous page — <a href="using_academic_databases.html" style="color:var(--sage-dark); font-weight:500;">Using Academic Databases for Literary Research</a> — please stop now and complete that page first. The steps shown in this assignment will not make sense without that foundation.</p>
+      <p style="margin-top:12px;">Once you've reviewed the demonstration videos, complete the three steps below in order:</p>
+
+      <div class="steps" style="margin-top:22px;">
+
+        <!-- STEP 1 -->
+        <div class="step">
+          <div class="step-badge">Step 1</div>
+          <div class="step-content">
+            <div class="step-title">Locate three secondary sources using Valencia's academic databases</div>
+            <p>Using Valencia's literary criticism databases, locate <strong>three secondary sources</strong> related to the short story you've chosen to write about. Your sources must come from the college's library databases — not the open internet.</p>
+            <p style="margin-top:8px;">Remember: your sources must be scholarly articles or criticism that <strong>analyzes or interprets</strong> your specific short story — not biographical articles about the author, plot summaries, or articles about different works.</p>
+            <div class="callout callout-amber" style="margin-top:10px;">
+              <div class="callout-label">⚠️ Use the Databases — Not Google</div>
+              <p>Do not search Google or any general internet site for your secondary sources. Articles found outside the college's academic databases will not be accepted, and you will need to redo the assignment. The demonstration videos on the Using Academic Databases page show you exactly where and how to search.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step">
+          <div class="step-badge">Step 2</div>
+          <div class="step-content">
+            <div class="step-title">Collect bibliographic information using the Citation Tool</div>
+            <p>In order to cite your secondary sources in the essay and list them on your Works Cited page, you'll need accurate bibliographic information for each one. Using the <strong>Citation Tool</strong> built into each database, locate the required information for all three sources and record it on the <strong>Secondary Sources Template</strong> exactly as demonstrated in the video below.</p>
+
+            <div class="template-card">
+              <div class="template-card-header">📄 Secondary Sources Template</div>
+              <div class="template-card-body">
+                <p>Download the Secondary Sources Template and fill it in with the required bibliographic information for each of your three secondary sources, using the database's Citation Tool as shown in the demonstration video below. You will upload the completed template to Canvas as your submission for this assignment.</p>
+                <a href="#" class="template-dl">Download Template ↗</a>
+              </div>
+            </div>
+
+            <div class="video-wrap">
+              <div class="video-header">
+                <div class="vh-title">🎬 Watch Before You Start</div>
+                <div class="vh-sub">Video Demonstration: How to Complete the Research Assignment</div>
+              </div>
+              <div class="video-body">
+                <p>This video walks through the full process of locating secondary sources in the databases, using the Citation Tool, and filling out the template. Review the database demonstration videos on the previous page before watching this one — otherwise the steps shown here may not make sense yet.</p>
+                <iframe src="https://www.youtube.com/embed/vTklu0HMaYg" width="560" height="315" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              </div>
+            </div>
+
+            <div class="support-row">
+              <strong>Support Resources:</strong>
+              <span class="support-sep">|</span>
+              <a href="https://valenciacollege.edu/students/learning-support/" target="_blank" rel="noopener">Learning Support</a>
+              <span class="support-sep">&bull;</span>
+              <a href="https://valenciacollege.edu/students/learning-support/writing-consultations.php" target="_blank" rel="noopener">Writing Centers</a>
+              <span class="support-sep">&bull;</span>
+              <a href="https://valenciacollege.edu/students/library/services/research-help-information.php" target="_blank" rel="noopener">Library Research Help</a>
+              <span class="support-sep">&bull;</span>
+              <a href="https://valenciacollege.edu/students/library/mla-apa-chicago-guides/" target="_blank" rel="noopener">MLA Documentation Help</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step">
+          <div class="step-badge">Step 3</div>
+          <div class="step-content">
+            <div class="step-title">Upload your completed template to Canvas</div>
+            <p>Once you've filled in the Secondary Sources Template with bibliographic information for all three sources, upload the completed document to Canvas using the Submit Assignment button above. Submit in <strong>.docx or .doc</strong> format.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- EVALUATION -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">📋 Evaluation</div>
+    <div class="section-body">
+      <div class="eval-grid">
+        <div class="eval-box" style="background:var(--sage-light); border:2px solid var(--sage);">
+          <div class="eval-label" style="color:var(--sage-deep);">📋 How This Is Graded</div>
+          <p style="color:#3a5e42;">There is no rubric for this assignment. Your submission will be reviewed to confirm that you have three credible secondary sources from Valencia's academic databases, along with all of the required bibliographic information requested on the Secondary Sources Template. Any missing or inaccurate information will be noted directly on your document when it is assessed.</p>
+        </div>
+        <div class="eval-box" style="background:var(--slate-light); border:2px solid var(--slate);">
+          <div class="eval-label" style="color:var(--slate-dark);">💡 Formative Assessment</div>
+          <p style="color:#4e5e6a;">This is a formative assessment: as long as you complete the assignment with three sources from the college databases, you'll receive full credit. If there are any concerns — a source that doesn't qualify, missing citation fields, or a source that strays outside the acceptable scope — feedback and suggestions will be provided directly on your template.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ACADEMIC INTEGRITY -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-warm">⚖️ Academic Integrity</div>
+    <div class="section-body">
+      <p style="margin-bottom:16px;">Valencia College is dedicated to engaging in intellectual activity and maintaining academic standards that include a shared commitment to transparency, integrity, and creating the right conditions for learning. All work submitted must reflect your own original research and reading. <a href="https://valenciacollege.edu/about/general-counsel/policy/documents/volume8/8-11-academic-integrity.pdf" target="_blank" rel="noopener" style="color:var(--warm-dark); font-weight:500;">Valencia Policy 6Hx28:8-11: Academic Dishonesty ↗</a></p>
+
+      <div class="integrity-grid">
+        <div class="int-box">
+          <div class="int-label">Original Work</div>
+          <p>The sources you submit must be ones you located yourself through the college's databases. Submitting sources found by someone else or generated by AI constitutes a violation of academic integrity.</p>
+        </div>
+        <div class="int-box">
+          <div class="int-label">Consequences</div>
+          <p>Violations may result in a zero for this assignment. Students have one week to respond to any allegation of academic dishonesty before a penalty is assigned.</p>
+        </div>
+      </div>
+
+      <div class="ai-wrap">
+        <div class="ai-header">🤖 AI &amp; Technology Policy for This Assignment</div>
+        <div class="ai-body">
+          <div class="ai-grid">
+            <div class="ai-item">
+              <div class="ai-label">✅ Grammarly — Permitted (with limits)</div>
+              <p>You may use Grammarly to identify grammar and punctuation errors only. Use the <strong>"Correction"</strong> option only — do not use "Clarity," "Engagement," or "Delivery," as these rewrite your sentences and constitute a violation.</p>
+            </div>
+            <div class="ai-item">
+              <div class="ai-label">❌ AI Generators — Not Permitted</div>
+              <p>Do not use ChatGPT, Gemini, or similar tools to locate sources, generate citation information, or complete any part of the template. AI tools cannot reliably produce accurate bibliographic data and their use here violates academic integrity.</p>
+            </div>
+            <div class="ai-item">
+              <div class="ai-label">❌ Fabricated Citations — Not Permitted</div>
+              <p>The bibliographic information on your template must be drawn directly from the database Citation Tool — not guessed at or invented. Inaccurate citation information will require you to locate the correct information and resubmit.</p>
+            </div>
+          </div>
+          <div class="ai-canvas">
+            <div class="ai-label">🔍 Canvas AI Report</div>
+            <p>Your instructor has access to Canvas's AI Report feature (separate from Turnitin). If your submission generates a flag, you will be asked to redo the assignment — in part or in whole — depending on what the report identifies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SUMMARY TILES -->
+  <div class="summary-row fade-in">
+    <div class="sum-tile st-green">
+      <div class="sum-icon">🏁</div>
+      <div class="sum-label">Points</div>
+      <p>This assignment is worth a possible <strong>50 homework points</strong>.</p>
+    </div>
+    <div class="sum-tile st-slate">
+      <div class="sum-icon">📤</div>
+      <div class="sum-label">Submission</div>
+      <p>Upload your completed <strong>Secondary Sources Template</strong> in <strong>.docx or .doc</strong> format using the Submit Assignment button above.</p>
+    </div>
+    <div class="sum-tile st-amber">
+      <div class="sum-icon">📅</div>
+      <div class="sum-label">Grace Period</div>
+      <p>You have <strong>two days</strong> after the due date to submit for full credit.</p>
+    </div>
+    <div class="sum-tile" style="background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark);">
+      <div class="sum-icon">🔗</div>
+      <div class="sum-label">Resources</div>
+      <p><a href="using_academic_databases.html" style="color:var(--plum-dark);">Using Academic Databases</a><br>
+         <a href="https://libguides.valenciacollege.edu/valencia_reader" target="_blank" rel="noopener" style="color:var(--plum-dark);">Valencia Reader ↗</a><br>
+         <a href="#" style="color:var(--plum-dark);">Secondary Sources Template</a>
+      </p>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>
