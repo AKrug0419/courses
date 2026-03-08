@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Literary Research Essay — Final Draft Assignment — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --plum:#B8A8D0;--plum-dark:#3e2e5a;--plum-light:#f7f4fc;--plum-mid:#D0C5E0;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --pink:#D8B5C5;--pink-dark:#4a2e3e;--pink-light:#fdf2f6;--pink-mid:#E8CED8;
+  --warm:#c8c4c0;--warm-dark:#3a3836;--warm-light:#f5f5f4;--warm-mid:#d8d4d0;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1060px;margin:0 auto;padding:32px 16px 60px;}
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow);}
+.card-head{padding:13px 24px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-dark{background:linear-gradient(135deg,#222 0%,#444 100%);color:#fff;}
+.ch-amber{background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);}
+.ch-slate{background:linear-gradient(135deg,var(--slate) 0%,var(--slate-mid) 100%);color:var(--slate-dark);}
+.ch-warm{background:linear-gradient(135deg,var(--warm) 0%,var(--warm-mid) 100%);color:var(--warm-dark);}
+.ch-pink{background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);}
+.card-body{padding:24px 28px;}
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+hr{border:0;border-top:2px solid var(--border);margin:24px 0;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:640px){.three-col,.two-col{grid-template-columns:1fr;}}
+
+/* TOPIC CARDS */
+.topic-card{background:var(--white);border-radius:8px;overflow:hidden;border-width:2px;border-style:solid;}
+.tc-head{padding:10px 16px;border-radius:6px;margin-bottom:12px;}
+.tc-label{font-size:11px;margin-bottom:2px;}
+.tc-title{font-size:13px;font-weight:600;}
+.topic-card .card-body-inner{padding:16px 18px;}
+.topic-card p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.topic-card p+p{margin-top:7px;}
+.topic-hint{border-radius:5px;padding:7px 11px;font-size:12px;line-height:1.6;margin-top:10px;}
+
+/* REQUIREMENTS GRID */
+.req-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+@media(max-width:640px){.req-grid{grid-template-columns:1fr 1fr;}}
+.req-card{background:var(--slate-light);border:2px solid var(--slate);border-radius:8px;padding:14px 16px;}
+.req-card h3{font-size:13px;font-weight:700;color:var(--slate-dark);margin-bottom:8px;}
+.req-card p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.req-card ul{margin:0;padding-left:16px;font-size:13px;color:#444;line-height:1.9;}
+
+/* EVIDENCE BOXES */
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+@media(max-width:520px){.ev-grid{grid-template-columns:1fr;}}
+.ev-box{border-radius:8px;padding:14px 16px;}
+.ev-box h3{font-size:13px;font-weight:700;margin-bottom:7px;}
+.ev-box p{font-size:13px;line-height:1.7;margin:0;}
+
+/* OUTCOME BULLETS */
+.outcome-list{margin:0;padding-left:18px;font-size:14px;color:#444;line-height:2.1;}
+
+/* GRACE / SUBMISSION STRIP */
+.info-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:0;}
+@media(max-width:580px){.info-strip{grid-template-columns:1fr;}}
+.is-card{border-radius:8px;padding:16px 18px;}
+.is-label{font-size:12px;font-weight:700;margin-bottom:6px;}
+.is-card p{font-size:13px;line-height:1.7;margin:0;}
+
+/* AI / INTEGRITY ITEMS */
+.ai-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+@media(max-width:500px){.ai-items{grid-template-columns:1fr;}}
+.ai-item{background:#fafafa;border-radius:5px;padding:9px 12px;font-size:12px;color:#555;line-height:1.6;}
+
+/* ROUGH DRAFT BOX */
+.rd-box{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:14px 20px;margin-top:14px;}
+
+/* VIDEO BOX */
+.vid-box{background:var(--slate-light);border:2px solid var(--slate);border-radius:8px;overflow:hidden;margin-top:14px;}
+.vid-head{background:linear-gradient(135deg,var(--slate),var(--slate-mid));padding:10px 18px;font-size:13px;font-weight:600;color:var(--slate-dark);}
+.vid-body{padding:18px;text-align:center;}
+.vid-body iframe{border:none;border-radius:4px;max-width:100%;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.10s}
+.fade:nth-child(3){animation-delay:.16s}.fade:nth-child(4){animation-delay:.22s}
+.fade:nth-child(5){animation-delay:.28s}.fade:nth-child(6){animation-delay:.34s}
+.fade:nth-child(7){animation-delay:.40s}.fade:nth-child(8){animation-delay:.46s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="page-header fade">
+  <div class="eyebrow">Week 11 &bull; The Literary Research Essay &nbsp;&bull;&nbsp; Major Essay &nbsp;&bull;&nbsp; 25% of Course Grade</div>
+  <h1>The Literary Research Essay — Final Draft</h1>
+  <p class="subtitle">Instructions, requirements, and submission details for the final draft of your research essay</p>
+</div>
+
+<!-- LEARNING OUTCOMES -->
+<div class="card fade">
+  <div class="card-head ch-sage">🎯 Learning Outcomes</div>
+  <div class="card-body">
+    <ul class="outcome-list">
+      <li>Write an academic essay that integrates primary and secondary sources using the MLA Documentation system</li>
+      <li>Use academic databases to locate relevant secondary sources</li>
+      <li>Plan, write, revise, edit, and proofread an academic essay with an introduction, body paragraphs, conclusion, and Works Cited</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<div class="card fade">
+  <div class="card-head ch-dark">📝 Essay Topics — Select One</div>
+  <div class="card-body">
+    <p style="margin-bottom:18px;">Select one of the three topics below. Your essay must be about the story listed for your chosen topic — no substitutions. If you wrote your first essay about one of these stories, select a <strong>different</strong> story for this assignment; you may not re-use your earlier essay.</p>
+    <div class="three-col">
+
+      <!-- TOPIC 1: ROTH -->
+      <div class="topic-card" style="border-color:#A8C5B0;">
+        <div class="card-body-inner">
+          <div class="tc-head" style="background:linear-gradient(135deg,var(--sage),var(--sage-mid));">
+            <div class="tc-label" style="color:var(--sage-deep);">Topic One — Literary Characters &amp; Conflicts</div>
+            <div class="tc-title" style="color:var(--sage-deep);">Philip Roth — "The Conversion of the Jews"</div>
+          </div>
+          <p>Analyze Ozzie's internal and external conflicts and how he teaches his mother and rabbi an important lesson at the end of the story.</p>
+          <p><strong>First,</strong> identify and explain Ozzie's internal, philosophical conflict over the issue of Mary's conceiving of Jesus. Address Judaism's, Christianity's, and Ozzie's own position on this topic (via the story's opening scene with Itzie).</p>
+          <p><strong>Next,</strong> identify and explain Ozzie's external conflicts with his mother and Rabbi. Both physically strike Ozzie — is their behavior justified? Why?</p>
+          <p><strong>Finally,</strong> carefully interpret the story's rooftop ending where Ozzie metaphorically "converts" everyone. What might Ozzie's real purpose be in what he tells his mother and rabbi?</p>
+          <div class="topic-hint" style="background:var(--sage-light);color:var(--sage-dark);">📖 Include 2–3 brief, direct quotes from the story in each body paragraph.</div>
+          <div class="topic-hint" style="background:#e4f2e6;color:var(--sage-deep);margin-top:6px;"><strong>Conclusion direction:</strong> What does this story suggest about religious authority, adolescent rebellion, or moral courage?</div>
+        </div>
+      </div>
+
+      <!-- TOPIC 2: HURSTON -->
+      <div class="topic-card" style="border-color:var(--pink);">
+        <div class="card-body-inner">
+          <div class="tc-head" style="background:linear-gradient(135deg,var(--pink),var(--pink-mid));">
+            <div class="tc-label" style="color:var(--pink-dark);">Topic Two — Literary Symbols</div>
+            <div class="tc-title" style="color:var(--pink-dark);">Zora Neale Hurston — "Sweat"</div>
+          </div>
+          <p>Analyze the symbolism in the story to argue that Sykes's domestic violence and emotional abuse represent a systematic attempt to erase Delia's autonomy — and that the story's resolution restores it.</p>
+          <p><strong>First,</strong> analyze how Hurston uses the washtub (and Delia's labor more broadly) to establish Delia's economic independence and moral authority within the household. What does Sykes's effort to take it from her symbolize?</p>
+          <p><strong>Next,</strong> analyze the symbolic function of the snake in the story. Trace how Sykes uses it as an instrument of terror, and argue what its ultimate role in the story's conclusion reveals about power and its limits.</p>
+          <p><strong>Finally,</strong> analyze the ending of the story. What does Delia's silence as Sykes dies suggest about her moral transformation over the course of the narrative?</p>
+          <div class="topic-hint" style="background:var(--pink-light);color:var(--pink-dark);">📖 Include 2–3 brief, direct quotes from the story in each body paragraph.</div>
+          <div class="topic-hint" style="background:#f5e0e8;color:var(--pink-dark);margin-top:6px;"><strong>Conclusion direction:</strong> What does this story suggest about domestic power, self-determination, or moral justice?</div>
+        </div>
+      </div>
+
+      <!-- TOPIC 3: CARTER -->
+      <div class="topic-card" style="border-color:var(--plum);">
+        <div class="card-body-inner">
+          <div class="tc-head" style="background:linear-gradient(135deg,var(--plum),var(--plum-mid));">
+            <div class="tc-label" style="color:var(--plum-dark);">Topic Three — Literary Characters &amp; Conflicts</div>
+            <div class="tc-title" style="color:var(--plum-dark);">Angela Carter — "The Company of Wolves"</div>
+          </div>
+          <p>Analyze how Carter's protagonist subverts the expected gender roles of the fairy tale tradition to argue that the story is ultimately about a young woman's intelligence and self-determination.</p>
+          <p><strong>First,</strong> examine Carter's characterization of the girl. How does she differ from the typical fairy tale heroine? What specific details establish her as active, intelligent, and self-possessed rather than passive and fearful?</p>
+          <p><strong>Next,</strong> analyze the story's climactic confrontation. Rather than being victimized, the girl takes control of the encounter. What specific choices does she make, and what do they reveal about her character?</p>
+          <p><strong>Finally,</strong> interpret the story's ending. What does the girl's position at the close of the story — sleeping peacefully in the wolf's arms — suggest about sexuality, power, and self-determination?</p>
+          <div class="topic-hint" style="background:var(--plum-light);color:var(--plum-dark);">📖 Include 2–3 brief, direct quotes from the story in each body paragraph.</div>
+          <div class="topic-hint" style="background:#ede0f4;color:var(--plum-dark);margin-top:6px;"><strong>Conclusion direction:</strong> What does this story suggest about female agency, sexuality, or the power of intelligence?</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- REQUIREMENTS -->
+<div class="card fade">
+  <div class="card-head ch-slate">📋 Requirements</div>
+  <div class="card-body">
+    <div class="req-grid">
+      <div class="req-card">
+        <h3>📏 Length</h3>
+        <p><strong>Minimum:</strong> 1,200 words<br><strong>Maximum:</strong> 1,500 words</p>
+      </div>
+      <div class="req-card">
+        <h3>¶ Paragraphs</h3>
+        <ul>
+          <li>One Introduction Paragraph</li>
+          <li>3–4 Body Paragraphs</li>
+          <li>One Conclusion Paragraph</li>
+        </ul>
+      </div>
+      <div class="req-card">
+        <h3>🔍 Research</h3>
+        <p>Locate <strong>three secondary sources</strong> using the college's academic databases.</p>
+      </div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--text);margin:18px 0 10px;">Evidence Requirements</p>
+    <div class="ev-grid">
+      <div class="ev-box" style="background:var(--sage-light);border:2px solid var(--sage);">
+        <h3 style="color:var(--sage-deep);">📖 Quotes from the Primary Source</h3>
+        <p style="color:#3a5e42;">You should have <strong>2–3 quotes per body paragraph</strong> from the short story you're writing about.</p>
+      </div>
+      <div class="ev-box" style="background:var(--amber-light);border:2px solid var(--amber);">
+        <h3 style="color:var(--amber-dark);">🔍 Quotes from the Secondary Sources</h3>
+        <p style="color:#7a5545;"><strong>Total:</strong> Six quotes from your three secondary sources combined — not six from each article. <strong>Types:</strong> Four direct quotes and two paraphrases.</p>
+      </div>
+    </div>
+    <div style="background:var(--warm-light);border:2px solid var(--warm);border-radius:8px;padding:14px 16px;margin-top:10px;">
+      <p style="font-size:13px;font-weight:700;color:var(--warm-dark);margin-bottom:6px;">📚 Works Cited</p>
+      <p style="font-size:13px;color:#555;">All three secondary sources and your primary source must be included on your Works Cited page — four entries total. See the <em>The Works Cited</em> page and the sample student research essay for formatting guidance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- EVALUATION -->
+<div class="card fade">
+  <div class="card-head ch-sage">📊 Evaluation</div>
+  <div class="card-body">
+    <div class="two-col">
+      <div>
+        <p>Your essay will be evaluated using the <strong>Literary Research Essay Grading Rubric</strong>. This essay is worth <strong>25% of your course grade</strong>.</p>
+        <div class="rd-box">
+          <p style="font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:8px;">📧 Rough Drafts Welcome</p>
+          <p style="font-size:13px;color:#3a5e42;line-height:1.7;">You are not required to submit a rough draft, but if you'd like feedback before you finalize, email me your draft at <strong>cholliday@valenciacollege.edu</strong> and I will add comments and suggestions. Please send it in <strong>.doc or .docx format</strong> so I can type in it. I'll have it back to you within 24 hours.</p>
+          <p style="font-size:13px;color:#3a5e42;margin-top:8px;line-height:1.7;">Note: I can't correct all of your sentence and grammar errors for you — but I will let you know what kinds of errors are present and help you understand how to identify and correct them yourself.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:20px;text-align:center;height:100%;">
+          <div style="font-size:13px;color:var(--sage-deep);margin-bottom:6px;">This essay is worth</div>
+          <div style="font-size:52px;font-weight:700;color:var(--sage-deep);line-height:1.1;margin-bottom:6px;">25%</div>
+          <div style="font-size:13px;color:var(--sage-dark);">of your course grade</div>
+          <div style="font-size:12px;color:#555;line-height:1.6;margin-top:12px;">Your instructor will provide the grading rubric. The requirements above reflect the rubric's main evaluation areas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ACADEMIC INTEGRITY -->
+<div class="card fade">
+  <div class="card-head ch-warm">⚖️ Academic Integrity</div>
+  <div class="card-body">
+    <p>Valencia College is dedicated to maintaining an academic environment consistent with high standards including a shared commitment to transparency, integrity, and creating the right conditions for learning. All work is expected to reflect individual knowledge, thought, research, effort, and self-expression — or to properly cite the origin of the work. <a href="https://valenciacollege.edu/about/general-counsel/policy/documents/volume8/8-11-academic-integrity.pdf" target="_blank" rel="noopener" style="color:var(--warm-dark);">Valencia Policy 6Hx28:8-11 ↗</a></p>
+    <p style="font-size:13px;font-weight:600;color:var(--text);margin:16px 0 10px;">Before submitting, ask yourself:</p>
+    <div class="ai-items">
+      <div class="ai-item">Is this essay entirely in your own words, except for properly cited quotations and paraphrases?</div>
+      <div class="ai-item">Is this essay your own original work — not submitted, or based on work submitted, for another class?</div>
+      <div class="ai-item">Was AI (ChatGPT, Claude, Gemini, etc.) used to write, rewrite, outline, or substantially assist in drafting any part of this essay? (If yes: this is a violation.)</div>
+      <div class="ai-item">Were online translators used to translate the essay from another language into English? (Also a violation.)</div>
+      <div class="ai-item" style="grid-column:1/-1;">Are you prepared to redo the essay, in part or in whole, if Canvas's AI Report flags AI-influenced content?</div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:var(--text-mid);">Violations may result in a zero or having to redo the assignment. Students have <strong>7 days</strong> to respond to any allegation. See the <strong>Academic Integrity</strong> page for full details on consequences.</p>
+  </div>
+</div>
+
+<!-- SUBMISSION + FORMAT -->
+<div class="card fade">
+  <div class="card-head ch-pink">📤 Submission, Grace Period &amp; Format</div>
+  <div class="card-body">
+    <div class="info-strip">
+      <div class="is-card" style="background:var(--sage-light);border:2px solid var(--sage);">
+        <div class="is-label" style="color:var(--sage-dark);">📤 Submission</div>
+        <p style="color:#3a5e42;">Word process your essay and upload it in <strong>.docx or .doc format</strong> using the Submit Assignment button in Canvas.</p>
+      </div>
+      <div class="is-card" style="background:var(--amber-light);border:2px solid var(--amber);">
+        <div class="is-label" style="color:var(--amber-dark);">📅 Grace Period</div>
+        <p style="color:#7a5545;">You will have <strong>four days</strong> after the due date to submit for full credit.</p>
+      </div>
+      <div class="is-card" style="background:var(--pink-light);border:2px solid var(--pink);">
+        <div class="is-label" style="color:var(--pink-dark);">📋 Format</div>
+        <p style="color:#6a4e5e;">Your essay must be in <strong>MLA format</strong>. See the video below for a step-by-step setup guide.</p>
+      </div>
+    </div>
+
+    <div class="vid-box">
+      <div class="vid-head">🎬 How to Set Up Your Document in MLA Format</div>
+      <div class="vid-body">
+        <iframe title="How to Set Up Your Document in MLA Format" src="https://www.youtube.com/embed/JnAmwR4Pb1M" width="560" height="315" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

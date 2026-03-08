@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Integrity: Plagiarism and Its Consequences — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --plum:#B8A8D0;--plum-dark:#3e2e5a;--plum-light:#f7f4fc;--plum-mid:#D0C5E0;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --pink:#D8B5C5;--pink-dark:#4a2e3e;--pink-light:#fdf2f6;--pink-mid:#E8CED8;
+  --warm:#c8c4c0;--warm-dark:#3a3836;--warm-light:#f5f5f4;--warm-mid:#d8d4d0;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+html,body{width:100%;min-height:100%;}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1060px;width:100%;margin:0 auto;padding:32px 16px 60px;}
+
+/* PAGE HEADER */
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow);}
+.card-head{padding:13px 24px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-dark{background:linear-gradient(135deg,#222 0%,#444 100%);color:#fff;}
+.ch-pink{background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);}
+.ch-warm{background:linear-gradient(135deg,var(--warm) 0%,var(--warm-mid) 100%);color:var(--warm-dark);}
+.ch-plum{background:linear-gradient(135deg,var(--plum) 0%,var(--plum-mid) 100%);color:var(--plum-dark);}
+.card-body{padding:24px 28px;}
+@media(max-width:480px){.card-body{padding:18px 16px;}}
+
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+em{font-style:italic;}
+a{color:inherit;}
+
+/* VIDEO BOX */
+.video-box{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;overflow:hidden;margin-top:18px;}
+.video-box-head{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);padding:11px 18px;font-size:13px;font-weight:600;color:var(--sage-deep);}
+.video-box-body{padding:18px;text-align:center;}
+.video-box-body iframe{border:none;border-radius:4px;max-width:100%;}
+
+/* VIDEO INSTRUCTIONS CALLOUT */
+.callout-amber{background:var(--amber-light);border:2px solid var(--amber);border-radius:8px;padding:14px 20px;margin:16px 0;}
+.callout-amber .ca-label{font-size:12px;font-weight:600;color:var(--amber-dark);margin-bottom:6px;}
+.callout-amber p{font-size:13px;color:#7a5545;line-height:1.7;}
+
+/* SIX TYPES GRID */
+.types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+@media(max-width:640px){.types-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:420px){.types-grid{grid-template-columns:1fr;}}
+.type-card{border-radius:8px;padding:14px 16px;}
+.type-badge{font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.type-card h3{font-size:13px;font-weight:600;margin-bottom:6px;}
+.type-card p{font-size:12px;line-height:1.65;margin:0;}
+.type-key{border-radius:5px;padding:7px 10px;font-size:11px;line-height:1.5;margin-top:8px;}
+
+/* DIVIDER */
+hr{border:0;border-top:2px solid var(--border);margin:24px 0;}
+
+/* TWO COLUMNS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:580px){.two-col{grid-template-columns:1fr;}}
+
+/* INNER CARD / POLICY BOX */
+.policy-box{border:2px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:14px;}
+.policy-box-head{padding:8px 14px;font-size:11px;font-weight:600;}
+.policy-box-body{padding:14px 16px;}
+.policy-box-body p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.policy-box-body p+p{margin-top:8px;}
+.consequence-strip{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
+.cs-item{background:#fff;border-radius:5px;padding:6px 10px;font-size:12px;color:#6a4e5e;flex:1;min-width:130px;}
+
+/* THREE OPTIONS */
+.three-opts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:640px){.three-opts{grid-template-columns:1fr;}}
+.opt-card{border-radius:8px;padding:16px 18px;}
+.opt-badge{font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.opt-card h3{font-size:13px;font-weight:600;margin-bottom:6px;}
+.opt-card p{font-size:12px;line-height:1.65;margin:0;}
+
+/* QUIZ PREP GRID */
+.quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.quiz-grid{grid-template-columns:1fr;}}
+.qp-card{border-radius:8px;padding:14px 18px;}
+.qp-badge{font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.qp-card p{font-size:13px;line-height:1.65;margin:0;}
+.quiz-tip{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:14px 20px;margin-top:14px;}
+.quiz-tip .qt-label{font-size:12px;font-weight:600;color:var(--sage-dark);margin-bottom:5px;}
+.quiz-tip p{font-size:13px;color:#3a5e42;line-height:1.7;}
+
+/* HIGHLIGHT INSTRUCTION */
+.highlight-instr{background-color:#fbeeb8;padding:1px 4px;border-radius:2px;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.10s}
+.fade:nth-child(3){animation-delay:.16s}.fade:nth-child(4){animation-delay:.22s}
+.fade:nth-child(5){animation-delay:.28s}.fade:nth-child(6){animation-delay:.34s}
+.fade:nth-child(7){animation-delay:.40s}.fade:nth-child(8){animation-delay:.46s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- PAGE HEADER -->
+<div class="page-header fade">
+  <div class="eyebrow">Week 11 &bull; The Literary Research Essay</div>
+  <h1>Academic Integrity: Plagiarism and Its Consequences</h1>
+  <p class="subtitle">What it is, what it looks like, and what happens if you're caught</p>
+</div>
+
+<!-- SECTION 1: WHAT IS PLAGIARISM -->
+<div class="card fade">
+  <div class="card-head ch-sage">📖 What Is Plagiarism?</div>
+  <div class="card-body">
+    <div class="two-col" style="align-items:start;">
+      <div>
+        <p><em>Pilfering. Cribbing. Ripping-Off. Purloining. Jacking. Looting.</em></p>
+        <p style="margin-top:10px;">The word-nerds among you might have already solved this little puzzle: What do the above terms have in common?</p>
+        <p>Correct! They're all synonyms for <em>stealing</em> — you know, one of those behaviors that's universally frowned upon (except by <a href="https://www.dictionary.com/browse/kleptomania" target="_blank" rel="noopener" style="color:var(--sage-dark);">kleptomaniacs</a>, but that's for a different class).</p>
+        <p>In an academic setting, stealing takes a very specific form: Your Old Frenemy, <em>Plagiarism.</em> Plagiarism occurs when one uses another's ideas, words, or work — scholarly, creative — without acknowledging (that is, giving credit to) the original creator. It remains among the most consequential "sins" a student can commit.</p>
+        <p>Exactly what constitutes this type of thievery is often murky, especially for students who, after sleepily logging in to Canvas, are met in their inbox with the comically pretentious, "<a href="https://www.jewishvirtuallibrary.org/j-accuse-i-accuse" target="_blank" rel="noopener" style="color:var(--sage-dark);">J'Accuse!</a>"</p>
+        <p style="font-style:italic;color:var(--text-mid);">Professors can rarely resist showing off their expensive educations.</p>
+        <p>Rather than yet another Pseudo Authority Figure going Full <a href="https://victorianweb.org/art/illustration/dore/bible/5.html" target="_blank" rel="noopener" style="color:var(--sage-dark);">Brimstone</a> on you, let's adopt a different approach: allow a peer to teach you! In the video below, Chelsea Seburn — a recent college graduate who runs her own successful YouTube channel — defines six different kinds of plagiarism:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:10px;">
+          <div style="font-size:13px;color:#444;line-height:2;">
+            <div>1. Direct Plagiarism</div>
+            <div>2. Find and Replace Plagiarism</div>
+            <div>3. Patchwork Plagiarism</div>
+          </div>
+          <div style="font-size:13px;color:#444;line-height:2;">
+            <div>4. Accidental Plagiarism</div>
+            <div>5. Self-Plagiarism</div>
+            <div>6. Total Plagiarism</div>
+          </div>
+        </div>
+        <p style="margin-top:10px;">While these types sometimes go by different names, they're the most commonly recognized forms that can get you into academic trouble.</p>
+      </div>
+      <div>
+        <div class="callout-amber">
+          <div class="ca-label">✏️ Video Instructions</div>
+          <p><strong>Pause the video when needed</strong> and write down a brief definition for each type of plagiarism Chelsea describes — in your own words. You'll need these definitions for the quiz later in the module.</p>
+          <p style="margin-top:8px;"><strong>Content Note:</strong> Chelsea briefly describes how instructors use "plagiarism checkers"; this is generally accurate. However, her description of "consequences" should be ignored — those details are not universally valid. The specific consequences for our course are covered below.</p>
+        </div>
+        <div class="video-box" style="margin-top:0;">
+          <div class="video-box-head">🎬 Six Types of Academic Plagiarism</div>
+          <div class="video-box-body">
+            <iframe title="Six Types of Academic Plagiarism" src="https://www.youtube.com/embed/N4j6ILb_hBo?si=He2NKT9Xk6WCC7jZ" width="100%" height="260" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          </div>
+        </div>
+        <p style="font-style:italic;color:var(--text-mid);font-size:13px;margin-top:10px;">Thanks, Chelsea! Hope the views are helping with those student loan payments — see ya soon!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: SIX TYPES REFERENCE -->
+<div class="card fade">
+  <div class="card-head ch-dark">🗂️ The Six Types at a Glance — Keep This Open During the Quiz</div>
+  <div class="card-body">
+    <p style="color:var(--text-mid);font-size:13px;margin-bottom:14px;">Use the reference cards below to record or review your definitions. You'll be allowed to have this page open during the quiz — so use this section as your cheat sheet. Fill in each definition in your own words, not Chelsea's.</p>
+    <div class="types-grid">
+
+      <div class="type-card" style="background:var(--sage-light);border:2px solid var(--sage);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);">Type 1</span>
+        <h3 style="color:var(--sage-deep);">Direct Plagiarism</h3>
+        <p style="color:#3a5e42;">Copying someone else's work word-for-word and presenting it as your own, without quotation marks or any attribution.</p>
+        <div class="type-key" style="background:#d4eeda;color:var(--sage-deep);"><strong>Key marker:</strong> Exact wording taken directly from a source, with no citation and no quotation marks.</div>
+      </div>
+
+      <div class="type-card" style="background:var(--plum-light);border:2px solid var(--plum);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--plum) 0%,var(--plum-mid) 100%);color:var(--plum-dark);">Type 2</span>
+        <h3 style="color:var(--plum-dark);">Find and Replace Plagiarism</h3>
+        <p style="color:#5e4e7a;">Swapping out individual words for synonyms while keeping the original sentence structure, then presenting it as original writing.</p>
+        <div class="type-key" style="background:#e8e0f4;color:var(--plum-dark);"><strong>Key marker:</strong> Different words, same ideas and structure as the source — and no citation.</div>
+      </div>
+
+      <div class="type-card" style="background:var(--amber-light);border:2px solid var(--amber);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);">Type 3</span>
+        <h3 style="color:var(--amber-dark);">Patchwork Plagiarism</h3>
+        <p style="color:#7a5545;">Stitching together passages or ideas from several different sources to build a paper, without properly crediting any of them.</p>
+        <div class="type-key" style="background:#fde8d4;color:var(--amber-dark);"><strong>Key marker:</strong> Multiple uncited sources combined to create a "new" piece of writing.</div>
+      </div>
+
+      <div class="type-card" style="background:#f0f6f9;border:2px solid var(--slate);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--slate) 0%,var(--slate-mid) 100%);color:var(--slate-dark);">Type 4</span>
+        <h3 style="color:var(--slate-dark);">Accidental Plagiarism</h3>
+        <p style="color:#4e5e6a;">Unintentionally failing to cite sources correctly — through poor note-taking, forgetting where an idea came from, or misunderstanding citation rules.</p>
+        <div class="type-key" style="background:#deeaf0;color:var(--slate-dark);"><strong>Key marker:</strong> The intent was not to steal — but the result is the same. Good intentions don't cancel the violation.</div>
+      </div>
+
+      <div class="type-card" style="background:var(--pink-light);border:2px solid var(--pink);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);">Type 5</span>
+        <h3 style="color:var(--pink-dark);">Self-Plagiarism</h3>
+        <p style="color:#6a4e5e;">Submitting your own previously submitted work — from a different class or a prior semester — as if it were new, original writing for the current assignment.</p>
+        <div class="type-key" style="background:#f2dce8;color:var(--pink-dark);"><strong>Key marker:</strong> Even if the work is yours, reusing it without permission is a violation. This is why you can't re-use your first essay for this one.</div>
+      </div>
+
+      <div class="type-card" style="background:var(--warm-light);border:2px solid var(--warm);">
+        <span class="type-badge" style="background:linear-gradient(135deg,var(--warm) 0%,var(--warm-mid) 100%);color:var(--warm-dark);">Type 6</span>
+        <h3 style="color:var(--warm-dark);">Total Plagiarism</h3>
+        <p style="color:#555;">Submitting someone else's complete work — an entire paper or essay — as if it were your own. The most severe form.</p>
+        <div class="type-key" style="background:#e8e6e4;color:var(--warm-dark);"><strong>Key marker:</strong> The entire piece came from somewhere else. This includes buying essays online or submitting AI-generated work as your own.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- SECTION 3: CONSEQUENCES -->
+<div class="card fade">
+  <div class="card-head ch-pink">⚖️ What Are the Consequences of Plagiarism?</div>
+  <div class="card-body">
+    <p>Once there was a dour French "philosopher." After enduring the early death of his father, a lifelong medical condition, two world wars (including nine months imprisoned in a Nazi work camp), and a very sassy <a href="https://guides.loc.gov/feminism-french-women-history/famous/simone-de-beauvoir" target="_blank" rel="noopener" style="color:var(--pink-dark);">philosopher-girlfriend</a>, this man (Jean-Paul Sartre) entered middle age as quite the pessimist. In his laughingly-awful "play" <em>No Exit</em>, he forces a character to utter the phrase that has since become a near-mantra for a certain flavor of tiresome misanthrope: "<a href="https://www.vox.com/2014/11/17/7229547/philosophy-quotes-misunderstood-wittgenstein-sartre-descartes" target="_blank" rel="noopener" style="color:var(--pink-dark);">Hell is other people.</a>"</p>
+    <p>Sure. What's demonstrably more certain is the suffering students can expect should they find themselves accused of plagiarism: <strong>The Hell of Administrative Bureaucracies.</strong></p>
+    <p>If students find themselves accused of plagiarism, there are generally two levels of policy-bureaucracy they'll face: <strong>Institutional</strong> and <strong>Instructional</strong>.</p>
+
+    <div class="two-col" style="margin-top:18px;align-items:start;">
+      <!-- INSTITUTIONAL -->
+      <div style="background:var(--pink-light);border:2px solid var(--pink);border-radius:8px;padding:18px 20px;">
+        <h3 style="font-size:14px;color:var(--pink-dark);margin-bottom:10px;">Institutional Bureaucracy</h3>
+        <p style="font-size:13px;color:#6a4e5e;line-height:1.7;">Valencia College has established its own broad policies to govern acts of academic dishonesty. The second paragraph of the college's official policy establishes that plagiarism violates college policy. The third section identifies the person who will ultimately decide your specific consequences if found guilty: <strong>your instructor</strong>.</p>
+        <p style="font-size:13px;color:#6a4e5e;line-height:1.7;margin-top:8px;">You can read the full college policy at <a href="https://valenciacollege.edu/about/general-counsel/policy/documents/volume8/8-11-academic-integrity.pdf" target="_blank" rel="noopener" style="color:var(--pink-dark);">Valencia Policy 6Hx28:8-11 ↗</a>.</p>
+      </div>
+      <!-- INSTRUCTIONAL -->
+      <div style="background:var(--warm-light);border:2px solid var(--warm);border-radius:8px;padding:18px 20px;">
+        <h3 style="font-size:14px;color:var(--warm-dark);margin-bottom:10px;">Instructional Bureaucracy</h3>
+        <p style="font-size:13px;color:#555;line-height:1.7;">College instructors are afforded broad autonomy over the specific rules governing their classes. The consequences for plagiarism can therefore vary from instructor to instructor. Below are examples — starting with our course's policy. Note that what applies in one classroom may not apply in another.</p>
+      </div>
+    </div>
+
+    <!-- OUR COURSE POLICY -->
+    <div style="margin-top:16px;">
+      <div class="policy-box" style="border-color:var(--pink);">
+        <div class="policy-box-head" style="background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);">Our Course's Academic Integrity Policy (from the Syllabus)</div>
+        <div class="policy-box-body" style="background:var(--pink-light);">
+          <p>Valencia College is dedicated to maintaining an academic environment consistent with high standards including a shared commitment to transparency, integrity, and creating the right conditions for learning. All work is expected to reflect individual knowledge, thought, research, effort, and self-expression — or to properly cite the origin of the work.</p>
+          <div class="consequence-strip" style="margin-top:12px;">
+            <div class="cs-item"><strong style="color:var(--pink-dark);">Original Work:</strong> All submitted work must be your own original effort unless explicitly stated otherwise.</div>
+            <div class="cs-item"><strong style="color:var(--pink-dark);">Citing Sources:</strong> Whenever you use ideas, words, or intellectual property from external sources, cite them using <strong>MLA documentation</strong>.</div>
+          </div>
+          <div style="background:var(--amber-light);border:2px solid var(--amber);border-radius:5px;padding:9px 13px;font-size:12px;color:var(--amber-dark);line-height:1.6;margin-top:8px;"><strong>Consequences:</strong> Violations may result in a zero for the assignment or having to re-do the assignment, in whole or in part. Students have <strong>7 days</strong> to respond to any allegation. Violations are reported per <a href="https://valenciacollege.edu/about/general-counsel/policy/documents/volume8/8-11-academic-integrity.pdf" target="_blank" rel="noopener" style="color:var(--amber-dark);">Valencia Policy 6Hx28:8-11 ↗</a>.</div>
+          <p style="margin-top:10px;font-size:13px;color:#6a4e5e;">For our class, the "punishment" is limited to just the specific assignment for which plagiarism was determined — with evidence — to have taken place.</p>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-mid);font-style:italic;margin:10px 0;">This is by no means always the case. Below is an example policy from another instructor at the college — note the highlighted sentence:</p>
+
+      <div class="policy-box">
+        <div class="policy-box-head" style="background:var(--warm-light);color:var(--warm-dark);">Another Instructor's Policy — Note the Highlighted Sentence</div>
+        <div class="policy-box-body">
+          <p>All work submitted by students is expected to be the result of the students' individual thoughts, research, and self-expression. Whenever a student uses ideas, wording, or organization from another source, the source shall be appropriately acknowledged. <span class="highlight-instr"><strong>If a student is caught submitting plagiarized work, a first offense will result in a zero score on the assignment; a second offense will result in a class grade of F.</strong></span></p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-mid);">In other words, being found culpable for plagiarizing could result in you <strong>failing an entire class</strong>. <em>Yikes!</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: IT GETS WORSE -->
+<div class="card fade">
+  <div class="card-head ch-warm">😬 It Gets Worse</div>
+  <div class="card-body">
+    <p>Depending on the situation and the desires of the professor, the consequences can actually be more severe. Below are the general steps that can be taken when someone is accused of plagiarism. Pay special attention to how each option begins: <strong>"The professor may choose to."</strong> This language explicitly merges Institutional and Instructional Bureaucratic policies in order to determine your academic fate.</p>
+    <p style="margin-top:10px;margin-bottom:16px;">The accused plagiarist is presented with three possible futures:</p>
+
+    <div class="three-opts">
+      <div class="opt-card" style="background:var(--sage-light);border:2px solid var(--sage);">
+        <span class="opt-badge" style="background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);">Option 1</span>
+        <h3 style="color:var(--sage-deep);">Academic Sanction</h3>
+        <p style="color:#3a5e42;">"Sanction" means "punishment." Here, the student's punishment is limited to the instructional level: failing an assignment, having to redo it, or even failing the whole class. This is the <strong>least severe</strong> of the three options.</p>
+      </div>
+      <div class="opt-card" style="background:var(--amber-light);border:2px solid var(--amber);">
+        <span class="opt-badge" style="background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);">Option 2</span>
+        <h3 style="color:var(--amber-dark);">Disciplinary Sanction</h3>
+        <p style="color:#7a5545;">An instructor can report the incident to the institution as a violation of the Student Code of Conduct. The accused undergoes an institutional-level process resembling a "trial," conducted by college employees and other students. Consequences can extend well beyond the classroom.</p>
+      </div>
+      <div class="opt-card" style="background:var(--pink-light);border:2px solid var(--pink);">
+        <span class="opt-badge" style="background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);">Option 3</span>
+        <h3 style="color:var(--pink-dark);">Academic <em>and</em> Disciplinary Sanctions</h3>
+        <p style="color:#6a4e5e;">This third option combines Options 1 and 2: the student faces both the instructional-level punishment <em>and</em> the institutional-level disciplinary proceedings. This would be the <strong>most severe</strong> outcome of the three.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--warm-light);border:2px solid var(--warm);border-radius:8px;padding:16px 20px;margin-top:6px;">
+      <h3 style="font-size:13px;font-weight:600;color:var(--warm-dark);margin-bottom:10px;">Valencia College's Student Rights &amp; Responsibilities Team</h3>
+      <p style="font-size:13px;color:#444;line-height:1.7;">While the details of that bureaucratic nightmare are beyond the scope of this lesson (aspiring lawyers can read all about it in <a href="https://valenciacollege.edu/about/general-counsel/policy/documents/volume8/8-03-student-code-of-conduct.pdf" target="_blank" rel="noopener" style="color:var(--warm-dark);">Policy 6Hx28:8–03</a> in the Student Code of Conduct), it's helpful to know about one component of the college's administrative corps: <strong>The Student Rights and Responsibilities Team</strong>.</p>
+      <p style="font-size:13px;color:#444;line-height:1.7;margin-top:8px;">This team, along with the <strong>Student Conduct Committee</strong> (a separate team of Valencia faculty, students, and staff who function somewhat like a jury in a disciplinary hearing), ensures that students' due process rights are upheld but also that any violation of college policy is punished appropriately.</p>
+      <p style="font-size:13px;color:#444;line-height:1.7;margin-top:8px;">Valencia's philosophical approach tends to emphasize "restorative justice," which generally means focusing on helping students learn from their mistakes rather than on dispensing harsh punishments. Nevertheless, if you ever find an e-mail from this team in your inbox, you should prepare yourself accordingly.</p>
+      <p style="font-size:14px;color:#444;font-style:italic;margin-top:12px;"><em>Documents. So-Called Trials. Zeros on Assignments. Policies. Teams. Failing courses. Committees. Sanctions.</em></p>
+      <p style="font-size:13px;color:#444;margin-top:6px;">This is the possible hell awaiting the poor plagiarist.</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- SECTION 5: QUIZ PREP -->
+<div class="card fade">
+  <div class="card-head ch-dark">📝 Preparing for the Plagiarism and Its Consequences Quiz</div>
+  <div class="card-body">
+    <p style="margin-bottom:16px;">That's quite a bit to absorb for a single lesson. Guess we should take a quiz on it all! To prepare for the <strong>Plagiarism and Its Consequences Quiz</strong>, you'll need to know the following:</p>
+    <div class="quiz-grid">
+      <div class="qp-card" style="background:var(--sage-light);border:2px solid var(--sage);">
+        <span class="qp-badge" style="background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);">Quiz Topic 1</span>
+        <p style="color:#3a5e42;">The <strong>six types of academic plagiarism</strong> from Chelsea's video. Use the reference cards above to review your definitions.</p>
+      </div>
+      <div class="qp-card" style="background:var(--plum-light);border:2px solid var(--plum);">
+        <span class="qp-badge" style="background:linear-gradient(135deg,var(--plum) 0%,var(--plum-mid) 100%);color:var(--plum-dark);">Quiz Topic 2</span>
+        <p style="color:#5e4e7a;">The difference between <strong>Institutional Bureaucracy</strong> and <strong>Instructional Bureaucracy</strong> in the context of plagiarism consequences.</p>
+      </div>
+      <div class="qp-card" style="background:var(--pink-light);border:2px solid var(--pink);">
+        <span class="qp-badge" style="background:linear-gradient(135deg,var(--pink) 0%,var(--pink-mid) 100%);color:var(--pink-dark);">Quiz Topic 3</span>
+        <p style="color:#6a4e5e;">Our <strong>course's Academic Integrity Policy.</strong> Specifically, know what the consequences are for a plagiarism violation in this class.</p>
+      </div>
+      <div class="qp-card" style="background:var(--warm-light);border:2px solid var(--warm);">
+        <span class="qp-badge" style="background:linear-gradient(135deg,var(--warm) 0%,var(--warm-mid) 100%);color:var(--warm-dark);">Quiz Topic 4</span>
+        <p style="color:#555;">The difference between <strong>Academic Sanctions</strong> and <strong>Disciplinary Sanctions</strong> as well as what each means for a student found guilty of plagiarism.</p>
+      </div>
+    </div>
+    <div class="quiz-tip">
+      <div class="qt-label">💡 Quiz Tip</div>
+      <p>You won't need to have all of this memorized. You're allowed to have this page open as you take the quiz. Opening the quiz in a separate browser tab or window is the best approach — this will let you switch back here to review the six types reference cards or the policy sections as needed.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

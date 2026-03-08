@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLA Documentation: The Works Cited — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --warm:#c8c4c0;--warm-dark:#3a3836;--warm-light:#f5f5f4;--warm-mid:#d8d4d0;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1060px;margin:0 auto;padding:32px 16px 60px;}
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow);}
+.card-head{padding:13px 24px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-dark{background:linear-gradient(135deg,#222 0%,#444 100%);color:#fff;}
+.ch-slate{background:linear-gradient(135deg,var(--slate) 0%,var(--slate-mid) 100%);color:var(--slate-dark);}
+.ch-amber{background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);}
+.card-body{padding:24px 28px;}
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+hr{border:0;border-top:2px solid var(--border);margin:24px 0;}
+.already-done{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:15px 18px;margin-top:14px;}
+.ad-label{font-size:12px;font-weight:600;color:var(--sage-dark);margin-bottom:6px;}
+.already-done p{font-size:13px;color:#3a5e42;line-height:1.7;margin:0;}
+.already-done p+p{margin-top:7px;}
+/* PROBLEM CARDS */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px;}
+@media(max-width:640px){.prob-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:440px){.prob-grid{grid-template-columns:1fr;}}
+.prob-card{background:var(--warm-light);border-radius:8px;overflow:hidden;}
+.prob-head{padding:9px 14px;font-size:12px;font-weight:700;color:#fff;}
+.prob-body{padding:13px 15px;}
+.prob-body p{font-size:12px;color:#555;line-height:1.7;margin:0;}
+.prob-body p+p{margin-top:6px;}
+.wrong-note{background:#fceaea;border-radius:5px;padding:6px 9px;font-size:11px;color:#8b2a2a;line-height:1.5;margin-top:7px;}
+.fix-note{background:#e8f4ea;border-radius:5px;padding:6px 9px;font-size:11px;color:#2e5a30;line-height:1.5;margin-top:5px;}
+/* VIDEO GRID */
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+@media(max-width:580px){.video-grid{grid-template-columns:1fr;}}
+.vid-box{background:var(--slate-light);border:2px solid var(--slate);border-radius:8px;overflow:hidden;}
+.vid-head{background:linear-gradient(135deg,var(--slate),var(--slate-mid));padding:11px 16px;}
+.vid-title{font-size:12px;font-weight:600;color:var(--slate-dark);margin-bottom:2px;}
+.vid-sub{font-size:11px;color:#4e5e6a;}
+.vid-body{padding:14px;text-align:center;}
+.vid-body iframe{border:none;border-radius:4px;max-width:100%;}
+/* PRIMARY SOURCE ENTRIES */
+.story-entry{border-radius:8px;overflow:hidden;margin-bottom:10px;}
+.se-head{padding:10px 16px;font-size:12px;font-weight:700;}
+.se-body{padding:14px 18px;}
+.se-body p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.se-body p+p{margin-top:8px;}
+.entry-example{font-family:'Lora',serif;font-size:13px;color:#333;line-height:1.8;background:#fff;border-radius:6px;padding:11px 14px;margin:10px 0;}
+.entry-example .indent{display:block;padding-left:2.5ch;text-indent:-2.5ch;}
+/* CHECKLIST */
+.checklist{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:18px 22px;}
+.checklist-title{font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:12px;}
+.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+@media(max-width:500px){.cl-grid{grid-template-columns:1fr;}}
+.cl-item{font-size:13px;color:#3a5e42;line-height:1.9;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.10s}
+.fade:nth-child(3){animation-delay:.16s}.fade:nth-child(4){animation-delay:.22s}
+.fade:nth-child(5){animation-delay:.28s}.fade:nth-child(6){animation-delay:.34s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="page-header fade">
+  <div class="eyebrow">Week 11 &bull; The Literary Research Essay</div>
+  <h1>MLA Documentation: The Works Cited</h1>
+  <p class="subtitle">Building, formatting, and cleaning up your Works Cited entries</p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="card fade">
+  <div class="card-head ch-sage">📄 The Works Cited</div>
+  <div class="card-body">
+    <p>Prepare to be annoyed.</p>
+    <p>Creating a Works Cited for a research essay is frustrating. Worse, teachers are allowed to make the Works Cited worth as much of an essay's grade as they want — so having too many errors on it can make your grade cry.</p>
+    <p>The Works Cited serves a very important function: it provides all of the bibliographic information about every source cited inside your essay — both your primary source and your secondary sources. Fortunately, quite a bit of the tedious part was already done for you during the Research Assignment.</p>
+    <div class="already-done">
+      <div class="ad-label">💡 You've Already Done Part of This</div>
+      <p>When you completed the Research Assignment, you used each database's <strong>Citation Tool</strong> to collect the bibliographic information for your three secondary sources in MLA Works Cited format.</p>
+      <p>Open that completed assignment now — you'll need it to follow along with the steps handout below.</p>
+    </div>
+    <p style="margin-top:14px;">The main challenge isn't the entries themselves — it's that <strong>formatting errors almost always appear when you transfer those entries from the Research Assignment into your essay document</strong>. Spacing shifts, indentations get lost, URLs become hyperlinks, and punctuation disappears. The handout available on the course page walks through exactly how to fix these problems step by step.</p>
+  </div>
+</div>
+
+<!-- SECTION 2: SIX PROBLEMS -->
+<div class="card fade">
+  <div class="card-head ch-dark">🔎 What Goes Wrong When You Transfer Entries — and How to Fix It</div>
+  <div class="card-body">
+    <p>When you copy and paste your Works Cited entries from the Research Assignment into your essay document, the transfer almost never comes through cleanly. Below are the six most common problems students encounter — check your entries against each one after pasting:</p>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-head" style="background:#d9534f;">Problem 1 — Hanging Indent Missing</div>
+        <div class="prob-body">
+          <p>MLA Works Cited entries use a <strong>hanging indent</strong>: the first line starts at the left margin, and all subsequent lines are indented half an inch. When you paste entries in, this formatting is usually lost.</p>
+          <div class="wrong-note"><strong>Wrong:</strong> All lines flush to the left margin.</div>
+          <div class="fix-note"><strong>Fix:</strong> Select the entry, open the paragraph formatting menu, and set a hanging indent of 0.5". Video 1 below demonstrates this.</div>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-head" style="background:#d9534f;">Problem 2 — Double Spacing Lost or Added</div>
+        <div class="prob-body">
+          <p>The Works Cited page must be <strong>double-spaced throughout</strong> — both within each entry and between entries. No extra blank lines between entries.</p>
+          <div class="wrong-note"><strong>Wrong:</strong> Single-spaced entries, or large gaps between them from an extra blank line.</div>
+          <div class="fix-note"><strong>Fix:</strong> Select all text on the Works Cited page and apply double spacing. Delete any blank lines between entries.</div>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-head" style="background:#d9534f;">Problem 3 — URLs Are Hyperlinked</div>
+        <div class="prob-body">
+          <p>When a URL is pasted into Word, it automatically becomes a clickable blue hyperlink. MLA format requires URLs to appear as <strong>plain black text</strong>.</p>
+          <div class="wrong-note"><strong>Wrong:</strong> URL appears in blue underlined text.</div>
+          <div class="fix-note"><strong>Fix:</strong> Right-click the link and select "Remove Hyperlink." Video 2 below covers URL formatting in detail.</div>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-head" style="background:#e8a020;">Problem 4 — Long URLs Breaking Awkwardly</div>
+        <div class="prob-body">
+          <p>Long web addresses sometimes push a line so far to the right that it creates a large blank space in the middle of the entry.</p>
+          <div class="wrong-note" style="background:#fef4e0;color:#7a5010;"><strong>Wrong:</strong> A line that ends after one or two words with a large gap before the URL continues.</div>
+          <div class="fix-note"><strong>Fix:</strong> Video 2 below demonstrates the specific technique for handling this.</div>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-head" style="background:#e8a020;">Problem 5 — Font or Size Mismatch</div>
+        <div class="prob-body">
+          <p>Pasted text often brings its own font and size along with it. Your Works Cited entries may end up in a different typeface or size than the rest of your essay.</p>
+          <div class="wrong-note" style="background:#fef4e0;color:#7a5010;"><strong>Wrong:</strong> Works Cited entries appear in a slightly different font or size than the essay body.</div>
+          <div class="fix-note"><strong>Fix:</strong> Select all the entries and apply your essay's standard font and size (Times New Roman 12pt for MLA).</div>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-head" style="background:#e8a020;">Problem 6 — Citation Tool Errors</div>
+        <div class="prob-body">
+          <p>Database Citation Tools are good but not perfect. They occasionally generate entries with missing punctuation, incorrect capitalization, or the wrong format.</p>
+          <div class="wrong-note" style="background:#fef4e0;color:#7a5010;"><strong>Wrong:</strong> A missing period at the end, all-caps title, or a blank/placeholder field.</div>
+          <div class="fix-note"><strong>Fix:</strong> Compare each entry against the handout's models and correct any discrepancies by hand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: VIDEOS -->
+<div class="card fade">
+  <div class="card-head ch-slate">🎬 Works Cited Formatting Videos</div>
+  <div class="card-body">
+    <p>Two of the more irritating aspects of creating your Works Cited are getting the lines indented properly and dealing with long URL addresses that create empty gaps on certain lines. The videos below address both problems directly.</p>
+    <div class="video-grid">
+      <div class="vid-box">
+        <div class="vid-head">
+          <div class="vid-title">Video 1 — Fixes Problems 1 &amp; 2 above</div>
+          <div class="vid-sub">How to Use the Hanging Indent Feature to Adjust Your Indentations</div>
+        </div>
+        <div class="vid-body">
+          <iframe title="How to Use the Hanging Indent Feature" src="https://www.youtube.com/embed/YPGiFak819Y?si=5EGpZRvekRdXFznq" width="100%" height="230" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+      <div class="vid-box">
+        <div class="vid-head">
+          <div class="vid-title">Video 2 — Fixes Problems 3 &amp; 4 above</div>
+          <div class="vid-sub">How to Fill Up Empty Spaces/Gaps on a Line Due to Long URL Addresses</div>
+        </div>
+        <div class="vid-body">
+          <iframe title="How to Handle Long URL Addresses in Works Cited" src="https://www.youtube.com/embed/vWoio6AF5Hc?si=wzrnKum6YwVxrmqF" width="100%" height="230" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- SECTION 4: PRIMARY SOURCE ENTRIES -->
+<div class="card fade">
+  <div class="card-head ch-amber">📚 Works Cited Entries for Your Primary Source</div>
+  <div class="card-body">
+    <p>Your primary source — the short story you're writing about — also needs to be included on your Works Cited page. Unlike your secondary sources, you won't have a Citation Tool to generate this entry for you. Below are the correctly formatted Works Cited entries for each of the three stories available to you this semester. Use the one that matches your chosen topic.</p>
+
+    <div style="margin-top:18px;">
+      <div class="story-entry" style="border:2px solid #D8B5C5;">
+        <div class="se-head" style="background:linear-gradient(135deg,#D8B5C5,#E8CED8);color:#4a2e3e;">📖 If you are writing about Hurston's "Sweat"</div>
+        <div class="se-body" style="background:#fdf2f6;">
+          <p>Copy the following entry exactly — including punctuation, capitalization, and italics:</p>
+          <div class="entry-example">
+            <span class="indent">Hurston, Zora Neale. "Sweat." <em>The Complete Stories</em>, HarperCollins, 1995, pp. 1–19.</span>
+          </div>
+          <p style="font-size:12px;color:#6a4e5e;line-height:1.6;margin-top:8px;">Note: Short stories in collections are formatted with the story title in quotation marks and the collection title in italics. The author's last name comes first, followed by a comma, then the first name.</p>
+        </div>
+      </div>
+
+      <div class="story-entry" style="border:2px solid var(--plum);">
+        <div class="se-head" style="background:linear-gradient(135deg,var(--plum),#D0C5E0);color:#3e2e5a;">📖 If you are writing about Carter's "The Company of Wolves"</div>
+        <div class="se-body" style="background:#f7f4fc;">
+          <p>Copy the following entry exactly:</p>
+          <div class="entry-example">
+            <span class="indent">Carter, Angela. "The Company of Wolves." <em>The Bloody Chamber and Other Stories</em>, Penguin Books, 1979, pp. 108–118.</span>
+          </div>
+          <p style="font-size:12px;color:#5e4e7a;line-height:1.6;margin-top:8px;">The page numbers for your edition may differ slightly — check the page numbers in the actual text you are reading and adjust accordingly.</p>
+        </div>
+      </div>
+
+      <div class="story-entry" style="border:2px solid var(--sage);">
+        <div class="se-head" style="background:linear-gradient(135deg,var(--sage),var(--sage-mid));color:var(--sage-deep);">📖 If you are writing about Roth's "The Conversion of the Jews"</div>
+        <div class="se-body" style="background:var(--sage-light);">
+          <p>Copy the following entry exactly:</p>
+          <div class="entry-example">
+            <span class="indent">Roth, Philip. "The Conversion of the Jews." <em>Goodbye, Columbus and Five Short Stories</em>, Houghton Mifflin, 1959, pp. 137–158.</span>
+          </div>
+          <p style="font-size:12px;color:#3a5e42;line-height:1.6;margin-top:8px;">Again, verify the page numbers in your copy of the text and adjust accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CHECKLIST -->
+<div class="card fade">
+  <div class="card-head ch-sage">✅ Final Works Cited Checklist — Before You Submit Your Essay</div>
+  <div class="card-body">
+    <div class="checklist">
+      <div class="checklist-title">Run through each item before submitting:</div>
+      <div class="cl-grid">
+        <div class="cl-item">☐ &nbsp; Titled "Works Cited" — centered, not bolded, not in quotes</div>
+        <div class="cl-item">☐ &nbsp; All URLs are plain text — no blue hyperlinks</div>
+        <div class="cl-item">☐ &nbsp; Entries in alphabetical order by author's last name</div>
+        <div class="cl-item">☐ &nbsp; Font and size match the rest of the essay</div>
+        <div class="cl-item">☐ &nbsp; Entire page is double-spaced — no extra blank lines</div>
+        <div class="cl-item">☐ &nbsp; Four entries total: one primary source + three secondary sources</div>
+        <div class="cl-item">☐ &nbsp; Hanging indent applied to all entries</div>
+        <div class="cl-item">☐ &nbsp; Every source cited in the essay appears on the Works Cited — and vice versa</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
