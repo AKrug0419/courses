@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLA 9 Format Guide — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --slate-light:#f0f6f9;
+    --amber:      #E6C5B3;
+    --amber-dark: #5a3e35;
+    --amber-light:#fff8f4;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --text:       #2a2a2a;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --shadow-lg:  0 8px 40px rgba(0,0,0,0.14);
+    --transition: 0.22s ease;
+
+    /* callout colors */
+    --c1: #e07b54;  /* header — warm orange */
+    --c2: #5a9e7a;  /* heading block — sage */
+    --c3: #7a6abf;  /* title — plum */
+    --c4: #c05a7a;  /* body — rose */
+    --c5: #4a8aaa;  /* indent — slate */
+  }
+
+  html, body { min-height: 100%; width: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f4f5f2;
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  .page-wrap {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 100%);
+    border-radius: var(--radius);
+    padding: 28px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: 'MLA';
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Lora', serif;
+    font-size: 100px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.05);
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .page-header .subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ── INTRO CARD ── */
+  .intro-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 26px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+  }
+  .intro-card .intro-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .intro-card p { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin: 0; }
+  .intro-card strong { color: var(--text); }
+
+  /* ── MAIN LAYOUT ── */
+  .main-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .main-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ── MOCK DOCUMENT ── */
+  .doc-wrapper {
+    position: relative;
+  }
+  .doc-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+  .mock-doc {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+    /* simulate paper with subtle shadow */
+    border: 1px solid #d8d8d8;
+  }
+
+  /* The paper itself */
+  .paper {
+    /* 1-inch margins all around — simulated proportionally */
+    padding: 52px 56px 52px 56px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    line-height: 2; /* double-spaced */
+    color: #111;
+    position: relative;
+    min-height: 560px;
+  }
+
+  /* ── PAPER HEADER (running head) ── */
+  .paper-running-head {
+    position: absolute;
+    top: 20px;
+    right: 56px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    line-height: 1;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── PAPER HEADING BLOCK ── */
+  .paper-heading {
+    margin-bottom: 0;
+    line-height: 2;
+  }
+  .paper-heading p {
+    margin: 0;
+    line-height: 2;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  /* ── PAPER TITLE ── */
+  .paper-title {
+    text-align: center;
+    line-height: 2;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 0;
+  }
+
+  /* ── PAPER BODY ── */
+  .paper-body {
+    line-height: 2;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .paper-body p {
+    margin: 0;
+    text-align: left;
+  }
+  .paper-body .indent {
+    text-indent: 36px; /* 0.5 inch tab */
+  }
+
+  /* ── CALLOUT MARKERS ON THE DOCUMENT ── */
+  .callout-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: middle;
+    margin-left: 4px;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition);
+    flex-shrink: 0;
+    position: relative;
+    top: -2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    user-select: none;
+  }
+  .callout-marker:hover { transform: scale(1.2); }
+  .callout-marker.active { transform: scale(1.2); box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .cm-1 { background: var(--c1); }
+  .cm-2 { background: var(--c2); }
+  .cm-3 { background: var(--c3); }
+  .cm-4 { background: var(--c4); }
+  .cm-5 { background: var(--c5); }
+
+  /* ── MARGIN GUIDES (decorative rulers) ── */
+  .margin-top-rule {
+    position: absolute;
+    top: 50px;
+    left: 56px;
+    right: 56px;
+    border-top: 1px dashed rgba(168, 197, 176, 0.5);
+    pointer-events: none;
+  }
+  .margin-left-rule {
+    position: absolute;
+    top: 50px;
+    bottom: 40px;
+    left: 55px;
+    border-left: 1px dashed rgba(168, 197, 176, 0.5);
+    pointer-events: none;
+  }
+
+  /* ── CALLOUT PANEL ── */
+  .callout-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .callout-panel-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+    padding-left: 2px;
+  }
+
+  .callout-item {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition), transform var(--transition);
+    cursor: pointer;
+  }
+  .callout-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(3px);
+  }
+  .callout-item.active {
+    box-shadow: var(--shadow-md);
+    transform: translateX(3px);
+  }
+
+  .callout-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+  .callout-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .cn-1 { background: var(--c1); }
+  .cn-2 { background: var(--c2); }
+  .cn-3 { background: var(--c3); }
+  .cn-4 { background: var(--c4); }
+  .cn-5 { background: var(--c5); }
+
+  .callout-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .callout-toggle {
+    font-size: 11px;
+    color: var(--text-light);
+    transition: transform var(--transition);
+  }
+  .callout-item.active .callout-toggle { transform: rotate(180deg); }
+
+  .callout-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+    opacity: 0;
+  }
+  .callout-item.active .callout-body {
+    max-height: 400px;
+    opacity: 1;
+  }
+  .callout-body-inner {
+    padding: 4px 14px 14px 48px;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+  }
+  .callout-body-inner p { margin: 0; font-size: 13px; color: var(--text-mid); }
+  .callout-body-inner p + p { margin-top: 8px; }
+  .callout-body-inner strong { color: var(--text); }
+
+  .example-block {
+    background: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.8;
+  }
+  .example-block .ex-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* ── RULES TABLE SECTION ── */
+  .rules-section {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .rules-header {
+    background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media (max-width: 600px) { .rules-grid { grid-template-columns: 1fr; } }
+  .rule-item {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .rule-item:nth-child(even) { border-right: none; }
+  .rule-item:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 600px) {
+    .rule-item { border-right: none; }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-item:nth-last-child(-n+2) { border-bottom: 1px solid #f0f0f0; }
+    .rule-item:last-child { border-bottom: none !important; }
+  }
+  .rule-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .rule-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .rule-desc {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .rule-desc strong { color: var(--text); }
+
+  /* ── COMMON MISTAKES ── */
+  .mistakes-section {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .mistakes-header {
+    background: linear-gradient(135deg, #D8B5C5 0%, #E8CED8 100%);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a2e3e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mistake-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f5f0f2;
+    font-size: 13px;
+  }
+  .mistake-item:last-child { border-bottom: none; }
+  .mistake-x { color: #c05a7a; font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .mistake-text { color: var(--text-mid); line-height: 1.65; }
+  .mistake-text strong { color: var(--text); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.12s; }
+  .fade-in:nth-child(3) { animation-delay: 0.20s; }
+  .fade-in:nth-child(4) { animation-delay: 0.28s; }
+
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">ENC1102 &bull; Writing Reference</div>
+    <h1>MLA 9 Format: Setting Up Your Document</h1>
+    <p class="subtitle">Click any numbered marker on the document — or any card on the right — to see the formatting rule.</p>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-card fade-in">
+    <div class="intro-icon">📄</div>
+    <p>Every essay you submit must be formatted in <strong>MLA 9th edition</strong>. The annotated document below shows you exactly where everything goes. There is no separate title page — all the identifying information appears at the top of page one, and your last name and page number appear in the upper right of every page.</p>
+  </div>
+
+  <!-- MAIN LAYOUT: DOCUMENT + CALLOUTS -->
+  <div class="main-layout fade-in">
+
+    <!-- LEFT: MOCK DOCUMENT -->
+    <div class="doc-wrapper">
+      <div class="doc-label">▸ Annotated Document — Click a number to learn more</div>
+      <div class="mock-doc">
+        <div class="paper">
+
+          <!-- Margin guides (decorative) -->
+          <div class="margin-top-rule"></div>
+          <div class="margin-left-rule"></div>
+
+          <!-- Running head: LastName PageNum -->
+          <div class="paper-running-head">
+            <span>Ramirez 1</span>
+            <span class="callout-marker cm-1" data-target="1" onclick="toggleCallout(1)" title="Running head">1</span>
+          </div>
+
+          <!-- Heading block -->
+          <div class="paper-heading">
+            <p>Sofia Ramirez<span class="callout-marker cm-2" data-target="2" onclick="toggleCallout(2)" title="Your name">2</span></p>
+            <p>Professor Holliday</p>
+            <p>ENC1102</p>
+            <p>14 March 2025</p>
+          </div>
+
+          <!-- Title -->
+          <div class="paper-title">
+            <p>Sweat, Serpents, and Survival: Domestic Violence and<br>Literary Symbolism in Hurston's "Sweat"<span class="callout-marker cm-3" data-target="3" onclick="toggleCallout(3)" title="Title">3</span></p>
+          </div>
+
+          <!-- Body -->
+          <div class="paper-body">
+            <p class="indent">Zora Neale Hurston's short story "Sweat" depicts the struggle of Delia Jones, a washerwoman whose life is defined by her abusive husband Sykes and the domestic labor she performs to sustain their household.<span class="callout-marker cm-4" data-target="4" onclick="toggleCallout(4)" title="Body paragraph">4</span> Throughout the story, Hurston uses the recurring symbols of sweat, serpents, and the domestic space of the home to argue that Delia's labor is both the source of her oppression and, ultimately, the instrument of her liberation.</p>
+            <p class="indent">The most prominent symbol in the story is the rattlesnake that Sykes introduces into the household.<span class="callout-marker cm-5" data-target="5" onclick="toggleCallout(5)" title="Paragraph indent">5</span> Carter establishes a clear parallel between the snake's venom and Sykes's cruelty, suggesting that both represent the same patriarchal violence that has poisoned Delia's domestic life from the beginning.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: CALLOUT CARDS -->
+    <div class="callout-panel">
+      <div class="callout-panel-label">▸ Formatting Rules</div>
+
+      <!-- CALLOUT 1: Running Head -->
+      <div class="callout-item" id="callout-1" onclick="toggleCallout(1)">
+        <div class="callout-item-header">
+          <div class="callout-num cn-1">1</div>
+          <div class="callout-title">Last Name &amp; Page Number (Header)</div>
+          <div class="callout-toggle">▼</div>
+        </div>
+        <div class="callout-body">
+          <div class="callout-body-inner">
+            <p>In the <strong>header</strong> of your Word document, type your <strong>last name followed by a space and the page number</strong>. Set this to align to the <strong>right margin</strong>. Use the automatic page number feature so it increments on every page.</p>
+            <p>This header appears on <strong>every page</strong> of your essay — including the first page.</p>
+            <div class="example-block">
+              <span class="ex-label">How it looks</span>
+              Ramirez 1
+            </div>
+            <p style="margin-top:10px;"><strong>In Word:</strong> Insert → Header → Edit Header → type your last name and a space, then Insert → Page Number → Current Position → Plain Number.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALLOUT 2: Heading Block -->
+      <div class="callout-item" id="callout-2" onclick="toggleCallout(2)">
+        <div class="callout-item-header">
+          <div class="callout-num cn-2">2</div>
+          <div class="callout-title">Heading Block (Top of Page 1 Only)</div>
+          <div class="callout-toggle">▼</div>
+        </div>
+        <div class="callout-body">
+          <div class="callout-body-inner">
+            <p>At the very top of the first page — <strong>not</strong> a separate title page — type these four lines in order, each on its own line, aligned to the <strong>left margin</strong>:</p>
+            <div class="example-block">
+              <span class="ex-label">Format</span>
+              Your First and Last Name<br>
+              Professor Holliday<br>
+              ENC1102<br>
+              Day Month Year
+            </div>
+            <p style="margin-top:10px;">For the date, write it in <strong>Day Month Year</strong> order with no commas: <em>14 March 2025</em>, not <em>March 14, 2025</em>.</p>
+            <p style="margin-top:8px;">This block is <strong>double-spaced</strong> like the rest of the document — do not add extra blank lines between items.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALLOUT 3: Title -->
+      <div class="callout-item" id="callout-3" onclick="toggleCallout(3)">
+        <div class="callout-item-header">
+          <div class="callout-num cn-3">3</div>
+          <div class="callout-title">Title</div>
+          <div class="callout-toggle">▼</div>
+        </div>
+        <div class="callout-body">
+          <div class="callout-body-inner">
+            <p>The title goes on the line immediately after the heading block — <strong>no extra blank line</strong>. Center it. Use standard <strong>title case</strong> (capitalize major words).</p>
+            <p style="margin-top:8px;"><strong>Do not</strong> bold, italicize, underline, enlarge, or put quotation marks around your own title — unless the title contains the name of another work, which gets its normal formatting (italics for long works, quotation marks for short ones).</p>
+            <div class="example-block">
+              <span class="ex-label">Correct</span>
+              Sweat, Serpents, and Survival: Domestic Violence and Literary Symbolism in Hurston's "Sweat"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALLOUT 4: Body / First Paragraph -->
+      <div class="callout-item" id="callout-4" onclick="toggleCallout(4)">
+        <div class="callout-item-header">
+          <div class="callout-num cn-4">4</div>
+          <div class="callout-title">Body Text &amp; Double Spacing</div>
+          <div class="callout-toggle">▼</div>
+        </div>
+        <div class="callout-body">
+          <div class="callout-body-inner">
+            <p>The entire essay — heading block, title, and body — is <strong>double-spaced throughout</strong>. Do not add extra space between paragraphs or after the title. The line spacing should be exactly 2.0, not 1.5 or "At least."</p>
+            <p style="margin-top:8px;">Font: <strong>Times New Roman, 12pt</strong> is standard and recommended for MLA. Margins should be <strong>1 inch on all sides</strong>.</p>
+            <p style="margin-top:8px;"><strong>In Word:</strong> Select All (Ctrl+A) → Home → Line and Paragraph Spacing → 2.0. Then go to Line Spacing Options and make sure "Don't add space before/after paragraphs" is checked.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALLOUT 5: Paragraph Indent -->
+      <div class="callout-item" id="callout-5" onclick="toggleCallout(5)">
+        <div class="callout-item-header">
+          <div class="callout-num cn-5">5</div>
+          <div class="callout-title">Paragraph Indentation</div>
+          <div class="callout-toggle">▼</div>
+        </div>
+        <div class="callout-body">
+          <div class="callout-body-inner">
+            <p>The <strong>first line of every body paragraph</strong> is indented <strong>0.5 inches</strong> (one Tab press). This applies to every paragraph including the first one — there is no exception for the opening paragraph.</p>
+            <p style="margin-top:8px;"><strong>Do not</strong> use the space bar to create an indent. Use the Tab key, or set a first-line indent in Word's paragraph formatting settings.</p>
+            <p style="margin-top:8px;">The heading block and title are <strong>not</strong> indented — only your body paragraphs.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GENERAL FORMATTING RULES -->
+  <div class="rules-section fade-in">
+    <div class="rules-header">⚙️ General Formatting Checklist</div>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-icon">🔤</div>
+        <div>
+          <div class="rule-title">Font</div>
+          <div class="rule-desc"><strong>Times New Roman, 12pt.</strong> Use this throughout — heading block, title, and body.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">📐</div>
+        <div>
+          <div class="rule-title">Margins</div>
+          <div class="rule-desc"><strong>1 inch on all four sides.</strong> This is usually the Word default, but verify it.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">↕️</div>
+        <div>
+          <div class="rule-title">Line Spacing</div>
+          <div class="rule-desc"><strong>Double-spaced throughout</strong> — including the heading block, title, and body. No extra spaces between paragraphs.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">↩️</div>
+        <div>
+          <div class="rule-title">Paragraph Indent</div>
+          <div class="rule-desc"><strong>0.5 inch (one Tab)</strong> at the start of every body paragraph. Use Tab, not the space bar.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">📅</div>
+        <div>
+          <div class="rule-title">Date Format</div>
+          <div class="rule-desc">Write dates as <strong>Day Month Year</strong> — e.g., <em>14 March 2025</em>. No commas.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🔖</div>
+        <div>
+          <div class="rule-title">No Title Page</div>
+          <div class="rule-desc">MLA does <strong>not</strong> use a separate title page. All identifying information goes at the top of page one.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">📖</div>
+        <div>
+          <div class="rule-title">Works Cited</div>
+          <div class="rule-desc">Start on a <strong>new page</strong> after the body. Center the heading "Works Cited" — not bold, not italic. Entries are double-spaced with a <strong>hanging indent</strong>.</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🔢</div>
+        <div>
+          <div class="rule-title">In-Text Citations</div>
+          <div class="rule-desc">Place the author's last name and page number in parentheses after the quote: <strong>(Hurston 24)</strong>. The period goes <em>after</em> the closing parenthesis.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMON MISTAKES -->
+  <div class="mistakes-section fade-in">
+    <div class="mistakes-header">⚠️ Common Formatting Mistakes to Avoid</div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Adding a separate title page.</strong> MLA does not use one. Everything goes at the top of page one.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Bolding, enlarging, or underlining your title.</strong> Your title uses the same font and size as the rest of the essay — no special formatting unless it contains a work's title.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Adding extra blank lines after the title or between paragraphs.</strong> Double spacing is consistent throughout — no extra line breaks anywhere.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Writing the date as March 14, 2025.</strong> MLA date order is Day Month Year — <em>14 March 2025</em> — with no comma.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Forgetting the running head or putting it only on page 2+.</strong> Your last name and page number appear in the header on <em>every</em> page, including page one.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-x">✗</div>
+      <div class="mistake-text"><strong>Putting the period before the in-text citation.</strong> The period always comes <em>after</em> the closing parenthesis: <em>"quote" (Author ##).</em></div>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+  let activeCallout = null;
+
+  function toggleCallout(num) {
+    const item = document.getElementById('callout-' + num);
+    const markers = document.querySelectorAll('[data-target="' + num + '"]');
+
+    if (activeCallout === num) {
+      // Close it
+      item.classList.remove('active');
+      markers.forEach(m => m.classList.remove('active'));
+      activeCallout = null;
+    } else {
+      // Close previous
+      if (activeCallout !== null) {
+        const prev = document.getElementById('callout-' + activeCallout);
+        const prevMarkers = document.querySelectorAll('[data-target="' + activeCallout + '"]');
+        if (prev) prev.classList.remove('active');
+        prevMarkers.forEach(m => m.classList.remove('active'));
+      }
+      // Open new
+      item.classList.add('active');
+      markers.forEach(m => m.classList.add('active'));
+      activeCallout = num;
+
+      // Smooth scroll to callout on mobile
+      if (window.innerWidth <= 820) {
+        setTimeout(() => {
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    }
+  }
+
+  // Open first callout by default after a short delay
+  setTimeout(() => toggleCallout(1), 600);
+</script>
+
+</body>
+</html>
