@@ -41,17 +41,24 @@
     --transition:  0.22s ease;
   }
 
+  html, body {
+    min-height: 100%;
+    width: 100%;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: #f7f8f6;
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   .page-wrap {
-    max-width: 1100px;
+    max-width: 1060px;
+    width: 100%;
     margin: 0 auto;
-    padding: 40px 28px 60px;
+    padding: 32px 16px 60px;
   }
 
   /* ── HEADER ── */
@@ -81,7 +88,7 @@
   }
   .page-header h1 {
     font-family: 'Lora', serif;
-    font-size: 28px;
+    font-size: clamp(18px, 4vw, 28px);
     font-weight: 700;
     color: var(--sage-deep);
     margin-bottom: 8px;
@@ -125,7 +132,8 @@
   .sh-warm   { background: linear-gradient(135deg, var(--warm) 0%, #d8d4d0 100%);            color: var(--warm-dark); }
   .sh-pink   { background: linear-gradient(135deg, var(--pink) 0%, #E8CED8 100%);            color: var(--pink-dark); }
 
-  .section-body { padding: 26px 32px; }
+  .section-body { padding: 22px 28px; }
+  @media (max-width: 480px) { .section-body { padding: 16px 14px; } }
 
   /* ── LEARNING OUTCOMES ── */
   .outcomes-grid {
@@ -177,7 +185,7 @@
     padding: 16px 18px;
     margin-top: 12px;
   }
-  @media (max-width: 620px) { .outline-struct { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .outline-struct { grid-template-columns: 1fr; } }
   .struct-item { font-size: 12px; color: var(--sage-dark); line-height: 1.65; }
   .struct-item strong { display: block; margin-bottom: 3px; font-size: 12px; }
 
@@ -270,7 +278,8 @@
     gap: 10px;
     margin-bottom: 24px;
   }
-  @media (max-width: 680px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 380px) { .stats-row { grid-template-columns: 1fr; } }
   .stat-tile {
     border-radius: 8px;
     padding: 18px 16px;
@@ -502,13 +511,13 @@
                 <span style="font-weight:400; font-size:11px;">Opens in a new tab</span>
               </div>
               <div class="sample-card-body">
-                <p>The Supernatural and the Limits of Knowledge in Vladimir Nabokov's "The Vane Sisters" — Three Body Paragraphs</p>
-                <a href="sample_outline_vane_sisters.html" target="_blank" class="sample-link">Open Sample ↗</a>
+                <p>The Male Gaze and Female Self-Transformation in Angela Carter's "The Tiger's Bride" — Three Body Paragraphs</p>
+                <a href="sample_outline_tiger_bride.html" target="_blank" class="sample-link">Open Sample ↗</a>
               </div>
             </div>
             <div class="callout callout-amber" style="margin-top:12px;">
               <div class="callout-label">⚠️ Important Note</div>
-              <p>The sample outline is based on a story and topic you are <strong>not</strong> writing about. Do not write about "The Vane Sisters" — use the sample only to understand the structure and level of detail expected in your own outline.</p>
+              <p>The sample outline is based on a story and topic you are <strong>not</strong> writing about. Do not write about "The Tiger's Bride" — use the sample only to understand the structure and level of detail expected in your own outline.</p>
             </div>
           </div>
         </div>
@@ -526,12 +535,16 @@
               </div>
               <div class="struct-item">
                 <strong>II–IV. Body Paragraphs (3–4)</strong>
-                For each body paragraph, identify the paragraph's topic and one to two key ideas. Use sub-points (A., B.) and details (1., 2.) to show what each paragraph will cover, including planned evidence from the story and your scholarly sources.
+                Each body paragraph follows the ten-step structure in the sample outline. Use brief phrases (not full sentences) for each step. For primary evidence steps, include the actual brief quote from the story. For secondary source steps, <strong>leave a labeled placeholder</strong> — you will find those sources later.
               </div>
               <div class="struct-item">
                 <strong>V. Conclusion Paragraph</strong>
                 You can leave this <strong>blank</strong>, just as the sample outline does. Conclusions are easier to write once the body paragraphs are drafted.
               </div>
+            </div>
+            <div class="callout" style="margin-top:12px; border-left-color:#d4c87a; background:#fffdf0;">
+              <div class="callout-label" style="color:#7a6020;">📌 No Research Required for This Assignment</div>
+              <p style="color:#7a6020;">You have not yet learned how to find scholarly sources — that comes in the next stage of the writing process. For this outline, simply leave a clearly labeled placeholder wherever a secondary source quote will eventually go. Something like <em>"[Secondary source placeholder — to be added]"</em> is fine. Over the full essay, you will eventually use <strong>six secondary source quotes</strong> spread across your body paragraphs. Plan for about <strong>two placeholders per body paragraph</strong> in a three-paragraph essay.</p>
             </div>
           </div>
         </div>
@@ -612,7 +625,7 @@
           </div>
           <div class="ai-canvas">
             <div class="ai-label">🔍 Canvas AI Report</div>
-            <p>Faculty now have access to Canvas's AI Report feature (separate from Turnitin). If your submission generates a flag, you will be asked to redo the assignment — in part or in whole — depending on what the report identifies.</p>
+            <p>Your instructor has access to Canvas's AI Report feature (separate from Turnitin). If your submission generates a flag, you will be asked to redo the assignment — in part or in whole — depending on what the report identifies.</p>
           </div>
         </div>
       </div>
@@ -650,13 +663,13 @@
           <div class="tile-icon">✍️</div>
           <div class="tile-label">Prewriting &amp; Planning Page</div>
         </a>
-        <a href="sample_outline_vane_sisters.html" target="_blank" class="resource-tile rt-slate">
+        <a href="sample_outline_tiger_bride.html" target="_blank" class="resource-tile rt-slate">
           <div class="tile-icon">📄</div>
           <div class="tile-label">Sample Research Outline</div>
         </a>
         <a href="mailto:cholliday@valenciacollege.edu" class="resource-tile rt-amber">
           <div class="tile-icon">📞</div>
-          <div class="tile-label">Email: cholliday@valenciacollege.edu</div>
+          <div class="tile-label">Instructor Email</div>
         </a>
       </div>
     </div>

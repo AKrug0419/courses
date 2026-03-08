@@ -37,17 +37,24 @@
     --transition: 0.25s ease;
   }
 
+  html, body {
+    min-height: 100%;
+    width: 100%;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: #f7f8f6;
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   .page-wrap {
-    max-width: 1100px;
+    max-width: 1060px;
+    width: 100%;
     margin: 0 auto;
-    padding: 40px 28px 60px;
+    padding: 32px 16px 60px;
   }
 
   /* ── HEADER ── */
@@ -77,7 +84,7 @@
   }
   .page-header h1 {
     font-family: 'Lora', serif;
-    font-size: 30px;
+    font-size: clamp(20px, 4vw, 30px);
     font-weight: 700;
     color: var(--sage-deep);
     margin-bottom: 6px;
@@ -111,22 +118,26 @@
   .section-header.amber  { background: linear-gradient(135deg, var(--amber) 0%, #F0D7C8 100%); color: var(--amber-dark); }
   .section-header.dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
 
-  .section-body { padding: 28px 32px; }
+  .section-body { padding: 24px 28px; }
+  @media (max-width: 480px) { .section-body { padding: 18px 16px; } }
 
   /* ── TWO-COL IMAGE LAYOUT ── */
   .two-col {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 260px;
     gap: 28px;
     align-items: start;
   }
   .two-col img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     display: block;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 640px) {
     .two-col { grid-template-columns: 1fr; }
+    .two-col img { max-width: 320px; margin: 0 auto; }
   }
 
   /* ── CALLOUT ── */
@@ -215,7 +226,7 @@
   .topics-grid.single {
     grid-template-columns: 1fr;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 600px) {
     .topics-grid { grid-template-columns: 1fr; }
   }
 
@@ -420,7 +431,7 @@
     gap: 12px;
     margin-top: 4px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 540px) {
     .resource-grid { grid-template-columns: 1fr 1fr; }
   }
   .resource-tile {
@@ -460,6 +471,16 @@
     font-size: 14px;
     color: rgba(255,255,255,0.82);
     line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE HELPERS ── */
+  .responsive-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 580px) {
+    .responsive-two-col { grid-template-columns: 1fr; }
   }
 
   /* ── DIVIDER ── */
@@ -611,8 +632,52 @@
         <div class="outline-row">
           <span class="outline-pill pill-dkgreen">II–IV.</span>
           <div>
-            <strong style="font-size:13px;">Body Paragraphs</strong>
-            <p style="margin-top:4px; font-size:13px;">Each Roman numeral is one body paragraph. Give each paragraph a descriptive title, then list sub-points A, B, etc. Under each sub-point, add numbered details — the specific scenes, quotes, or ideas you plan to discuss. Every body paragraph must incorporate a quote from the story (primary source) and at least one quote or paraphrase from a scholarly article (secondary source).</p>
+            <strong style="font-size:13px;">Body Paragraphs — Ten-Step Structure</strong>
+            <p style="margin-top:4px; font-size:13px;">Each body paragraph follows the same ten-step structure. Give each paragraph a descriptive title. Then for each step, write a brief phrase (not full sentences) describing what you plan to cover. For your primary source evidence steps, include the actual brief quote from the story you plan to use. For secondary source steps, simply leave a clearly labeled placeholder — you will find those sources later.</p>
+            <!-- 10-step body paragraph diagram -->
+            <div style="margin-top:14px; border:2px solid var(--border); border-radius:8px; overflow:hidden;">
+              <div style="background:#f5f5f5; padding:8px 14px; font-size:11px; font-weight:600; color:#555; letter-spacing:0.04em; text-transform:uppercase;">Body Paragraph Structure — Each of Your 3–4 Body Paragraphs</div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-green" style="flex-shrink:0; margin-top:1px; font-size:10px;">① Topic Sentence</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Your own claim about this paragraph's aspect of the theme. No sources here.</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; background:#fafafa; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-gray" style="flex-shrink:0; margin-top:1px; font-size:10px;">② Primary Evidence</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Brief quote from the story + brief phrase about what it shows</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-dkgreen" style="flex-shrink:0; margin-top:1px; font-size:10px;">③ Your Analysis</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Brief phrase — what the evidence means and how it supports your topic sentence</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; background:#fffdf0; border-bottom:1px solid #ebebeb; border-left:3px solid #d4c87a;">
+                <span class="outline-pill pill-yellow" style="flex-shrink:0; margin-top:1px; font-size:10px;">④ Possible Secondary Source</span>
+                <p style="font-size:12px; color:#7a6020; margin:0; line-height:1.6; font-style:italic;">Placeholder only — leave space here. You will add the scholarly quote or paraphrase later.</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-dkgreen" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑤ Your Analysis</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Brief phrase — how you'll connect the secondary source to your argument (to fill in later)</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; background:#fafafa; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-gray" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑥ Primary Evidence</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Second (or third) brief quote from the story + brief phrase about what it adds</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-dkgreen" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑦ Your Analysis</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Brief phrase — what this second piece of evidence contributes to the paragraph</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; background:#fffdf0; border-bottom:1px solid #ebebeb; border-left:3px solid #d4c87a;">
+                <span class="outline-pill pill-yellow" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑧ Possible Secondary Source</span>
+                <p style="font-size:12px; color:#7a6020; margin:0; line-height:1.6; font-style:italic;">Placeholder only — leave space here for a second scholarly source if needed.</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; border-bottom:1px solid #ebebeb;">
+                <span class="outline-pill pill-dkgreen" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑨ Your Analysis</span>
+                <p style="font-size:12px; color:var(--text-mid); margin:0; line-height:1.6;">Brief phrase — to be filled in when you add the second secondary source</p>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; padding:9px 14px; background:#f5f2fc;">
+                <span class="outline-pill pill-purple" style="flex-shrink:0; margin-top:1px; font-size:10px;">⑩ Closing Sentence</span>
+                <p style="font-size:12px; color:#4e3e6a; margin:0; line-height:1.6;">Brief phrase — wraps up the paragraph and gestures toward the next. Your voice only.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="outline-row">
@@ -624,12 +689,12 @@
         </div>
       </div>
 
-      <div style="background: var(--sage-light); border: 2px solid var(--sage); border-radius: 8px; padding: 18px 22px; margin-top:8px;">
-        <div style="display:flex; gap:14px; align-items:flex-start;">
-          <span style="font-size:24px; flex-shrink:0; margin-top:2px;">📌</span>
+      <div style="background: #fffdf0; border: 2px solid #d4c87a; border-radius: 8px; padding: 16px 20px; margin-top:12px;">
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:22px; flex-shrink:0; margin-top:2px;">📌</span>
           <div>
-            <strong style="font-size:13px; color:var(--sage-deep);">Secondary Source Distribution</strong>
-            <p style="font-size:13px; color:#3a5e42; margin-top:6px;">Over the full essay, you will quote <strong>six times total</strong> from your three secondary sources combined. In a three-body-paragraph essay, a simple distribution is <strong>two secondary source quotes per body paragraph</strong>. In a four-paragraph essay, you might distribute as <strong>2 + 2 + 1 + 1</strong>. Plan this during the outline stage — it saves time during drafting.</p>
+            <strong style="font-size:13px; color:#6a5010;">Secondary Sources: Placeholders Only — No Research Required Yet</strong>
+            <p style="font-size:13px; color:#7a6020; margin-top:6px;">You have not yet learned how to find scholarly sources. <strong>Do not try to locate secondary sources for your outline.</strong> Simply leave a clearly labeled placeholder in each secondary source slot — something like <em>"[Secondary source placeholder — to be added]"</em>. Over the full essay, you will eventually quote <strong>six times total</strong> from three scholarly articles. In a three-body-paragraph essay, that works out to about <strong>two secondary source placeholders per body paragraph</strong>. The sample outline shows exactly how to do this.</p>
           </div>
         </div>
       </div>
@@ -790,22 +855,22 @@
       <div style="display:grid; grid-template-columns:1fr 260px; gap:24px; align-items:start;">
         <div>
           <h3 style="font-family:'Lora',serif; font-size:17px; color:var(--text); margin-bottom:12px;">Review the Sample Before You Start</h3>
-          <p>A sample research essay outline is available for you to review before completing your own. The sample is based on <strong>Vladimir Nabokov's "The Vane Sisters"</strong> and focuses on the theme of <strong>the supernatural and the limits of knowledge</strong>. It models the exact structure — Roman numerals, sub-points, primary and secondary source slots, and analysis directions — that your own outline should follow.</p>
-          <p style="margin-top:12px;">The sample outline shows you how to break a thematic topic into three distinct body paragraph arguments, how to plan your primary and secondary source evidence, and how to frame your analytical moves at each stage. Review it carefully before beginning your own outline.</p>
+          <p>A sample research essay outline is available for you to review before completing your own. The sample is based on <strong>Angela Carter's "The Tiger's Bride"</strong> — a story you are <strong>not</strong> writing about — and focuses on the theme of <strong>the male gaze and female self-transformation</strong>. It models the exact structure your own outline should follow: the ten-step body paragraph, the use of brief phrases and actual story quotes as supporting details, and clearly marked placeholders where secondary sources will eventually go.</p>
+          <p style="margin-top:12px;">The sample shows you how to plan your argument before you have your secondary sources in hand. You will notice that every secondary source slot in the sample is a placeholder, not a filled-in quote. <strong>Your outline should do the same thing.</strong> Review the sample carefully before beginning your own outline.</p>
           <div class="callout">
-            <div class="callout-label">🔖 This Is a Research Essay Outline</div>
-            <p>Unlike your first essay, this outline must account for both primary sources (quotes from the story itself) and secondary sources (quotes or paraphrases from scholarly articles). The sample shows how those two source types work together in each body paragraph.</p>
+            <div class="callout-label">🔖 This Is a Research Essay Outline — But You Don't Need Sources Yet</div>
+            <p>Your final essay will incorporate both primary sources (quotes from the story) and secondary sources (quotes from scholarly articles). For your <em>outline</em>, you only need to include the primary source quotes and leave labeled placeholders for secondary sources. You haven't yet learned how to find scholarly articles — that research stage comes later.</p>
           </div>
         </div>
         <div>
           <div style="background: var(--sage-light); border: 2px solid var(--sage); border-radius: 8px; overflow: hidden;">
             <div style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); padding: 12px 16px;">
               <div style="font-size: 12px; font-weight:600; color: var(--sage-deep);">📄 Sample Research Outline</div>
-              <div style="font-size: 11px; color: var(--sage-dark); margin-top:2px;">Nabokov — "The Vane Sisters"</div>
+              <div style="font-size: 11px; color: var(--sage-dark); margin-top:2px;">Angela Carter — "The Tiger's Bride"</div>
             </div>
             <div style="padding: 16px 18px;">
-              <p style="font-size:13px; color:#3a5e42; margin-bottom:14px;">Theme of the Supernatural &amp; the Limits of Knowledge — Three Body Paragraphs</p>
-              <a href="sample_outline_vane_sisters.html" target="_blank"
+              <p style="font-size:13px; color:#3a5e42; margin-bottom:14px;">The Male Gaze and Female Self-Transformation — Three Body Paragraphs</p>
+              <a href="sample_outline_tiger_bride.html" target="_blank"
                  style="display:block; background: var(--sage-dark); color:#fff; text-align:center; padding:10px 16px; border-radius:6px; font-size:13px; font-weight:600; text-decoration:none; transition: background var(--transition);"
                  onmouseover="this.style.background='var(--sage-deep)'"
                  onmouseout="this.style.background='var(--sage-dark)'">
@@ -825,7 +890,7 @@
   <div class="section-card fade-in">
     <div class="section-header amber">✅ Before You Start Writing</div>
     <div class="section-body">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="responsive-two-col">
         <div>
           <p style="margin-bottom:16px;">Make sure you can check off each of the following before opening the Outline Assignment:</p>
           <ul class="checklist">
@@ -853,7 +918,7 @@
     <div class="section-header green">🔗 Resources</div>
     <div class="section-body">
       <div class="resource-grid">
-        <a href="sample_outline_vane_sisters.html" target="_blank" class="resource-tile rt-green">
+        <a href="sample_outline_tiger_bride.html" target="_blank" class="resource-tile rt-green">
           <div class="tile-icon">📄</div>
           <div class="tile-label">Sample Research Outline</div>
         </a>
@@ -869,11 +934,6 @@
     </div>
   </div>
 
-  <!-- CTA BANNER -->
-  <div class="cta-banner fade-in">
-    <h3>🎯 Ready to Outline?</h3>
-    <p>Once you've reviewed the sample outline and chosen your topic, click <strong>Next</strong> in the lower right to proceed to the Literary Research Essay Outline Assignment.</p>
-  </div>
 
 </div><!-- end page-wrap -->
 

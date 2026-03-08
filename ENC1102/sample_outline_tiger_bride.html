@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Research Outline: "The Tiger's Bride" by Angela Carter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:       #A8C5B0;
+    --sage-dark:  #2e4a35;
+    --sage-deep:  #1a3328;
+    --sage-light: #eaf4eb;
+    --sage-mid:   #C8DFD0;
+    --slate:      #B8C8D0;
+    --slate-dark: #2e3e4a;
+    --plum:       #B8A8D0;
+    --plum-dark:  #3e2e5a;
+    --plum-light: #f7f4fc;
+    --amber:      #fbeeb8;
+    --amber-text: #7a5a10;
+    --text:       #333;
+    --text-mid:   #555;
+    --text-light: #777;
+    --border:     #e0e0e0;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+    --transition: 0.22s ease;
+  }
+
+  html, body {
+    min-height: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8f6;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .page-wrap {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    right: -50px; bottom: -50px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
+  }
+  .page-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .page-header .subtitle {
+    font-size: clamp(12px, 3vw, 14px);
+    color: var(--sage-dark);
+  }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-header {
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sh-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .sh-slate  { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); color: var(--slate-dark); }
+  .sh-dark   { background: linear-gradient(135deg, #222 0%, #444 100%); color: #fff; }
+
+  .section-body { padding: 22px 26px; }
+
+  /* ── BODY PARAGRAPH BLOCKS ── */
+  .bp-block {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .bp-block:last-child { margin-bottom: 0; }
+
+  .bp-header {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .bp-header.intro { background: linear-gradient(135deg, var(--slate) 0%, #D0DFE8 100%); }
+  .bp-header.body  { background-color: #f5f5f5; }
+  .bp-header.concl { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); }
+
+  .bp-num {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .bp-num.intro { background-color: var(--slate-dark); color: #fff; }
+  .bp-num.body  { background-color: var(--sage-deep); color: #fff; }
+  .bp-num.concl { background-color: var(--plum-dark); color: #fff; }
+
+  .bp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .bp-body { padding: 18px 22px; }
+
+  /* ── OUTLINE PILL LABELS ── */
+  .pill {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  .p-green  { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-mid) 100%); color: var(--sage-deep); }
+  .p-gray   { background-color: #ced4d9; color: #333; }
+  .p-dkgrn  { background: linear-gradient(135deg, #3a6a4a 0%, #4a7a5a 100%); color: #fff; }
+  .p-yellow { background-color: var(--amber); color: var(--amber-text); }
+  .p-purple { background: linear-gradient(135deg, var(--plum) 0%, #D0C5E0 100%); color: var(--plum-dark); }
+  .p-gray2  { background-color: #e0e0e0; color: #555; }
+
+  /* ── OUTLINE ROWS ── */
+  .o-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .o-row:last-child { margin-bottom: 0; }
+  .o-row .o-label { flex-shrink: 0; min-width: 170px; }
+  .o-row .o-content { flex: 1; min-width: 0; }
+  .o-row .o-content p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin: 0;
+  }
+  .o-row .o-content p + p { margin-top: 4px; }
+
+  @media (max-width: 560px) {
+    .o-row { flex-direction: column; gap: 6px; }
+    .o-row .o-label { min-width: unset; }
+  }
+
+  /* Sub-points */
+  .sub-block {
+    margin: 6px 0 4px 0;
+  }
+  .sub-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    padding-left: 2px;
+  }
+  .sub-item {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 4px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .sub-item::before {
+    content: '–';
+    position: absolute;
+    left: 2px;
+    color: #bbb;
+  }
+  .sub-item em {
+    font-style: italic;
+    color: #444;
+  }
+  .quote-item {
+    font-size: 13px;
+    color: #3a3a3a;
+    line-height: 1.75;
+    margin-bottom: 4px;
+    padding: 6px 12px 6px 14px;
+    border-left: 3px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+  }
+  .quote-cite {
+    font-style: normal;
+    font-size: 11px;
+    color: var(--sage-dark);
+    margin-left: 4px;
+  }
+
+  /* Placeholder / secondary source */
+  .placeholder-box {
+    background: #fffdf0;
+    border: 2px dashed #d4c87a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 4px 0;
+  }
+  .placeholder-box .ph-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--amber-text);
+    margin-bottom: 4px;
+  }
+  .placeholder-box p {
+    font-size: 12px;
+    color: #8a7a3a;
+    font-style: italic;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .placeholder-box .ph-line {
+    font-size: 11px;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* ── STRUCTURE LEGEND ── */
+  .legend {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .legend-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #ebebeb;
+    flex-wrap: wrap;
+  }
+  .legend-row:last-child { border-bottom: none; }
+  .legend-row:nth-child(even) { background: #fafafa; }
+  .legend-row p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+    min-width: 180px;
+  }
+  .legend-row strong { color: var(--text); }
+  .legend-row .pill { margin-top: 0; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 4px solid var(--sage);
+    background: var(--sage-light);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .callout .callout-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 4px;
+  }
+  .callout p { font-size: 13px; color: #3a5e42; line-height: 1.7; margin: 0; }
+
+  .callout-amber {
+    border-left-color: #c8a84a;
+    background: #fffdf0;
+  }
+  .callout-amber .callout-label { color: #7a6020; }
+  .callout-amber p { color: #7a6020; }
+
+  /* ── DIVIDER ── */
+  .divider { border: 0; border-top: 2px solid var(--border); margin: 22px 0; }
+
+  p { font-size: 14px; color: #444; line-height: 1.8; }
+  p + p { margin-top: 10px; }
+
+  /* ── SECONDARY DIST BANNER ── */
+  .dist-banner {
+    background: #f0f7f2;
+    border: 3px solid var(--sage);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .dist-banner .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .dist-banner p { font-size: 13px; color: #3a5e42; line-height: 1.8; margin: 0; }
+  .dist-banner strong { color: var(--sage-deep); }
+
+  /* ── FOOTER BANNER ── */
+  .footer-banner {
+    background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 100%);
+    border-radius: var(--radius);
+    padding: 18px 26px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .footer-banner p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; }
+  .footer-banner strong { color: #fff; }
+
+  /* ── TIPS ROW ── */
+  .tips-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  @media (max-width: 620px) { .tips-row { grid-template-columns: 1fr; } }
+  .tip-box {
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .tip-box .tip-label { font-size: 12px; font-weight: 600; margin-bottom: 5px; }
+  .tip-box p { font-size: 12px; line-height: 1.6; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.45s ease both; }
+  .fade-in:nth-child(1) { animation-delay: 0.04s; }
+  .fade-in:nth-child(2) { animation-delay: 0.10s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.22s; }
+  .fade-in:nth-child(5) { animation-delay: 0.28s; }
+  .fade-in:nth-child(6) { animation-delay: 0.34s; }
+  .fade-in:nth-child(7) { animation-delay: 0.40s; }
+  .fade-in:nth-child(8) { animation-delay: 0.46s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header fade-in">
+    <div class="eyebrow">Sample Outline &bull; Literary Research Essay &bull; Theme-Based Topic</div>
+    <h1>Sample Research Essay Outline</h1>
+    <p class="subtitle">The Male Gaze and Female Self-Transformation in Angela Carter's "The Tiger's Bride" — Three Body Paragraphs</p>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-green">💡 How to Use This Sample Outline</div>
+    <div class="section-body">
+      <p>This sample outline models the structure your own outline should follow. It is based on Angela Carter's "The Tiger's Bride" from <em>The Bloody Chamber</em> — a story you are <strong>not</strong> writing about. Use it only to understand the structure and level of detail expected in your own outline.</p>
+      <p style="margin-top:10px;">Notice how each body paragraph is organized: it begins with a brief phrase identifying the paragraph's focus, moves through two rounds of primary evidence and analysis, and includes marked spaces for secondary sources that you will fill in later during the research stage.</p>
+      <div class="callout callout-amber" style="margin-top:14px;">
+        <div class="callout-label">📌 Secondary Sources: Leave Space Now, Fill In Later</div>
+        <p>You have not yet learned to do literary research. <strong>Do not worry about finding secondary sources for your outline.</strong> Simply leave a clearly marked placeholder — as shown in this sample — where each secondary source quote will eventually go. You will locate and add those sources in the next stage of the writing process.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY PARAGRAPH STRUCTURE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-dark">🔬 Body Paragraph Structure (Research Essay)</div>
+    <div class="section-body">
+      <p style="margin-bottom:16px;">Every body paragraph in your research essay follows this ten-step structure. You will quote directly from the story <strong>two to three times per paragraph</strong> and leave space for secondary sources throughout. The sample outline below is organized around this structure.</p>
+      <div class="legend">
+        <div class="legend-row">
+          <span class="pill p-green">① Topic Sentence</span>
+          <p>Your own claim about what aspect of the theme you're analyzing. <strong>No sources here.</strong></p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-gray">② Primary Evidence</span>
+          <p>A specific quote from the short story that directly supports this paragraph's topic. Introduce with a signal phrase; include MLA citation.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">③ Your Analysis</span>
+          <p>Explain what the evidence means and how it supports your topic sentence. <strong>Sources never explain themselves.</strong></p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-yellow">④ Possible Secondary Source</span>
+          <p><em>Leave a placeholder here.</em> You will add a quote or paraphrase from a scholarly article during the research stage.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">⑤ Your Analysis</span>
+          <p>When you fill in the secondary source, you will explain how the scholar's point deepens your argument.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-gray">⑥ Primary Evidence</span>
+          <p>A second (or third) quote from the story, developing the paragraph's argument further.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">⑦ Your Analysis</span>
+          <p>Explain what this second piece of evidence adds to the paragraph's claim.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-yellow">⑧ Possible Secondary Source</span>
+          <p><em>Leave a second placeholder here</em> if needed. Not every paragraph requires two secondary source slots.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-dkgrn">⑨ Your Analysis</span>
+          <p>When you fill in the second secondary source, you will explain how it strengthens this paragraph's specific claim.</p>
+        </div>
+        <div class="legend-row">
+          <span class="pill p-purple">⑩ Closing Sentence</span>
+          <p>Wrap up the paragraph's argument and gesture toward the next paragraph. <strong>Your own voice only — no new quotes.</strong></p>
+        </div>
+      </div>
+      <div class="tips-row">
+        <div class="tip-box" style="background:#f0f7f2; border:2px solid var(--sage);">
+          <div class="tip-label" style="color:var(--sage-deep);">🔑 Your Voice Leads</div>
+          <p style="color:#3a5e42;">Your analysis should take up more space than your quotes. If quotes dominate, add more of your own thinking.</p>
+        </div>
+        <div class="tip-box" style="background:#fff3ee; border:2px solid #C4937A;">
+          <div class="tip-label" style="color:#5a3e35;">🔑 Introduce Before You Quote</div>
+          <p style="color:#7a5545;">Never drop a quote in without a signal phrase. Tell the reader who is speaking and why it matters.</p>
+        </div>
+        <div class="tip-box" style="background:var(--plum-light); border:2px solid var(--plum);">
+          <div class="tip-label" style="color:var(--plum-dark);">🔑 Analyze After You Quote</div>
+          <p style="color:#5e4e7a;">Every quote needs your explanation immediately after it — tell the reader what it means and how it proves your point.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- THE SAMPLE OUTLINE -->
+  <div class="section-card fade-in">
+    <div class="section-header sh-slate">📄 The Sample Outline</div>
+    <div class="section-body">
+
+      <!-- I. INTRODUCTION -->
+      <div class="bp-block">
+        <div class="bp-header intro">
+          <span class="bp-num intro">I.</span>
+          <span class="bp-title">Introduction Paragraph</span>
+        </div>
+        <div class="bp-body">
+          <p style="font-size:14px;"><strong>Topic Selected:</strong> The Male Gaze and Female Self-Transformation in Angela Carter's "The Tiger's Bride."</p>
+          <p class="callout" style="margin-top:10px; font-size:13px; color:#555;"><em>Note: You do not need to write the full introduction in your outline. Simply identify your topic, the author, and the title as shown above.</em></p>
+        </div>
+      </div>
+
+      <!-- II. BODY PARAGRAPH ONE -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">II.</span>
+          <span class="bp-title">Body Paragraph One: The Beast's Gaze as an Instrument of Objectification</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">The Beast's demand to see the narrator unclothed — and her refusal — establishes the male gaze as an instrument of objectification that reduces women to passive objects for male viewing pleasure</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">A. The Beast's demand — her father has lost her in a card game</div>
+                <div class="quote-item">"My father lost me to The Beast at cards."<span class="quote-cite">(Carter 51)</span></div>
+                <div class="sub-item">The transaction reduces her to property — she is staked and lost like an object, not a person</div>
+              </div>
+              <div class="sub-block">
+                <div class="sub-label">B. The Beast's specific request: to see her naked</div>
+                <div class="quote-item">"The Beast wants nothing but the sight of me."<span class="quote-cite">(Carter 55)</span></div>
+                <div class="sub-item">The demand is visual, not physical — the male gaze itself is the violation Carter is interrogating</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain how Carter establishes the narrator as a commodity passed between men — first by her father, then by the Beast — and how the Beast's request literalizes the logic of objectification: to see a woman is to possess her</div>
+              <div class="sub-item">Connect this to the story's broader feminist argument: in a world governed by male exchange, a woman's body belongs to whoever is looking at it</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source addressing Carter's use of the male gaze, feminist fairy tale revision, or the commodification of women in <em>The Bloody Chamber</em></p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain how the scholar's argument about Carter's feminist revision of the fairy tale — or about the gaze as a power structure — supports your claim that the Beast's demand is not simply desire but an exercise of patriarchal authority</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">⑥ Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">C. Her response: she offers her mechanical rose instead of her body</div>
+                <div class="quote-item">"I will display myself as he wishes — I'll play his game."<span class="quote-cite">(Carter 57)</span></div>
+                <div class="sub-item">Even her compliance is strategic — she negotiates the terms of being seen rather than simply surrendering to the gaze</div>
+                <div class="sub-item">The mechanical rose she substitutes for herself: a hollow replica, not a real woman — she refuses authentic self-exposure while appearing to comply</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑦ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain how the narrator's strategy of offering a substitute reveals her awareness that the gaze is about power, not admiration — and that she can resist it even while appearing to comply</div>
+              <div class="sub-item">How does Carter use this moment to begin complicating the binary of active male viewer / passive female object?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">⑧ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source addressing female agency within patriarchal constraints, or Carter's revision of passive fairy tale heroines into active resisters</p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑨ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Connect the scholar's reading of Carter's heroines as active agents — not passive victims — to your argument about the narrator's strategic compliance with the Beast's gaze</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑩ Closing Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">Wrap up the argument about the gaze as a power structure — and gesture toward the next paragraph: if the gaze reduces women to objects, what happens when the narrator begins to look back?</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- III. BODY PARAGRAPH TWO -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">III.</span>
+          <span class="bp-title">Body Paragraph Two: The Narrator Looks Back — Reversing the Gaze</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">When the narrator begins to look at the Beast with genuine curiosity — rather than fear or disgust — Carter stages a reversal of the power dynamic: the woman becomes an active observer, and the objectifying gaze begins to dissolve</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">A. The narrator's description of the Beast — she studies him closely</div>
+                <div class="quote-item">"He was a carnival figure made of nothing so much as a wish to be seen."<span class="quote-cite">(Carter 60)</span></div>
+                <div class="sub-item">The Beast, who positioned himself as the powerful viewer, is now revealed as himself wanting to be seen — the desire to be perceived is mutual</div>
+                <div class="sub-item">Her act of looking carefully at him is an act of recognition, not possession — she sees him as a subject, not an object</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain how Carter signals the shift in power through the narrator's gaze: when she studies the Beast rather than shrinking from him, she claims the authority of the observer — the same authority he held over her earlier in the story</div>
+              <div class="sub-item">What does Carter suggest by making the Beast himself vulnerable to being seen? How does this complicate the story's initial power dynamic?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source on the reversal of the male gaze in Carter's work, or on how Carter's heroines transform from objects to subjects of vision</p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Connect the scholar's argument about Carter's use of the female gaze to your reading of the narrator's reversal — how does their analysis of Carter's feminist technique clarify what is at stake when the narrator begins to look?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">⑥ Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">B. The narrator undresses herself — on her own terms</div>
+                <div class="quote-item">"I will dress myself in the garment of my own free will."<span class="quote-cite">(Carter 63)</span></div>
+                <div class="sub-item">Her undressing is not submission to the Beast's demand but an act of autonomous self-disclosure — she controls the conditions under which she is seen</div>
+                <div class="sub-item">The language of will and choice is central — Carter emphasizes that self-exposure can be an act of power, not vulnerability</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑦ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain why it matters that the narrator's act of being seen is now self-chosen rather than coerced — how does Carter use this moment to argue that the same act (a woman displaying herself) can mean something entirely different depending on who controls it?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">⑧ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source on female autonomy, self-determination, or Carter's use of the body as a site of feminist resistance in <em>The Bloody Chamber</em></p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑨ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Connect the scholar's reading of female self-determination in Carter to your argument about the narrator's self-chosen undressing — how does their analysis deepen the claim that this moment is about power, not submission?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑩ Closing Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">Wrap up the reversal-of-gaze argument — and gesture toward the final paragraph: if the narrator has claimed the power of the observer, what does her ultimate physical transformation at the story's end say about the relationship between selfhood and the body?</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IV. BODY PARAGRAPH THREE -->
+      <div class="bp-block fade-in">
+        <div class="bp-header body">
+          <span class="bp-num body">IV.</span>
+          <span class="bp-title">Body Paragraph Three: Transformation as Liberation — Becoming Animal, Becoming Self</span>
+        </div>
+        <div class="bp-body">
+
+          <div class="o-row">
+            <span class="pill p-green o-label">① Topic Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">The narrator's transformation into a tiger at the story's climax is not a loss of humanity but an act of radical self-reclamation — Carter argues that the authentic self exists beneath the social roles and performances that patriarchal culture demands of women</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">② Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">A. The Beast licks away her human skin — layer by layer</div>
+                <div class="quote-item">"Each stroke of his tongue ripped off skin after successive skin, all the skins of a life in the world."<span class="quote-cite">(Carter 64)</span></div>
+                <div class="sub-item">"Skins of a life in the world" — the human skin is not her true self but a series of socially imposed identities</div>
+                <div class="sub-item">The stripping away is described as relief rather than violation — the accumulated roles of daughter, commodity, and female object fall away</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">③ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain how Carter frames the removal of human skin as a feminist argument: femininity, in this story, is not natural but constructed — a series of performances layered over a more authentic self</div>
+              <div class="sub-item">What does the animal beneath those layers represent? Why does Carter choose the tiger — a predator, not prey — as the narrator's true form?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">④ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source on Carter's use of transformation, animality, or the relationship between femininity as performance and authentic selfhood in her fairy tale revisions</p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑤ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Connect the scholar's argument about transformation or feminist performance theory to your reading of the narrator's becoming-tiger — how does their analysis of Carter's use of the body clarify what Carter is claiming about authentic selfhood?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-gray o-label">⑥ Primary Evidence</span>
+            <div class="o-content">
+              <div class="sub-block">
+                <div class="sub-label">B. The final image — she is tiger, not woman</div>
+                <div class="quote-item">"And I was nobody's meat anymore."<span class="quote-cite">(Carter 65)</span></div>
+                <div class="sub-item">The phrase "nobody's meat" echoes the story's opening — her father lost her at cards as if she were property</div>
+                <div class="sub-item">As a tiger, she is predator, not prey — the terms of the original power dynamic are entirely reversed</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑦ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Explain the significance of the final line in relation to the story's opening: the narrator began as "meat" — a commodity gambled by her father — and ends as a tiger, beyond the reach of ownership or the male gaze</div>
+              <div class="sub-item">What does Carter argue about the cost of liberation? Does the narrator gain freedom by leaving the human world entirely — and what does that suggest about the possibilities for women within patriarchal society?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-yellow o-label">⑧ Possible Secondary Source</span>
+            <div class="o-content">
+              <div class="placeholder-box">
+                <div class="ph-label">📌 Placeholder — Fill In During Research Stage</div>
+                <p>A scholarly source on Carter's treatment of female liberation, the limits of feminist transformation within patriarchal structures, or the significance of the non-human in <em>The Bloody Chamber</em></p>
+                <p class="ph-line">According to [Scholar's Last Name], "[relevant quote or paraphrase]" ([page number]).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-dkgrn o-label">⑨ Your Analysis</span>
+            <div class="o-content">
+              <div class="sub-item">Connect the scholar's reading of Carter's feminist conclusions to your argument about what the transformation means — how does their analysis of the story's ending deepen your claim about the relationship between liberation and leaving the human world behind?</div>
+            </div>
+          </div>
+
+          <div class="o-row">
+            <span class="pill p-purple o-label">⑩ Closing Sentence</span>
+            <div class="o-content">
+              <div class="sub-item">Synthesize the transformation argument and connect it back to the essay's central claim: that Carter uses the logic of the fairy tale to make a serious feminist argument — that authentic selfhood requires not just resisting the male gaze but shedding the identity it has constructed</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- LAST. CONCLUSION -->
+      <div class="bp-block">
+        <div class="bp-header concl">
+          <span class="bp-num concl">LAST.</span>
+          <span class="bp-title">Conclusion Paragraph</span>
+        </div>
+        <div class="bp-body">
+          <p style="font-size:14px;">You can leave this blank in your outline. The conclusion is typically easier to write after the body paragraphs are fully drafted, since it synthesizes arguments you've already made.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECONDARY SOURCE REMINDER -->
+  <div class="dist-banner fade-in">
+    <span class="icon">📌</span>
+    <div>
+      <strong style="font-size:13px; display:block; margin-bottom:6px;">Secondary Source Placeholders — A Reminder</strong>
+      <p>You do not need to find secondary sources for your outline. Simply leave a clearly marked placeholder in each spot where a secondary source quote will eventually go — just as the sample above does. Over the full essay, you will quote <strong>six times total</strong> from your three secondary sources combined. In a three-body-paragraph essay, plan for <strong>two secondary source placeholders per body paragraph</strong>. In a four-body-paragraph essay, you might distribute as <strong>2 + 2 + 1 + 1</strong>.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-banner fade-in">
+    <p style="margin-bottom:4px; font-size:12px; color:rgba(255,255,255,0.6);">📄 Sample Outline — Literary Research Essay</p>
+    <strong>Return to the Prewriting &amp; Planning page to begin your own outline.</strong>
+    <p style="margin-top:4px;">Use the module navigation to access the Outline Assignment when you're ready.</p>
+  </div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>
