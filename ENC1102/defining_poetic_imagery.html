@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Defining Poetic Imagery | ENC 1102 — Module Six</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 
   /* ══════════════════════════════════════════
@@ -519,7 +519,8 @@
   }
 
   .annotation-text {
-    font-family: 'Caveat', cursive;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
     font-size: 15px;
     color: var(--quill);
     line-height: 1.5;
@@ -760,7 +761,8 @@
   .connotation-sense.touch { background: var(--sense-touch); color: #4a1818; }
 
   .connotation-thoughts {
-    font-family: 'Caveat', cursive;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
     font-size: 15px;
     color: var(--quill);
     line-height: 1.6;
@@ -1047,6 +1049,118 @@
     }
   }
 
+
+  /* ── PAIRED POEM (line-aligned annotations) ── */
+  .paired-poem {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 28px 0;
+    background: var(--vellum);
+  }
+
+  .paired-poem-header {
+    background: var(--ink-warm);
+    padding: 14px 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .paired-poem-body {
+    padding: 0;
+  }
+
+  .paired-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule-light);
+    align-items: start;
+  }
+
+  .paired-row:last-child {
+    border-bottom: none;
+  }
+
+  .paired-lines {
+    padding: 18px 24px;
+    border-right: 1px solid var(--rule-light);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paired-lines .line {
+    display: block;
+  }
+
+  .paired-note {
+    padding: 18px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0 8px;
+    background: rgba(255,255,255,0.28);
+  }
+
+  .paired-note--empty {
+    background: transparent;
+  }
+
+  .paired-note--empty .paired-note-aside {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--faded);
+    line-height: 1.55;
+    padding-top: 2px;
+  }
+
+  .paired-note .annotation-swatch {
+    flex-shrink: 0;
+    width: 4px;
+    border-radius: 2px;
+    min-height: 16px;
+    align-self: stretch;
+    margin-top: 2px;
+  }
+
+  .paired-note .annotation-content {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 2px;
+  }
+
+  .paired-note .annotation-term {
+    font-family: 'Lora', serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    margin-bottom: 2px;
+  }
+
+  .paired-note .annotation-text {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--quill);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .paired-row {
+      grid-template-columns: 1fr;
+    }
+    .paired-lines {
+      border-right: none;
+      border-bottom: 1px solid var(--rule-light);
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1244,54 +1358,69 @@
           </div>
 
           <!-- Annotated poem: Step 1 -->
-          <div class="annotated-poem" aria-label="'The Red Wheelbarrow' with visual images highlighted">
-            <div class="annotated-poem-header">
+          <div class="paired-poem" aria-label="'The Red Wheelbarrow' with visual images highlighted">
+            <div class="paired-poem-header">
               <span class="poem-header-title">The Red Wheelbarrow</span>
               <span class="poem-header-author">— William Carlos Williams, 1923</span>
             </div>
-            <div class="poem-column">
-              <div class="poem-lines" aria-label="Poem text with highlighted images">
-                <div class="stanza">
+            <div class="paired-poem-body">
+
+              <!-- Non-image stanza — no annotation -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">so much depends</span>
                   <span class="line">upon</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note paired-note--empty">
+                  <span class="paired-note-aside">The poem's only non-image statement — its one direct claim.</span>
+                </div>
+              </div>
+
+              <!-- Image stanza 1 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line"><mark class="sight">a red wheel</mark></span>
                   <span class="line"><mark class="sight">barrow</mark></span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"a red wheelbarrow"</div>
+                    <div class="annotation-text">A specific farm tool — color named precisely. Sight image.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Image stanza 2 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line"><mark class="sight">glazed with rain</mark></span>
                   <span class="line"><mark class="sight">water</mark></span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"glazed with rain water"</div>
+                    <div class="annotation-text">Wet surface catching light — visual, possibly tactile.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Image stanza 3 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line"><mark class="sight">beside the white</mark></span>
                   <span class="line"><mark class="sight">chickens</mark></span>
                 </div>
-              </div>
-            </div>
-            <div class="annotations-column">
-              <p style="font-family:'Crimson Pro',serif; font-size:14px; color:var(--faded); font-style:italic; margin-bottom:16px;">All images highlighted in amber are visual — things the speaker sees.</p>
-              <div class="annotation-note">
-                <div class="annotation-swatch sight" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"a red wheel / barrow"</div>
-                  <div class="annotation-text">A specific farm tool — color named precisely. Visual image: sight.</div>
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"beside the white chickens"</div>
+                    <div class="annotation-text">Live animals. Color contrast: red barrow against white birds.</div>
+                  </div>
                 </div>
               </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sight" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"glazed with rain / water"</div>
-                  <div class="annotation-text">Wet surface catching light. Visual, possibly tactile.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sight" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"beside the white / chickens"</div>
-                  <div class="annotation-text">Live animals. Color contrast: red barrow, white birds.</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -1350,7 +1479,7 @@
 
           <div class="callout umber" style="margin-top:16px;">
             <div class="callout-label">Student's connection note</div>
-            <p style="font-family:'Caveat',cursive; font-size:17px; color:var(--quill);">All three images point toward a farm setting — the kind of place that produces food. The wheelbarrow is a tool. The chickens are food. The rain is what makes crops grow. These are things "so much depends upon" — we just don't think about them unless a poet forces us to look.</p>
+            <p style="font-family:'Crimson Pro',serif; font-style:italic; font-size:17px; color:var(--quill);">All three images point toward a farm setting — the kind of place that produces food. The wheelbarrow is a tool. The chickens are food. The rain is what makes crops grow. These are things "so much depends upon" — we just don't think about them unless a poet forces us to look.</p>
           </div>
         </div>
       </div>
@@ -1415,91 +1544,135 @@
           <div class="example-step-title">Identify the poem's key images</div>
           <p class="prose" style="font-size:16px; margin-bottom:20px;">Below is "Morning Song" with its key images highlighted by sense. A reminder: you don't need to highlight every word — only the images that feel most striking and meaningful.</p>
 
-          <div class="annotated-poem" aria-label="'Morning Song' by Sylvia Plath with key images highlighted by sense type">
-            <div class="annotated-poem-header">
+          <div class="paired-poem" aria-label="'Morning Song' by Sylvia Plath with key images highlighted by sense type">
+            <div class="paired-poem-header">
               <span class="poem-header-title">Morning Song</span>
               <span class="poem-header-author">— Sylvia Plath, 1961</span>
             </div>
-            <div class="poem-column">
-              <div class="poem-lines">
-                <div class="stanza">
+            <div class="paired-poem-body">
+
+              <!-- Stanza 1 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">Love set you going like <mark class="sight">a fat gold watch</mark>.</span>
                   <span class="line">The midwife slapped your <mark class="touch">footsoles</mark>, and <mark class="sound">your bald cry</mark></span>
                   <span class="line"><mark class="sound">Took its place among the elements</mark>.</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"a fat gold watch"</div>
+                    <div class="annotation-text">Sight — mechanical, ticking. The baby set going like a machine.</div>
+                  </div>
+                  <div class="annotation-swatch touch" aria-hidden="true" style="margin-top:10px;"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"footsoles" / slapped</div>
+                    <div class="annotation-text">Touch — first physical contact. Clinical, not tender.</div>
+                  </div>
+                  <div class="annotation-swatch sound" aria-hidden="true" style="margin-top:10px;"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"your bald cry"</div>
+                    <div class="annotation-text">Sound — "bald" = bare, raw. The infant's first voice.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stanza 2 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">Our voices echo, <mark class="sound">magnifying your arrival</mark>. New statue.</span>
                   <span class="line">In a drafty museum, your nakedness</span>
                   <span class="line"><mark class="sight">Shadows our safety</mark>. We stand round blankly as walls.</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sound" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"magnifying your arrival"</div>
+                    <div class="annotation-text">Sound filling space — the room echoes. The birth announced.</div>
+                  </div>
+                  <div class="annotation-swatch sight" aria-hidden="true" style="margin-top:10px;"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"Shadows our safety"</div>
+                    <div class="annotation-text">Sight — the baby's vulnerability makes the parents feel exposed.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stanza 3 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">I'm no more your mother</span>
                   <span class="line">Than <mark class="sight">the cloud that distils a mirror</mark> to reflect its own slow</span>
                   <span class="line">Effacement at the wind's hand.</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"the cloud that distils a mirror"</div>
+                    <div class="annotation-text">Sight — a cloud reflected and dissolved. The mother denies connection entirely.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stanza 4 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">All night your <mark class="sound">moth-breath</mark></span>
                   <span class="line"><mark class="sound">Flickers among the flat pink roses</mark>. I wake to listen:</span>
                   <span class="line"><mark class="sound">A far sea moves in my ear</mark>.</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sound" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"moth-breath"</div>
+                    <div class="annotation-text">Sound — barely audible, fragile as an insect wing. The mother lies awake listening.</div>
+                  </div>
+                  <div class="annotation-swatch sound" aria-hidden="true" style="margin-top:10px;"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"A far sea moves in my ear"</div>
+                    <div class="annotation-text">Sound — she hears something immense in something tiny.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stanza 5 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line">One cry, and I stumble from bed, <mark class="sight">cow-heavy</mark> and</span>
                   <span class="line"><mark class="touch">floral</mark></span>
                   <span class="line">In my Victorian nightgown.</span>
                 </div>
-                <div class="stanza">
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"cow-heavy"</div>
+                    <div class="annotation-text">Sight + touch — large, slow, animal. Unglamorous, not the idealized mother.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stanza 6 -->
+              <div class="paired-row">
+                <div class="paired-lines">
                   <span class="line"><mark class="sight">Your mouth opens clean as a cat's</mark>. The window square</span>
                   <span class="line">Whitens and swallows its dull stars. And now you try</span>
                   <span class="line"><mark class="sound">Your handful of notes;</mark></span>
                   <span class="line"><mark class="sound">The clear vowels rise like balloons</mark>.</span>
                 </div>
+                <div class="paired-note">
+                  <div class="annotation-swatch sight" aria-hidden="true"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"mouth opens clean as a cat's"</div>
+                    <div class="annotation-text">Sight — precise, animal, innocent. The baby's face in the dawn light.</div>
+                  </div>
+                  <div class="annotation-swatch sound" aria-hidden="true" style="margin-top:10px;"></div>
+                  <div class="annotation-content">
+                    <div class="annotation-term">"The clear vowels rise like balloons"</div>
+                    <div class="annotation-text">Sound becoming sight — the baby's sounds lift upward. Lightness, joy, hope.</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="annotations-column">
-              <p style="font-family:'Crimson Pro',serif; font-size:14px; color:var(--faded); font-style:italic; margin-bottom:16px;">Images coded by which sense they activate.</p>
 
-              <div class="annotation-note">
-                <div class="annotation-swatch sight" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"a fat gold watch"</div>
-                  <div class="annotation-text">Sight. Mechanical, ticking — the baby set going like a machine.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch touch" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"footsoles" / "slapped"</div>
-                  <div class="annotation-text">Tactile. First physical contact — not tender, clinical.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sound" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"your bald cry"</div>
-                  <div class="annotation-text">Sound. "Bald" = bare, raw, exposed. First voice.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sound" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"moth-breath"</div>
-                  <div class="annotation-text">Sound + sight. Barely audible. Fragile as an insect.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sight" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"cow-heavy"</div>
-                  <div class="annotation-text">Sight + touch. Mother feels large, animal, slow — unglamorous.</div>
-                </div>
-              </div>
-              <div class="annotation-note">
-                <div class="annotation-swatch sound" aria-hidden="true"></div>
-                <div class="annotation-content">
-                  <div class="annotation-term">"The clear vowels rise like balloons"</div>
-                  <div class="annotation-text">Sound → sight. Baby's sounds become something joyful, light, floating upward.</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1555,17 +1728,17 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;">
             <div class="callout umber">
               <div class="callout-label">Images suggesting distance or disconnection</div>
-              <p style="font-family:'Caveat',cursive; font-size:16px; color:var(--quill);">"fat gold watch" — mechanical, not human<br>"New statue" — cold, still<br>"I'm no more your mother / Than the cloud..." — explicit denial<br>"cow-heavy" — animal, not tender<br>"We stand round blankly as walls"</p>
+              <p style="font-family:'Crimson Pro',serif; font-style:italic; font-size:16px; color:var(--quill);">"fat gold watch" — mechanical, not human<br>"New statue" — cold, still<br>"I'm no more your mother / Than the cloud..." — explicit denial<br>"cow-heavy" — animal, not tender<br>"We stand round blankly as walls"</p>
             </div>
             <div class="callout indigo">
               <div class="callout-label">Images suggesting sound, life, hope</div>
-              <p style="font-family:'Caveat',cursive; font-size:16px; color:var(--quill);">"your bald cry / Took its place among the elements" — cosmic arrival<br>"moth-breath" — fragile but present<br>"A far sea moves in my ear" — vast, alive<br>"The clear vowels rise like balloons" — joy, ascent</p>
+              <p style="font-family:'Crimson Pro',serif; font-style:italic; font-size:16px; color:var(--quill);">"your bald cry / Took its place among the elements" — cosmic arrival<br>"moth-breath" — fragile but present<br>"A far sea moves in my ear" — vast, alive<br>"The clear vowels rise like balloons" — joy, ascent</p>
             </div>
           </div>
 
           <div class="callout" style="margin-top:0;">
             <div class="callout-label">The pattern</div>
-            <p style="font-family:'Caveat',cursive; font-size:17px; color:var(--quill);">The imagery of disconnection is mostly visual (seeing the baby as object). The imagery of hope is mostly acoustic (hearing the baby's sounds). The poem shifts from eyes to ears — from looking at the baby to <em>listening</em> to it. By the end, the sound of the baby's voice rising like balloons suggests the mother is beginning, finally, to connect.</p>
+            <p style="font-family:'Crimson Pro',serif; font-style:italic; font-size:17px; color:var(--quill);">The imagery of disconnection is mostly visual (seeing the baby as object). The imagery of hope is mostly acoustic (hearing the baby's sounds). The poem shifts from eyes to ears — from looking at the baby to <em>listening</em> to it. By the end, the sound of the baby's voice rising like balloons suggests the mother is beginning, finally, to connect.</p>
           </div>
         </div>
       </div>
