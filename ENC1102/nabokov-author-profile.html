@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vladimir Nabokov — Author Profile | ENC 1102</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Cinzel:wght@400;500;600&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+/* ════════════════════════════════════════════════════════════════
+   NABOKOV — THE SPECIMEN AND THE GLASS
+
+   ST. PETERSBURG / VYRA:
+   Amber specimen resin · natural history cabinet · pinned & labeled
+   Warm mahogany, gilt, the luminous Russian summer —
+   paradise preserved under glass, slightly morbid, impossibly beautiful
+
+   ITHACA / "SIGNS AND SYMBOLS":
+   February grey · Cornell stone · the American apartment in winter
+   Hopper light — the charged ordinary object, the window at dusk,
+   the telephone that will ring again
+
+   The synesthesia alphabet runs between them —
+   letters as colored light, the world as a system of secret meanings
+════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── ST. PETERSBURG / SPECIMEN palette ── */
+  --amber:         #c87c18;      /* specimen resin, primary accent */
+  --amber-bright:  #e09030;
+  --amber-deep:    #9a5c10;
+  --amber-pale:    rgba(200,124,24,0.12);
+  --amber-wash:    rgba(200,124,24,0.05);
+  --amber-glow:    rgba(200,124,24,0.22);
+
+  --mahogany:      #180e06;      /* cabinet dark */
+  --mahogany-mid:  #241408;
+  --mahogany-lift: #30200c;
+  --mahogany-pale: #3e2e14;
+  --mahogany-mid2: #4e3c20;
+
+  --gilt:          #d4a840;      /* frame gold */
+  --gilt-pale:     rgba(212,168,64,0.15);
+
+  --vellum:        #f0e4c8;      /* old paper, labels */
+  --cream:         #e8d8b0;
+  --parchment:     #d8c490;
+  --foxed:         #c4a870;      /* aged, foxed paper */
+
+  --russia-rule:   rgba(200,124,24,0.18);
+
+  /* ── ITHACA / FEBRUARY palette ── */
+  --feb:           #0c0e12;      /* February darkness */
+  --slate:         #141820;
+  --stone:         #1e2430;
+  --gorge:         #283040;      /* Cornell gorge grey */
+  --pewter:        #3a4455;
+  --dusk-grey:     #525e72;
+  --ash:           #7a8898;
+  --mist:          #a8b4c4;
+  --frost:         #c8d4e0;
+  --window:        #dce8f0;      /* window light */
+
+  --hopper-gold:   #c8a840;      /* the one warm thing in a cold room */
+  --hopper-pale:   rgba(200,168,64,0.10);
+  --hopper-glow:   rgba(200,168,64,0.18);
+
+  --ithaca-rule:   rgba(168,180,196,0.12);
+
+  /* ── SYNESTHESIA accent colors — Nabokov's actual letter-colors ── */
+  /* Based on his account in Speak, Memory */
+  --syn-a:   #e8e0c0;   /* A — weathered wood, opalescent */
+  --syn-b:   #e8e4b8;   /* B — burnt sienna yellow */
+  --syn-c:   #d4d0c8;   /* C — light blue */
+  --syn-e:   #d0c8a0;   /* E — yellow */
+  --syn-g:   #c8d4a0;   /* G — vulcanized rubber / green */
+  --syn-i:   #d8d8d8;   /* I — white */
+  --syn-k:   #e0c8a0;   /* K — huckleberry */
+  --syn-l:   #d8e8c0;   /* L — noodle ivory / pale */
+  --syn-n:   #c8c0b0;   /* N — oatmeal */
+  --syn-o:   #c8c0a8;   /* O — ivory */
+  --syn-r:   #c8a8a0;   /* R — a sooty flamingo */
+  --syn-s:   #c8c8a0;   /* S — golden / pale */
+  --syn-t:   #c0c8b8;   /* T — pistachio */
+  --syn-v:   #d0d8b0;   /* V — rainbow */
+  --syn-z:   #b8c0b0;   /* Z — thundercloud */
+
+  /* ── Story object accent — the charged ordinary ── */
+  --telephone:     #8a6040;      /* the telephone's bakelite brown */
+  --jam:           #c04030;      /* jam jar red */
+  --jam-pale:      rgba(192,64,48,0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--mahogany);
+  color: var(--foxed);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+/* ── SPECIMEN RESIN TEXTURE — amber depth over entire page ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(200,124,24,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(24,14,6,0.6) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── SUBTLE CABINET GRID ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,124,24,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,124,24,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   BUTTERFLY — animated, drifts across the page
+════════════════════════════════════════════════════════════════ */
+.butterfly-fixed {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2;
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: butterfly-drift 28s 3s ease-in-out infinite;
+  color: rgba(200,124,24,0.3);
+  user-select: none;
+}
+@keyframes butterfly-drift {
+  0%   { opacity: 0; top: 85%; left: 8%;  transform: rotate(-15deg) scaleX(1); }
+  8%   { opacity: 0.4; }
+  30%  { top: 45%; left: 25%; transform: rotate(10deg) scaleX(-1); }
+  55%  { top: 20%; left: 65%; transform: rotate(-8deg) scaleX(1); opacity: 0.35; }
+  80%  { top: 55%; left: 85%; transform: rotate(12deg) scaleX(-1); opacity: 0.25; }
+  92%  { opacity: 0; }
+  100% { top: 90%; left: 5%;  transform: rotate(-15deg) scaleX(1); opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §A  HERO — ST. PETERSBURG / SPECIMEN CABINET
+   The world before the revolution — warm, amber, preserved
+════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  background: var(--mahogany-mid);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Specimen case grain — fine diagonal crosshatch */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 4px,
+      rgba(200,124,24,0.03) 4px, rgba(200,124,24,0.03) 5px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px, transparent 4px,
+      rgba(200,124,24,0.02) 4px, rgba(200,124,24,0.02) 5px
+    );
+  pointer-events: none; z-index: 0;
+}
+
+/* ── CABINET HEADER BAND ── */
+.cabinet-header {
+  position: relative; z-index: 2;
+  border-bottom: 2px solid var(--amber-deep);
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--mahogany);
+}
+.cab-left {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+}
+.cab-center {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.7;
+}
+.cab-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  text-align: right;
+}
+
+/* ── HERO GRID: specimen left, title right ── */
+.hero-grid {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 92vh;
+}
+
+/* LEFT — portrait in gilt frame */
+.hero-portrait-col {
+  position: relative;
+  border-right: 1px solid rgba(200,124,24,0.2);
+  background: var(--mahogany);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+  gap: 1.5rem;
+}
+
+/* Gilt portrait frame */
+.portrait-gilt-frame {
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--gilt) 0%, var(--amber-deep) 40%, var(--gilt) 60%, var(--amber) 100%);
+  box-shadow:
+    0 0 0 1px rgba(212,168,64,0.4),
+    0 8px 40px rgba(0,0,0,0.6),
+    inset 0 0 8px rgba(212,168,64,0.3);
+}
+
+.portrait-inner {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--mahogany-pale);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: sepia(0.15) contrast(1.05);
+  mix-blend-mode: luminosity;
+  opacity: 0.92;
+}
+.portrait-inner::after {
+  content: '';
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 40px rgba(24,14,6,0.5);
+  pointer-events: none;
+}
+
+.portrait-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(200,124,24,0.3);
+  text-align: center;
+  line-height: 2.1;
+  padding: 1.5rem;
+}
+.portrait-label .ph-t { display: block; font-size: 0.58rem; color: rgba(200,124,24,0.5); margin-bottom: 0.3rem; }
+.portrait-label .ph-r { display: block; font-size: 0.42rem; line-height: 1.9; font-style: italic; color: rgba(200,124,24,0.22); }
+
+/* Specimen label below portrait */
+.specimen-label {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--foxed);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 280px;
+  border: 1px solid var(--russia-rule);
+  padding: 0.6rem 1rem;
+  background: rgba(24,14,6,0.4);
+}
+.specimen-label .spec-binomial {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.7;
+  margin-bottom: 0.2rem;
+}
+
+/* RIGHT — title, dates, the two cities */
+.hero-title-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 4rem 3rem 3.5rem;
+  overflow: hidden;
+}
+
+/* Ghost butterfly — large decorative */
+.hero-ghost-butterfly {
+  position: absolute;
+  top: 50%; right: 3rem;
+  transform: translateY(-50%);
+  font-size: 14rem;
+  color: rgba(200,124,24,0.04);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative; z-index: 1;
+}
+.hero-kicker::before { content: '◆'; font-size: 0.4rem; color: var(--amber); }
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5.5vw, 5.8rem);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--vellum);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+  position: relative; z-index: 1;
+}
+.hero-name .given { display: block; font-weight: 600; }
+.hero-name .cyrillic {
+  display: block;
+  font-size: 0.45em;
+  font-weight: 300;
+  color: var(--amber);
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+.hero-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--amber-deep);
+  margin: 1.2rem 0 0.4rem;
+  position: relative; z-index: 1;
+}
+
+/* Two-city display */
+.two-cities {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  position: relative; z-index: 1;
+}
+.city-token {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+}
+.city-russia {
+  background: rgba(200,124,24,0.12);
+  border: 1px solid rgba(200,124,24,0.3);
+  color: var(--amber);
+}
+.city-america {
+  background: rgba(100,120,148,0.12);
+  border: 1px solid rgba(100,120,148,0.25);
+  color: var(--mist);
+}
+.city-arrow {
+  color: var(--mahogany-pale);
+  font-size: 0.7rem;
+}
+
+.hero-descriptor {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--foxed);
+  line-height: 1.8;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+  position: relative; z-index: 1;
+}
+.hero-descriptor em { color: var(--cream); font-style: italic; }
+.hero-descriptor strong { color: var(--vellum); font-weight: 500; }
+
+/* Vitals table */
+.vitals {
+  border-top: 1px solid var(--russia-rule);
+  padding-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative; z-index: 1;
+}
+.vital-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  font-size: 0.88rem;
+}
+.vk {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  padding-top: 0.1rem;
+}
+.vv { color: var(--foxed); }
+.vv em { color: var(--cream); font-style: italic; }
+
+/* ════════════════════════════════════════════════════════════════
+   §B  ST. PETERSBURG / RUSSIA CONTENT — amber warmth
+════════════════════════════════════════════════════════════════ */
+
+.russia-zone {
+  background: var(--mahogany-mid);
+  position: relative; z-index: 1;
+}
+.russia-zone::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0px, transparent 4px,
+    rgba(200,124,24,0.02) 4px, rgba(200,124,24,0.02) 5px
+  );
+  pointer-events: none;
+}
+
+.r-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 3rem 5rem;
+  position: relative; z-index: 1;
+}
+
+/* Russia section heads */
+.r-head {
+  display: flex; align-items: baseline; gap: 1.2rem;
+  margin-bottom: 1.4rem; margin-top: 4rem;
+}
+.r-sec-id {
+  font-family: 'DM Mono', monospace; font-size: 0.52rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber); padding: 0.18rem 0.45rem;
+  border: 1px solid rgba(200,124,24,0.25); white-space: nowrap;
+}
+.r-h2 {
+  font-family: 'Cinzel', serif; font-size: 1.8rem;
+  font-weight: 500; color: var(--vellum); letter-spacing: 0.04em;
+}
+.r-h3 {
+  font-family: 'DM Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--amber); opacity: 0.8; margin-bottom: 0.5rem;
+}
+.r-p { color: var(--foxed); margin-bottom: 1.1rem; }
+.r-p:last-child { margin-bottom: 0; }
+.r-p em { color: var(--cream); font-style: italic; }
+.r-p strong { color: var(--vellum); font-weight: 500; }
+
+.r-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--amber), rgba(200,124,24,0.08), transparent);
+  margin: 3.5rem 0; position: relative;
+}
+.r-rule::before {
+  content: attr(data-label); position: absolute; left: 0; top: -9px;
+  font-family: 'DM Mono', monospace; font-size: 0.48rem;
+  color: var(--amber-deep); letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--mahogany-mid); padding-right: 0.5rem; opacity: 0.6;
+}
+
+.r-panel {
+  background: rgba(24,14,6,0.5);
+  border: 1px solid rgba(200,124,24,0.12);
+  border-left: 3px solid var(--amber-deep);
+  padding: 1.3rem 1.7rem; margin: 1.3rem 0;
+}
+.r-panel p { font-size: 0.91rem; color: var(--foxed); }
+
+.r-quote {
+  border-left: 2px solid rgba(200,124,24,0.4);
+  padding: 0.5rem 1.6rem; margin: 1.8rem 0;
+  font-style: italic; font-size: 1.05rem;
+  color: var(--cream); line-height: 1.85;
+}
+.r-quote cite {
+  display: block; margin-top: 0.5rem; font-style: normal;
+  font-family: 'DM Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-deep);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §C  SYNESTHESIA ALPHABET — the colored letters
+════════════════════════════════════════════════════════════════ */
+
+.syn-zone {
+  background: var(--mahogany);
+  border-top: 1px solid rgba(200,124,24,0.15);
+  border-bottom: 1px solid rgba(200,124,24,0.15);
+  padding: 4rem 0;
+  position: relative; z-index: 1;
+  overflow: hidden;
+}
+.syn-zone::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(200,124,24,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.syn-wrap {
+  max-width: 980px; margin: 0 auto; padding: 0 3rem;
+  position: relative; z-index: 1;
+}
+
+.syn-header {
+  text-align: center; margin-bottom: 2.5rem;
+}
+.syn-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--amber-deep); margin-bottom: 0.6rem;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.syn-eyebrow::before, .syn-eyebrow::after {
+  content: ''; display: block; width: 30px; height: 1px;
+  background: var(--amber-deep); opacity: 0.5;
+}
+.syn-title {
+  font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 500;
+  color: var(--vellum); letter-spacing: 0.06em; margin-bottom: 0.4rem;
+}
+.syn-sub {
+  font-style: italic; color: var(--foxed); font-size: 0.92rem;
+}
+
+/* The alphabet grid */
+.alphabet-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.letter-tile {
+  width: 58px; height: 72px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(200,124,24,0.15);
+  background: var(--mahogany-lift);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+.letter-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  z-index: 2;
+}
+/* Color swatch strip at top of each tile */
+.letter-tile::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: var(--tile-color, var(--amber-deep));
+  opacity: 0.7;
+}
+
+.letter-glyph {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--vellum);
+  line-height: 1;
+}
+.letter-color-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.34rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--amber-deep);
+  text-align: center; line-height: 1.4;
+  padding: 0 4px;
+}
+
+.syn-note {
+  text-align: center; font-style: italic;
+  font-size: 0.88rem; color: var(--amber-deep);
+  margin-top: 1.2rem; opacity: 0.7;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §D  BUTTERFLY SPECIMEN STRIP
+════════════════════════════════════════════════════════════════ */
+
+.butterfly-zone {
+  background: var(--mahogany-mid);
+  position: relative; z-index: 1;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §E  TRANSITION — AMBER TO FEBRUARY GREY
+════════════════════════════════════════════════════════════════ */
+
+.transition-band {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--mahogany-mid) 0%,
+    var(--mahogany) 25%,
+    #0e1118 60%,
+    var(--feb) 100%
+  );
+  padding: 5rem 3rem;
+  overflow: hidden; z-index: 1;
+}
+.transition-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(200,168,64,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.trans-inner {
+  max-width: 700px; margin: 0 auto;
+  text-align: center; position: relative; z-index: 1;
+}
+.trans-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--pewter); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.trans-eyebrow::before, .trans-eyebrow::after {
+  content: ''; display: block; width: 40px; height: 1px;
+  background: var(--pewter); opacity: 0.4;
+}
+.trans-year {
+  font-family: 'Cinzel', serif; font-size: 4rem; font-weight: 600;
+  color: rgba(200,124,24,0.12); letter-spacing: 0.1em;
+  line-height: 1; margin-bottom: 0.8rem;
+}
+.trans-headline {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--frost); line-height: 1.5; margin-bottom: 1rem;
+}
+.trans-sub {
+  font-family: 'DM Mono', monospace; font-size: 0.52rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--pewter);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §F  ITHACA / SIGNS & SYMBOLS — February grey
+════════════════════════════════════════════════════════════════ */
+
+.ithaca-zone {
+  background: var(--feb);
+  position: relative; z-index: 1;
+}
+.ithaca-zone::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(200,168,64,0.025) 0%, transparent 40%);
+  pointer-events: none; z-index: 0;
+}
+
+.i-wrap {
+  max-width: 980px; margin: 0 auto;
+  padding: 0 3rem 6rem;
+  position: relative; z-index: 1;
+}
+
+.i-head {
+  display: flex; align-items: baseline; gap: 1.2rem;
+  margin-bottom: 1.4rem; margin-top: 4rem;
+}
+.i-sec-id {
+  font-family: 'DM Mono', monospace; font-size: 0.52rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hopper-gold); padding: 0.18rem 0.45rem;
+  border: 1px solid rgba(200,168,64,0.2); white-space: nowrap;
+  opacity: 0.8;
+}
+.i-h2 {
+  font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 500;
+  color: var(--frost); letter-spacing: 0.04em;
+}
+.i-h3 {
+  font-family: 'DM Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--hopper-gold); opacity: 0.7; margin-bottom: 0.5rem;
+}
+.i-p { color: var(--ash); margin-bottom: 1.1rem; }
+.i-p:last-child { margin-bottom: 0; }
+.i-p em { color: var(--frost); font-style: italic; }
+.i-p strong { color: var(--mist); font-weight: 600; }
+
+.i-rule {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200,168,64,0.2), rgba(200,168,64,0.04), transparent);
+  margin: 3.5rem 0; position: relative;
+}
+.i-rule::before {
+  content: attr(data-label); position: absolute; left: 0; top: -9px;
+  font-family: 'DM Mono', monospace; font-size: 0.48rem;
+  color: rgba(200,168,64,0.25); letter-spacing: 0.14em; text-transform: uppercase;
+}
+
+.i-panel {
+  background: rgba(8,10,14,0.6);
+  border: 1px solid var(--ithaca-rule);
+  border-left: 3px solid rgba(200,168,64,0.3);
+  padding: 1.3rem 1.7rem; margin: 1.3rem 0;
+}
+.i-panel p { font-size: 0.91rem; color: var(--ash); }
+.i-panel em { color: var(--frost); }
+
+.i-quote {
+  border-left: 2px solid rgba(200,168,64,0.25);
+  padding: 0.5rem 1.6rem; margin: 1.8rem 0;
+  font-style: italic; font-size: 1.05rem;
+  color: var(--frost); line-height: 1.85;
+}
+.i-quote cite {
+  display: block; margin-top: 0.5rem; font-style: normal;
+  font-family: 'DM Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(200,168,64,0.3);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   §G  ILLUSTRATIONS — Hopper-style story scenes
+════════════════════════════════════════════════════════════════ */
+
+.ill-zone {
+  background: var(--slate);
+  border-top: 1px solid var(--ithaca-rule);
+  border-bottom: 1px solid var(--ithaca-rule);
+  position: relative; z-index: 1;
+}
+.ill-wrap {
+  max-width: 980px; margin: 0 auto; padding: 4rem 3rem 5rem;
+}
+
+.ill-zone-header { text-align: center; margin-bottom: 3rem; }
+.ill-zone-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 0.54rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--pewter);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.ill-zone-eyebrow::before, .ill-zone-eyebrow::after {
+  content: ''; display: block; width: 30px; height: 1px;
+  background: var(--pewter); opacity: 0.4;
+}
+.ill-zone-h2 {
+  font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 500;
+  color: var(--frost); margin-bottom: 0.4rem;
+}
+.ill-zone-sub { font-style: italic; color: var(--ash); font-size: 0.9rem; }
+
+/* Illustration blocks */
+.ill-block {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; margin-bottom: 1px;
+  background: rgba(200,168,64,0.04);
+  border: 1px solid var(--ithaca-rule);
+}
+.ill-block.flip { direction: rtl; }
+.ill-block.flip > * { direction: ltr; }
+
+.ill-frame {
+  aspect-ratio: 4/3;
+  background: var(--stone);
+  border-right: 1px solid var(--ithaca-rule);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.ill-block.flip .ill-frame {
+  border-right: none; border-left: 1px solid var(--ithaca-rule);
+}
+.ill-frame img { width: 100%; height: 100%; object-fit: cover; }
+.ill-frame::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: inset 0 0 50px rgba(8,10,14,0.5); pointer-events: none;
+}
+
+.ill-scene-ghost {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9rem; font-weight: 600;
+  color: rgba(200,168,64,0.04);
+  line-height: 1; user-select: none; pointer-events: none;
+}
+
+.ill-prompt-badge {
+  position: absolute; top: 0.8rem; left: 0.8rem;
+  font-family: 'DM Mono', monospace; font-size: 0.42rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(200,168,64,0.35);
+  border: 1px solid rgba(200,168,64,0.12);
+  padding: 0.18rem 0.4rem;
+  background: rgba(8,10,14,0.6);
+}
+
+.ill-ph-text {
+  font-family: 'DM Mono', monospace; font-size: 0.48rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(168,180,196,0.2); text-align: center;
+  line-height: 2.2; padding: 2rem;
+  position: relative; z-index: 1;
+}
+.ill-ph-text .ipt { display: block; font-size: 0.58rem; color: rgba(168,180,196,0.35); margin-bottom: 0.4rem; }
+.ill-ph-text .ipr { display: block; font-size: 0.44rem; line-height: 1.9; font-style: italic; color: rgba(168,180,196,0.18); }
+
+.ill-text {
+  padding: 2rem 2.2rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.ill-scene-tag {
+  font-family: 'DM Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--hopper-gold); opacity: 0.6; margin-bottom: 0.4rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.ill-scene-tag::before { content: '◆'; font-size: 0.35rem; }
+.ill-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+  font-weight: 600; color: var(--frost); line-height: 1.2; margin-bottom: 0.8rem;
+}
+.ill-desc { font-size: 0.88rem; color: var(--ash); line-height: 1.7; margin-bottom: 0.8rem; }
+.ill-desc em { color: var(--frost); font-style: italic; }
+
+.ill-prompt-box {
+  background: rgba(8,10,14,0.6);
+  border: 1px solid rgba(200,168,64,0.1);
+  border-top: 1px solid rgba(200,168,64,0.22);
+  padding: 0.9rem 1rem;
+}
+.ill-prompt-label {
+  font-family: 'DM Mono', monospace; font-size: 0.44rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--hopper-gold); opacity: 0.55; margin-bottom: 0.35rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.ill-prompt-label::before { content: '▸'; }
+.ill-prompt-text {
+  font-family: 'DM Mono', monospace; font-size: 0.56rem;
+  color: var(--pewter); line-height: 1.7; font-style: italic;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SHARED IMAGE COMPONENTS
+════════════════════════════════════════════════════════════════ */
+
+.float-r { float: right; margin: 0 0 1.5rem 2.5rem; width: 240px; clear: right; }
+.float-l { float: left; margin: 0 2.5rem 1.5rem 0; width: 230px; clear: left; }
+
+.img-ph {
+  width: 100%; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 3/4;
+}
+.img-ph.landscape { aspect-ratio: 4/3; }
+.img-ph.wide      { aspect-ratio: 16/5; }
+.img-ph.square    { aspect-ratio: 1; }
+.img-ph img { width: 100%; height: 100%; object-fit: cover; }
+.img-ph::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+
+/* Russia/amber style */
+.img-r {
+  border: 1px solid rgba(200,124,24,0.2);
+  background: var(--mahogany-pale);
+}
+.img-r img { filter: sepia(0.2) contrast(1.05); opacity: 0.9; }
+.img-r::after { box-shadow: inset 0 0 30px rgba(24,14,6,0.4); }
+
+/* Ithaca/grey style */
+.img-i {
+  border: 1px solid var(--ithaca-rule);
+  background: var(--stone);
+}
+.img-i img { filter: grayscale(0.15) contrast(1.08); opacity: 0.88; }
+.img-i::after { box-shadow: inset 0 0 35px rgba(8,10,14,0.5); }
+
+.img-ph-label {
+  font-family: 'DM Mono', monospace; font-size: 0.46rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  text-align: center; line-height: 2; padding: 1.2rem;
+}
+.img-r .img-ph-label { color: rgba(200,124,24,0.3); }
+.img-i .img-ph-label { color: rgba(168,180,196,0.25); }
+.img-ph-label .ph-t { display: block; font-size: 0.56rem; margin-bottom: 0.25rem; }
+.img-r .img-ph-label .ph-t { color: rgba(200,124,24,0.5); }
+.img-i .img-ph-label .ph-t { color: rgba(168,180,196,0.45); }
+.img-ph-label .ph-r { display: block; font-size: 0.42rem; line-height: 1.9; font-style: italic; }
+
+.img-cap {
+  margin-top: 0.4rem; font-family: 'DM Mono', monospace;
+  font-size: 0.46rem; letter-spacing: 0.1em; line-height: 1.6;
+}
+.cap-r { color: var(--amber-deep); opacity: 0.7; }
+.cap-i { color: var(--pewter); }
+
+.clearfix::after { content: ''; display: block; clear: both; }
+
+.wide-strip { margin: 1.5rem 0; }
+
+.photo-2 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; margin: 1.5rem 0;
+}
+.photo-2.r-bg { background: rgba(200,124,24,0.12); }
+.photo-2.i-bg { background: var(--ithaca-rule); }
+.photo-2 .img-ph { aspect-ratio: 4/3; border: none; }
+.photo-2 .img-cap { padding: 0.35rem 0.5rem; }
+.photo-2.r-bg .img-cap { background: var(--mahogany-lift); }
+.photo-2.i-bg .img-cap { background: var(--slate); }
+
+/* Referential mania callout */
+.mania-box {
+  background: rgba(8,10,14,0.7);
+  border: 1px solid var(--ithaca-rule);
+  border-top: 2px solid var(--hopper-gold);
+  padding: 1.5rem 2rem; margin: 1.5rem 0;
+  position: relative;
+}
+.mania-box::before {
+  content: 'KEY CONCEPT';
+  position: absolute; top: -0.6rem; left: 1rem;
+  font-family: 'DM Mono', monospace; font-size: 0.44rem;
+  letter-spacing: 0.2em; color: var(--hopper-gold);
+  background: var(--slate); padding: 0 0.5rem;
+  text-transform: uppercase; opacity: 0.8;
+}
+.mania-box p { font-size: 0.91rem; color: var(--ash); }
+.mania-box em { color: var(--frost); }
+
+/* Phone/symbol accent — the third call */
+.phone-accent {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 1.8rem;
+  background: rgba(192,64,48,0.06);
+  border: 1px solid rgba(192,64,48,0.15);
+  border-left: 3px solid rgba(192,64,48,0.4);
+  margin: 1.5rem 0;
+}
+.phone-icon { font-size: 1.5rem; opacity: 0.4; }
+.phone-text p { font-size: 0.91rem; color: var(--ash); margin: 0; }
+.phone-text em { color: var(--frost); }
+
+/* ════════════════════════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════════════════════════ */
+.page-footer {
+  background: var(--mahogany);
+  border-top: 1px solid rgba(200,124,24,0.15);
+  padding: 2rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative; z-index: 1;
+}
+.footer-l, .footer-r {
+  font-family: 'DM Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-deep);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-portrait-col { min-height: 60vw; padding: 2rem 1.5rem; }
+  .hero-title-col { padding: 2.5rem 1.5rem; }
+  .r-wrap, .i-wrap, .ill-wrap { padding: 0 1.25rem 4rem; }
+  .float-r, .float-l { float: none; width: 100%; margin: 1.5rem 0; }
+  .photo-2, .ill-block { grid-template-columns: 1fr; }
+  .ill-block.flip { direction: ltr; }
+  .cabinet-header { padding: 0.8rem 1.2rem; }
+  .cab-center { display: none; }
+  .letter-tile { width: 50px; height: 64px; }
+  .page-footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Drifting butterfly -->
+<div class="butterfly-fixed" aria-hidden="true">🦋</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     §A  HERO — ST. PETERSBURG & THE SPECIMEN CABINET
+════════════════════════════════════════════════════════════════ -->
+<div class="hero">
+
+  <div class="cabinet-header">
+    <div class="cab-left">ENC 1102 · Author Profile · Module ——</div>
+    <div class="cab-center">◆ &nbsp; St. Petersburg · Vyra · Berlin · Paris · Cambridge · Ithaca · Montreux &nbsp; ◆</div>
+    <div class="cab-right">1899 — 1977</div>
+  </div>
+
+  <div class="hero-grid">
+
+    <!-- Portrait in gilt frame -->
+    <div class="hero-portrait-col">
+      <div class="portrait-gilt-frame">
+        <div class="portrait-inner">
+          <!--
+            PORTRAIT PHOTO 1 — Nabokov, c. 1958–1965 (PRIME PORTRAIT)
+            The most iconic Nabokov photograph: taken by Horst Tappe
+            or Philippe Halsman during the Cornell / Lolita years.
+            Nabokov in his late 50s or early 60s — silver-haired,
+            aristocratic bearing, slightly amused expression.
+            The famous photographs of him holding a butterfly net
+            or at his Cornell lectern are the most recognizable.
+            Search: "Vladimir Nabokov photograph Cornell 1958"
+            or "Nabokov Horst Tappe portrait"
+            or "Nabokov Philippe Halsman"
+            Getty Images and the Library of Congress have options.
+            The CSS applies sepia(0.15) and luminosity blend automatically.
+          -->
+          <div class="portrait-label">
+            <span class="ph-t">Vladimir Nabokov · Portrait</span>
+            <span class="ph-r">
+              Recommended: Horst Tappe or Philippe Halsman portrait<br>
+              Cornell era · c. 1958–1965 · silver-haired<br>
+              Aristocratic bearing · slightly amused<br>
+              Search: "Nabokov Horst Tappe" · Getty Images
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="specimen-label">
+        <span class="spec-binomial">Nabokov, Vladimir Vladimirovich</span>
+        St. Petersburg, 1899 — Montreux, 1977<br>
+        <em>Novelist · Lepidopterist · Synesthete</em>
+      </div>
+    </div>
+
+    <!-- Title column -->
+    <div class="hero-title-col">
+      <div class="hero-ghost-butterfly" aria-hidden="true">🦋</div>
+
+      <p class="hero-kicker">ENC 1102 · Author Profile · Signs and Symbols</p>
+
+      <h1 class="hero-name">
+        <span class="given">Vladimir Nabokov</span>
+        <span class="cyrillic">Владимир Владимирович Набоков</span>
+      </h1>
+
+      <p class="hero-dates">1899 — 1977</p>
+
+      <div class="two-cities">
+        <span class="city-token city-russia">⌂ St. Petersburg</span>
+        <span class="city-arrow">→ → →</span>
+        <span class="city-token city-america">◈ Ithaca, NY</span>
+      </div>
+
+      <p class="hero-descriptor">
+        An aristocrat who lost everything in a revolution,
+        a Russian who became an English master, a butterfly hunter
+        who became a Harvard scientist, a European exile who
+        reinvented himself in a succession of hotel rooms and
+        rented houses — and who described memory, language, and
+        consciousness with a precision <em>no one has matched before or since.</em>
+      </p>
+
+      <div class="vitals">
+        <div class="vital-row">
+          <span class="vk">Born</span>
+          <span class="vv">22 April 1899 · St. Petersburg · into the Russian aristocracy</span>
+        </div>
+        <div class="vital-row">
+          <span class="vk">Died</span>
+          <span class="vv">2 July 1977 · Montreux, Switzerland · age 78</span>
+        </div>
+        <div class="vital-row">
+          <span class="vk">Languages</span>
+          <span class="vv">Russian · English · French · <em>wrote major works in all three</em></span>
+        </div>
+        <div class="vital-row">
+          <span class="vk">Day Job</span>
+          <span class="vv">Professor of Russian Literature · Cornell, 1948–1959</span>
+        </div>
+        <div class="vital-row">
+          <span class="vk">Science</span>
+          <span class="vv">Research Fellow, Harvard Museum of Natural History · lepidopterist · described several butterfly species</span>
+        </div>
+        <div class="vital-row">
+          <span class="vk">"Signs & Symbols"</span>
+          <span class="vv"><em>The New Yorker</em> · May 15, 1948 · written at <strong>8 Craigie Circle, Cambridge, MA</strong></span>
+        </div>
+      </div>
+    </div>
+  </div><!-- /hero-grid -->
+</div><!-- /hero -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §B  ST. PETERSBURG & VYRA — THE LOST PARADISE
+════════════════════════════════════════════════════════════════ -->
+<div class="russia-zone">
+<div class="r-wrap">
+
+  <div class="r-head">
+    <span class="r-sec-id">§ 01</span>
+    <h2 class="r-h2">St. Petersburg · The World Before</h2>
+  </div>
+
+  <div class="float-r">
+    <div class="img-ph img-r">
+      <!--
+        PHOTO 2 — Nabokov family mansion, 47 Morskaya Street, St. Petersburg
+        The large neoclassical townhouse where Nabokov grew up — one of the
+        grandest private residences in the city. The family was fabulously
+        wealthy (his father Vladimir Dmitrievich was a prominent liberal
+        politician and jurist). The building still stands.
+        Search: "Nabokov 47 Morskaya Street St Petersburg" or
+        "Vladimir Nabokov birthplace St Petersburg photograph"
+        A period photograph (pre-Revolution) is ideal;
+        modern photographs of the facade also work.
+      -->
+      <div class="img-ph-label">
+        <span class="ph-t">47 Morskaya Street, St. Petersburg</span>
+        <span class="ph-r">
+          The Nabokov family mansion · still standing<br>
+          Neoclassical townhouse · one of the grandest in the city<br>
+          Period photograph preferred (pre-1917)<br>
+          Search: "Nabokov 47 Morskaya Street St Petersburg"
+        </span>
+      </div>
+    </div>
+    <p class="img-cap cap-r">47 Morskaya Street — the world before the revolution</p>
+  </div>
+
+  <p class="r-p">Vladimir Nabokov was born in 1899 into one of the wealthiest and most distinguished families in Russia. His father, Vladimir Dmitrievich Nabokov, was a prominent liberal statesman who had been imprisoned by the Tsar and would later be assassinated by a right-wing gunman in Berlin — throwing himself in front of a colleague to absorb the bullet. The family lived in a large mansion on Morskaya Street in St. Petersburg, kept three country estates, spoke English and French at home as naturally as Russian, and possessed a library of extraordinary depth.</p>
+
+  <p class="r-p">The childhood Nabokov describes in his autobiography <em>Speak, Memory</em> (1951) is one of the most dazzling accounts of privileged youth in all of literature — and also one of the most elegiac. He knew, writing it in American exile, that the world he was describing had been destroyed when he was nineteen. The Revolution of 1917 ended everything. The family fled to England, then to Berlin. Nabokov would not see Russia again for the rest of his life.</p>
+
+  <div class="clearfix"></div>
+
+  <div class="r-panel">
+    <p class="r-h3">Vyra · The Summer Estate</p>
+    <p>It is not St. Petersburg but the family's summer estate at Vyra — birch forests, meadows, the stream, the particular quality of Russian summer light — that haunts Nabokov's writing most persistently. He caught his first butterfly there. He fell in love there. He spent every summer of his childhood there. In <em>Speak, Memory</em> he reconstructs it with such hallucinatory precision that readers sometimes feel they have been there themselves. The estate was destroyed during the Second World War. Nabokov never went back.</p>
+  </div>
+
+  <div class="photo-2 r-bg">
+    <div>
+      <div class="img-ph img-r landscape">
+        <!--
+          PHOTO 3 — Vyra estate / Russian countryside
+          The family's summer estate at Vyra, near St. Petersburg —
+          or the Russian countryside that surrounds it.
+          Birch forests, open meadows, a stream, the characteristic
+          flat Russian summer landscape.
+          Period photographs of the estate itself are rare but exist.
+          Alternative: any period photograph of the Russian countryside
+          near St. Petersburg, c. 1900–1910 — birch trees, meadow,
+          summer light. This is the visual world of Nabokov's childhood
+          and the landscape he spent his entire life trying to recreate
+          in prose.
+          Search: "Vyra estate Nabokov photograph" or
+          "Russian countryside birch forest summer 1900s photograph"
+        -->
+        <div class="img-ph-label">
+          <span class="ph-t">Vyra · The Summer Estate</span>
+          <span class="ph-r">
+            Family estate near St. Petersburg<br>
+            Birch forests · meadows · the stream<br>
+            Period photograph c. 1900–1910<br>
+            Search: "Vyra estate Nabokov" or Russian countryside
+          </span>
+        </div>
+      </div>
+      <p class="img-cap cap-r">Vyra — the summer world he spent his life rebuilding in prose</p>
+    </div>
+    <div>
+      <div class="img-ph img-r landscape">
+        <!--
+          PHOTO 4 — Young Nabokov, c. 1906–1915
+          A childhood or adolescent photograph of Nabokov.
+          Several exist — he was a beautiful, serious-looking child
+          and later a strikingly handsome young man.
+          There are family photographs from Vyra and from St. Petersburg
+          showing him in the privileged world of his childhood.
+          Search: "Vladimir Nabokov childhood photograph" or
+          "Nabokov young boy photograph St Petersburg"
+          The Library of Congress and the Berg Collection (NYPL) have
+          Nabokov archive materials; some are digitized.
+        -->
+        <div class="img-ph-label">
+          <span class="ph-t">Young Nabokov · c. 1906–1915</span>
+          <span class="ph-r">
+            Childhood or adolescent photograph<br>
+            St. Petersburg or Vyra setting preferred<br>
+            Search: "Nabokov young photograph childhood"<br>
+            Library of Congress / NYPL Berg Collection
+          </span>
+        </div>
+      </div>
+      <p class="img-cap cap-r">Vladimir Nabokov · Vyra · c. 1910</p>
+    </div>
+  </div>
+
+  <div class="r-quote">
+    The cradle rocks above an abyss, and common sense tells us that our existence is but a brief crack of light between two eternities of darkness.
+    <cite>— Nabokov, <em>Speak, Memory</em>, opening line</cite>
+  </div>
+
+  <div class="r-rule" data-label="The Butterflies"></div>
+
+  <div class="r-head">
+    <span class="r-sec-id">§ 02</span>
+    <h2 class="r-h2">The Lepidopterist · The Scientific Eye</h2>
+  </div>
+
+  <div class="float-l">
+    <div class="img-ph img-r">
+      <!--
+        PHOTO 5 — Nabokov with butterfly net, American West, c. 1951–1958
+        THE MOST ICONIC NABOKOV PHOTOGRAPH.
+        Nabokov hunting butterflies in the American West — Colorado,
+        Arizona, or Utah — during his summer drives across America
+        with his wife Véra. He is in his 50s, slightly portly now,
+        wearing light clothes and a hat, net raised or in hand.
+        The Rocky Mountain backdrop. He looks completely happy.
+        This image — the great novelist as naturalist in the American
+        landscape — is the essential Nabokov picture.
+        Search: "Nabokov butterfly net photograph" or
+        "Vladimir Nabokov lepidopterist photograph" or
+        "Nabokov American West butterfly hunting"
+        Several widely-reproduced versions exist.
+      -->
+      <div class="img-ph-label">
+        <span class="ph-t">Nabokov · Butterfly Hunting</span>
+        <span class="ph-r">
+          American West · c. 1951–1958<br>
+          THE most iconic Nabokov photograph<br>
+          Net raised · Rocky Mountain backdrop<br>
+          Search: "Nabokov butterfly net photograph"
+        </span>
+      </div>
+    </div>
+    <p class="img-cap cap-r">Nabokov hunting butterflies · American West · c. 1954</p>
+  </div>
+
+  <p class="r-p">Nabokov was a serious scientist. Not a gentleman naturalist dabbling in butterflies — a genuine research lepidopterist whose monograph on the Polyommatus blues of the New World, completed at Harvard's Museum of Natural History in the 1940s, was later vindicated by DNA analysis in 2011. He had predicted, from morphological evidence alone, that the blues he was studying had migrated from Asia to the Americas in five separate waves over millions of years. The genetics confirmed it exactly. He spent some of his most productive literary years bent over a microscope in a Harvard basement, and he considered the two vocations — literature and science — to be expressions of the same impulse: the drive to see precisely.</p>
+
+  <p class="r-p"><em>"The highest concentration of human happiness,"</em> he said, <em>"is found in the hunting of butterflies."</em> He drove across America each summer — a large American car, Nabokov at the wheel, his wife Véra navigating, the net in the back seat — hunting specimens in the mountain meadows of Colorado and Arizona. His collection is at the Harvard Museum of Natural History. The Karner blue butterfly, <em>Lycaeides melissa samuelis</em>, which he formally described and named, is now an endangered species. It bears his analysis in the scientific literature forever.</p>
+
+  <div class="clearfix"></div>
+
+  <div class="r-panel">
+    <p class="r-h3">The Specimen and the Story</p>
+    <p>Nabokov described his method in fiction the same way he described it in science: total, obsessive observation of the individual specimen, followed by the discovery of a pattern so precise it verges on the miraculous. He disliked allegory, symbolism, and "messages." He believed that the truth was in the surface — in the exact color of a wing, the exact quality of a memory, the exact weight of a word. <em>"Caress the details,"</em> he told his Cornell students. <em>"The divine details."</em></p>
+  </div>
+
+  <div class="photo-2 r-bg" style="margin-top:1.5rem">
+    <div>
+      <div class="img-ph img-r landscape">
+        <!--
+          PHOTO 6 — Nabokov butterfly specimens at Harvard / HMNH
+          Pinned butterfly specimens from Nabokov's collection,
+          now housed at the Harvard Museum of Natural History.
+          The specimens are labeled in his handwriting.
+          The blues (Polyommatus / Lycaeides group) that he worked on —
+          small, impossibly blue, precisely pinned on white boards.
+          Contact the Harvard Museum of Natural History for
+          images of the Nabokov collection.
+          Search: "Harvard Museum Natural History Nabokov collection" or
+          "Lycaeides melissa samuelis specimen" or
+          "Nabokov butterfly collection HMNH"
+        -->
+        <div class="img-ph-label">
+          <span class="ph-t">Nabokov Collection · Harvard HMNH</span>
+          <span class="ph-r">
+            Pinned butterfly specimens · labeled in his handwriting<br>
+            The Polyommatus blues he worked on<br>
+            Harvard Museum of Natural History<br>
+            Search: "HMNH Nabokov butterfly collection"
+          </span>
+        </div>
+      </div>
+      <p class="img-cap cap-r">The Nabokov collection · Harvard Museum of Natural History</p>
+    </div>
+    <div>
+      <div class="img-ph img-r landscape">
+        <!--
+          PHOTO 7 — Karner Blue butterfly (Lycaeides melissa samuelis)
+          AT LEAST ONE BUTTERFLY — this is the species.
+          The Karner blue: small, vivid blue wings (males),
+          now endangered, found in pine barrens of the Great Lakes
+          region and scattered Northeast locations.
+          Nabokov formally described this subspecies in 1944.
+          It is one of the most beautiful of the North American blues.
+          Search: "Karner blue butterfly Lycaeides melissa samuelis"
+          or "Nabokov's blue butterfly"
+          US Fish & Wildlife Service has public domain photos.
+          This is the ONE BUTTERFLY the page must have.
+        -->
+        <div class="img-ph-label">
+          <span class="ph-t">Lycaeides melissa samuelis</span>
+          <span class="ph-r">
+            THE Nabokov butterfly — the Karner Blue<br>
+            Described & named by Nabokov, 1944<br>
+            Now endangered · vivid blue wings (male)<br>
+            Search: "Karner blue butterfly" · US Fish & Wildlife
+          </span>
+        </div>
+      </div>
+      <p class="img-cap cap-r"><em>Lycaeides melissa samuelis</em> · the Karner Blue · described by Nabokov, 1944</p>
+    </div>
+  </div>
+
+</div>
+</div><!-- /russia-zone -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §C  SYNESTHESIA — THE COLORED ALPHABET
+════════════════════════════════════════════════════════════════ -->
+<div class="syn-zone">
+<div class="syn-wrap">
+
+  <div class="syn-header">
+    <p class="syn-eyebrow">Synesthesia</p>
+    <h2 class="syn-title">The Colored Alphabet</h2>
+    <p class="syn-sub">Nabokov saw each letter of the alphabet as a specific color — <em>not metaphorically</em>, but as a genuine perceptual experience he shared with his mother and his son Dmitri</p>
+  </div>
+
+  <!-- The alphabet tiles — Nabokov's actual color associations from Speak, Memory -->
+  <div class="alphabet-grid" role="list" aria-label="Nabokov's synesthetic color alphabet">
+
+    <!-- Each tile: letter, color swatch (via CSS var), color name -->
+    <!-- Colors drawn from Nabokov's own descriptions in Speak, Memory, Ch. 2 -->
+
+    <div class="letter-tile" style="--tile-color: #e8e0c0" title="A — weathered wood opal">
+      <span class="letter-glyph">A</span>
+      <span class="letter-color-name">weathered<br>wood</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d4a830" title="B — burnt sienna">
+      <span class="letter-glyph">B</span>
+      <span class="letter-color-name">burnt<br>sienna</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #8ab0c8" title="C — light blue">
+      <span class="letter-glyph">C</span>
+      <span class="letter-color-name">light<br>blue</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c8a030" title="D — creamy yellow">
+      <span class="letter-glyph">D</span>
+      <span class="letter-color-name">creamy<br>yellow</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d0c060" title="E — yellow">
+      <span class="letter-glyph">E</span>
+      <span class="letter-color-name">yellow</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c0a878" title="F — alder-leaf">
+      <span class="letter-glyph">F</span>
+      <span class="letter-color-name">alder-<br>leaf</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #606050" title="G - vulcanized rubber">
+      <span class="letter-glyph">G</span>
+      <span class="letter-color-name">vulcanized<br>rubber</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c8b090" title="H - fawn">
+      <span class="letter-glyph">H</span>
+      <span class="letter-color-name">fawn</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #e8e8e0" title="I — white">
+      <span class="letter-glyph">I</span>
+      <span class="letter-color-name">white /<br>opal</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d8c8a0" title="J - huckleberry">
+      <span class="letter-glyph">J</span>
+      <span class="letter-color-name">huckle-<br>berry</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c8a080" title="K - huckleberry">
+      <span class="letter-glyph">K</span>
+      <span class="letter-color-name">huckle-<br>berry</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #e0e0c8" title="L - noodle ivory">
+      <span class="letter-glyph">L</span>
+      <span class="letter-color-name">noodle<br>ivory</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #9090a8" title="M - pinkish grey">
+      <span class="letter-glyph">M</span>
+      <span class="letter-color-name">pinkish<br>grey</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c8b8a0" title="N - oatmeal">
+      <span class="letter-glyph">N</span>
+      <span class="letter-color-name">oatmeal</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d0c8a8" title="O - ivory">
+      <span class="letter-glyph">O</span>
+      <span class="letter-color-name">ivory</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #e8c090" title="P - tender rose">
+      <span class="letter-glyph">P</span>
+      <span class="letter-color-name">tender<br>rose</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #a09080" title="Q - dark bistre">
+      <span class="letter-glyph">Q</span>
+      <span class="letter-color-name">dark<br>bistre</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d09088" title="R - sooty flamingo">
+      <span class="letter-glyph">R</span>
+      <span class="letter-color-name">sooty<br>flamingo</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d4c878" title="S - golden shimmer">
+      <span class="letter-glyph">S</span>
+      <span class="letter-color-name">golden<br>shimmer</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #b0c8a8" title="T - pistachio">
+      <span class="letter-glyph">T</span>
+      <span class="letter-color-name">pistachio</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #c8d0c0" title="U - brassy with olive">
+      <span class="letter-glyph">U</span>
+      <span class="letter-color-name">brassy<br>olive</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d8e0c8" title="V - rainbow">
+      <span class="letter-glyph">V</span>
+      <span class="letter-color-name">rainbow /<br>iridescent</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #b8b0a0" title="W - dull green">
+      <span class="letter-glyph">W</span>
+      <span class="letter-color-name">dull<br>green</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d8c8b0" title="X - steely blue">
+      <span class="letter-glyph">X</span>
+      <span class="letter-color-name">steely<br>blue</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #d0c8a0" title="Y - pale yellow">
+      <span class="letter-glyph">Y</span>
+      <span class="letter-color-name">pale<br>yellow</span>
+    </div>
+    <div class="letter-tile" style="--tile-color: #909898" title="Z - thundercloud">
+      <span class="letter-glyph">Z</span>
+      <span class="letter-color-name">thunder-<br>cloud</span>
+    </div>
+
+  </div>
+
+  <p class="syn-note">Color descriptions drawn from <em>Speak, Memory</em>, Chapter 2 (1951) · Hover over tiles to see Nabokov's exact color names · Colors are approximate — he insisted the palette was "untranslatable"</p>
+
+</div>
+</div><!-- /syn-zone -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §D  TRANSITION — RUSSIA TO ITHACA
+════════════════════════════════════════════════════════════════ -->
+<div class="transition-band">
+<div class="trans-inner">
+  <p class="trans-eyebrow">1948 · Cambridge → Ithaca</p>
+  <p class="trans-year">1948</p>
+  <p class="trans-headline">
+    "Signs and Symbols" is published in <em>The New Yorker</em>,<br>
+    May 15, 1948 — written at 8 Craigie Circle, Cambridge, MA,<br>
+    where the Nabokovs were renting while he worked at Harvard.
+  </p>
+  <p class="trans-sub">Later that year, he accepts the Cornell professorship. He will teach there for eleven years.<br>
+  <em>Lolita</em> and <em>Pnin</em> will be written in Ithaca. So will the great <em>Lectures on Literature</em>.</p>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §E  ITHACA / CORNELL / THE STORY
+════════════════════════════════════════════════════════════════ -->
+<div class="ithaca-zone">
+<div class="i-wrap">
+
+  <div class="i-head">
+    <span class="i-sec-id">§ 03</span>
+    <h2 class="i-h2">Ithaca · Cornell · The American Exile</h2>
+  </div>
+
+  <div class="float-r">
+    <div class="img-ph img-i">
+      <!--
+        PHOTO 8 — Nabokov teaching at Cornell, c. 1950–1958
+        Nabokov at the lectern in his Cornell lecture hall.
+        He taught Literature 311-312 to hundreds of undergraduates
+        in Goldwin Smith Hall. He was famous for his performances:
+        meticulous preparation, no improvisation, theatrical delivery,
+        precise diagrams on the blackboard (the floor plan of
+        Sansing's house, the railway map of Anna Karenina's journey).
+        Several photographs exist of him at the Cornell lectern,
+        sometimes with a pointer, sometimes with chalk diagrams visible.
+        Search: "Nabokov Cornell lectern photograph" or
+        "Vladimir Nabokov teaching photograph Cornell"
+        Cornell University Library Division of Rare Books has
+        archival materials; some are digitized.
+      -->
+      <div class="img-ph-label">
+        <span class="ph-t">Nabokov at Cornell · Teaching</span>
+        <span class="ph-r">
+          At the lectern · Goldwin Smith Hall<br>
+          Literature 311–312 · hundreds of students<br>
+          Pointer or chalk diagrams preferred<br>
+          Search: "Nabokov Cornell lectern photograph"<br>
+          Cornell Library Division of Rare Books
+        </span>
+      </div>
+    </div>
+    <p class="img-cap cap-i">Nabokov at the Cornell lectern · c. 1954</p>
+  </div>
+
+  <p class="i-p">In 1948, Nabokov became Professor of Russian Literature at Cornell University in Ithaca, New York — a position he would hold until 1959, when the success of <em>Lolita</em> made him wealthy enough to retire. The eleven Cornell years were among his most productive: <em>Lolita</em>, <em>Pnin</em>, the <em>Lectures on Literature</em>, and the translation of Pushkin's <em>Eugene Onegin</em> were all Ithaca products. He lived in a series of rented houses — he and Véra never owned property in America — and spent his summers driving the American West in search of butterfly specimens.</p>
+
+  <p class="i-p">His teaching was legendary. He prepared every lecture as meticulously as a short story, read from a written text, tolerated no interruptions, and demanded that students attend to the physical text with the same precision he brought to a butterfly specimen. <em>"Fondle the details,"</em> he told them. He drew floor plans of fictional houses on the blackboard. He made students describe the exact color of Madame Bovary's eyes. He was, by all accounts, impossible and unforgettable.</p>
+
+  <div class="clearfix"></div>
+
+  <div class="i-panel">
+    <p class="i-h3">8 Craigie Circle, Cambridge, MA</p>
+    <p>"Signs and Symbols" was written in Cambridge while Nabokov was still working at Harvard's entomology department. The Nabokovs rented at 8 Craigie Circle — a modest address in a city of academic grandeur, wholly unlike the St. Petersburg mansion. The story's setting — an unnamed American city in winter, a bus ride, a hospital that cannot be reached, an apartment where the telephone will not stop ringing — carries the quality of Cambridge in February: grey, cold, full of meaning that cannot quite be deciphered.</p>
+  </div>
+
+  <div class="i-rule" data-label="The Story"></div>
+
+  <div class="i-head">
+    <span class="i-sec-id">§ 04</span>
+    <h2 class="i-h2">"Signs and Symbols" · Reading the Story</h2>
+  </div>
+
+  <div class="float-l">
+    <div class="img-ph img-i landscape">
+      <!--
+        PHOTO 9 — Cornell campus in winter / Ithaca in February
+        The Cornell campus or Ithaca in winter conditions —
+        grey sky, bare trees, stone buildings, possibly snow.
+        This is the exact atmospheric register of "Signs and Symbols":
+        the grey American winter, the institutional cold, the feeling
+        that the world has contracted to a few lit windows.
+        Cascadilla or Fall Creek gorge in winter is particularly striking.
+        Search: "Cornell campus winter photograph" or
+        "Ithaca New York winter photograph" or
+        "Cornell Ithaca gorge winter"
+        The Cornell University Photo archive has extensive options.
+      -->
+      <div class="img-ph-label">
+        <span class="ph-t">Cornell / Ithaca · February</span>
+        <span class="ph-r">
+          Campus or gorge in winter conditions<br>
+          Grey sky · bare trees · stone · possibly snow<br>
+          The atmospheric register of the story<br>
+          Search: "Cornell campus winter" · Cornell Photo Archive
+        </span>
+      </div>
+    </div>
+    <p class="img-cap cap-i">Ithaca, NY · February — the world of the story</p>
+  </div>
+
+  <p class="i-p">"Signs and Symbols" (1948) is three pages long and contains more precisely observed reality than most novels. An elderly Jewish immigrant couple in an unnamed American city travel by bus to a sanitarium to visit their son on his birthday. They are turned back — he has attempted suicide again. They return home. The mother cannot sleep. They look at old photographs. The telephone rings twice — wrong numbers. Then it rings a third time. The story ends.</p>
+
+  <p class="i-p">Nothing is resolved. Nothing is explained. The son's condition — what Nabokov names "referential mania" — involves the belief that everything in the outside world is secretly communicating to him, that clouds, passing strangers, the patterns in wallpaper, are all part of an elaborate and sinister system of signs aimed specifically at him. He is not wrong that the world is full of patterns. He is only wrong that they are aimed at him.</p>
+
+  <div class="clearfix"></div>
+
+  <div class="mania-box">
+    <p class="i-h3" style="color:var(--hopper-gold);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.5rem">Referential Mania — Nabokov's Clinical Description</p>
+    <p>In the story, Nabokov gives us the doctor's diagnosis: <em>"the patient imagines that everything happening around him is a veiled reference to his personality and existence."</em> Clouds in the staircase of a deformed into a message. Faces of strangers conceal a fiendish intent. Everything that can be seen, heard, or felt is a sign directed at him. The world has become a text — and he is its only subject.</p>
+  </div>
+
+  <p class="i-p">The critical question the story raises is whether the parents are experiencing something analogous. Their evening is saturated with small signs and symbols — the jam jars, the photographs, the wrong-number calls — that the narrative presents with such care that the reader cannot help feeling they mean something. The final phone call, which the story refuses to complete, is the hinge: is it the hospital calling to say the son has died? Or is it another wrong number? Or — and this is Nabokov's deepest trick — is it that <em>we</em>, as readers, have been infected with the son's condition?</p>
+
+  <div class="i-panel">
+    <p class="i-h3">Synesthesia and Referential Mania — The Connection</p>
+    <p>Some critics have read the son's condition as a dark mirror of Nabokov's synesthesia. Both involve the perception of a world in which sensory experience is overdetermined — where letters have colors, where objects carry messages. The difference is the difference between a gift and an illness: Nabokov's colored letters were a source of pleasure and precision; the son's referential mania is a source of terror. The story is, in part, about what happens when the capacity to see patterns — to read the world as a system of meaningful signs — exceeds the human ability to bear it.</p>
+  </div>
+
+  <div class="phone-accent">
+    <div class="phone-icon">📞</div>
+    <div class="phone-text">
+      <p><em>"He put the receiver down gently and asked his wife whether their son was still alive. She said yes, he was, she had just spoken to him."</em> — The second wrong-number call. The third call ends the story, unanswered. Nabokov never told anyone what it meant. He was asked repeatedly. He refused to answer.</p>
+    </div>
+  </div>
+
+</div>
+</div><!-- /ithaca-zone -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §F  ILLUSTRATIONS — Hopper-style story scenes
+════════════════════════════════════════════════════════════════ -->
+<div class="ill-zone">
+<div class="ill-wrap">
+
+  <div class="ill-zone-header">
+    <p class="ill-zone-eyebrow">Story Illustrations</p>
+    <h2 class="ill-zone-h2">"Signs and Symbols" · Four Scenes</h2>
+    <p class="ill-zone-sub">Illustrated in the tradition of Edward Hopper's American realism — the charged ordinary object, grey February light, the loneliness of a lit room</p>
+  </div>
+
+  <!-- ILLUSTRATION 1 — The Bus -->
+  <div class="ill-block">
+    <div class="ill-frame">
+      <!--
+        AI ILLUSTRATION 1 — The Bus Ride
+        SCENE: An elderly immigrant couple on a city bus in winter.
+        The man in a dark coat, the woman beside him. They face forward,
+        not speaking. Rain or wet snow on the windows. Other passengers
+        vague in the background. The light: grey, institutional,
+        the light of a city that does not know they exist.
+
+        MIDJOURNEY / DALL-E 3 PROMPT:
+        "Oil painting in the style of Edward Hopper, 1940s American realist.
+        An elderly Eastern European immigrant couple seated on a city bus
+        in winter. The man wears a dark overcoat and hat; the woman wears
+        a dark coat with a small brooch. They face forward, not speaking.
+        Wet streaked windows, grey winter light, other passengers blurred
+        in background. The mood: exhaustion, love worn into silence,
+        the weight of an errand that cannot be completed.
+        Colors: grey-blue winter light, dark coats, the yellow-orange
+        of interior bus lighting. Hopper's characteristic emptiness —
+        human figures present but unreachable. Not photorealistic —
+        painterly, with visible brushwork."
+      -->
+      <div class="ill-scene-ghost" aria-hidden="true">I</div>
+      <div class="ill-prompt-badge">Illustration Placeholder</div>
+      <div class="ill-ph-text">
+        <span class="ipt">Scene I · The Bus</span>
+        <span class="ipr">
+          Elderly couple · city bus · winter rain<br>
+          Not speaking · grey institutional light<br>
+          Edward Hopper style · see prompt below
+        </span>
+      </div>
+    </div>
+    <div class="ill-text">
+      <p class="ill-scene-tag">Scene One · Opening</p>
+      <h3 class="ill-title">The Bus Ride in Rain</h3>
+      <p class="ill-desc">The story opens with the couple already in motion — on a bus, on their way to the sanitarium, the birthday present on the woman's lap. Nabokov gives us their exhaustion in small precise details: the man's feet hurt, the woman's hands, the rain. They do not speak. They have been married for decades; the silence is not hostility but <em>the particular compression of two people who share a grief too large for words.</em></p>
+      <div class="ill-prompt-box">
+        <p class="ill-prompt-label">Midjourney / DALL-E 3 Prompt</p>
+        <p class="ill-prompt-text">Oil painting, Edward Hopper style, 1940s American realist. Elderly Eastern European immigrant couple on a city bus in winter — man in dark overcoat, woman in dark coat with small brooch. Facing forward, not speaking. Wet windows, grey winter light, other passengers blurred. Mood: exhaustion, love worn into silence. Colors: grey-blue light, dark coats, yellow-orange bus interior. Hopper's characteristic human presence-yet-unreachability. Painterly, visible brushwork.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 2 — Turned Back at the Hospital -->
+  <div class="ill-block flip">
+    <div class="ill-frame">
+      <!--
+        AI ILLUSTRATION 2 — Turned Back
+        SCENE: The couple at the entrance of the sanitarium —
+        a grey institutional building, modern, American.
+        They cannot enter. A nurse or orderly has stopped them.
+        The man holds the small birthday gift. They stand
+        in the rain or cold outside the glass entrance doors,
+        the building's lit interior visible through the glass,
+        their son unreachable inside.
+
+        MIDJOURNEY / DALL-E 3 PROMPT:
+        "Oil painting, Edward Hopper style, 1940s American realist.
+        An elderly immigrant couple standing outside the glass entrance
+        of a grey American sanitarium building in winter.
+        They cannot go in. The man holds a small wrapped gift.
+        Through the glass doors, the lit institutional interior is visible
+        but inaccessible — yellow light inside, grey cold outside.
+        A nurse or orderly figure faintly visible beyond the glass.
+        The couple's backs are slightly turned, a posture of rejection.
+        Colors: institutional grey-green exterior, yellow window light,
+        dark winter coats, the wet sheen of a cold pavement.
+        Hopper's technique: the pathos of glass as barrier between warmth
+        and cold, presence and absence. Painterly brushwork."
+      -->
+      <div class="ill-scene-ghost" aria-hidden="true">II</div>
+      <div class="ill-prompt-badge">Illustration Placeholder</div>
+      <div class="ill-ph-text">
+        <span class="ipt">Scene II · Turned Back</span>
+        <span class="ipr">
+          Outside the sanitarium glass doors<br>
+          The lit interior · unreachable son inside<br>
+          The gift still in his hands · cold outside
+        </span>
+      </div>
+    </div>
+    <div class="ill-text">
+      <p class="ill-scene-tag">Scene Two · The Barrier</p>
+      <h3 class="ill-title">Turned Back at the Entrance</h3>
+      <p class="ill-desc">They arrive and are told the visit is impossible — the son has attempted suicide again. They must leave. The man still holds the birthday gift. The glass doors of the sanitarium are the story's central image of the uncrossable threshold: <em>the son is in there, they are out here, and the glass that separates them is as absolute as death.</em> Hopper painted this exact situation — the human figure visible through glass, separated from warmth or connection by a transparent barrier that might as well be a wall.</p>
+      <div class="ill-prompt-box">
+        <p class="ill-prompt-label">Midjourney / DALL-E 3 Prompt</p>
+        <p class="ill-prompt-text">Oil painting, Edward Hopper style. Elderly immigrant couple outside the glass entrance of a grey American sanitarium, winter. Cannot enter. Man holds small wrapped gift. Through glass doors: lit institutional interior, yellow warmth, inaccessible. Nurse faintly visible beyond glass. Couple's posture: rejected, turned slightly away. Colors: institutional grey-green, yellow interior light, dark coats, wet cold pavement. Hopper's glass-as-barrier technique. Painterly brushwork — not photorealistic.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 3 — The Photographs -->
+  <div class="ill-block">
+    <div class="ill-frame">
+      <!--
+        AI ILLUSTRATION 3 — The Photographs at Midnight
+        SCENE: The woman at the kitchen table late at night,
+        looking at old photographs spread before her.
+        The man asleep or resting. A single lamp. The photographs
+        show a child — their son — in a happier time, in the
+        old country or in early American years.
+        The jam jars on the shelf nearby.
+        The telephone on the wall, waiting.
+
+        MIDJOURNEY / DALL-E 3 PROMPT:
+        "Oil painting, Edward Hopper style, 1940s American domestic interior.
+        An elderly woman sits alone at a kitchen table late at night,
+        looking at old photographs spread before her.
+        A single hanging lamp lights the scene from above.
+        The photographs show a child in happier years.
+        On a shelf nearby: several small jam jars, labeled.
+        A black bakelite telephone on the wall.
+        The man of the house is absent — perhaps asleep beyond the frame.
+        Colors: warm lamp yellow on the woman's face and hands,
+        deep shadow everywhere else, the particular loneliness of
+        a kitchen at 3 AM. The jam jars catch the light.
+        Hopper's mastery of the single lit figure in domestic space.
+        Painterly, emotionally desolate, precisely observed."
+      -->
+      <div class="ill-scene-ghost" aria-hidden="true">III</div>
+      <div class="ill-prompt-badge">Illustration Placeholder</div>
+      <div class="ill-ph-text">
+        <span class="ipt">Scene III · The Photographs</span>
+        <span class="ipr">
+          Woman alone · kitchen table · midnight<br>
+          Old photographs spread before her<br>
+          The jam jars · the waiting telephone
+        </span>
+      </div>
+    </div>
+    <div class="ill-text">
+      <p class="ill-scene-tag">Scene Three · The Charged Object</p>
+      <h3 class="ill-title">The Photographs at Midnight</h3>
+      <p class="ill-desc">Unable to sleep, the mother takes out a box of old photographs. Nabokov lists what she sees: the child at various ages, her late mother-in-law, a dog that died before the war. The jam jars, labeled in her handwriting, sit on the shelf. The telephone is on the wall. Everything in this kitchen is <em>saturated with time and loss</em> — and the reader, infected by now with the son's referential mania, cannot help feeling that the jam jars and the photographs and the telephone are all signs in a system. What are they signs of?</p>
+      <div class="ill-prompt-box">
+        <p class="ill-prompt-label">Midjourney / DALL-E 3 Prompt</p>
+        <p class="ill-prompt-text">Oil painting, Edward Hopper style. Elderly woman alone at kitchen table, late at night, looking at old photographs spread before her. Single hanging lamp. Photographs of a child in happier years. Shelf nearby: small labeled jam jars. Black bakelite telephone on wall. Man absent — asleep beyond frame. Colors: warm lamp yellow on woman's face and hands, deep shadow everywhere else. 3 AM kitchen loneliness. Jam jars catch the light. Hopper's single-lit-figure mastery. Painterly, emotionally precise.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ILLUSTRATION 4 — The Third Call -->
+  <div class="ill-block flip">
+    <div class="ill-frame">
+      <!--
+        AI ILLUSTRATION 4 — The Third Phone Call
+        SCENE: The telephone on the wall or on a table.
+        It is ringing. The woman's hand reaching for it — or
+        perhaps her hand frozen, not yet touching the receiver.
+        The room is dark except for one source of light.
+        The man stands in the background, watching.
+        This is the last image of the story — the unanswered question,
+        the hand reaching toward the phone, the end.
+
+        MIDJOURNEY / DALL-E 3 PROMPT:
+        "Oil painting, Edward Hopper style. A black bakelite telephone
+        on a small table or mounted on a wall of a 1940s American kitchen.
+        A woman's hand reaching toward the receiver — or hovering,
+        not yet touching it. The phone is ringing (implied, not visible).
+        In the deep background: an elderly man, standing, watching.
+        The room is dark; a single lamp illuminates the telephone
+        and the woman's reaching hand.
+        Colors: the black of the bakelite telephone, warm lamp yellow
+        on the hand, deep shadow, the grey-blue of a window at night.
+        The feeling: suspended time, the moment before an answer
+        that may change everything. Hopper's mastery of the pregnant
+        ordinary moment. No horror — only the terrible weight
+        of the ordinary. Painterly, slow, precise."
+      -->
+      <div class="ill-scene-ghost" aria-hidden="true">IV</div>
+      <div class="ill-prompt-badge">Illustration Placeholder</div>
+      <div class="ill-ph-text">
+        <span class="ipt">Scene IV · The Third Call</span>
+        <span class="ipr">
+          The telephone · ringing · the hand reaching<br>
+          The man watching from the background<br>
+          The story's last image · unanswered
+        </span>
+      </div>
+    </div>
+    <div class="ill-text">
+      <p class="ill-scene-tag">Scene Four — The Last Image</p>
+      <h3 class="ill-title">The Telephone Rings a Third Time</h3>
+      <p class="ill-desc">The story's final sentence: the phone rings a third time. The story ends. Nabokov does not tell us who is calling. Critics have argued ever since. The two most likely readings — it is the hospital calling to say the son has died, or it is another wrong number — are both plausible and both terrible. <em>The genius of the ending is that both readings are simultaneously true:</em> in a story about a world saturated with portentous meaning, the final sign is the one we cannot decode. The reader is left holding the receiver.</p>
+      <div class="ill-prompt-box">
+        <p class="ill-prompt-label">Midjourney / DALL-E 3 Prompt</p>
+        <p class="ill-prompt-text">Oil painting, Edward Hopper style. Black bakelite telephone in a 1940s American kitchen, ringing. Woman's hand reaching toward receiver — hovering, not yet touching. Deep background: elderly man standing, watching. Room dark; single lamp illuminates telephone and reaching hand. Colors: black bakelite, warm lamp yellow on hand, deep shadow, grey-blue night window. Feeling: suspended time, the moment before. Hopper's pregnant ordinary moment. No horror — the terrible weight of the ordinary. Painterly, slow, precise.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- /ill-zone -->
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     §G  FINAL SECTION — What to carry into the reading
+════════════════════════════════════════════════════════════════ -->
+<div class="ithaca-zone">
+<div class="i-wrap">
+
+  <div class="i-head">
+    <span class="i-sec-id">§ 05</span>
+    <h2 class="i-h2">What to Carry Into the Reading</h2>
+  </div>
+
+  <p class="i-p">Nabokov said he had no interest in allegory, symbol, or "message." He was lying, or at least being provocative. "Signs and Symbols" is a story about whether the world means anything — and it is written by a man who had lost a paradise that no longer existed, who saw colors in letters, who pinned butterflies with the same care with which he placed words, and who believed that the precision of observation was the only dignity available to a conscious being in a universe that did not explain itself.</p>
+
+  <div class="i-panel">
+    <p class="i-h3">The Three Questions the Story Leaves Open</p>
+    <p style="margin-bottom:0.7rem">First: <em>who is calling at the end?</em> This is the surface question, and it matters — but it is not the deepest question.</p>
+    <p style="margin-bottom:0.7rem">Second: <em>is the parents' world also a world of signs and symbols?</em> Are the jam jars and the photographs and the wrong-number calls meaningful, or does the story only make them seem so? Is the reader experiencing referential mania by the final page?</p>
+    <p>Third, and deepest: <em>if everything is a sign, and if the signs all point somewhere, where do they point?</em> Nabokov refused to answer. The refusal is the answer.</p>
+  </div>
+
+  <div class="i-quote">
+    The story says: look closely. Look at the jam jars. Look at the photographs. Count the phone calls. And then ask yourself whether what you are doing — looking closely, counting, finding patterns — is the activity of a careful reader, or the first symptom of the son's condition.
+    <cite>— Not Nabokov · a description of what the story does to you</cite>
+  </div>
+
+</div>
+</div>
+
+<footer class="page-footer">
+  <span class="footer-l">ENC 1102 · Author Profile · Vladimir Nabokov</span>
+  <span class="footer-r">St. Petersburg · Ithaca · "Signs and Symbols" · 1948</span>
+</footer>
+
+</body>
+</html>
