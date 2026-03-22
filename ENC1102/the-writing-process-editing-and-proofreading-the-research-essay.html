@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Writing Process: Editing &amp; Proofreading — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --rose-bg:#fdf2f6;--rose-border:#D8B5C5;--rose-dark:#4a2e3e;--rose-text:#6a4e5e;
+  --warn-bg:#fdf8f0;--warn-border:#C4937A;--warn-dark:#7a3e2a;--warn-text:#8a4e3a;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1060px;margin:0 auto;padding:32px 16px 60px;}
+
+/* HEADER */
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;box-shadow:var(--shadow);}
+.card-head{padding:13px 24px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-slate{background:linear-gradient(135deg,var(--slate) 0%,var(--slate-mid) 100%);color:var(--slate-dark);}
+.ch-amber{background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);}
+.ch-rose{background:linear-gradient(135deg,#D8B5C5 0%,#e8ccd8 100%);color:var(--rose-dark);}
+.card-body{padding:24px 28px;}
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+
+/* INTRO LAYOUT WITH IMAGE */
+.intro-grid{display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:start;margin-bottom:22px;}
+@media(max-width:640px){.intro-grid{grid-template-columns:1fr;}}
+.img-placeholder{background:#e8ede9;border:2px dashed var(--sage);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;text-align:center;padding:24px 16px;}
+.img-placeholder-icon{font-size:32px;margin-bottom:8px;}
+.img-placeholder-label{font-size:12px;color:var(--sage-dark);font-weight:600;line-height:1.4;}
+.img-placeholder-sub{font-size:11px;color:#5a7a60;margin-top:4px;}
+
+/* STAGE BOXES — INTRO */
+.stage-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;}
+@media(max-width:560px){.stage-two{grid-template-columns:1fr;}}
+.stage-sage{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 18px;}
+.stage-slate{background:var(--slate-light);border:2px solid var(--slate);border-radius:8px;padding:16px 18px;}
+.stage-title-sm{font-size:13px;font-weight:600;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid;}
+.stage-sage .stage-title-sm{color:var(--sage-deep);border-color:var(--sage-mid);}
+.stage-slate .stage-title-sm{color:var(--slate-dark);border-color:var(--slate-mid);}
+.stage-sage p{font-size:13px;color:#3a5e42;line-height:1.7;margin:0;}
+.stage-slate p{font-size:13px;color:#3a5060;line-height:1.7;margin:0;}
+
+/* EDITING COLUMNS */
+.edit-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:600px){.edit-cols{grid-template-columns:1fr;}}
+.edit-sage{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 18px;}
+.edit-amber{background:var(--warn-bg);border:2px solid var(--warn-border);border-radius:8px;padding:16px 18px;}
+.edit-title{font-size:13px;font-weight:600;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid;}
+.edit-sage .edit-title{color:var(--sage-deep);border-color:var(--sage-mid);}
+.edit-amber .edit-title{color:var(--warn-dark);border-color:#d4a38a;}
+.edit-sage ul{margin:0;padding-left:16px;font-size:13px;color:#3a5e42;line-height:1.95;}
+.edit-amber ul{margin:0;padding-left:16px;font-size:13px;color:var(--warn-text);line-height:1.95;}
+
+/* SIGNAL PHRASE GRID */
+.sp-section{background:#f0f7f2;border:2px solid var(--sage);border-radius:8px;padding:18px 22px;}
+.sp-section-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:6px;}
+.sp-section-intro{font-size:13px;color:#3a5e42;line-height:1.7;margin-bottom:14px !important;}
+.sp-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+@media(max-width:700px){.sp-grid-4{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.sp-grid-4{grid-template-columns:1fr;}}
+.sp-col{background:#fff;border-radius:6px;padding:10px 12px;}
+.sp-col-title{font-size:11px;font-weight:600;color:var(--sage-dark);margin-bottom:6px;letter-spacing:.03em;}
+.sp-col ul{margin:0;padding-left:14px;font-size:12px;color:#3a5e42;line-height:1.95;}
+
+/* STEP PROTOCOL — AUDIT */
+.audit-protocol{border:2px solid var(--sage);border-radius:8px;overflow:hidden;margin-bottom:4px;}
+.audit-head{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);padding:10px 18px;font-size:13px;font-weight:600;color:var(--sage-deep);}
+.audit-row{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);}
+.audit-row:last-child{border-bottom:none;}
+.audit-row.alt{background:#fafafa;}
+.audit-row p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.audit-row-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:4px;}
+.sp{border-radius:20px;font-size:12px;font-weight:600;padding:4px 12px;white-space:nowrap;flex-shrink:0;min-width:58px;text-align:center;margin-top:2px;}
+.sp-1{background:var(--sage);color:var(--sage-deep);}
+.sp-2{background:#6a9478;color:#fff;}
+.sp-3{background:var(--sage-deep);color:#fff;}
+
+/* RESOURCE CARDS */
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px;}
+.resource-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:640px){.resource-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.resource-grid,.resource-grid-2{grid-template-columns:1fr;}}
+.resource-card{background:#fff;border:2px solid var(--sage);border-radius:8px;overflow:hidden;}
+.resource-card-head{background:linear-gradient(135deg,var(--sage) 0%,#8aad94 100%);padding:10px 14px;}
+.resource-card-title{font-size:12px;color:var(--sage-deep);font-weight:600;line-height:1.4;}
+.resource-card-foot{padding:10px 14px;text-align:center;}
+.resource-btn{display:inline-block;background:linear-gradient(135deg,var(--sage) 0%,#8aad94 100%);color:var(--sage-deep);font-size:12px;font-weight:600;padding:6px 14px;border-radius:5px;text-decoration:none;transition:opacity .2s;}
+.resource-btn:hover{opacity:.85;}
+.resource-intro{font-size:13px;color:#4e5e6a;line-height:1.7;margin-bottom:18px !important;}
+
+/* NAV FOOTER */
+.nav-footer{background:linear-gradient(135deg,var(--sage-deep) 0%,var(--sage-dark) 100%);border-radius:var(--radius);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px;}
+.nav-footer-label{font-size:12px;color:#a8c5b0;margin-bottom:3px;}
+.nav-footer-title{font-size:15px;color:#fff;font-weight:600;}
+.nav-footer-sub{font-size:12px;color:#c8dfd0;margin-top:2px;}
+.nav-back{font-size:13px;font-weight:600;color:#fff;text-decoration:none;background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;white-space:nowrap;transition:background .2s;flex-shrink:0;}
+.nav-back:hover{background:rgba(255,255,255,0.25);}
+@media(max-width:600px){.nav-footer{flex-direction:column;text-align:center;}}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.10s}
+.fade:nth-child(3){animation-delay:.16s}.fade:nth-child(4){animation-delay:.22s}
+.fade:nth-child(5){animation-delay:.28s}.fade:nth-child(6){animation-delay:.34s}
+.fade:nth-child(7){animation-delay:.40s}.fade:nth-child(8){animation-delay:.46s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="page-header fade">
+  <div class="eyebrow">Week 7 &bull; The Literary or Film Research Essay</div>
+  <h1>The Writing Process: Editing &amp; Proofreading Your Research Essay</h1>
+  <p class="subtitle">Reading &nbsp;&bull;&nbsp; No submission required</p>
+</div>
+
+<!-- SECTION 1: STAGES 5 & 6 -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x270F;&#xFE0F; The Writing Process, Stages Five &amp; Six: Editing and Proofreading</div>
+  <div class="card-body">
+    <div class="intro-grid">
+      <img src="WritingProcessEditingProofreading.png" alt="The Writing Process cycle diagram with Editing and Proofreading stages highlighted" style="width:100%;border-radius:8px;display:block;">
+      <div>
+        <p>Editing and Proofreading are the final two stages of the Writing Process &mdash; and the ones most connected to the <strong>Sentence Structure</strong>, <strong>Grammar/Punctuation/Mechanics</strong>, and <strong>Vocabulary</strong> criteria on the Grading Rubric.</p>
+        <p style="margin-top:10px;">Though often lumped together, they are genuinely different tasks that work best when done separately and in order &mdash; Editing first, Proofreading second. For a research essay, each stage has an additional layer: checking how your sources are being used and whether they&rsquo;re cited correctly.</p>
+        <div class="stage-two" style="margin-top:14px;">
+          <div class="stage-sage">
+            <div class="stage-title-sm">&#x1F58C;&#xFE0F; Editing &mdash; Style &amp; Clarity</div>
+            <p>Improving how sentences are written. Are they clear? Concise? Well-constructed? For research essays, editing also means assessing whether each source is being used effectively and whether your own voice is still leading the argument.</p>
+          </div>
+          <div class="stage-slate">
+            <div class="stage-title-sm">&#x1F50D; Proofreading &mdash; Errors &amp; Mechanics</div>
+            <p>Catching mechanical mistakes: grammar, spelling, punctuation, capitalization, and MLA formatting. For research essays, this includes verifying that every in-text citation is accurate and that every source in the essay appears in the Works Cited.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: EDITING YOUR RESEARCH ESSAY -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x1F58C;&#xFE0F; Editing Your Research Essay</div>
+  <div class="card-body">
+    <p style="margin-bottom:18px;">Editing a research essay works at two levels simultaneously: the <strong>sentence level</strong> (are my sentences clear and precise?) and the <strong>source level</strong> (are my sources working the way they should?). Work through both passes before moving on to proofreading.</p>
+
+    <div class="edit-cols">
+      <div class="edit-sage">
+        <div class="edit-title">Sentence-Level Editing</div>
+        <ul>
+          <li>Is every sentence clear and direct?</li>
+          <li>Are you using precise vocabulary &mdash; the specific language of literary analysis?</li>
+          <li>Are sentences varied in structure, or does every one begin the same way?</li>
+          <li>Is each paragraph&rsquo;s topic sentence specific enough to guide the reader?</li>
+          <li>Do transitions clearly signal the relationship between ideas?</li>
+        </ul>
+      </div>
+      <div class="edit-amber">
+        <div class="edit-title">Source-Level Editing</div>
+        <ul>
+          <li>Is each source quote introduced with a signal phrase that names the author?</li>
+          <li>Does your analysis follow every quote, both primary and secondary?</li>
+          <li>Are you quoting too heavily from secondary sources? Is your voice still leading?</li>
+          <li>Are any secondary source quotes too long? Avoid direct quotes over three typed lines for essays of this length.</li>
+          <li>Does each source actually support the analytical point of its paragraph?</li>
+          <li>Did you meet the required secondary source citations detailed on the Assignment page? You need six total quotes selected from the three research sources: four should be direct quotes; two should be paraphrases.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-title">&#x1F4AC; Vary Your Signal Phrases</div>
+      <p class="sp-section-intro">A signal phrase introduces a quote or paraphrase by naming the author and characterizing their position. Relying on &ldquo;According to [author]&hellip;&rdquo; for every source becomes repetitive and weakens the sense of your own analytical voice. Use the options below to vary your introductions:</p>
+      <div class="sp-grid-4">
+        <div class="sp-col">
+          <div class="sp-col-title">Neutral / Descriptive</div>
+          <ul>
+            <li>notes</li>
+            <li>explains</li>
+            <li>observes</li>
+            <li>writes</li>
+            <li>points out</li>
+          </ul>
+        </div>
+        <div class="sp-col">
+          <div class="sp-col-title">Analytical / Argumentative</div>
+          <ul>
+            <li>argues</li>
+            <li>contends</li>
+            <li>asserts</li>
+            <li>claims</li>
+            <li>maintains</li>
+          </ul>
+        </div>
+        <div class="sp-col">
+          <div class="sp-col-title">Interpretive</div>
+          <ul>
+            <li>suggests</li>
+            <li>implies</li>
+            <li>demonstrates</li>
+            <li>examines</li>
+            <li>concludes</li>
+          </ul>
+        </div>
+        <div class="sp-col">
+          <div class="sp-col-title">Contrasting / Qualifying</div>
+          <ul>
+            <li>acknowledges</li>
+            <li>concedes</li>
+            <li>qualifies</li>
+            <li>complicates</li>
+            <li>challenges</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: PROOFREADING — THE MLA CITATION AUDIT -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x1F50D; Proofreading: The MLA Citation Audit</div>
+  <div class="card-body">
+    <p style="margin-bottom:20px;">For a research essay, proofreading the MLA documentation is substantial enough to be its own dedicated pass &mdash; separate from checking grammar and spelling. A citation audit ensures that every source is correctly documented and that nothing has slipped through. Work through the three steps below before you finalize your essay.</p>
+
+    <div class="audit-protocol">
+      <div class="audit-head">The Three-Step Citation Audit</div>
+
+      <div class="audit-row">
+        <div class="sp sp-1">Step 1</div>
+        <div>
+          <div class="audit-row-title">Match in-text citations to Works Cited entries</div>
+          <p>Find every in-text citation in your essay, whether the author is identified in the signal phrase or in a parenthetical citation, and confirm that the same author appears on your Works Cited. The rule works both directions: if a source is cited in the essay, it must have a Works Cited entry; if a source has a Works Cited entry, it must appear at least once in the essay.</p>
+        </div>
+      </div>
+
+      <div class="audit-row alt">
+        <div class="sp sp-2">Step 2</div>
+        <div>
+          <div class="audit-row-title">Check that paraphrases are cited</div>
+          <p>Students often remember to cite direct quotes but forget that paraphrases (restating a source&rsquo;s idea in your own words) also require citation. Read through your essay for any sentences clearly based on a source&rsquo;s ideas that don&rsquo;t identify the author either in the signal phrase or in a parenthetical citation and correct them. Not doing so would constitute plagiarism and a violation of the college&rsquo;s academic integrity policy.</p>
+        </div>
+      </div>
+
+      <div class="audit-row">
+        <div class="sp sp-3">Step 3</div>
+        <div>
+          <div class="audit-row-title">Review the Works Cited page formatting</div>
+          <p>Check that the Works Cited page itself is correctly formatted: alphabetical order by author&rsquo;s last name, double-spaced throughout, hanging indent on each entry (first line flush left, subsequent lines indented &frac12;&rdquo;), and the words <em>Works Cited</em> centered at the top. All url addresses should be plain, black text: no color or underline.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: GRAMMAR RESOURCES -->
+<div class="card fade">
+  <div class="card-head ch-slate">&#x1F4DA; Grammar, Punctuation &amp; Sentence Structure Resources</div>
+  <div class="card-body">
+    <p class="resource-intro">Use the handouts below to review the sentence-level rules most relevant to academic writing. Open whichever is most useful as you edit and proofread your research essay.</p>
+
+    <div class="resource-grid">
+      <div class="resource-card">
+        <div class="resource-card-head">
+          <div class="resource-card-title">Common Grammar &amp; Punctuation Errors</div>
+        </div>
+        <div class="resource-card-foot">
+          <a class="resource-btn" href="https://online.valenciacollege.edu/courses/257240/pages/most-common-errors-quick-overview" target="_blank" rel="noopener">Open &#x2197;</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">
+          <div class="resource-card-title">Improving Your Sentence Structure: Coordination</div>
+        </div>
+        <div class="resource-card-foot">
+          <a class="resource-btn" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-coordination" target="_blank" rel="noopener">Open &#x2197;</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">
+          <div class="resource-card-title">Improving Your Sentence Structure: Subordination</div>
+        </div>
+        <div class="resource-card-foot">
+          <a class="resource-btn" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-subordination" target="_blank" rel="noopener">Open &#x2197;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-grid-2">
+      <div class="resource-card">
+        <div class="resource-card-head">
+          <div class="resource-card-title">Improving Your Sentence Structure: Combining Coordination &amp; Subordination</div>
+        </div>
+        <div class="resource-card-foot">
+          <a class="resource-btn" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-combining-coordination-and-subordination" target="_blank" rel="noopener">Open &#x2197;</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">
+          <div class="resource-card-title">Advanced Grammar Tools</div>
+        </div>
+        <div class="resource-card-foot">
+          <a class="resource-btn" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-advanced-tools" target="_blank" rel="noopener">Open &#x2197;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div><!-- /wrap -->
+</body>
+</html>

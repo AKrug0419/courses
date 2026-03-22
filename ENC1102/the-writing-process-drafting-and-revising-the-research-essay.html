@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Writing Process: Drafting &amp; Revising — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --rose-bg:#fdf2f6;--rose-border:#D8B5C5;--rose-dark:#4a2e3e;--rose-text:#6a4e5e;
+  --warn-bg:#fdf8f0;--warn-border:#C4937A;--warn-dark:#7a3e2a;--warn-text:#8a4e3a;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1060px;margin:0 auto;padding:32px 16px 60px;}
+
+/* HEADER */
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;box-shadow:var(--shadow);}
+.card-head{padding:13px 24px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-slate{background:linear-gradient(135deg,var(--slate) 0%,var(--slate-mid) 100%);color:var(--slate-dark);}
+.ch-amber{background:linear-gradient(135deg,var(--amber) 0%,var(--amber-mid) 100%);color:var(--amber-dark);}
+.ch-rose{background:linear-gradient(135deg,#D8B5C5 0%,#e8ccd8 100%);color:var(--rose-dark);}
+.card-body{padding:24px 28px;}
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+
+/* INTRO LAYOUT WITH IMAGE */
+.intro-grid{display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:start;margin-bottom:22px;}
+@media(max-width:640px){.intro-grid{grid-template-columns:1fr;}}
+.img-placeholder{background:#e8ede9;border:2px dashed var(--sage);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;text-align:center;padding:24px 16px;}
+.img-placeholder-icon{font-size:32px;margin-bottom:8px;}
+.img-placeholder-label{font-size:12px;color:var(--sage-dark);font-weight:600;line-height:1.4;}
+.img-placeholder-sub{font-size:11px;color:#5a7a60;margin-top:4px;}
+
+/* STAGE BOXES */
+.stage-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+@media(max-width:560px){.stage-cols{grid-template-columns:1fr;}}
+.stage-box{border-radius:8px;padding:18px 20px;}
+.stage-sage{background:var(--sage-light);border:2px solid var(--sage);}
+.stage-dark{background:#f0f7f2;border:2px solid #6a9478;}
+.stage-title{font-size:14px;font-weight:600;color:var(--sage-deep);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--sage-mid);}
+.stage-goal{font-size:13px;color:var(--sage-dark);margin-bottom:10px;line-height:1.6;}
+.stage-box ul{margin:0;padding-left:18px;font-size:13px;color:#3a5e42;line-height:1.9;}
+
+/* NOTE BOXES */
+.note-sage{background:var(--sage-light);border-left:5px solid var(--sage-deep);border-radius:0 6px 6px 0;padding:12px 16px;margin-bottom:16px;}
+.note-sage p{font-size:13px;color:var(--sage-deep);line-height:1.7;}
+.note-amber{background:var(--warn-bg);border-left:5px solid var(--warn-border);border-radius:0 6px 6px 0;padding:12px 16px;margin-top:14px;}
+.note-amber p{font-size:13px;color:var(--warn-dark);line-height:1.7;}
+
+/* ROUGH DRAFT BOX */
+.rough-draft{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 20px;margin-top:14px;}
+.rough-draft-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:6px;}
+.rough-draft p{font-size:13px;color:#3a5e42;line-height:1.7;}
+
+/* WHAT STAYS / WHAT'S NEW */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+@media(max-width:560px){.two-col{grid-template-columns:1fr;}}
+.box-stays{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 18px;}
+.box-new{background:var(--amber-light);border:2px solid var(--amber);border-radius:8px;padding:16px 18px;}
+.box-stays .bx-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:10px;}
+.box-new .bx-title{font-size:13px;font-weight:600;color:var(--amber-dark);margin-bottom:10px;}
+.box-stays ul{margin:0;padding-left:16px;font-size:13px;color:#3a5e42;line-height:1.9;}
+.box-new ul{margin:0;padding-left:16px;font-size:13px;color:#8a4e3a;line-height:1.9;}
+
+/* STEP PROTOCOL */
+.step-protocol{border:2px solid var(--sage);border-radius:8px;overflow:hidden;margin-bottom:16px;}
+.step-protocol-head{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);padding:10px 18px;font-size:13px;font-weight:600;color:var(--sage-deep);}
+.step-row{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);}
+.step-row:last-child{border-bottom:none;}
+.step-row.alt{background:#fafafa;}
+.step-row p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+.sp{border-radius:20px;font-size:12px;font-weight:600;padding:4px 12px;white-space:nowrap;flex-shrink:0;min-width:58px;text-align:center;margin-top:2px;}
+.sp-1{background:var(--sage);color:var(--sage-deep);}
+.sp-2{background:#8aad94;color:#fff;}
+.sp-3{background:#6a9478;color:#fff;}
+.sp-4{background:#3a6a4a;color:#fff;}
+.sp-5{background:var(--sage-deep);color:#fff;}
+
+/* CALLOUT */
+.callout-amber{background:var(--warn-bg);border-left:5px solid var(--warn-border);border-radius:0 6px 6px 0;padding:13px 18px;margin-top:0;}
+.callout-label{font-size:12px;font-weight:600;color:var(--warn-dark);margin-bottom:5px;}
+.callout-amber p{font-size:13px;color:var(--warn-dark);line-height:1.7;}
+
+/* COMPARE BOXES */
+.compare-bad{background:var(--rose-bg);border:2px solid var(--rose-border);border-radius:8px;padding:16px 18px;}
+.compare-good{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 18px;}
+.cmp-label{font-size:11px;font-weight:600;margin-bottom:8px;}
+.compare-bad .cmp-label{color:var(--rose-dark);}
+.compare-good .cmp-label{color:var(--sage-deep);}
+.cmp-example{font-style:italic;font-size:12px;line-height:1.7;margin-bottom:8px !important;}
+.compare-bad .cmp-example{color:var(--rose-text);}
+.compare-good .cmp-example{color:#3a5e42;}
+.cmp-note{font-size:12px;line-height:1.7;}
+.compare-bad .cmp-note{color:var(--rose-text);}
+.compare-good .cmp-note{color:#3a5e42;}
+
+/* SIMPLE CHECK BOX */
+.check-box{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 20px;margin-top:14px;}
+.check-box-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:6px;}
+.check-box p{font-size:13px;color:#3a5e42;line-height:1.7;}
+
+/* PITFALL OUTER */
+.pitfall-outer{background:var(--rose-bg);border:2px solid var(--rose-border);border-radius:8px;padding:18px 22px;}
+.pitfall-outer-title{font-size:13px;font-weight:600;color:var(--rose-dark);margin-bottom:12px;}
+.pitfall-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
+.pitfall-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:600px){.pitfall-grid3{grid-template-columns:1fr 1fr;}}
+@media(max-width:440px){.pitfall-grid3,.pitfall-grid2{grid-template-columns:1fr;}}
+.pitfall-card{background:#fff;border-radius:8px;padding:14px 16px;}
+.pitfall-title{font-size:12px;font-weight:600;color:var(--rose-dark);margin-bottom:5px;}
+.pitfall-card p{font-size:12px;color:var(--rose-text);line-height:1.7;margin:0;}
+
+/* REVISION CHECKLIST */
+.cl-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;}
+@media(max-width:560px){.cl-two-col{grid-template-columns:1fr;}}
+.cl-green{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:16px 18px;}
+.cl-amber-box{background:var(--amber-light);border:2px solid var(--amber);border-radius:8px;padding:16px 18px;}
+.cl-title{font-size:13px;font-weight:600;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid;}
+.cl-green .cl-title{color:var(--sage-deep);border-color:var(--sage-mid);}
+.cl-amber-box .cl-title{color:var(--amber-dark);border-color:var(--amber-mid);}
+.cl-green ul{margin:0;padding-left:18px;font-size:13px;color:#3a5e42;line-height:2.0;}
+.cl-amber-box ul{margin:0;padding-left:18px;font-size:13px;color:#7a4e35;line-height:2.0;}
+
+/* NAV FOOTER */
+.nav-footer{background:linear-gradient(135deg,var(--sage-deep) 0%,var(--sage-dark) 100%);border-radius:var(--radius);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px;}
+.nav-footer-label{font-size:12px;color:#a8c5b0;margin-bottom:3px;}
+.nav-footer-title{font-size:15px;color:#fff;font-weight:600;}
+.nav-footer-sub{font-size:12px;color:#c8dfd0;margin-top:2px;}
+.nav-fwd{font-size:13px;font-weight:600;color:#fff;text-decoration:none;background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;white-space:nowrap;transition:background .2s;flex-shrink:0;}
+.nav-fwd:hover{background:rgba(255,255,255,0.25);}
+@media(max-width:600px){.nav-footer{flex-direction:column;text-align:center;}}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.10s}
+.fade:nth-child(3){animation-delay:.16s}.fade:nth-child(4){animation-delay:.22s}
+.fade:nth-child(5){animation-delay:.28s}.fade:nth-child(6){animation-delay:.34s}
+.fade:nth-child(7){animation-delay:.40s}.fade:nth-child(8){animation-delay:.46s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="page-header fade">
+  <div class="eyebrow">Week 7 &bull; The Literary or Film Research Essay</div>
+  <h1>The Writing Process: Drafting &amp; Revising Your Research Essay</h1>
+  <p class="subtitle">Reading &nbsp;&bull;&nbsp; No submission required</p>
+</div>
+
+<!-- SECTION 1: STAGES 3 & 4 -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x270D;&#xFE0F; The Writing Process, Stages Three &amp; Four: Drafting and Revising</div>
+  <div class="card-body">
+    <div class="intro-grid">
+      <img src="WritingProcessDraftingRevising.png" alt="The Writing Process cycle diagram with Drafting and Revising stages highlighted" style="width:100%;border-radius:8px;display:block;">
+      <div>
+        <p>The <strong>Drafting</strong> and <strong>Revising</strong> stages of the Writing Process are the ones most directly connected to the <em>Content</em> and <em>Organization</em> criteria on the Grading Rubric.</p>
+        <p style="margin-top:10px;"><strong>Drafting</strong> is where you combine your Prewriting work with your Planning work (your research essay outline) and write a full first draft. Think of it as getting your ideas onto the page &mdash; it doesn&rsquo;t need to be perfect.</p>
+        <p style="margin-top:10px;"><strong>Revising</strong> is where you revisit the draft with fresh eyes and improve the <em>content</em> (what you&rsquo;re saying) and <em>organization</em> (how it flows). For a research essay, revising also means checking that your sources are genuinely integrated into your argument, not just inserted.</p>
+        <div class="note-sage" style="margin-top:14px;">
+          <p><strong>Note:</strong> Drafting and Revising are separate stages for a reason. Writers who try to perfect every sentence while drafting often get stuck. Draft first, revise later.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage-cols">
+      <div class="stage-box stage-sage">
+        <div class="stage-title">&#x1F58C;&#xFE0F; Drafting &mdash; Getting It Down</div>
+        <p class="stage-goal"><strong>Goal:</strong> Produce a complete first draft by translating your outline into full sentences and paragraphs.</p>
+        <ul>
+          <li>Start with the body paragraphs: they&rsquo;re the most straightforward</li>
+          <li>Follow your outline</li>
+          <li>Introduce and explain every quote: from the story <em>and</em> from your secondary sources</li>
+          <li>Don&rsquo;t worry about perfect wording: that&rsquo;s what revising is for</li>
+          <li>Write the introduction <em>last</em>: it&rsquo;s easier once you know exactly what you argued</li>
+        </ul>
+      </div>
+      <div class="stage-box stage-dark">
+        <div class="stage-title">&#x1F50D; Revising &mdash; Making It Better</div>
+        <p class="stage-goal"><strong>Goal:</strong> Improve content and organization. This is <em>not</em> the same as proofreading (fixing grammar/spelling). That comes later.</p>
+        <ul>
+          <li>Does each body paragraph have a clear, distinct topic?</li>
+          <li>Does every paragraph connect back to your thesis?</li>
+          <li>Is every quote &mdash; primary and secondary &mdash; introduced and then analyzed?</li>
+          <li>Do your secondary sources <em>support</em> your argument?</li>
+          <li>Does the conclusion arrive at a broader insight beyond the story?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rough-draft">
+      <div class="rough-draft-title">&#x1F4E7; Rough Draft Option</div>
+      <p>You are not required to submit a rough draft, but you are encouraged to email one to me at any time. You&rsquo;ll receive comments and suggestions within 24 hours. Email your draft as a <strong>.doc or .docx</strong> file so comments can be typed directly into the document. The emphasis of feedback will be on content, organization, and MLA documentation. While I will make you aware of any serious pattern of sentence or grammar errors, I cannot edit or proofread the essay for you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: HOW THIS DRAFT IS DIFFERENT -->
+<div class="card fade">
+  <div class="card-head ch-slate">&#x1F504; How This Draft Is Different from Your First Essay</div>
+  <div class="card-body">
+    <p>The good news: the structure you used in your Literary Analysis Essay still applies here. The same introduction, T-E-A-L body paragraphs, and conclusion format carries over. What&rsquo;s new is that each body paragraph now needs to coordinate <strong>two voices</strong>: your primary source (the short story or film) and your secondary sources (the scholarly articles you found in the databases).</p>
+    <div class="two-col">
+      <div class="box-stays">
+        <div class="bx-title">&#x2705; What Stays the Same</div>
+        <ul>
+          <li>Thesis-driven body paragraphs</li>
+          <li>T-E-A-L structure for each paragraph</li>
+          <li>2&ndash;3 direct quotes from the primary source per paragraph</li>
+          <li>A hook, context bridge, and thesis in the introduction</li>
+          <li>A conclusion that arrives at a broader human insight</li>
+        </ul>
+      </div>
+      <div class="box-new">
+        <div class="bx-title">&#x2795; What&rsquo;s New</div>
+        <ul>
+          <li>At least one quote or paraphrase from a secondary source per body paragraph. A total of six citations selected from the three secondary sources are required: four direct quotes and two paraphrases.</li>
+          <li>Each secondary source must be introduced and analyzed, not just cited</li>
+          <li>Paraphrases (restating a source in your own words) count as evidence and must be cited</li>
+          <li>A Works Cited page listing all primary and secondary sources</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: SOURCE-WEAVING STRATEGY -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x1F9F5; A Source-Weaving Strategy for Drafting</div>
+  <div class="card-body">
+    <p>One of the most common mistakes in a first research essay is treating secondary sources as a separate layer: writing the essay you already know how to write and then trying to &ldquo;add research&rdquo; on top of it afterward. The better approach is to <strong>weave sources into your argument as you draft each paragraph</strong>. Here&rsquo;s a reliable method:</p>
+    <div class="step-protocol" style="margin-top:16px;">
+      <div class="step-protocol-head">For Each Body Paragraph, Draft in This Order:</div>
+      <div class="step-row">
+        <span class="sp sp-1">Step 1</span>
+        <p><strong>Write your topic sentence:</strong> State the paragraph&rsquo;s analytical point and how it supports your thesis.</p>
+      </div>
+      <div class="step-row alt">
+        <span class="sp sp-2">Step 2</span>
+        <p><strong>Introduce and quote from your primary source</strong> (the story or film). Next, write your analysis: What does this quote reveal? This is the core of the paragraph, exactly as in Essay One.</p>
+      </div>
+      <div class="step-row">
+        <span class="sp sp-3">Step 3</span>
+        <p><strong>Ask: where would a scholarly perspective deepen this point?</strong> Look back at your secondary sources. Is there a quote or idea from one of your articles that supports, complicates, or extends your analysis? Introduce it, quote or paraphrase it, and add an in-text citation.</p>
+      </div>
+      <div class="step-row alt">
+        <span class="sp sp-4">Step 4</span>
+        <p><strong>Analyze the secondary source:</strong> Explain what it adds to your argument. Your analysis should always follow a secondary source quote. Don&rsquo;t let a scholarly quote be the last word in the paragraph.</p>
+      </div>
+      <div class="step-row">
+        <span class="sp sp-5">Step 5</span>
+        <p><strong>Close with a link sentence</strong> that connects back to your thesis or bridges to the next paragraph. If you&rsquo;re adding a second primary source quote and additional secondary source quote to the paragraph, repeat Steps 2&ndash;4 before this closing sentence.</p>
+      </div>
+    </div>
+    <div class="callout-amber">
+      <div class="callout-label">&#x1F4A1; Think of Secondary Sources as Expert Witnesses</div>
+      <p>A lawyer calls witnesses to the stand to support his or her argument, but the lawyer still controls the argument being made to the jury or judge. Think of your secondary sources the same way: you&rsquo;re calling scholarly voices in to back up a point you&rsquo;ve already made. You&rsquo;re in charge; they&rsquo;re the supporting evidence.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: KEEPING YOUR VOICE -->
+<div class="card fade">
+  <div class="card-head ch-amber">&#x1F5E3;&#xFE0F; Keeping Your Own Analytical Voice</div>
+  <div class="card-body">
+    <p>One of the most common problems in a first research essay is over-reliance on secondary sources. This happens when students quote so heavily from their scholarly articles that the essay reads like a summary of what the critics think rather than an argument of the student&rsquo;s own making. Your secondary sources are there to <em>support</em> your ideas, not replace them. This is why there is a required limit on how many times you can cite your three research sources: six total times over the course of the essay: four direct quotes, two paraphrases.</p>
+    <div class="two-col" style="margin-top:16px;">
+      <div class="compare-bad">
+        <div class="cmp-label">&#x274C; Over-relying on secondary sources (a common problem)</div>
+        <p class="cmp-example">Topic sentence. [Quote from Article 1.] Brief comment. [Quote from Article 2.] Brief comment. [Quote from Article 3.] Link sentence.</p>
+        <p class="cmp-note">The paragraph is driven by the critics. The primary source barely appears. The student&rsquo;s own analysis is minimal.</p>
+      </div>
+      <div class="compare-good">
+        <div class="cmp-label">&#x2705; Balanced source integration (the goal)</div>
+        <p class="cmp-example">Topic sentence. [Primary quote + student analysis.] [Secondary source quote + student analysis.] [Primary quote + student analysis.] Link sentence.</p>
+        <p class="cmp-note">The student&rsquo;s analysis drives the paragraph. The scholarly source deepens one of the analytical points without taking over.</p>
+      </div>
+    </div>
+    <div class="check-box">
+      <div class="check-box-title">A Simple Check While Drafting</div>
+      <p>After writing each body paragraph, count your sentences. How many are your own analysis versus how many are quotes and paraphrases from sources? If the sources are outweighing your own voice, revise the paragraph to lead with your ideas and use sources to support them.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: COMMON PITFALLS -->
+<div class="card fade">
+  <div class="card-head ch-rose">&#x26A0;&#xFE0F; Common Research Essay Drafting Pitfalls</div>
+  <div class="card-body">
+    <div class="pitfall-outer">
+      <div class="pitfall-outer-title">&#x26A0;&#xFE0F; Common Drafting Pitfalls to Avoid</div>
+      <div class="pitfall-grid3">
+        <div class="pitfall-card">
+          <div class="pitfall-title">&#x1F4E5; Plot Summary Instead of Analysis</div>
+          <p>Retelling what happened is <em>not</em> analysis. Focus on <em>why</em> things happen and <em>what they mean</em>. Your secondary sources should be supporting your interpretation, not helping you describe events.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="pitfall-title">&#x1F4CB; Floating Quotes &mdash; Primary and Secondary</div>
+          <p>Every quote, whether from the story or a scholarly article, must be introduced with a signal phrase and followed by your analysis. Never let a quote land in the paragraph without explanation on both sides.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="pitfall-title">&#x1F4DA; Summarizing the Critics</div>
+          <p>If your paragraphs primarily explain what your scholarly articles argue rather than analyzing the story, the essay becomes a report on criticism rather than your own argument. Secondary sources support <em>your</em> argument: they don&rsquo;t replace it.</p>
+        </div>
+      </div>
+      <div class="pitfall-grid2">
+        <div class="pitfall-card">
+          <div class="pitfall-title">&#x1F504; Vague, Circular Conclusions</div>
+          <p>A conclusion that just repeats the introduction adds nothing. End with a broader insight, something your analysis has actually proven about the human condition or the story&rsquo;s lasting significance.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="pitfall-title">&#x1F4DD; Forgetting the Works Cited While Drafting</div>
+          <p>Many students write the entire draft and then try to reconstruct which source said what. Keep a running Works Cited draft open alongside your essay as you write. Every time you use a source, confirm its entry before you move on.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: REVISION CHECKLIST -->
+<div class="card fade">
+  <div class="card-head ch-sage">&#x2705; Research Essay Revision Checklist</div>
+  <div class="card-body">
+    <p>Use this checklist when reviewing your complete first draft. Revising means reading at the <em>content and organization</em> level, not sentence by sentence. Save the sentence-level work for the Editing and Proofreading stages.</p>
+    <div class="cl-two-col" style="margin-top:16px;">
+      <div class="cl-green">
+        <div class="cl-title">Overall Structure</div>
+        <ul>
+          <li>Does the introduction end with a clear, arguable thesis?</li>
+          <li>Does each body paragraph advance the thesis with a distinct analytical topic?</li>
+          <li>Do paragraphs flow logically from one to the next?</li>
+          <li>Does the conclusion go beyond summary to a broader insight?</li>
+        </ul>
+      </div>
+      <div class="cl-amber-box">
+        <div class="cl-title">Source Integration</div>
+        <ul>
+          <li>Does every body paragraph include both primary and secondary evidence?</li>
+          <li>Is every quote &mdash; primary and secondary &mdash; introduced and analyzed?</li>
+          <li>Are paraphrases of secondary sources acknowledged by the inclusion of the author&rsquo;s name, either in the signal phrase or in a parenthetical citation?</li>
+          <li>Is your own analysis driving each paragraph, not the critics?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>
