@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Create Your Works Cited — ENC1102</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sage:#A8C5B0;--sage-dark:#2e4a35;--sage-deep:#1a3328;--sage-light:#eaf4eb;--sage-mid:#C8DFD0;
+  --slate:#B8C8D0;--slate-dark:#2e3e4a;--slate-light:#f0f6f9;--slate-mid:#D0DFE8;
+  --amber:#E6C5B3;--amber-dark:#5a3e35;--amber-light:#fff8f4;--amber-mid:#F0D7C8;
+  --warm:#c8c4c0;--warm-dark:#3a3836;--warm-light:#f5f5f4;--warm-mid:#d8d4d0;
+  --gold:#f5d48a;--gold-dark:#a87c00;--gold-text:#5a4a10;--gold-bg:#fff8e8;
+  --red-bg:#fceaea;--red-text:#8b2a2a;--red-border:#e8a0a0;--red-strong:#b03a2e;
+  --green-bg:#e8f4ea;--green-text:#2e5a30;
+  --text:#333;--text-mid:#555;--border:#e0e0e0;--white:#fff;
+  --radius:10px;--shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body{font-family:'DM Sans',sans-serif;background:#f7f8f6;color:var(--text);line-height:1.7;overflow-x:hidden;}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 16px 60px;}
+
+/* HEADER */
+.page-header{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);border-radius:var(--radius);padding:30px 36px;margin-bottom:28px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px;}
+h1{font-family:'Lora',serif;font-size:clamp(20px,4vw,28px);color:var(--sage-deep);font-weight:700;line-height:1.2;margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--sage-dark);}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px;box-shadow:var(--shadow);}
+.card-head{padding:12px 24px;display:flex;align-items:center;gap:10px;}
+.ch-sage{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-mid) 100%);color:var(--sage-deep);}
+.ch-dark{background:linear-gradient(135deg,#222 0%,#444 100%);color:#fff;}
+.step-num{display:inline-flex;align-items:center;justify-content:center;background:var(--sage-deep);color:#fff;border-radius:50%;width:26px;height:26px;font-size:13px;font-weight:700;flex-shrink:0;}
+.ch-dark .step-num{background:rgba(255,255,255,0.2);}
+.step-title{font-family:'Lora',serif;font-size:15px;font-weight:700;color:inherit;}
+.card-body{padding:22px 28px;}
+p{font-size:14px;color:#444;line-height:1.8;margin:0;}
+p+p{margin-top:10px;}
+
+/* CALLOUTS */
+.callout-sage{background:var(--sage-light);border:2px solid var(--sage);border-left:5px solid var(--sage-deep);border-radius:6px;padding:16px 22px;}
+.callout-sage p{font-size:13px;color:var(--sage-deep);line-height:1.7;margin:0;}
+.callout-sage p+p{margin-top:6px;}
+.callout-warn{background:var(--gold-bg);border:2px solid var(--gold);border-left:5px solid var(--gold-dark);border-radius:6px;padding:16px 22px;margin-bottom:28px;}
+.callout-label{font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+.cl-sage{color:var(--sage-deep);}
+.cl-gold{color:var(--gold-text);}
+.callout-warn p,.callout-warn ul{font-size:14px;color:var(--gold-text);line-height:1.8;margin:0;}
+.callout-warn ul{padding-left:20px;}
+
+/* PROBLEM BOXES */
+.prob-box{background:var(--warm-light);border-radius:8px;overflow:hidden;margin-bottom:10px;}
+.prob-box+.prob-box{margin-top:0;}
+.prob-head{padding:8px 16px;font-size:12px;font-weight:700;color:#fff;}
+.prob-body{padding:13px 16px;}
+.prob-body p{font-size:13px;color:#555;line-height:1.7;margin:0;}
+.fix-note{background:var(--green-bg);border-radius:5px;padding:7px 10px;font-size:12px;color:var(--green-text);line-height:1.6;margin-top:7px;}
+
+/* MINI STEP LIST */
+.step-list{background:var(--sage-light);border:2px solid var(--sage);border-radius:6px;padding:14px 20px;margin:12px 0;}
+.step-list div{font-size:13px;color:var(--sage-dark);line-height:2.1;}
+
+/* METHOD GRID */
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+@media(max-width:520px){.method-grid{grid-template-columns:1fr;}}
+.method-box{background:var(--sage-light);border:2px solid var(--sage);border-radius:6px;padding:14px 16px;}
+.method-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:5px;}
+.method-box p{font-size:13px;color:#444;line-height:1.7;margin:0;}
+
+/* ITALIC TYPES GRID */
+.italic-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;}
+@media(max-width:560px){.italic-grid{grid-template-columns:1fr;}}
+.italic-box{background:var(--sage-light);border:2px solid var(--sage);border-radius:6px;padding:12px 14px;text-align:center;}
+.italic-box-title{font-size:13px;font-weight:600;color:var(--sage-deep);margin-bottom:4px;}
+.italic-box p{font-size:12px;color:#3a5e42;line-height:1.6;margin:0;}
+
+/* HEADING FORMAT GRID */
+.format-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;}
+@media(max-width:560px){.format-grid{grid-template-columns:1fr 1fr;}}
+.fmt-yes{background:var(--green-bg);border:2px solid #a8c5b0;border-radius:6px;padding:12px;text-align:center;}
+.fmt-no{background:var(--red-bg);border:2px solid var(--red-border);border-radius:6px;padding:12px;text-align:center;}
+.fmt-label{font-size:12px;font-weight:700;margin-bottom:4px;}
+.fmt-yes .fmt-label{color:var(--green-text);}
+.fmt-no .fmt-label{color:var(--red-text);}
+.fmt-desc{font-size:11px;line-height:1.5;margin:0;}
+.fmt-yes .fmt-desc{color:#3a5e42;}
+.fmt-no .fmt-desc{color:var(--red-text);}
+
+/* JORDAN SECTION */
+.jordan{border-top:2px solid var(--gold);margin-top:22px;padding-top:18px;}
+.jordan-label{font-size:13px;font-weight:600;color:var(--gold-text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.jordan-label svg{flex-shrink:0;}
+.jordan p{font-size:13px;color:var(--gold-text);line-height:1.7;margin:0 0 12px 0;}
+.bl{font-size:12px;font-weight:700;margin:0 0 6px 0;}
+.bl-before{color:var(--red-text);}
+.bl-after{color:var(--green-text);}
+
+/* DOCUMENT MOCKUP */
+.doc-wrap{background:#d0d0d0;padding:10px;border-radius:3px;margin-bottom:14px;}
+.doc-wrap.after{margin-bottom:0;}
+.doc-inner{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.20);padding:36px 52px;font-family:'Times New Roman',Times,serif;font-size:12.5px;color:#111;line-height:2.0;word-break:break-word;}
+.doc-inner p{margin:0;line-height:2.0;font-size:12.5px;color:#111;}
+@media(max-width:600px){.doc-inner{padding:24px 20px;}}
+.entry{padding-left:2em;text-indent:-2em;margin:0;}
+.entry+.entry{margin-top:0;}
+.highlight{background-color:#fffbe6;}
+.url-link{color:#0563c1;text-decoration:underline;}
+
+/* CHECKLIST */
+.checklist{background:var(--sage-light);border:2px solid var(--sage);border-radius:8px;padding:18px 22px;}
+.checklist-title{font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:12px;}
+.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+@media(max-width:500px){.cl-grid{grid-template-columns:1fr;}}
+.cl-item{font-size:13px;color:#3a5e42;line-height:1.9;}
+
+/* NAV FOOTER */
+.nav-footer{background:linear-gradient(135deg,var(--sage-deep) 0%,var(--sage-dark) 100%);border-radius:var(--radius);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px;}
+.nav-footer-label{font-size:12px;color:#a8c5b0;margin-bottom:3px;}
+.nav-footer-title{font-size:15px;color:#fff;font-weight:600;}
+.nav-footer-sub{font-size:12px;color:#c8dfd0;margin-top:2px;}
+.nav-back{font-size:13px;font-weight:600;color:#fff;text-decoration:none;background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;white-space:nowrap;transition:background .2s;flex-shrink:0;}
+.nav-back:hover{background:rgba(255,255,255,0.25);}
+@media(max-width:600px){.nav-footer{flex-direction:column;text-align:center;}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .45s ease both;}
+.fade:nth-child(1){animation-delay:.04s}.fade:nth-child(2){animation-delay:.08s}
+.fade:nth-child(3){animation-delay:.12s}.fade:nth-child(4){animation-delay:.16s}
+.fade:nth-child(5){animation-delay:.20s}.fade:nth-child(6){animation-delay:.24s}
+.fade:nth-child(7){animation-delay:.28s}.fade:nth-child(8){animation-delay:.32s}
+.fade:nth-child(9){animation-delay:.36s}.fade:nth-child(10){animation-delay:.40s}
+.fade:nth-child(11){animation-delay:.44s}.fade:nth-child(12){animation-delay:.48s}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══════ HEADER ═══════ -->
+<div class="page-header fade">
+  <div class="eyebrow">Week 11 &bull; The Literary Research Essay</div>
+  <h1>How to Create Your Works Cited</h1>
+  <p class="subtitle">A step-by-step guide to building, formatting, and finalizing your Works Cited page</p>
+</div>
+
+<!-- ═══════ BEFORE YOU BEGIN ═══════ -->
+<div class="callout-sage fade" style="margin-bottom:20px;">
+  <div class="callout-label cl-sage">
+    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="1" width="12" height="16" rx="2" fill="#C8DFD0" stroke="#1a3328" stroke-width="1.5"/><line x1="6" y1="5" x2="12" y2="5" stroke="#1a3328" stroke-width="1.3"/><line x1="6" y1="8" x2="12" y2="8" stroke="#1a3328" stroke-width="1.3"/><line x1="6" y1="11" x2="10" y2="11" stroke="#1a3328" stroke-width="1.3"/><polyline points="5,13.5 6.5,15 9,12" fill="none" stroke="#1a3328" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Before You Begin
+  </div>
+  <p>Have the following open and ready before you start working through these steps:</p>
+  <ul style="margin-top:8px;padding-left:20px;font-size:13px;color:var(--sage-deep);line-height:2.0;">
+    <li>Your completed <strong>Secondary Sources Template</strong> — your three secondary source MLA citations are already there</li>
+    <li>Your <strong>research essay document</strong>, open and ready to edit</li>
+    <li>The <strong>Works Cited Entries for Your Short Story Research Essay</strong> page — you will need it for Step 3</li>
+  </ul>
+</div>
+
+<!-- ═══════ JORDAN INTRO ═══════ -->
+<div class="callout-warn fade">
+  <div class="callout-label cl-gold">
+    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+    Follow Along with Jordan Rivera
+  </div>
+  <p>Jordan is writing a literary analysis essay about Zora Neale Hurston&rsquo;s short story &ldquo;Sweat.&rdquo; She has already completed her Secondary Sources Template and has three secondary source citations ready to go. At each step below, a <strong>Jordan&rsquo;s Example</strong> section shows exactly what her Works Cited looks like at that stage. Follow along to see how a real Works Cited page comes together from start to finish.</p>
+</div>
+
+<!-- ═══════ STEP 1 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">1</span>
+    <span class="step-title">Copy Your Secondary Source Citations</span>
+  </div>
+  <div class="card-body">
+    <p>Open your completed <strong>Secondary Sources Template</strong>. Your three MLA citations are listed there, each under its own source section. For each source, <strong>select and copy the MLA Citation</strong> and then <strong>paste it into your research essay document</strong> to begin building your Works Cited. Paste all three entries one after another — you will alphabetize them in the next step.</p>
+    <div class="callout-sage" style="margin-top:12px;">
+      <p><strong>Tip:</strong> Paste the entries at the very end of your essay document, after your final paragraph. You may want to add a page break first so the Works Cited starts on its own page.</p>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan opens her Secondary Sources Template. She copies the MLA Citation for each of her three sources and pastes them one by one into her research essay document. Below is what her template looks like with the three entries — the layout of your own template may look somewhat different. The key thing is to locate the MLA Citation field for each source and copy that text.</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p style="text-align:center;font-weight:bold;margin:0 0 4px 0;">Module Five: The Literary Research Essay</p>
+          <p style="text-align:center;font-weight:bold;margin:0 0 20px 0;">Secondary Sources Template</p>
+          <p style="font-weight:bold;margin:0 0 6px 0;">First Secondary Source</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">1. &nbsp; [paste MLA citation below]</p>
+          <p style="margin:0 0 10px 0;padding-left:32px;">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">2. &nbsp; Identify the following:</p>
+          <p style="margin:0 0 2px 0;padding-left:36px;">a. &nbsp; Author of Source: Champion</p>
+          <p style="margin:0 0 20px 0;padding-left:36px;">b. &nbsp; Format of Source: .html (EBSCOhost)</p>
+          <p style="font-weight:bold;margin:0 0 6px 0;">Second Secondary Source</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">1. &nbsp; [paste MLA citation below]</p>
+          <p style="margin:0 0 10px 0;padding-left:32px;">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">2. &nbsp; Identify the following:</p>
+          <p style="margin:0 0 2px 0;padding-left:36px;">a. &nbsp; Author of Source: (no author &#8212; alphabetize by &#8220;Explanation&#8221;)</p>
+          <p style="margin:0 0 20px 0;padding-left:36px;">b. &nbsp; Format of Source: .html (LitFinder)</p>
+          <p style="font-weight:bold;margin:0 0 6px 0;">Third Secondary Source</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">1. &nbsp; [paste MLA citation below]</p>
+          <p style="margin:0 0 10px 0;padding-left:32px;">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p style="margin:0 0 2px 0;padding-left:18px;">2. &nbsp; Identify the following:</p>
+          <p style="margin:0 0 2px 0;padding-left:36px;">a. &nbsp; Author of Source: Chadwick</p>
+          <p style="margin:0;padding-left:36px;">b. &nbsp; Format of Source: .pdf (JSTOR)</p>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--gold-text);margin-top:8px;line-height:1.6;">Jordan copies each of the three MLA Citation entries and pastes them into her research essay document. They are now in her Works Cited section, in the order she pasted them: Champion first, &#8220;Explanation&#8221; second, Chadwick third.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 2 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">2</span>
+    <span class="step-title">Alphabetize Your Entries</span>
+  </div>
+  <div class="card-body">
+    <p>You now have three secondary source citations in your document. Arrange them in <strong>alphabetical order by the author&rsquo;s last name</strong>. If an entry has no author, alphabetize it by the first significant word of the article title.</p>
+    <div class="callout-sage" style="margin-top:12px;">
+      <p><strong>Note:</strong> If the first word of an authorless title is &ldquo;A,&rdquo; &ldquo;An,&rdquo; or &ldquo;The,&rdquo; skip it and alphabetize by the next word instead.</p>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan&rsquo;s three pasted entries are in the order she copied them: Champion first, &ldquo;Explanation&rdquo; second, Chadwick third. She reorders them alphabetically. Since &ldquo;Explanation&rdquo; has no author, it alphabetizes by the title word &ldquo;E&rdquo; — placing it after Champion.</p>
+      <p class="bl bl-before">&#10007; Before: entries pasted in template order, not alphabetized</p>
+      <div class="doc-wrap">
+        <div class="doc-inner">
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+        </div>
+      </div>
+      <p class="bl bl-after">&#10003; After: alphabetized by Chadwick / Champion / &ldquo;Explanation&rdquo;</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 3 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">3</span>
+    <span class="step-title">Add Your Primary Source Entry</span>
+  </div>
+  <div class="card-body">
+    <p>Your primary source — the short story you wrote about — also needs a Works Cited entry. Open the <strong><a href="works-cited-entries-short-stories.html" style="color:var(--sage-deep);">Works Cited Entries for Your Short Story Research Essay</a></strong> page and follow the instructions there to locate and copy the pre-formatted entry for your story.</p>
+    <div class="step-list">
+      <div><strong>1.</strong> &nbsp; Locate the author who wrote the story your essay is about.</div>
+      <div><strong>2.</strong> &nbsp; Copy only the Works Cited entry for that author.</div>
+      <div><strong>3.</strong> &nbsp; Paste it into your Works Cited alongside your three secondary source entries.</div>
+      <div><strong>4.</strong> &nbsp; Place it in the correct alphabetical position.</div>
+    </div>
+    <div class="callout-sage" style="margin-top:12px;">
+      <p><strong>Note:</strong> After pasting, check whether the entry pasted with a URL formatted as a blue hyperlink. If so, you will fix that in Step 4.</p>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan opens the Works Cited Entries page and finds the entry for Hurston. She copies it and pastes it into her Works Cited. &ldquo;H&rdquo; comes after &ldquo;E&rdquo; (&ldquo;Explanation&rdquo;), so Hurston becomes the fourth and final entry.</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry highlight">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--gold-text);margin-top:8px;line-height:1.6;">The highlighted entry is the one Jordan pasted from the Works Cited Entries page. Note the URL — that gets fixed in Step 4, and the anthology and database titles get italicized in Step 7.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 4 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">4</span>
+    <span class="step-title">Fix URL Formatting</span>
+  </div>
+  <div class="card-body">
+    <p>When you paste entries from a database, URLs often arrive with two separate problems. Check for both:</p>
+    <div class="prob-box" style="margin-top:14px;">
+      <div class="prob-head" style="background:var(--red-strong);">Problem: Empty gaps appearing before or within a URL</div>
+      <div class="prob-body">
+        <p>Long URLs sometimes create an awkward blank space on the line just before them. See <strong>Video 2</strong> on the MLA Documentation: The Works Cited page for the technique to fix this.</p>
+      </div>
+    </div>
+    <div class="prob-box">
+      <div class="prob-head" style="background:var(--red-strong);">Problem: URL appears as blue underlined hyperlink text</div>
+      <div class="prob-body">
+        <p>MLA requires URLs to appear as plain black text, not as clickable links.</p>
+        <div class="fix-note"><strong>Fix:</strong> Right-click the hyperlink and select <strong>Remove Hyperlink</strong>. Then confirm the text color matches the rest of the entry.</div>
+      </div>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>All four of Jordan&rsquo;s entries pasted with blue hyperlinked URLs. She right-clicks each one and selects Remove Hyperlink to convert them to plain black text.</p>
+      <p class="bl bl-before">&#10007; Before: URLs appear as blue hyperlinks</p>
+      <div class="doc-wrap">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, <span class="url-link">www.jstor.org/stable/23269379</span>.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, <span class="url-link">search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus</span>.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, <span class="url-link">db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930</span>. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, <span class="url-link">link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f</span>. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+      <p class="bl bl-after">&#10003; After: all URLs converted to plain black text</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 5 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">5</span>
+    <span class="step-title">Apply Hanging Indents</span>
+  </div>
+  <div class="card-body">
+    <p>Every Works Cited entry requires a <strong>hanging indent</strong>: the first line of the entry sits at the left margin, and every line after it is indented half an inch.</p>
+    <div class="method-grid">
+      <div class="method-box">
+        <div class="method-title">Manual method</div>
+        <p>Place your cursor at the beginning of each continuation line and press <strong>Tab</strong> once to indent it.</p>
+      </div>
+      <div class="method-box">
+        <div class="method-title">Automatic method (recommended)</div>
+        <p>Use your word processor&rsquo;s <strong>Hanging Indent</strong> paragraph formatting option. <strong>Video 1</strong> on the MLA Documentation: The Works Cited page demonstrates this step by step.</p>
+      </div>
+    </div>
+    <div class="callout-sage" style="margin-top:12px;">
+      <p><strong>Note:</strong> Applying indents can shift URL spacing again. After this step, go back and check Step 4 to make sure URL gaps and hyperlinks are still corrected.</p>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan selects all four entries and applies the Hanging Indent paragraph option. Every second line and beyond shifts in by half an inch.</p>
+      <p class="bl bl-before">&#10007; Before: all lines flush left</p>
+      <div class="doc-wrap">
+        <div class="doc-inner">
+          <p class="entry" style="padding-left:0;text-indent:0;">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry" style="padding-left:0;text-indent:0;">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry" style="padding-left:0;text-indent:0;">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry" style="padding-left:0;text-indent:0;">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+      <p class="bl bl-after">&#10003; After: hanging indents applied to all entries</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 6 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">6</span>
+    <span class="step-title">Adjust Spacing</span>
+  </div>
+  <div class="card-body">
+    <p>The Works Cited page must be <strong>double-spaced throughout</strong> — both within each entry and between entries. Select all the text on the Works Cited page and apply double spacing.</p>
+    <div class="prob-box" style="margin-top:14px;">
+      <div class="prob-head" style="background:var(--red-strong);">Common mistake: extra blank lines between entries</div>
+      <div class="prob-body">
+        <p>Do not insert a blank line between entries to create visual separation. The space between entries should look identical to the space between lines within a single entry.</p>
+        <div class="fix-note"><strong>Fix:</strong> Delete any blank lines you find between entries. Select all and apply double spacing as a single formatting pass.</div>
+      </div>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan had pressed Enter twice between entries to add visual space. She deletes the extra blank lines, then selects all four entries and sets the line spacing to double. The result is consistent spacing throughout.</p>
+      <p class="bl bl-before">&#10007; Before: single-spaced entries with blank lines between them</p>
+      <div class="doc-wrap">
+        <div class="doc-inner">
+          <p class="entry" style="line-height:1.35;">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p style="margin:0;line-height:1.35;">&nbsp;</p>
+          <p class="entry" style="line-height:1.35;">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p style="margin:0;line-height:1.35;">&nbsp;</p>
+          <p class="entry" style="line-height:1.35;">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p style="margin:0;line-height:1.35;">&nbsp;</p>
+          <p class="entry" style="line-height:1.35;">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+      <p class="bl bl-after">&#10003; After: blank lines removed, consistent double-spacing throughout</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 7 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">7</span>
+    <span class="step-title">Italicize Journal, Database, and Website Titles</span>
+  </div>
+  <div class="card-body">
+    <p>When you paste bibliographic information from a database, the original italics are often stripped. Go through each entry carefully and italicize the following types of titles if they appear:</p>
+    <div class="italic-grid" style="margin-top:14px;">
+      <div class="italic-box">
+        <div class="italic-box-title">Journal and magazine titles</div>
+        <p>e.g., <em>The English Journal</em>, <em>Short Story Criticism</em></p>
+      </div>
+      <div class="italic-box">
+        <div class="italic-box-title">Database titles</div>
+        <p>e.g., <em>JSTOR</em>, <em>EBSCOhost</em>, <em>Gale Literature: LitFinder</em></p>
+      </div>
+      <div class="italic-box">
+        <div class="italic-box-title">Anthology and collection titles</div>
+        <p>e.g., <em>The Oxford Book of American Short Stories</em>, <em>LitFinder Contemporary Collection</em></p>
+      </div>
+    </div>
+    <div class="callout-sage">
+      <p><strong>Reminder:</strong> Article and short story titles go in quotation marks, not italics. Only the containing publication, anthology, or database name is italicized.</p>
+    </div>
+    <div class="jordan">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example
+      </div>
+      <p>Jordan&rsquo;s database entries lost their italics when she pasted them. She goes through each entry and italicizes the journal, database, anthology, and collection titles. All four entries have at least one title to italicize.</p>
+      <p class="bl bl-before">&#10007; Before: journal, database, and anthology titles not italicized</p>
+      <div class="doc-wrap">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; The English Journal, vol. 102, no. 1, 2012, pp. 34&#8211;39. JSTOR, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;, Sept. 2006, p. 1. EBSCOhost, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; LitFinder Contemporary Collection. Gale, 2007. LitFinder, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; The Oxford Book of American Short Stories, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+      <p class="bl bl-after">&#10003; After: all journal, database, and anthology titles italicized</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; <em>The English Journal</em>, vol. 102, no. 1, 2012, pp. 34&#8211;39. <em>JSTOR</em>, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; <em>Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;</em>, Sept. 2006, p. 1. <em>EBSCOhost</em>, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; <em>LitFinder Contemporary Collection</em>. Gale, 2007. <em>LitFinder</em>, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; <em>The Oxford Book of American Short Stories</em>, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. <em>Gale Literature: LitFinder</em>, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STEP 8 ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">
+    <span class="step-num" aria-hidden="true">8</span>
+    <span class="step-title">Add the Works Cited Heading</span>
+  </div>
+  <div class="card-body">
+    <p>At the very top of the page, type the words <strong>Works Cited</strong>. Then apply the following formatting to the heading:</p>
+    <div class="format-grid">
+      <div class="fmt-yes">
+        <div class="fmt-label">&#10003; Centered</div>
+        <p class="fmt-desc">Align it to the center of the page</p>
+      </div>
+      <div class="fmt-no">
+        <div class="fmt-label">&#10007; Not bold</div>
+        <p class="fmt-desc">Same weight as the entry text</p>
+      </div>
+      <div class="fmt-no">
+        <div class="fmt-label">&#10007; Not underlined</div>
+        <p class="fmt-desc">Plain text only</p>
+      </div>
+      <div class="fmt-no">
+        <div class="fmt-label">&#10007; Not in quotes</div>
+        <p class="fmt-desc">Write it without quotation marks</p>
+      </div>
+    </div>
+    <div class="jordan" style="margin-top:22px;">
+      <div class="jordan-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 2 L14 5 L5 14 L1 15 L2 11 Z" fill="#f5d48a" stroke="#a87c00" stroke-width="1.4" stroke-linejoin="round"/><line x1="9" y1="4" x2="12" y2="7" stroke="#a87c00" stroke-width="1.4"/></svg>
+        Jordan&rsquo;s Example: The Finished Works Cited Page
+      </div>
+      <p>Jordan types &ldquo;Works Cited&rdquo; at the top of the page, centers it, and confirms it is plain text with no bold, underline, or quotation marks. All eight steps are now complete. Here is her finished Works Cited page.</p>
+      <div class="doc-wrap after">
+        <div class="doc-inner">
+          <p style="text-align:center;margin:0 0 0 0;">Works Cited</p>
+          <p class="entry">Chadwick, Jocelyn A. &#8220;Making Characters Come Alive: Using Characters for Identification and Engagement.&#8221; <em>The English Journal</em>, vol. 102, no. 1, 2012, pp. 34&#8211;39. <em>JSTOR</em>, www.jstor.org/stable/23269379.</p>
+          <p class="entry">Champion, Laurie. &#8220;Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat.&#8217;&#8221; <em>Literary Contexts in Short Stories: Zora Neale Hurston&#8217;s &#8216;Sweat&#8217;</em>, Sept. 2006, p. 1. <em>EBSCOhost</em>, search.ebscohost.com/login.aspx?direct=true&amp;db=lkh&amp;AN=23177063&amp;site=lrc-plus.</p>
+          <p class="entry">&#8220;Explanation of Sweat by Zora Neale Hurston.&#8221; <em>LitFinder Contemporary Collection</em>. Gale, 2007. <em>LitFinder</em>, db29.linccweb.org/login?url=http://go.galegroup.com.db29.linccweb.org/ps/i.do?p=LITF&amp;sw=w&amp;u=lincclin_vcc&amp;v=2.1&amp;it=r&amp;id=GALE%7CLTF0000000515CE&amp;asid=a1501715363d137e32ff86eaab7dc930. Accessed 26 June 2017.</p>
+          <p class="entry">Hurston, Zora Neale. &#8220;Sweat.&#8221; <em>The Oxford Book of American Short Stories</em>, edited by Joyce Carol Oates, Oxford UP, 1992, p.&#160;352. <em>Gale Literature: LitFinder</em>, link.gale.com/apps/doc/LTF0000325990WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=5c8fea8f. Accessed 18 Aug. 2024.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FINAL CHECKLIST ═══════ -->
+<div class="card fade">
+  <div class="card-head ch-sage">✅ Final Checklist — Before You Submit Your Essay</div>
+  <div class="card-body">
+    <div class="checklist">
+      <div class="checklist-title">Run through each item before submitting:</div>
+      <div class="cl-grid">
+        <div class="cl-item">&#9744; &nbsp; Titled &#8220;Works Cited&#8221; — centered, not bolded, not in quotes</div>
+        <div class="cl-item">&#9744; &nbsp; All URLs are plain black text — no blue hyperlinks</div>
+        <div class="cl-item">&#9744; &nbsp; Entries in alphabetical order by author&rsquo;s last name</div>
+        <div class="cl-item">&#9744; &nbsp; Font and size match the rest of the essay</div>
+        <div class="cl-item">&#9744; &nbsp; Entire page is double-spaced — no extra blank lines</div>
+        <div class="cl-item">&#9744; &nbsp; Four entries total: one primary source + three secondary sources</div>
+        <div class="cl-item">&#9744; &nbsp; Hanging indent applied to all entries</div>
+        <div class="cl-item">&#9744; &nbsp; Every source cited in the essay appears on the Works Cited — and vice versa</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ NAV FOOTER ═══════ -->
+<div class="nav-footer fade">
+  <div>
+    <div class="nav-footer-label">For help with specific formatting problems and the indenting and URL videos, see</div>
+    <div class="nav-footer-title">MLA Documentation: The Works Cited</div>
+    <div class="nav-footer-sub">Problem-by-problem troubleshooting and instructional videos</div>
+  </div>
+  <a href="works_cited.html" class="nav-back">Go to Page &rarr;</a>
+</div>
+
+</div>
+</body>
+</html>
