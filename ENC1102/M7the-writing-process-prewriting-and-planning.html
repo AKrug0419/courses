@@ -499,6 +499,119 @@
   .intro-concl-body p + p { margin-top: 8px; }
   .intro-concl-body p strong { color: var(--ink); }
 
+  /* ══════════════════════════════════
+     TOPIC CARDS
+  ══════════════════════════════════ */
+  .topics-intro {
+    text-align: center; margin-bottom: 28px;
+  }
+  .topics-intro-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700;
+    color: var(--ink-warm); line-height: 1.2; margin-bottom: 10px;
+  }
+  .topics-intro-title em { font-style: italic; color: var(--moss); }
+  .topics-intro-sub {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.7; max-width: 680px;
+    margin: 0 auto;
+  }
+  .topics-category-bar {
+    border-radius: 6px; padding: 10px 20px;
+    text-align: center; margin-bottom: 16px;
+  }
+  .topics-category-bar h3 {
+    font-family: 'Lora', serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; margin: 0;
+  }
+  .topics-category-bar.imagery {
+    background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+  }
+  .topics-category-bar.imagery h3 { color: white; }
+  .topics-category-bar.figurative {
+    background: linear-gradient(135deg, var(--indigo), var(--indigo-mid));
+  }
+  .topics-category-bar.figurative h3 { color: white; }
+
+  .topics-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px; margin-bottom: 36px;
+  }
+  .topic-card {
+    background: var(--paper); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .topic-card-head {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .topic-card-head.imagery { background: var(--plum-wash); }
+  .topic-card-head.figurative { background: var(--indigo-wash); }
+  .topic-card-option {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .topic-card-head.imagery .topic-card-option { color: var(--plum); }
+  .topic-card-head.figurative .topic-card-option { color: var(--indigo); }
+  .topic-card-poet {
+    font-family: 'Lora', serif; font-size: 15px; font-weight: 700;
+    color: var(--ink-warm); line-height: 1.3;
+  }
+  .topic-card-poem {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    font-style: italic; color: var(--ink-mid); margin-top: 2px;
+  }
+  .topic-card-body {
+    padding: 18px; flex: 1;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .topic-card-prompt {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.7;
+  }
+  .topic-card-focus {
+    border-radius: 6px; padding: 14px 16px;
+  }
+  .topic-card-focus.imagery { background: var(--plum-wash); }
+  .topic-card-focus.figurative { background: var(--indigo-wash); }
+  .topic-card-focus-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .topic-card-focus.imagery .topic-card-focus-label { color: var(--plum); }
+  .topic-card-focus.figurative .topic-card-focus-label { color: var(--indigo); }
+  .topic-card-focus ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .topic-card-focus li {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--ink-mid); line-height: 1.6;
+    padding-left: 16px; position: relative;
+  }
+  .topic-card-focus.imagery li::before {
+    content: '◆'; position: absolute; left: 0; top: 3px;
+    font-size: 6px; color: var(--plum-mid);
+  }
+  .topic-card-focus.figurative li::before {
+    content: '◆'; position: absolute; left: 0; top: 3px;
+    font-size: 6px; color: var(--indigo-mid);
+  }
+  .topic-card-conclusion {
+    border-radius: 6px; padding: 12px 16px;
+    margin-top: auto;
+  }
+  .topic-card-conclusion.imagery { background: var(--plum-wash); border-left: 3px solid var(--plum-mid); }
+  .topic-card-conclusion.figurative { background: var(--indigo-wash); border-left: 3px solid var(--indigo-mid); }
+  .topic-card-conclusion p {
+    font-family: 'Crimson Pro', serif; font-size: 13px;
+    color: var(--ink-mid); line-height: 1.6; margin: 0;
+  }
+  .topic-card-conclusion p strong { color: var(--ink); }
+
   @media (max-width: 720px) {
     .hero-inner { padding: 36px 24px; }
     .page-body  { padding: 36px 24px 60px; }
@@ -507,6 +620,7 @@
     .stage-strip { flex-direction: column; }
     .stage-item::after { display: none; }
     .stage-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .topics-grid { grid-template-columns: 1fr; }
   }
 
 </style>
@@ -627,6 +741,176 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════
+       SECTION: CHOOSE YOUR TOPIC
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Your Essay</p>
+    <div class="topics-intro">
+      <h2 class="topics-intro-title">Choose Your <em>Essay Topic</em></h2>
+      <p class="topics-intro-sub">Select one of the six poems below. Each topic is designed for a <strong>four-paragraph essay</strong> (introduction, two body paragraphs, and conclusion) of <strong>700 words minimum</strong>. The first three topics focus on <strong>poetic imagery</strong>; the second three focus on <strong>figurative language</strong> — matching the discussion assignments you completed in the previous module.</p>
+    </div>
+
+    <!-- ── POETIC IMAGERY TOPICS ── -->
+    <div class="topics-category-bar imagery">
+      <h3>Poetic Imagery Topics</h3>
+    </div>
+
+    <div class="topics-grid">
+
+      <!-- TOPIC 1: Brooks -->
+      <div class="topic-card">
+        <div class="topic-card-head imagery">
+          <div class="topic-card-option">Option One</div>
+          <div class="topic-card-poet">Gwendolyn Brooks</div>
+          <div class="topic-card-poem">&ldquo;The Mother&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Brooks uses poetic imagery &mdash; particularly images of touch, sight, and absence &mdash; to convey the speaker&rsquo;s complex emotions of grief, guilt, and enduring love. Focus on how specific sensory details make the speaker&rsquo;s experience vivid and immediate rather than abstract.</p>
+          <div class="topic-card-focus imagery">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The imagery of absence and negation in the poem&rsquo;s opening section &mdash; what the speaker &ldquo;will not&rdquo; experience, and how these denied sensory details paradoxically make the loss feel more concrete and physical</li>
+              <li><strong>Body Paragraph Two:</strong> The shift to direct address in the poem&rsquo;s second half &mdash; how the imagery changes when the speaker speaks to &ldquo;the children,&rdquo; and what the final images reveal about the nature of her attachment</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion imagery">
+            <p><strong>Conclusion direction:</strong> What does Brooks suggest about the relationship between memory, guilt, and love &mdash; and how does her use of imagery make an abstract emotional experience feel physically real?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 2: Neruda -->
+      <div class="topic-card">
+        <div class="topic-card-head imagery">
+          <div class="topic-card-option">Option Two</div>
+          <div class="topic-card-poet">Pablo Neruda</div>
+          <div class="topic-card-poem">&ldquo;Sonnet XVII&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Neruda uses poetic imagery &mdash; particularly images drawn from nature, darkness, and hidden things &mdash; to describe a love that exists beyond appearance and public display. Focus on how the poem&rsquo;s sensory details redefine love as something felt rather than seen.</p>
+          <div class="topic-card-focus imagery">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The imagery of concealment and interiority in the poem&rsquo;s opening &mdash; how images of darkness, roots, and hidden growth establish love as something private and essential rather than decorative</li>
+              <li><strong>Body Paragraph Two:</strong> The natural imagery in the poem&rsquo;s closing lines &mdash; how images of light, fragrance, and the physical world complicate the earlier darkness and suggest that this hidden love nevertheless shapes everything visible</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion imagery">
+            <p><strong>Conclusion direction:</strong> What does Neruda suggest about the relationship between love, identity, and visibility &mdash; and how does his imagery challenge conventional depictions of romantic love?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 3: Sexton -->
+      <div class="topic-card">
+        <div class="topic-card-head imagery">
+          <div class="topic-card-option">Option Three</div>
+          <div class="topic-card-poet">Anne Sexton</div>
+          <div class="topic-card-poem">&ldquo;Her Kind&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Sexton uses poetic imagery &mdash; particularly images of domesticity, witchcraft, and the body &mdash; to construct three distinct portraits of female experience that collectively challenge what society considers &ldquo;normal&rdquo; womanhood.</p>
+          <div class="topic-card-focus imagery">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The imagery of the first two stanzas &mdash; how the sensory details of the &ldquo;witch&rdquo; flying over houses and the woman filling caves with domestic objects create contrasting but related portraits of female outsiderness</li>
+              <li><strong>Body Paragraph Two:</strong> The imagery of the final stanza &mdash; how the graphic, physical images of punishment and survival culminate the poem&rsquo;s argument about what it means to be &ldquo;her kind&rdquo;</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion imagery">
+            <p><strong>Conclusion direction:</strong> What does Sexton suggest about female identity, social conformity, and the cost of living authentically &mdash; and how does the refrain &ldquo;I have been her kind&rdquo; unify the poem&rsquo;s image-driven portraits?</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── FIGURATIVE LANGUAGE TOPICS ── -->
+    <div class="topics-category-bar figurative">
+      <h3>Figurative Language Topics</h3>
+    </div>
+
+    <div class="topics-grid">
+
+      <!-- TOPIC 4: Dickinson -->
+      <div class="topic-card">
+        <div class="topic-card-head figurative">
+          <div class="topic-card-option">Option Four</div>
+          <div class="topic-card-poet">Emily Dickinson</div>
+          <div class="topic-card-poem">&ldquo;Because I could not stop for Death&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Dickinson uses figurative language &mdash; particularly the extended personification of Death as a courteous gentleman caller and the metaphor of the carriage ride &mdash; to transform mortality from something feared into something strangely civil, even seductive, before revealing its true nature.</p>
+          <div class="topic-card-focus figurative">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The personification of Death in the poem&rsquo;s opening stanzas &mdash; how Dickinson characterizes Death through his actions and manners, and how the carriage ride metaphor reframes dying as a social outing</li>
+              <li><strong>Body Paragraph Two:</strong> The figurative language in the poem&rsquo;s final stanzas &mdash; how the metaphors shift as the speaker passes the setting sun and arrives at the grave (described as &ldquo;a House&rdquo;), and what these figures reveal about the speaker&rsquo;s evolving understanding of her situation</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion figurative">
+            <p><strong>Conclusion direction:</strong> What does Dickinson suggest about human attitudes toward mortality &mdash; and how does her figurative language expose the ways we domesticate, romanticize, or deny the reality of death?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 5: Komunyakaa -->
+      <div class="topic-card">
+        <div class="topic-card-head figurative">
+          <div class="topic-card-option">Option Five</div>
+          <div class="topic-card-poet">Yusef Komunyakaa</div>
+          <div class="topic-card-poem">&ldquo;Facing It&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Komunyakaa uses figurative language &mdash; particularly metaphor, simile, and the blurring of reflection and reality at the Vietnam Veterans Memorial &mdash; to explore the psychological experience of confronting traumatic memory.</p>
+          <div class="topic-card-focus figurative">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The figurative language of merging and disappearing &mdash; how the speaker&rsquo;s reflection in the black granite becomes a metaphor for being consumed by memory, and what the image of his face dissolving into the stone reveals about trauma&rsquo;s relationship to identity</li>
+              <li><strong>Body Paragraph Two:</strong> The figurative language of the poem&rsquo;s closing images &mdash; how Komunyakaa uses the Memorial&rsquo;s reflective surface to blur the boundary between past and present, particularly in the final image where a woman&rsquo;s reflection appears to erase names from the wall</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion figurative">
+            <p><strong>Conclusion direction:</strong> What does Komunyakaa suggest about the nature of traumatic memory and the purpose of memorials &mdash; and how does his figurative language make the reader <em>experience</em> that difficulty rather than simply understand it?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC 6: Espada -->
+      <div class="topic-card">
+        <div class="topic-card-head figurative">
+          <div class="topic-card-option">Option Six</div>
+          <div class="topic-card-poet">Mart&iacute;n Espada</div>
+          <div class="topic-card-poem">&ldquo;Alabanza: In Praise of Local 100&rdquo;</div>
+        </div>
+        <div class="topic-card-body">
+          <p class="topic-card-prompt">Analyze how Espada uses figurative language &mdash; particularly metaphor, personification, and the transformation of ordinary labor into sacred ritual &mdash; to memorialize the immigrant kitchen workers of Windows on the World who died on September 11, 2001, and to argue that their daily work deserves the same reverence as any monument.</p>
+          <div class="topic-card-focus figurative">
+            <div class="topic-card-focus-label">Body Paragraph Focus</div>
+            <ul>
+              <li><strong>Body Paragraph One:</strong> The figurative language that transforms the kitchen into a space of artistry and dignity &mdash; how Espada&rsquo;s metaphors elevate the workers&rsquo; daily tasks into acts of creation and cultural preservation</li>
+              <li><strong>Body Paragraph Two:</strong> The figurative language of ascension and transcendence in the poem&rsquo;s second half &mdash; how Espada uses metaphor to transform destruction into something resembling resurrection, and what the repeated word &ldquo;Alabanza&rdquo; accomplishes as both praise and prayer</li>
+            </ul>
+          </div>
+          <div class="topic-card-conclusion figurative">
+            <p><strong>Conclusion direction:</strong> What does Espada suggest about the value of immigrant labor, the meaning of commemoration, and the power of naming &mdash; and how does his figurative language insist that these workers&rsquo; lives be remembered not as statistics but as artists and creators?</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout" style="margin-top: 4px;">
+      <div class="callout-label">Choosing a Poem</div>
+      <p>You&rsquo;ll get the strongest start if you write about one of the two poems you already analyzed in the Figurative Language Discussion and Poetic Imagery Discussion. Your work on those assignments <em>is</em> your prewriting &mdash; you already have an interpretation, specific lines identified, and practice articulating analysis in prose. If you choose a poem you haven&rsquo;t yet analyzed, plan for additional time to complete the prewriting stage on your own.</p>
+    </div>
+
   </section>
 
   <hr class="divider">
