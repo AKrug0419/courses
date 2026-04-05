@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module Seven Overview | ENC 1102 — Poetry Research Essay</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════
+     TOKENS — Naturalist's Field Journal
+  ══════════════════════════════════════════ */
+  :root {
+    --paper:         #f4ede0;
+    --vellum:        #ede3cf;
+    --aged:          #e4d8be;
+    --worn:          #d8c9a8;
+    --shadow:        #c4b48e;
+    --ink:           #1e160a;
+    --ink-warm:      #2c1f0e;
+    --ink-mid:       #4a3520;
+    --quill:         #6b4e2e;
+    --faded:         #7d6041;
+    --dust:          #7f6748;
+    --moss:          #4a6040;
+    --moss-mid:      #5e7852;
+    --moss-light:    #7a9468;
+    --moss-pale:     #c8d8bc;
+    --moss-wash:     rgba(90,120,72,0.08);
+    --moss-glow:     rgba(90,120,72,0.14);
+    --moss-mid-aa:   #5a734e;
+    --umber:         #7a4e28;
+    --umber-mid:     #9a6438;
+    --umber-pale:    #dfc8a8;
+    --umber-wash:    rgba(122,78,40,0.08);
+    --indigo:        #3a4868;
+    --indigo-mid:    #4e608a;
+    --indigo-pale:   #c0cce0;
+    --indigo-wash:   rgba(58,72,104,0.08);
+    --plum:          #6a3a50;
+    --plum-mid:      #8a4e6a;
+    --plum-pale:     #d4b8c4;
+    --plum-wash:     rgba(106,58,80,0.08);
+    --rule:          rgba(74,53,32,0.18);
+    --rule-light:    rgba(74,53,32,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+
+  body {
+    text-align: left;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #243418 0%, #1c2c12 60%, #2c3e1e 100%);
+    padding: 0;
+    overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.025) 28px, rgba(255,255,255,0.025) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.015) 28px, rgba(255,255,255,0.015) 29px);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    position: absolute; top: 0; right: 0;
+    width: 320px; height: 320px;
+    opacity: 0.06; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 960px; margin: 0 auto;
+    padding: 52px 48px 48px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .hero-module-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--moss-pale); opacity: 0.8;
+  }
+  .hero-module-tag::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--moss-pale); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 700; color: var(--paper);
+    line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--moss-pale); }
+  .hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5;
+    max-width: 580px; opacity: 0.9;
+  }
+  .hero-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--moss-light), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 960px; margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 60px; }
+  .section-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--moss-mid-aa); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+    max-width: 120px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+    color: var(--ink-warm); line-height: 1.2; margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--moss); }
+  .prose {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; line-height: 1.8;
+    color: var(--ink-mid); max-width: 720px;
+  }
+  .prose + .prose { margin-top: 14px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-left: 3px solid var(--moss-mid);
+    background: var(--moss-wash);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 22px; margin: 24px 0;
+  }
+  .callout-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--moss); margin-bottom: 6px;
+  }
+  .callout p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px; color: var(--ink-mid); line-height: 1.7; margin: 0;
+  }
+  .callout.umber { border-color: var(--umber-mid); background: var(--umber-wash); }
+  .callout.umber .callout-label { color: var(--umber); }
+  .callout.indigo { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .callout.indigo .callout-label { color: var(--indigo); }
+  .callout.plum { border-color: var(--plum-mid); background: var(--plum-wash); }
+  .callout.plum .callout-label { color: var(--plum); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+  .divider-ornament { text-align: center; margin: -10px 0 0; position: relative; }
+  .divider-ornament::before, .divider-ornament::after {
+    content: ''; display: inline-block;
+    width: 48px; height: 1px; background: var(--rule);
+    vertical-align: middle; margin: 0 12px;
+  }
+  .divider-ornament span {
+    font-family: 'Crimson Pro', serif; font-size: 18px;
+    color: var(--dust); vertical-align: middle;
+  }
+
+  /* ── TWO-COLUMN OUTCOMES GRID ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .outcomes-card {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 26px 28px;
+  }
+  .outcomes-card-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--moss-mid-aa); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .outcomes-card-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+  }
+  .outcomes-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .outcomes-list li {
+    position: relative; padding-left: 18px;
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    line-height: 1.65; color: var(--ink-mid); text-align: left;
+  }
+  .outcomes-list li::before {
+    content: '◆'; color: var(--moss-mid);
+    font-size: 9px; position: absolute; left: 0; top: 6px;
+  }
+
+  /* ── LEARNING ACTIVITIES ── */
+  .activities-block {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .activities-header {
+    background: var(--ink-warm);
+    padding: 14px 24px;
+    font-family: 'Lora', serif; font-size: 14px; font-weight: 600;
+    color: var(--paper); letter-spacing: 0.04em;
+  }
+  .activities-body {
+    padding: 20px 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .activity-item {
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .activity-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--moss-wash);
+    border: 1px solid rgba(90,120,72,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0; margin-top: 2px;
+  }
+  .activity-text { flex: 1; }
+  .activity-title {
+    font-family: 'Lora', serif; font-size: 15px; font-weight: 600;
+    color: var(--ink); margin-bottom: 3px;
+  }
+  .activity-desc {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--faded); line-height: 1.6;
+  }
+
+  /* ── ASSIGNMENT CARDS ── */
+  .week-label {
+    font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--umber); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .week-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--umber-mid), transparent);
+    opacity: 0.4; max-width: 200px;
+  }
+  .week-label + .week-label { margin-top: 32px; }
+  .assignments-stack {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .assignment-card {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex; gap: 20px; align-items: flex-start;
+    position: relative;
+    border-left: 4px solid var(--moss-mid);
+  }
+  .assignment-card.indigo-accent { border-left-color: var(--indigo-mid); }
+  .assignment-num {
+    font-family: 'Lora', serif; font-size: 28px; font-weight: 700;
+    color: var(--moss-mid); line-height: 1; flex-shrink: 0;
+    min-width: 24px; margin-top: 2px;
+  }
+  .assignment-card.indigo-accent .assignment-num { color: var(--indigo-mid); }
+  .assignment-body { flex: 1; }
+  .assignment-title {
+    font-family: 'Lora', serif; font-size: 17px; font-weight: 600;
+    color: var(--ink); margin-bottom: 5px; line-height: 1.3;
+  }
+  .assignment-meta {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--faded); font-style: italic;
+  }
+  .assignment-meta strong { color: var(--umber); font-style: normal; font-weight: 600; }
+  .assignment-desc {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.65; margin-top: 6px;
+  }
+
+  /* ── RESOURCES LIST ── */
+  .resources-list {
+    list-style: none; padding: 0; margin: 12px 0 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .resources-list li {
+    display: flex; gap: 10px; align-items: center;
+  }
+  .resource-link {
+    font-family: 'Crimson Pro', serif; font-size: 17px;
+    color: var(--moss); text-decoration: none;
+    border-bottom: 1px solid rgba(74,96,64,0.3);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .resource-link:hover { color: var(--moss-mid); border-color: var(--moss-mid); }
+  .resource-arrow {
+    font-size: 12px; color: var(--moss-mid); opacity: 0.6; flex-shrink: 0;
+  }
+
+  /* ── MODULE PAGES LIST ── */
+  .pages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .page-card {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .page-num {
+    font-family: 'Lora', serif; font-size: 22px; font-weight: 700;
+    color: var(--shadow); line-height: 1; flex-shrink: 0;
+    min-width: 24px; margin-top: 3px;
+  }
+  .page-body-inner { flex: 1; }
+  .page-title {
+    font-family: 'Lora', serif; font-size: 15px; font-weight: 600;
+    color: var(--ink); margin-bottom: 3px; line-height: 1.3;
+  }
+  .page-desc {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--faded); line-height: 1.55;
+  }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px 28px;
+    display: flex; gap: 20px; align-items: flex-start;
+    margin-top: 8px;
+  }
+  .contact-icon {
+    font-size: 28px; flex-shrink: 0; margin-top: 2px;
+  }
+  .contact-body { flex: 1; }
+  .contact-title {
+    font-family: 'Lora', serif; font-size: 17px; font-weight: 600;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .contact-text {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--faded); line-height: 1.65;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .hero-inner { padding: 40px 24px 36px; }
+    .page-body { padding: 40px 24px 60px; }
+    .outcomes-grid { grid-template-columns: 1fr; }
+    .pages-grid { grid-template-columns: 1fr; }
+    .assignment-card { flex-direction: column; gap: 8px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <!-- Botanical corner ornament -->
+  <svg class="hero-ornament" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="240" cy="100" rx="90" ry="30" transform="rotate(-35 240 100)" fill="white"/>
+    <ellipse cx="280" cy="60" rx="70" ry="22" transform="rotate(-55 280 60)" fill="white"/>
+    <ellipse cx="200" cy="140" rx="80" ry="25" transform="rotate(-20 200 140)" fill="white"/>
+    <line x1="240" y1="100" x2="300" y2="20" stroke="white" stroke-width="2"/>
+    <line x1="220" y1="120" x2="260" y2="30" stroke="white" stroke-width="1.5"/>
+    <ellipse cx="310" cy="30" rx="28" ry="10" transform="rotate(-60 310 30)" fill="white"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-module-tag">Module Seven &nbsp;·&nbsp; ENC 1102</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">Poetry <em>Research Essay</em></h1>
+    <p class="hero-subtitle">Finding Sources · Evaluating Credibility · Writing the Analysis</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <!-- MODULE OVERVIEW -->
+  <section class="section" aria-labelledby="overview-heading">
+    <div class="section-label">Module Overview</div>
+    <h2 class="section-title" id="overview-heading">What We're <em>Doing</em> This Module</h2>
+    <p class="prose">This module is devoted to writing your third essay for ENC 1102: a brief, documented research essay analyzing the use of <strong>poetic imagery</strong> and/or <strong>figurative language</strong> in one of the six poems from the previous module.</p>
+    <p class="prose">Unlike your first two essays, this one requires you to locate, evaluate, and integrate <strong>secondary sources</strong> — academic or credible critical commentary on your chosen poem — alongside your own close reading of the text.</p>
+    <div class="callout indigo" style="margin-top:24px;">
+      <div class="callout-label">The Big Picture</div>
+      <p>Research writing is not about borrowing other people's arguments — it's about situating your own interpretation within a larger conversation. Your thesis is still yours. Secondary sources provide context, support, and a broader framework for the ideas you've developed through your own analysis.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- LEARNING OUTCOMES & OBJECTIVES -->
+  <section class="section" aria-labelledby="outcomes-heading">
+    <div class="section-label">Goals</div>
+    <h2 class="section-title" id="outcomes-heading">Course Learning Outcomes &amp; <em>Module Objectives</em></h2>
+    <p class="prose" style="margin-bottom:24px;">This module addresses the following course-level learning outcomes. By the end you'll be able to meet the specific objectives listed on the right.</p>
+    <div class="outcomes-grid">
+      <div class="outcomes-card">
+        <div class="outcomes-card-label">Course Learning Outcomes</div>
+        <ul class="outcomes-list">
+          <li>Apply conventions aligned to varied writing situations.</li>
+          <li>Document source material in accordance with at least one recognized documentation style.</li>
+          <li>Apply critical reading skills.</li>
+        </ul>
+      </div>
+      <div class="outcomes-card">
+        <div class="outcomes-card-label">By the End of This Module</div>
+        <ul class="outcomes-list">
+          <li>Use academic databases to locate a relevant source for a research essay.</li>
+          <li>Use the internet to locate a credible source for a research essay.</li>
+          <li>Evaluate the credibility of an internet source.</li>
+          <li>Use a database Citation Tool to obtain bibliographic information.</li>
+          <li>Plan, write, edit, and proofread an essay with an introduction, body paragraphs, conclusion, and Works Cited.</li>
+          <li>Integrate quotes from primary and secondary sources using the MLA documentation system.</li>
+          <li>Analyze a poem's use of poetic imagery and/or figurative language.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- LEARNING ACTIVITIES -->
+  <section class="section" aria-labelledby="activities-heading">
+    <div class="section-label">What You'll Do</div>
+    <h2 class="section-title" id="activities-heading"><em>Learning</em> Activities</h2>
+    <div class="activities-block">
+      <div class="activities-header">Critical Reading</div>
+      <div class="activities-body">
+        <div class="activity-item">
+          <div class="activity-icon">🔍</div>
+          <div class="activity-text">
+            <div class="activity-title">Two Secondary Sources</div>
+            <div class="activity-desc">One source located through an academic database; one source located via the internet. You'll read, evaluate, and integrate both into your essay.</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">📄</div>
+          <div class="activity-text">
+            <div class="activity-title">Sample Student Research Essay</div>
+            <div class="activity-desc">A fully annotated model essay demonstrating how to quote from a poem, integrate secondary sources, and structure a poetry analysis with a Works Cited.</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🌐</div>
+          <div class="activity-text">
+            <div class="activity-title">Instructional Pages</div>
+            <div class="activity-desc">Guidance on internet research, evaluating sources for credibility, MLA documentation for poetry, and the full writing process from prewriting through proofreading.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="activities-block" style="margin-top:16px;">
+      <div class="activities-header">Critical Viewing</div>
+      <div class="activities-body">
+        <div class="activity-item">
+          <div class="activity-icon">▶</div>
+          <div class="activity-text">
+            <div class="activity-title">Video: Evaluating Web Sites for Credibility</div>
+            <div class="activity-desc">A demonstration of how to assess whether an internet source is suitable for academic use — what to look for, what to question, and when to keep searching.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- MODULE PAGES -->
+  <section class="section" aria-labelledby="pages-heading">
+    <div class="section-label">Module Pages</div>
+    <h2 class="section-title" id="pages-heading">What's <em>Covered</em> in This Module</h2>
+    <p class="prose" style="margin-bottom:24px;">Work through the pages below in order. Each stage of the writing process has its own dedicated page.</p>
+    <div class="pages-grid">
+      <div class="page-card">
+        <div class="page-num">1</div>
+        <div class="page-body-inner">
+          <div class="page-title">Internet Research &amp; Source Evaluation</div>
+          <div class="page-desc">How to search strategically and evaluate websites for credibility, with criteria and worked examples.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">2</div>
+        <div class="page-body-inner">
+          <div class="page-title">AI and Research</div>
+          <div class="page-desc">Why AI-generated content cannot serve as a secondary source, and how to use AI responsibly as a research aid.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">3</div>
+        <div class="page-body-inner">
+          <div class="page-title">MLA Documentation: How to Quote</div>
+          <div class="page-desc">Integrating direct quotes from secondary sources with signal phrases and correct in-text citations.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">4</div>
+        <div class="page-body-inner">
+          <div class="page-title">MLA Documentation: How to Paraphrase</div>
+          <div class="page-desc">Restating a source's ideas in your own words while maintaining academic attribution.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">5</div>
+        <div class="page-body-inner">
+          <div class="page-title">MLA Documentation: How to Write a Summary</div>
+          <div class="page-desc">Condensing a source's argument into a brief, accurately attributed overview.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">6</div>
+        <div class="page-body-inner">
+          <div class="page-title">The Writing Process: Prewriting &amp; Planning</div>
+          <div class="page-desc">Choosing a poem and topic, reviewing your prior analysis, and outlining your essay.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">7</div>
+        <div class="page-body-inner">
+          <div class="page-title">The Writing Process: Drafting &amp; Revising</div>
+          <div class="page-desc">Writing a complete draft with a fully annotated sample essay and a revising checklist.</div>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-num">8</div>
+        <div class="page-body-inner">
+          <div class="page-title">The Writing Process: Editing &amp; Proofreading</div>
+          <div class="page-desc">Sentence-level editing, source-level auditing, and final proofreading for grammar and citations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ASSIGNMENTS -->
+  <section class="section" aria-labelledby="assignments-heading">
+    <div class="section-label">Assignments</div>
+    <h2 class="section-title" id="assignments-heading">What's <em>Due</em> This Module</h2>
+    <p class="prose" style="margin-bottom:28px;">There are two assignments this module, spread across two weeks.</p>
+
+    <div class="week-label">Week 14</div>
+    <div class="assignments-stack">
+      <div class="assignment-card">
+        <div class="assignment-num">1</div>
+        <div class="assignment-body">
+          <div class="assignment-title">Evaluating Internet Sources for Credibility Assignment</div>
+          <div class="assignment-desc">Locate an internet source related to your chosen poem, evaluate its credibility using the criteria from the Internet Research page, and submit a brief written evaluation explaining your assessment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-label">Week 15</div>
+    <div class="assignments-stack">
+      <div class="assignment-card indigo-accent">
+        <div class="assignment-num">2</div>
+        <div class="assignment-body">
+          <div class="assignment-title">Poetry &amp; Literary Elements Research Essay</div>
+          <div class="assignment-desc">A <strong>750-word minimum</strong> documented research essay analyzing poetic imagery and/or figurative language in one of the six available poems. Must include an introduction, two or three body paragraphs, a conclusion, and a Works Cited page with at least three sources: a direct quote, a paraphrase, and a summary from secondary sources.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout umber" style="margin-top:28px;">
+      <div class="callout-label">Source Requirements</div>
+      <p>Your essay must integrate secondary sources in three distinct ways: at least <strong>one direct quote</strong>, at least <strong>one paraphrase</strong>, and at least <strong>one summary</strong> — each from a credible secondary source. See the MLA Documentation pages for guidance on each type.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- RESOURCES -->
+  <section class="section" aria-labelledby="resources-heading">
+    <div class="section-label">Resources</div>
+    <h2 class="section-title" id="resources-heading">Module <em>Resources</em></h2>
+    <p class="prose" style="margin-bottom:16px;">Additional resources available throughout this module.</p>
+    <ul class="resources-list" role="list">
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="https://libguides.valenciacollege.edu/c.php?g=1014597&p=7351775" target="_blank" rel="noopener">East Campus Communications Center</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">Using Academic Databases for Research</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">Using the Internet for Academic Research</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">MLA Documentation: Quoting &amp; Paraphrasing from Secondary Sources</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">MLA Documentation: Quoting from a Poem (PDF)</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">MLA Documentation: How to Create a Works Cited</a>
+      </li>
+      <li>
+        <span class="resource-arrow">◆</span>
+        <a class="resource-link" href="#">Sample Poetry Research Essay (PDF)</a>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- INSTRUCTOR CONTACT -->
+  <section class="section" aria-labelledby="contact-heading">
+    <div class="section-label">Questions?</div>
+    <h2 class="section-title" id="contact-heading"><em>My</em> Contact Information</h2>
+    <div class="contact-box">
+      <div class="contact-icon">✉</div>
+      <div class="contact-body">
+        <div class="contact-title">Reach Out Anytime</div>
+        <p class="contact-text">If you have questions about the research process, the essay requirements, or anything else in this module, please contact me through the Canvas Inbox or during office hours. You're also welcome to email me a rough draft for feedback before the final submission.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

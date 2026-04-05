@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI and Academic Research | ENC 1102 — Module Seven</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════
+     TOKENS — Naturalist's Field Journal
+  ══════════════════════════════════════════ */
+  :root {
+    --paper:         #f4ede0;
+    --vellum:        #ede3cf;
+    --aged:          #e4d8be;
+    --worn:          #d8c9a8;
+    --shadow:        #c4b48e;
+    --ink:           #1e160a;
+    --ink-warm:      #2c1f0e;
+    --ink-mid:       #4a3520;
+    --quill:         #6b4e2e;
+    --faded:         #7d6041;
+    --dust:          #7f6748;
+    --moss:          #4a6040;
+    --moss-mid:      #5e7852;
+    --moss-light:    #7a9468;
+    --moss-pale:     #c8d8bc;
+    --moss-wash:     rgba(90,120,72,0.08);
+    --moss-mid-aa:   #5a734e;
+    --umber:         #7a4e28;
+    --umber-mid:     #9a6438;
+    --umber-pale:    #dfc8a8;
+    --umber-wash:    rgba(122,78,40,0.08);
+    --indigo:        #3a4868;
+    --indigo-mid:    #4e608a;
+    --indigo-pale:   #c0cce0;
+    --indigo-wash:   rgba(58,72,104,0.08);
+    --plum:          #6a3a50;
+    --plum-mid:      #8a4e6a;
+    --plum-pale:     #d4b8c8;
+    --plum-wash:     rgba(106,58,80,0.10);
+    --rule:          rgba(74,53,32,0.18);
+    --rule-light:    rgba(74,53,32,0.10);
+
+    /* AI-specific accent — a muted steel-blue, distinct from indigo */
+    --steel:         #2e4a58;
+    --steel-mid:     #3e6070;
+    --steel-pale:    #b0ccd6;
+    --steel-wash:    rgba(46,74,88,0.09);
+
+    /* Warning/caution — warm crimson */
+    --alert:         #7a2828;
+    --alert-mid:     #9a3838;
+    --alert-wash:    rgba(122,40,40,0.09);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+
+  body {
+    text-align: left;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(140deg, #1a2e38 0%, #2c1f0e 60%, #1e2a30 100%);
+    padding: 0; overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.012) 28px, rgba(255,255,255,0.012) 29px);
+    pointer-events: none;
+  }
+  .hero-circuit {
+    position: absolute; top: 0; right: 0;
+    width: 360px; height: 360px;
+    opacity: 0.07; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 960px; margin: 0 auto;
+    padding: 56px 48px 52px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .hero-module-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--steel-pale); opacity: 0.8;
+  }
+  .hero-module-tag::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--steel-pale); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 700; color: var(--paper);
+    line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--steel-pale); }
+  .hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5;
+    max-width: 560px; opacity: 0.9;
+  }
+  .hero-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--steel-pale), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 960px; margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--moss-mid-aa); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+    max-width: 120px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+    color: var(--ink-warm); line-height: 1.2; margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--moss); }
+  .prose {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; line-height: 1.8;
+    color: var(--ink-mid); max-width: 720px; text-align: left;
+  }
+  .prose + .prose { margin-top: 16px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-left: 3px solid var(--moss-mid);
+    background: var(--moss-wash);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 22px; margin: 24px 0;
+  }
+  .callout-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--moss); margin-bottom: 6px;
+  }
+  .callout p {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.7; margin: 0; text-align: left;
+  }
+  .callout p + p { margin-top: 10px; }
+  .callout.umber { border-color: var(--umber-mid); background: var(--umber-wash); }
+  .callout.umber .callout-label { color: var(--umber); }
+  .callout.indigo { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .callout.indigo .callout-label { color: var(--indigo); }
+  .callout.plum { border-color: var(--plum-mid); background: var(--plum-wash); }
+  .callout.plum .callout-label { color: var(--plum); }
+  .callout.steel { border-color: var(--steel-mid); background: var(--steel-wash); }
+  .callout.steel .callout-label { color: var(--steel); }
+  .callout.alert { border-color: var(--alert-mid); background: var(--alert-wash); }
+  .callout.alert .callout-label { color: var(--alert); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+  .divider-ornament { text-align: center; margin: -10px 0 0; position: relative; }
+  .divider-ornament::before, .divider-ornament::after {
+    content: ''; display: inline-block;
+    width: 48px; height: 1px; background: var(--rule);
+    vertical-align: middle; margin: 0 12px;
+  }
+  .divider-ornament span {
+    font-family: 'Crimson Pro', serif; font-size: 18px;
+    color: var(--dust); vertical-align: middle;
+  }
+
+  /* ── HALLUCINATION DEMO ── */
+  .hallucination-demo {
+    margin: 28px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .hallucination-demo-header {
+    background: var(--aged);
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hallucination-demo-eyebrow {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--steel); margin-bottom: 3px;
+  }
+  .hallucination-demo-title {
+    font-family: 'Lora', serif; font-size: 20px; font-weight: 700;
+    color: var(--ink-warm);
+  }
+  .chat-window {
+    background: #f8f5f0;
+    padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .chat-bubble {
+    max-width: 82%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: 'Crimson Pro', serif; font-size: 15.5px; line-height: 1.65;
+  }
+  .chat-bubble.user {
+    background: var(--steel);
+    color: #f0ede8;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+  .chat-bubble.ai {
+    background: white;
+    color: var(--ink-mid);
+    align-self: flex-start;
+    border: 1px solid var(--rule-light);
+    border-bottom-left-radius: 3px;
+  }
+  .chat-bubble-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .chat-bubble.user .chat-bubble-label { color: var(--steel-pale); }
+  .chat-bubble.ai .chat-bubble-label { color: var(--faded); }
+  .fake-citation {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: rgba(246,240,230,0.7);
+    border-left: 3px solid var(--umber-mid);
+    border-radius: 0 4px 4px 0;
+    font-family: 'Libre Baskerville', serif; font-size: 13.5px;
+    color: var(--ink); line-height: 1.7;
+    font-style: normal;
+  }
+  .annotation-flag {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-top: 10px; padding: 10px 14px;
+    background: var(--alert-wash);
+    border-left: 3px solid var(--alert-mid);
+    border-radius: 0 6px 6px 0;
+  }
+  .annotation-flag-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .annotation-flag-text {
+    font-family: 'Crimson Pro', serif; font-size: 14.5px;
+    color: var(--alert); line-height: 1.6; font-style: italic;
+  }
+
+  /* ── USE CARDS ── */
+  .use-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; margin: 24px 0;
+  }
+  .use-panel {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px; overflow: hidden;
+  }
+  .use-panel-header {
+    padding: 13px 20px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .use-panel-header.yes { background: var(--moss-wash); }
+  .use-panel-header.no  { background: var(--alert-wash); }
+  .use-panel-icon { font-size: 18px; }
+  .use-panel-title {
+    font-family: 'Lora', serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .use-panel-header.yes .use-panel-title { color: var(--moss); }
+  .use-panel-header.no  .use-panel-title { color: var(--alert); }
+  .use-list {
+    list-style: none; padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .use-list li {
+    position: relative; padding-left: 18px;
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    color: var(--ink-mid); line-height: 1.65; text-align: left;
+  }
+  .use-list.yes li::before { content: '◆'; color: var(--moss-mid); font-size: 9px; position: absolute; left: 0; top: 6px; }
+  .use-list.no  li::before { content: '✕'; color: var(--alert);    font-size: 10px; position: absolute; left: 0; top: 5px; }
+
+  /* ── VERIFICATION STEPS ── */
+  .verify-steps {
+    display: flex; flex-direction: column; gap: 0;
+    margin: 24px 0;
+  }
+  .verify-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+  .verify-step:not(:last-child)::after {
+    content: '';
+    position: absolute; left: 23px; top: 48px;
+    width: 2px; bottom: 0;
+    background: var(--rule-light);
+  }
+  .verify-step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--steel); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif; font-size: 17px; font-weight: 700;
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .verify-step-body {}
+  .verify-step-title {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .verify-step-body .prose { font-size: 15.5px; max-width: none; }
+
+  /* ── PROMPT EXAMPLES ── */
+  .prompt-card {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .prompt-card-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--steel); margin-bottom: 8px;
+  }
+  .prompt-text {
+    font-family: 'Libre Baskerville', serif; font-size: 14px;
+    font-style: italic; color: var(--indigo);
+    line-height: 1.65;
+    background: rgba(255,255,255,0.5);
+    padding: 10px 14px; border-radius: 5px;
+    border: 1px solid var(--rule-light);
+  }
+  .prompt-result {
+    margin-top: 10px;
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.65;
+  }
+  .prompt-result strong { color: var(--ink); font-weight: 600; }
+
+  /* ── FORMATIVE QUIZ ── */
+  .quiz-block {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 10px; overflow: hidden;
+    margin: 28px 0;
+  }
+  .quiz-header {
+    background: rgba(74,53,32,0.10);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 22px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .quiz-header-icon { font-size: 16px; }
+  .quiz-header-text {
+    font-family: 'Lora', serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-mid);
+  }
+  .quiz-items { padding: 20px 22px; display: flex; flex-direction: column; gap: 20px; }
+  .quiz-item { border-bottom: 1px solid var(--rule-light); padding-bottom: 20px; }
+  .quiz-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .quiz-q {
+    font-family: 'Crimson Pro', serif; font-size: 16.5px; font-weight: 600;
+    color: var(--ink); line-height: 1.6; margin-bottom: 12px; text-align: left;
+  }
+  .quiz-q-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--steel); color: white;
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 700;
+    margin-right: 8px; flex-shrink: 0; vertical-align: middle;
+  }
+  .quiz-reveal-btn {
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: var(--steel); background: none;
+    border: 1px solid rgba(46,74,88,0.35);
+    border-radius: 4px; padding: 7px 16px;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+  }
+  .quiz-reveal-btn:hover { background: var(--steel-wash); }
+  .quiz-reveal-btn:disabled { color: var(--faded); border-color: var(--rule); cursor: default; background: none; }
+  .quiz-answer {
+    margin-top: 14px;
+    background: rgba(255,255,255,0.50);
+    border-left: 3px solid var(--steel-mid);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 18px;
+  }
+  .quiz-answer.hidden { display: none; }
+  .quiz-answer-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--steel); margin-bottom: 6px;
+  }
+  .quiz-answer p {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    color: var(--ink-mid); line-height: 1.7; margin: 0; text-align: left;
+  }
+  .quiz-answer p + p { margin-top: 8px; }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--vellum); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 24px 28px;
+    display: flex; gap: 20px; align-items: flex-start; margin-top: 8px;
+  }
+  .contact-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+  .contact-title {
+    font-family: 'Lora', serif; font-size: 17px; font-weight: 600;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .contact-text {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--faded); line-height: 1.65;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px 36px; }
+    .page-body { padding: 40px 24px 60px; }
+    .use-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <!-- Abstract circuit-like ornament, distinct from the botanical ornament elsewhere -->
+  <svg class="hero-circuit" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="60" y="60" width="240" height="240" rx="12" stroke="white" stroke-width="1.5"/>
+    <rect x="100" y="100" width="160" height="160" rx="8" stroke="white" stroke-width="1"/>
+    <circle cx="180" cy="180" r="50" stroke="white" stroke-width="1.5"/>
+    <circle cx="180" cy="180" r="24" stroke="white" stroke-width="1"/>
+    <line x1="60" y1="180" x2="130" y2="180" stroke="white" stroke-width="1.5"/>
+    <line x1="230" y1="180" x2="300" y2="180" stroke="white" stroke-width="1.5"/>
+    <line x1="180" y1="60" x2="180" y2="130" stroke="white" stroke-width="1.5"/>
+    <line x1="180" y1="230" x2="180" y2="300" stroke="white" stroke-width="1.5"/>
+    <circle cx="60" cy="180" r="5" fill="white"/>
+    <circle cx="300" cy="180" r="5" fill="white"/>
+    <circle cx="180" cy="60" r="5" fill="white"/>
+    <circle cx="180" cy="300" r="5" fill="white"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-module-tag">Module Seven &nbsp;·&nbsp; ENC 1102</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">AI and <em>Academic Research</em></h1>
+    <p class="hero-subtitle">What AI Can and Can't Do for You — and Why the Difference Matters</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <!-- ═══════════════════════════════════
+       SECTION ONE: ORIENTATION
+  ═══════════════════════════════════ -->
+  <section class="section" aria-labelledby="orient-heading">
+    <div class="section-label">Orientation</div>
+    <h2 class="section-title" id="orient-heading">AI Tools Are Everywhere. <em>You Need to Understand What They Actually Are.</em></h2>
+
+    <p class="prose">You've almost certainly used AI writing tools — ChatGPT, Google Gemini, Perplexity, Microsoft Copilot, and others. These tools have become genuinely useful for a wide range of tasks, and they're only going to become more present in academic and professional life. Refusing to engage with them isn't a realistic or useful approach.</p>
+    <p class="prose">But using AI tools <em>well</em> — especially for academic research — requires understanding what they actually do. And what they actually do is quite different from what they seem to do.</p>
+
+    <div class="callout steel" style="margin-top:24px;">
+      <div class="callout-label">What AI Language Models Actually Are</div>
+      <p>Tools like ChatGPT are called <strong>large language models</strong> (LLMs). They work by predicting, based on enormous amounts of training data, what words are most likely to follow a given sequence of words. This makes them extraordinarily good at generating fluent, confident, authoritative-sounding prose.</p>
+      <p>What they are <em>not</em> is a search engine, a database, or a fact-checker. They don't look things up. They generate plausible-sounding text based on patterns in their training data. This means they can produce text that sounds correct but is factually wrong — and because the text sounds fluent and confident, those errors are easy to miss.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ═══════════════════════════════════
+       SECTION TWO: HALLUCINATION
+  ═══════════════════════════════════ -->
+  <section class="section" aria-labelledby="hallucination-heading">
+    <div class="section-label">The Most Important Problem</div>
+    <h2 class="section-title" id="hallucination-heading">AI <em>Hallucination</em> — and Why It Matters for Your Essay</h2>
+
+    <p class="prose">The most serious problem with using AI for academic research is called <strong>hallucination</strong>: AI tools confidently generate information that is simply false, including citations for sources that do not exist. This isn't a bug that will eventually be fixed — it's a fundamental feature of how large language models work. Because the model is predicting plausible text rather than retrieving verified facts, it fills in gaps with confident fabrications.</p>
+    <p class="prose" style="margin-top:16px;">Studies of AI-generated citations have found that approximately <strong>one in five citations produced by AI tools are completely fabricated</strong> — not approximations of real sources, but entirely invented author names, journal titles, volume numbers, and page ranges. Another significant percentage contain errors that make them uncitable. The fabrications are not flagged or disclaimed. The AI presents them in exactly the same confident tone as accurate information.</p>
+
+    <div class="callout alert" style="margin-top:20px;">
+      <div class="callout-label">Why This Is a Serious Academic Integrity Issue</div>
+      <p>If you submit a paper with AI-generated citations that you haven't verified, you may be citing sources that don't exist — which constitutes academic fraud whether you intended it or not. Every semester, students at colleges across the country receive failing grades or academic misconduct charges for submitting papers with fabricated sources they got from AI tools and never checked. Ignorance of the hallucination problem is not a defense.</p>
+    </div>
+
+    <!-- Hallucination demo -->
+    <h3 style="font-family:'Lora',serif; font-size:clamp(18px,2.5vw,22px); font-weight:700; color:var(--ink-warm); margin: 36px 0 16px;">What AI Hallucination Looks Like: A Demonstration</h3>
+    <p class="prose" style="margin-bottom:24px;">Below is a realistic example of the kind of response you might get if you asked an AI tool to help you find literary criticism of Gwendolyn Brooks's "the mother." Read it carefully — then look at the annotations.</p>
+
+    <div class="hallucination-demo" aria-label="AI hallucination demonstration">
+      <div class="hallucination-demo-header">
+        <div class="hallucination-demo-eyebrow">Demonstration</div>
+        <div class="hallucination-demo-title">A Realistic AI Response — and Its Hidden Problems</div>
+      </div>
+      <div class="chat-window">
+
+        <div class="chat-bubble user">
+          <div class="chat-bubble-label">You</div>
+          Can you suggest some scholarly articles about Gwendolyn Brooks's poem "the mother" that I could use for a research essay?
+        </div>
+
+        <div class="chat-bubble ai">
+          <div class="chat-bubble-label">AI Tool</div>
+          <div>Sure! Here are several scholarly articles that analyze Gwendolyn Brooks's "the mother" and would be appropriate for a literary research essay:</div>
+          <div class="fake-citation">
+            Johnson, Patricia L. "Apostrophe and Elegy: Gwendolyn Brooks's 'the mother' and the Politics of Grief." <em>African American Review</em>, vol. 44, no. 2, 2011, pp. 215–229.
+          </div>
+          <div class="annotation-flag">
+            <div class="annotation-flag-icon">⚠</div>
+            <div class="annotation-flag-text">This article does not exist. "Patricia L. Johnson" returns no results as a scholar in MLA International Bibliography or any library database. The journal and volume number are real, but this article is not in that volume.</div>
+          </div>
+          <div class="fake-citation" style="margin-top:12px;">
+            Williams, Marcus T. "Maternal Elegy in the Early Work of Gwendolyn Brooks." <em>PMLA</em>, vol. 118, no. 3, 2003, pp. 601–615.
+          </div>
+          <div class="annotation-flag">
+            <div class="annotation-flag-icon">⚠</div>
+            <div class="annotation-flag-text">Also fabricated. No article by this title or author appears in PMLA vol. 118. The page range is plausible; the source is not real.</div>
+          </div>
+          <div style="margin-top:12px; font-family:'Crimson Pro',serif; font-size:15px; color:var(--faded);">You might also find relevant discussion in <em>Callaloo</em> and <em>Ploughshares</em>, both of which have published criticism of Brooks's work...</div>
+          <div class="annotation-flag" style="margin-top:10px;">
+            <div class="annotation-flag-icon">⚠</div>
+            <div class="annotation-flag-text">Both journals are real. This observation is accurate. But notice: the AI's confident, accurate mention of real journals gives the whole response an air of reliability — even though the specific citations it provided are fabricated.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="callout umber" style="margin-top:4px;">
+      <div class="callout-label">What Makes This Dangerous</div>
+      <p>The citations in the demonstration above look exactly like real scholarly citations. They have author names, article titles, journal names, volume numbers, issue numbers, publication years, and page ranges — all formatted correctly in MLA style. A student who didn't know to check would copy them directly into a Works Cited and submit a paper citing sources that don't exist.</p>
+      <p>This is why the verification principle — discussed below — is non-negotiable. Every citation from an AI tool must be verified in a library database before it appears in your work.</p>
+    </div>
+
+    <!-- FORMATIVE CHECK 1 -->
+    <div class="quiz-block" aria-label="Formative check: AI hallucination" style="margin-top:28px;">
+      <div class="quiz-header">
+        <div class="quiz-header-icon">✎</div>
+        <div class="quiz-header-text">Formative Check — Think First, Then Reveal</div>
+      </div>
+      <div class="quiz-items">
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">1</span>What is AI hallucination, and why does it happen?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p>AI hallucination is when an AI language model generates information that is false — including fabricated citations, invented quotes, or incorrect facts — and presents it with the same confident tone as accurate information. It happens because AI models don't retrieve verified information; they <em>predict plausible text</em> based on patterns in their training data. When they encounter gaps in their training data, they fill those gaps with what <em>looks</em> like a plausible answer — which may bear no relationship to reality.</p>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">2</span>A classmate says: "I asked ChatGPT for sources, and the journal names it gave me look legit — I can tell it's not making them up." What's wrong with this reasoning?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p>The journal names may well be real — AI tools have learned the names of legitimate academic journals. But a real journal name does not mean the specific article, author, volume, or page range is real. As the demonstration on this page shows, AI can pair a completely fabricated article with an accurate journal name. Your classmate is making the same error as reading a suspicious website carefully and concluding it must be credible because the writing sounds professional: the surface features of credibility are not evidence of actual credibility.</p>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">3</span>Why is submitting an AI-generated citation without verifying it an academic integrity issue, even if you didn't intend to fabricate anything?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p>Academic integrity requires that the work you submit — including your citations — accurately represents actual scholarship. A citation to a non-existent source is a false claim regardless of how it got into your paper. The standard the college applies is whether the work is accurate, not whether you <em>meant</em> to submit inaccurate work. This is why verification is non-negotiable: submitting AI content you haven't checked transfers the responsibility for the AI's errors to you.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ═══════════════════════════════════
+       SECTION THREE: LEGITIMATE USES
+  ═══════════════════════════════════ -->
+  <section class="section" aria-labelledby="uses-heading">
+    <div class="section-label">What AI Is Actually Good For</div>
+    <h2 class="section-title" id="uses-heading">Legitimate — and <em>Illegitimate</em> — Uses of AI in Your Research</h2>
+
+    <p class="prose">The hallucination problem doesn't mean AI tools have no role in academic work. It means their role is specific and limited — and that understanding where AI is genuinely useful will actually make you a better researcher, not a dependent one.</p>
+    <p class="prose">Think of AI as a <strong>research companion</strong> rather than a research source. It's excellent at helping you prepare to do research and reflect on what you've found — but it's not a substitute for the actual research itself.</p>
+
+    <div class="use-grid">
+      <div class="use-panel">
+        <div class="use-panel-header yes">
+          <div class="use-panel-icon">✓</div>
+          <div class="use-panel-title">Appropriate Uses</div>
+        </div>
+        <ul class="use-list yes">
+          <li><strong>Brainstorming research angles.</strong> Ask AI to suggest interpretive angles or thematic lenses for a poem you're writing about — then pursue those angles in library databases with actual scholarship.</li>
+          <li><strong>Generating search keywords.</strong> Ask AI: "What keywords and phrases would be useful for finding literary criticism of Emily Dickinson's 'Because I could not stop for Death'?" The suggestions can jump-start your database search.</li>
+          <li><strong>Understanding unfamiliar terminology.</strong> If a scholarly article uses a critical theory term you don't recognize, ask AI to explain it in plain language.</li>
+          <li><strong>Background orientation.</strong> Get a quick general overview of a poet's life and historical moment to give your reading context — then verify key facts through reliable sources.</li>
+          <li><strong>Thinking through your argument.</strong> Describe your essay's thesis to an AI tool and ask it to identify potential counterarguments or weaknesses you should address.</li>
+        </ul>
+      </div>
+      <div class="use-panel">
+        <div class="use-panel-header no">
+          <div class="use-panel-icon">✕</div>
+          <div class="use-panel-title">Inappropriate Uses</div>
+        </div>
+        <ul class="use-list no">
+          <li><strong>Finding research sources.</strong> Do not ask AI to provide citations. As this page demonstrates, AI citations are frequently fabricated. Use library databases and Google Scholar instead.</li>
+          <li><strong>Writing or rewriting your essay.</strong> Your essay must be your own work. AI-generated text submitted as your own writing violates the academic integrity policy.</li>
+          <li><strong>Summarizing or paraphrasing sources you haven't read.</strong> AI cannot accurately represent the contents of a specific scholarly article — it will hallucinate the argument.</li>
+          <li><strong>Checking whether a source exists or is credible.</strong> AI cannot verify sources. Only a library database search can confirm a source is real and accurately described.</li>
+          <li><strong>Generating or translating poetry quotes.</strong> AI frequently misquotes poems, conflates different poems, or invents lines. Always quote directly from the actual text.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROMPT EXAMPLES -->
+    <h3 style="font-family:'Lora',serif; font-size:clamp(18px,2.5vw,22px); font-weight:700; color:var(--ink-warm); margin: 36px 0 16px;">How to Prompt AI Productively for Research</h3>
+    <p class="prose" style="margin-bottom:20px;">Here are examples of prompts that use AI appropriately as a research companion, and what each one gives you:</p>
+
+    <div class="prompt-card">
+      <div class="prompt-card-label">Keyword Generation</div>
+      <div class="prompt-text">I'm writing a literary analysis essay about Anne Sexton's poem "Her Kind." What search terms and keywords would be most useful for finding scholarly literary criticism about this poem in an academic database?</div>
+      <div class="prompt-result">
+        <strong>What this gives you:</strong> A list of terms — confession, confessional poetry, female persona, feminist reading, identity, self-construction, witch figure — that you can test in the library database. You're using AI to do terminology brainstorming, not to find sources.
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-label">Interpretive Brainstorming</div>
+      <div class="prompt-text">I'm writing about Pablo Neruda's "Sonnet XVII." I've noticed that the poem describes love in terms of what it is <em>not</em> rather than what it is. What interpretive angles might I take when analyzing how Neruda uses imagery to develop this idea?</div>
+      <div class="prompt-result">
+        <strong>What this gives you:</strong> A list of possible angles — negative theology, apophatic language, the limits of representation, the ineffability of intimacy — that you can explore in your own close reading and then look for in scholarship. AI is helping you think, not thinking for you.
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-label">Argument Testing</div>
+      <div class="prompt-text">My thesis is that Komunyakaa uses reflective surfaces in "Facing It" to suggest that trauma cannot be separated from identity. What are the strongest objections to this argument that I should be prepared to address?</div>
+      <div class="prompt-result">
+        <strong>What this gives you:</strong> Potential counterarguments — the poem might be more about public vs. private memory than individual identity; the reflection could be read as erasure rather than merging; etc. You're stress-testing your argument before you write it, not outsourcing the writing itself.
+      </div>
+    </div>
+
+    <!-- FORMATIVE CHECK 2 -->
+    <div class="quiz-block" aria-label="Formative check: Appropriate AI uses" style="margin-top:28px;">
+      <div class="quiz-header">
+        <div class="quiz-header-icon">✎</div>
+        <div class="quiz-header-text">Formative Check — Think First, Then Reveal</div>
+      </div>
+      <div class="quiz-items">
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">1</span>You're having trouble finding library database sources on Emily Dickinson's "Because I could not stop for Death" and decide to ask ChatGPT for suggestions. What specifically should — and should you not — ask it for?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p><strong>Ask AI for</strong>: keywords, related critical terms ("carpe diem," "psychopomp," "thanatopsis," "eschatology"), names of scholars known to work on Dickinson (you can then search for them in the database), and subject headings that library databases might use. <strong>Do not ask AI for</strong>: specific article titles, author names with citations, or any source recommendation you intend to use in your paper. Everything AI tells you in response to those requests needs to be independently verified in a library database before you act on it — and at that point, you might as well just search the database directly.</p>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">2</span>You ask an AI tool to explain what "confessional poetry" means because you don't understand the term in an article you're reading. Is this an appropriate use of AI? Why or why not?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p>Yes, this is an appropriate use. Explaining established critical terminology is something AI tools do reasonably well — "confessional poetry" is well documented in their training data, and a general explanation of the term helps you read the scholarly article you already have. What you should <em>not</em> do is ask AI to <em>summarize the article's argument for you</em> or to find you additional articles on confessional poetry — those would be inappropriate uses. Using AI to understand vocabulary is analogous to looking up a word in a dictionary: it's a tool for comprehension, not a source of scholarly authority.</p>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q"><span class="quiz-q-num">3</span>A friend tells you they asked ChatGPT to "write a paragraph analyzing the imagery in Neruda's Sonnet XVII" and then revised it to sound more like their own writing. Is this an appropriate use of AI for this assignment?</div>
+          <button class="quiz-reveal-btn" onclick="revealAnswer(this)">◆ Reveal Answer</button>
+          <div class="quiz-answer hidden">
+            <div class="quiz-answer-label">Answer</div>
+            <p>No. The assignment requires original literary analysis — the ability to read a poem closely and develop your own interpretation of it. A paragraph generated by AI and then lightly revised is still fundamentally AI-generated content, not the student's own analysis. This violates the academic integrity policy regardless of how much revision was done, because the <em>thinking</em> — the interpretive work — was outsourced. Additionally, AI frequently misreads or misquotes poems, meaning the AI-generated analysis may contain errors that the student then inadvertently perpetuates.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ═══════════════════════════════════
+       SECTION FOUR: VERIFICATION
+  ═══════════════════════════════════ -->
+  <section class="section" aria-labelledby="verify-heading">
+    <div class="section-label">The Non-Negotiable Principle</div>
+    <h2 class="section-title" id="verify-heading">The Verification <em>Principle</em></h2>
+
+    <p class="prose">All of the appropriate uses of AI in research share a common feature: they produce output that you then <em>verify or act on independently</em>. AI suggestions for keywords only become useful when you test them in a library database. AI-generated background information only becomes trustworthy when you cross-check key facts against a reliable source. AI-proposed counterarguments are only useful when you evaluate them against your own reading of the poem.</p>
+    <p class="prose">This is the verification principle: <strong>never use AI output in your academic work without independently confirming that it is accurate.</strong> This applies to citations, to facts, to quotes, and to any specific claim. If you can't verify it, don't use it.</p>
+
+    <h3 style="font-family:'Lora',serif; font-size:clamp(18px,2.5vw,22px); font-weight:700; color:var(--ink-warm); margin: 32px 0 16px;">How to Verify an AI-Generated Citation</h3>
+    <p class="prose" style="margin-bottom:20px;">If you've asked AI for source suggestions (which is generally not recommended, but may happen), here is the only acceptable way to proceed:</p>
+
+    <div class="verify-steps">
+      <div class="verify-step">
+        <div class="verify-step-num">1</div>
+        <div class="verify-step-body">
+          <div class="verify-step-title">Take the author name and article title to a library database</div>
+          <p class="prose">Search the MLA International Bibliography, Academic Search Complete, or JSTOR for the exact author name and article title. Do not assume the article exists because the journal name sounds real.</p>
+        </div>
+      </div>
+      <div class="verify-step">
+        <div class="verify-step-num">2</div>
+        <div class="verify-step-body">
+          <div class="verify-step-title">Confirm every detail of the citation</div>
+          <p class="prose">When you find the article in the database, confirm that the volume number, issue number, year, and page range match what the AI gave you. AI frequently gets these details wrong even when the article itself is real.</p>
+        </div>
+      </div>
+      <div class="verify-step">
+        <div class="verify-step-num">3</div>
+        <div class="verify-step-body">
+          <div class="verify-step-title">Read the actual article before citing it</div>
+          <p class="prose">Do not cite an article you haven't read. AI summaries of scholarly articles are frequently inaccurate — the AI may have described an argument the article never makes, attributed a claim to the wrong author, or simply invented the article's contents. You must read it to know what it actually says.</p>
+        </div>
+      </div>
+      <div class="verify-step">
+        <div class="verify-step-num">4</div>
+        <div class="verify-step-body">
+          <div class="verify-step-title">If you can't verify the source, don't use it</div>
+          <p class="prose">If a library database search returns nothing for the author and title the AI gave you, the source does not exist — full stop. Do not use it, and do not try to find a "similar" source to substitute for it. Return to your database and search for a real source using appropriate search terms.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout steel" style="margin-top:8px;">
+      <div class="callout-label">A Final Note on AI Transparency</div>
+      <p>The academic integrity statement for this course specifies that AI tools may be used for specific purposes when the instructor approves, and that any use must be acknowledged and cited. If you use an AI tool to help generate search keywords or brainstorm essay angles, a brief note in your process documentation is appropriate. What you may not do is use AI to write, substantively revise, or generate sources for work that you submit as your own — or submit any AI output that you haven't independently verified.</p>
+      <p>When in doubt, ask. It is always better to ask your instructor whether a particular use of AI is appropriate than to assume and be wrong.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament"><span>✦</span></div>
+
+  <!-- CONTACT -->
+  <section class="section" aria-labelledby="contact-heading">
+    <div class="section-label">Questions?</div>
+    <h2 class="section-title" id="contact-heading"><em>My</em> Contact Information</h2>
+    <div class="contact-box">
+      <div class="contact-icon">✉</div>
+      <div>
+        <div class="contact-title">Reach Out Anytime</div>
+        <p class="contact-text">Questions about AI, research, source verification, or anything else in this module are always welcome. Please contact me through the Canvas Inbox or during office hours — these are rapidly evolving topics, and there are no foolish questions about them.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function revealAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  if (answer && answer.classList.contains('quiz-answer')) {
+    answer.classList.remove('hidden');
+    btn.textContent = '◆ Answer Revealed';
+    btn.disabled = true;
+  }
+}
+</script>
+
+</body>
+</html>

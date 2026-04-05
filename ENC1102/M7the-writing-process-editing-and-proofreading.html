@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Writing Process: Editing &amp; Proofreading — Module Seven</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════
+       CSS CUSTOM PROPERTIES
+    ══════════════════════════════════════ */
+    :root {
+      --paper:      #f4ede0;
+      --vellum:     #ede3cf;
+      --moss:       #4a6040;
+      --moss-dark:  #2c3e1e;
+      --moss-light: #e8f0e0;
+      --umber:      #7a4e28;
+      --indigo:     #3a4868;
+      --plum:       #6a3a50;
+      --shadow:     #c4b48e;
+      --faded:      #7d6041;
+      --border:     #d4c8ae;
+      --text:       #2c2416;
+      --text-light: #5a4e38;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, #1e2e18 0%, #2c4020 100%);
+      color: #fff;
+      padding: 48px 40px 36px;
+    }
+    .hero-module-label {
+      font-family: 'Crimson Pro', serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8c898;
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .hero-subtitle {
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      color: #c8ddb8;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════
+       STAGE STRIP
+    ══════════════════════════════════════ */
+    .stage-strip {
+      background: #243418;
+      display: flex;
+      border-bottom: 3px solid var(--moss);
+    }
+    .stage-item {
+      flex: 1;
+      padding: 12px 10px;
+      text-align: center;
+      font-family: 'Crimson Pro', serif;
+      font-size: 13px;
+      color: #88a878;
+      letter-spacing: 0.05em;
+      border-right: 1px solid #3a5028;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .stage-item:last-child { border-right: none; }
+    .stage-item.active {
+      background: var(--moss);
+      color: #fff;
+    }
+    .stage-num  { font-size: 10px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.1em; }
+    .stage-name { font-size: 13px; font-weight: 600; }
+
+    /* ══════════════════════════════════════
+       MAIN LAYOUT
+    ══════════════════════════════════════ */
+    main { max-width: 960px; margin: 0 auto; padding: 48px 40px 64px; }
+
+    .section { margin-bottom: 52px; }
+
+    .section-label {
+      font-family: 'Crimson Pro', serif;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faded);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--moss-dark);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .prose {
+      font-family: 'Crimson Pro', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+    .divider-ornament {
+      text-align: center;
+      color: var(--shadow);
+      font-size: 14px;
+      margin: -10px 0 40px;
+      letter-spacing: 0.3em;
+    }
+
+    /* ══════════════════════════════════════
+       INTRO OVERVIEW CARDS
+    ══════════════════════════════════════ */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .overview-card {
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .overview-card.editing-card {
+      background: var(--moss-light);
+      border: 2px solid var(--moss);
+    }
+    .overview-card.proof-card {
+      background: #e8eef4;
+      border: 2px solid var(--indigo);
+    }
+    .overview-card-head {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .overview-card.editing-card .overview-card-head { color: var(--moss-dark); }
+    .overview-card.proof-card   .overview-card-head { color: #1a2030; }
+    .overview-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .overview-card.editing-card p { color: #1e3018; }
+    .overview-card.proof-card   p { color: #1a2030; }
+
+    /* ══════════════════════════════════════
+       CHECKLIST CARDS
+    ══════════════════════════════════════ */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .checklist-card {
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .checklist-card.sentence {
+      background: var(--moss-light);
+      border: 2px solid var(--moss);
+    }
+    .checklist-card.source {
+      background: #fdf4e8;
+      border: 2px solid var(--umber);
+    }
+    .checklist-card-head {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .checklist-card.sentence .checklist-card-head { color: var(--moss-dark); }
+    .checklist-card.source   .checklist-card-head { color: #4a2010; }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 5px 0 5px 22px;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-size: 12px;
+      top: 7px;
+    }
+    .checklist-card.sentence .checklist li { color: #1e3018; }
+    .checklist-card.sentence .checklist li::before { color: var(--moss); }
+    .checklist-card.source   .checklist li { color: #3a1a08; }
+    .checklist-card.source   .checklist li::before { color: var(--umber); }
+
+    /* ══════════════════════════════════════
+       SIGNAL PHRASE BANK
+    ══════════════════════════════════════ */
+    .signal-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 28px;
+    }
+    .signal-head {
+      background: linear-gradient(90deg, #1e3018, #2c4020);
+      padding: 12px 24px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px;
+      color: #c8ddb8;
+      letter-spacing: 0.06em;
+    }
+    .signal-body {
+      padding: 20px 24px;
+    }
+    .signal-intro {
+      font-family: 'Crimson Pro', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .signal-col {
+      background: var(--vellum);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 14px 16px;
+    }
+    .signal-col-head {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--faded);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .signal-list {
+      list-style: none;
+      padding: 0;
+    }
+    .signal-list li {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════
+       MLA CITATION AUDIT (3 STEPS)
+    ══════════════════════════════════════ */
+    .audit-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .audit-head {
+      background: linear-gradient(90deg, #1e2840, #2c3858);
+      padding: 12px 24px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px;
+      color: #b8c8e0;
+      letter-spacing: 0.06em;
+    }
+    .audit-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 24px;
+      border-bottom: 1px solid #eee;
+    }
+    .audit-step:last-of-type { border-bottom: none; }
+    .audit-step:nth-child(even) { background: #fafaf8; }
+    .audit-badge {
+      width: 52px;
+      padding: 5px 8px;
+      border-radius: 20px;
+      text-align: center;
+      font-family: 'Crimson Pro', serif;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .audit-badge.s1 { background: #b8d0c8; color: #1a3028; }
+    .audit-badge.s2 { background: #6a9478; color: #fff; }
+    .audit-badge.s3 { background: #1a2840; color: #fff; }
+    .audit-step-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 6px;
+    }
+    .audit-step-body {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* ══════════════════════════════════════
+       POETRY-SPECIFIC CALLOUT
+    ══════════════════════════════════════ */
+    .callout {
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-family: 'Crimson Pro', serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .callout-label {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .callout.indigo {
+      background: #e4e8f4;
+      border-left: 4px solid var(--indigo);
+      color: #1a2030;
+    }
+    .callout.indigo .callout-label { color: var(--indigo); }
+    .callout.umber {
+      background: #f8eede;
+      border-left: 4px solid var(--umber);
+      color: #3a1e0a;
+    }
+    .callout.umber .callout-label { color: var(--umber); }
+    .callout.moss {
+      background: var(--moss-light);
+      border-left: 4px solid var(--moss);
+      color: #1e3018;
+    }
+    .callout.moss .callout-label { color: var(--moss); }
+
+    .callout ul {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+    .callout ul li {
+      margin-bottom: 6px;
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       GRAMMAR RESOURCES
+    ══════════════════════════════════════ */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .resources-grid.two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .resource-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .resource-card-head {
+      background: linear-gradient(135deg, #b8d0b8, #a8c0a0);
+      padding: 12px 14px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a3018;
+      line-height: 1.4;
+    }
+    .resource-card-foot {
+      padding: 10px 14px;
+      text-align: center;
+    }
+    .resource-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #b8d0b8, #a8c0a0);
+      color: #1a3018;
+      font-family: 'Crimson Pro', serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .resource-link:hover { opacity: 0.85; }
+
+    /* ══════════════════════════════════════
+       PRESENT TENSE REMINDER (INLINE TABLE)
+    ══════════════════════════════════════ */
+    .tense-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+    }
+    .tense-table th {
+      background: #dde8d8;
+      color: var(--moss-dark);
+      font-weight: 700;
+      padding: 8px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .tense-table td {
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .tense-table tr:nth-child(even) td { background: var(--vellum); }
+    .tense-table .wrong { color: #8a2020; }
+    .tense-table .right { color: #1e4a1e; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-module-label">Module Seven · The Writing Process</div>
+  <h1 class="hero-title">Editing &amp; Proofreading</h1>
+  <p class="hero-subtitle">Two distinct passes — style first, mechanics second</p>
+</header>
+
+<!-- ══════════════════════════════════════
+     STAGE STRIP
+══════════════════════════════════════ -->
+<nav class="stage-strip" aria-label="Writing Process Stages">
+  <div class="stage-item">
+    <span class="stage-num">Stage 1</span>
+    <span class="stage-name">Prewriting</span>
+  </div>
+  <div class="stage-item">
+    <span class="stage-num">Stage 2</span>
+    <span class="stage-name">Planning</span>
+  </div>
+  <div class="stage-item">
+    <span class="stage-num">Stage 3</span>
+    <span class="stage-name">Drafting &amp; Revising</span>
+  </div>
+  <div class="stage-item active">
+    <span class="stage-num">Stage 4</span>
+    <span class="stage-name">Editing &amp; Proofreading</span>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       INTRO: EDITING VS. PROOFREADING
+  ══════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Stage Four</p>
+    <h2 class="section-title">Two Different Tasks, Done in Order</h2>
+    <p class="prose">Editing and proofreading are the final stage of the writing process, and the ones most directly connected to the <strong>Sentence Structure</strong>, <strong>Grammar/Punctuation/Mechanics</strong>, and <strong>Vocabulary</strong> criteria on the grading rubric. Though they are often treated as one thing, they are genuinely different tasks that work best when done separately and in order: editing first, proofreading second. For a research essay, each stage has an additional layer — checking how your sources are being used and whether they are documented correctly.</p>
+
+    <div class="overview-grid">
+      <div class="overview-card editing-card">
+        <div class="overview-card-head">✏️ Editing: Style &amp; Clarity</div>
+        <p>Improving <em>how</em> your sentences are written. Are they clear? Concise? Well-constructed? For research essays, editing also means assessing whether each source is working the way it should and whether your own analytical voice is still leading the argument.</p>
+      </div>
+      <div class="overview-card proof-card">
+        <div class="overview-card-head">🔍 Proofreading: Errors &amp; Mechanics</div>
+        <p>Catching mechanical mistakes: grammar, spelling, punctuation, capitalization, and MLA formatting. For research essays, this includes verifying that every in-text citation is accurate and that every source cited in the essay has a properly formatted Works Cited entry.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════
+       EDITING SECTION
+  ══════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Stage Four · Part One</p>
+    <h2 class="section-title">Editing Your Essay</h2>
+    <p class="prose">Editing a research essay works at two levels simultaneously: the <strong>sentence level</strong> — are my sentences clear, precise, and varied? — and the <strong>source level</strong> — are my sources integrated effectively and appropriately? Work through both passes before moving on to proofreading.</p>
+
+    <div class="checklist-grid">
+      <div class="checklist-card sentence">
+        <div class="checklist-card-head">Sentence-Level Editing</div>
+        <ul class="checklist">
+          <li>Is every sentence clear and direct — no unnecessary words?</li>
+          <li>Are you using the specific vocabulary of literary analysis? (<em>imagery</em>, <em>connotation</em>, <em>figurative language</em>, etc.)</li>
+          <li>Are sentences varied in structure, or does every one begin the same way?</li>
+          <li>Is each body paragraph's topic sentence specific enough to tell the reader exactly what the paragraph argues?</li>
+          <li>Do transitions clearly signal the relationship between ideas — within paragraphs and between them?</li>
+          <li>Is every poem and poet discussed in the <strong>present tense</strong>? (Plath "uses" — not "used")</li>
+        </ul>
+      </div>
+      <div class="checklist-card source">
+        <div class="checklist-card-head">Source-Level Editing</div>
+        <ul class="checklist">
+          <li>Is each source — poem quote or secondary source — introduced with a signal phrase naming the author?</li>
+          <li>Does your own analysis follow every quote? Both poem quotes and secondary source passages need to be analyzed, not just dropped in.</li>
+          <li>Are you quoting too heavily? Your analytical voice should lead the argument; sources support it — not the other way around.</li>
+          <li>Are any secondary source quotes too long? For an essay of this length, keep direct quotes to three typed lines or fewer.</li>
+          <li>Does each source actually support the analytical point of its paragraph, or is it loosely related?</li>
+          <li>Did you meet the Module Seven requirements: one <strong>direct quote</strong>, one <strong>paraphrase</strong>, and one <strong>summary</strong> from three separate sources?</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Present Tense Callout -->
+    <div class="callout moss" style="margin-top: 28px;">
+      <div class="callout-label">Literary Present Tense — Poetry Essays</div>
+      <p>When analyzing a poem, always use the <strong>present tense</strong>. The poem exists on the page right now; its speaker speaks, its images appear, its metaphors work — in the present tense, not the past. This convention applies to both the poem itself and to what critics and scholars argue.</p>
+      <table class="tense-table" style="margin-top: 14px;">
+        <thead>
+          <tr>
+            <th>Incorrect</th>
+            <th>Correct</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="wrong">Plath <em>compared</em> the baby to a watch.</td>
+            <td class="right">Plath <em>compares</em> the baby to a watch.</td>
+          </tr>
+          <tr>
+            <td class="wrong">The speaker <em>denied</em> any connection to her child.</td>
+            <td class="right">The speaker <em>denies</em> any connection to her child.</td>
+          </tr>
+          <tr>
+            <td class="wrong">Anderson <em>argued</em> that the simile strips the image of warmth.</td>
+            <td class="right">Anderson <em>argues</em> that the simile strips the image of warmth.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Signal Phrase Bank -->
+    <div class="signal-wrap">
+      <div class="signal-head">💬 Vary Your Signal Phrases</div>
+      <div class="signal-body">
+        <p class="signal-intro">A signal phrase introduces a quote, paraphrase, or summary by naming the author and characterizing what they do. Relying on "According to [author]…" for every source is repetitive and weakens your analytical voice. Use the options below — all in the <strong>present tense</strong> — to vary your introductions and characterize each source's stance accurately.</p>
+        <div class="signal-grid">
+          <div class="signal-col">
+            <div class="signal-col-head">Neutral / Descriptive</div>
+            <ul class="signal-list">
+              <li>notes</li>
+              <li>explains</li>
+              <li>observes</li>
+              <li>writes</li>
+              <li>points out</li>
+              <li>describes</li>
+              <li>traces</li>
+            </ul>
+          </div>
+          <div class="signal-col">
+            <div class="signal-col-head">Analytical / Argumentative</div>
+            <ul class="signal-list">
+              <li>argues</li>
+              <li>contends</li>
+              <li>asserts</li>
+              <li>claims</li>
+              <li>maintains</li>
+              <li>insists</li>
+              <li>proposes</li>
+            </ul>
+          </div>
+          <div class="signal-col">
+            <div class="signal-col-head">Interpretive</div>
+            <ul class="signal-list">
+              <li>suggests</li>
+              <li>implies</li>
+              <li>demonstrates</li>
+              <li>examines</li>
+              <li>concludes</li>
+              <li>illuminates</li>
+              <li>reveals</li>
+            </ul>
+          </div>
+          <div class="signal-col">
+            <div class="signal-col-head">Contrasting / Qualifying</div>
+            <ul class="signal-list">
+              <li>acknowledges</li>
+              <li>concedes</li>
+              <li>qualifies</li>
+              <li>complicates</li>
+              <li>challenges</li>
+              <li>nuances</li>
+              <li>reconsiders</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════
+       PROOFREADING SECTION
+  ══════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Stage Four · Part Two</p>
+    <h2 class="section-title">Proofreading Your Essay</h2>
+    <p class="prose">Proofreading catches the errors editing leaves behind: grammar, spelling, punctuation, capitalization, and MLA formatting. For a research essay, verifying the MLA documentation is substantial enough to be its own dedicated pass — a citation audit — completed before you check grammar and mechanics. Work through the steps below in order.</p>
+
+    <!-- MLA Citation Audit -->
+    <div class="audit-wrap">
+      <div class="audit-head">📋 The Three-Step Citation Audit</div>
+
+      <div class="audit-step">
+        <div class="audit-badge s1">Step 1</div>
+        <div>
+          <div class="audit-step-title">Match every in-text citation to a Works Cited entry</div>
+          <p class="audit-step-body">Find every in-text citation in your essay — whether the author appears in the signal phrase or in a parenthetical — and confirm that the same author has an entry on your Works Cited page. The rule works in both directions: if a source is cited in the essay, it must have a Works Cited entry; if a source has a Works Cited entry, it must appear at least once in the essay. Your Works Cited should have exactly four entries: the poem and your three secondary sources.</p>
+        </div>
+      </div>
+
+      <div class="audit-step">
+        <div class="audit-badge s2">Step 2</div>
+        <div>
+          <div class="audit-step-title">Verify that paraphrases and summaries are attributed</div>
+          <p class="audit-step-body">Students reliably cite direct quotes but sometimes forget that <strong>paraphrases</strong> (a source's idea restated in your own words) and <strong>summaries</strong> (an overview of a source's overall argument) also require attribution. Read through your essay for any sentences clearly based on a source's ideas that don't identify the author either in the signal phrase or in a parenthetical citation, and correct them. Uncited paraphrases and summaries constitute plagiarism.</p>
+        </div>
+      </div>
+
+      <div class="audit-step">
+        <div class="audit-badge s3">Step 3</div>
+        <div>
+          <div class="audit-step-title">Review the Works Cited page formatting</div>
+          <p class="audit-step-body">Confirm the Works Cited page is correctly formatted: <strong>alphabetical order</strong> by author's last name; <strong>double-spaced</strong> throughout with no extra space between entries; <strong>hanging indent</strong> on each entry (first line flush left, all subsequent lines indented ½"); the words <em>Works Cited</em> centered at the top in regular — not bold — font; and all URLs in plain black text with no color or underline.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poetry-specific citation callout -->
+    <div class="callout indigo" style="margin-top: 28px;">
+      <div class="callout-label">Poetry-Specific MLA Format Checks</div>
+      <p>In addition to the standard citation audit, check the following rules specific to poetry essays before you submit:</p>
+      <ul>
+        <li><strong>Line numbers, not page numbers.</strong> Parenthetical citations for the poem cite line numbers: (lines 1–4) on first use, (5–8) on all subsequent uses.</li>
+        <li><strong>Slash notation for short quotes.</strong> When a poem quotation of three or fewer lines is run into your prose, forward slashes with a space on each side mark the line breaks: "Love set you going like a fat gold watch. / The midwife slapped your footsoles" (lines 1–2).</li>
+        <li><strong>Block quotes for four or more lines.</strong> If you quote four or more consecutive lines, use a block quote: start a new line, indent the passage one inch from the left margin, and omit quotation marks. No block quotes were required for this essay since all poem quotes were kept to three lines or fewer.</li>
+        <li><strong>Poem title in quotation marks.</strong> Poem titles always go in quotation marks — not italics — both in the essay text and on the Works Cited page.</li>
+        <li><strong>No parenthetical for HTML sources with author in signal phrase.</strong> When a secondary source has no page numbers (HTML format) and you have named the author in your signal phrase, there is no parenthetical citation at all. The absence of a citation is not an error; it is the correct format.</li>
+      </ul>
+    </div>
+
+    <!-- Grammar checklist callout -->
+    <div class="callout umber">
+      <div class="callout-label">Grammar &amp; Mechanics Checklist</div>
+      <p>After completing the citation audit, do one final read for sentence-level errors. The three most serious errors in academic writing are:</p>
+      <ul>
+        <li><strong>Sentence fragments</strong> — incomplete sentences that lack a subject, a verb, or both.</li>
+        <li><strong>Comma splices</strong> — two complete sentences joined only with a comma, with no coordinating conjunction.</li>
+        <li><strong>Run-on sentences</strong> — two or more complete sentences run together without adequate punctuation or a conjunction.</li>
+      </ul>
+      <p style="margin-top: 10px;">Check also for consistent use of literary present tense throughout, proper capitalization of authors' names and poem titles, and correct spelling of poets' names (Komunyakaa, Neruda, Espada — these are easy to misspell).</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════
+       GRAMMAR RESOURCES
+  ══════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Stage Four · Resources</p>
+    <h2 class="section-title">Grammar &amp; Sentence Structure Handouts</h2>
+    <p class="prose">Use the handouts below to review the sentence-level rules most relevant to academic writing. Open whichever is most useful as you edit and proofread. Each handout covers one area; use them alongside your own draft.</p>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-card-head">Common Grammar &amp; Punctuation Errors</div>
+        <div class="resource-card-foot">
+          <a class="resource-link" href="https://online.valenciacollege.edu/courses/257240/pages/most-common-errors-quick-overview" target="_blank">Open ↗</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">Improving Your Sentence Structure: Coordination</div>
+        <div class="resource-card-foot">
+          <a class="resource-link" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-coordination" target="_blank">Open ↗</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">Improving Your Sentence Structure: Subordination</div>
+        <div class="resource-card-foot">
+          <a class="resource-link" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-subordination" target="_blank">Open ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-grid two-col" style="margin-top: 12px;">
+      <div class="resource-card">
+        <div class="resource-card-head">Improving Your Sentence Structure: Combining Coordination &amp; Subordination</div>
+        <div class="resource-card-foot">
+          <a class="resource-link" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-combining-coordination-and-subordination" target="_blank">Open ↗</a>
+        </div>
+      </div>
+      <div class="resource-card">
+        <div class="resource-card-head">Advanced Grammar Tools</div>
+        <div class="resource-card-foot">
+          <a class="resource-link" href="https://online.valenciacollege.edu/courses/257240/pages/improving-your-sentence-structure-advanced-tools" target="_blank">Open ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

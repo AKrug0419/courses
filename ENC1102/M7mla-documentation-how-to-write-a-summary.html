@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLA Documentation: How to Write a Summary | ENC 1102 — Module Seven</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════
+     TOKENS — Naturalist's Field Journal
+  ══════════════════════════════════════════ */
+  :root {
+    --paper:         #f4ede0;
+    --vellum:        #ede3cf;
+    --aged:          #e4d8be;
+    --worn:          #d8c9a8;
+    --shadow:        #c4b48e;
+    --ink:           #1e160a;
+    --ink-warm:      #2c1f0e;
+    --ink-mid:       #4a3520;
+    --quill:         #6b4e2e;
+    --faded:         #7d6041;
+    --dust:          #7f6748;
+    --moss:          #4a6040;
+    --moss-mid:      #5e7852;
+    --moss-light:    #7a9468;
+    --moss-pale:     #c8d8bc;
+    --moss-wash:     rgba(90,120,72,0.08);
+    --moss-mid-aa:   #5a734e;
+    --umber:         #7a4e28;
+    --umber-mid:     #9a6438;
+    --umber-light:   #b87848;
+    --umber-pale:    #dfc8a8;
+    --umber-dark:    #5a3818;
+    --umber-wash:    rgba(122,78,40,0.09);
+    --umber-wash-md: rgba(122,78,40,0.14);
+    --indigo:        #3a4868;
+    --indigo-mid:    #4e608a;
+    --indigo-pale:   #c0cce0;
+    --indigo-wash:   rgba(58,72,104,0.08);
+    --plum:          #6a3a50;
+    --plum-mid:      #8a4e6a;
+    --plum-pale:     #d4b8c8;
+    --plum-wash:     rgba(106,58,80,0.10);
+    --rule:          rgba(74,53,32,0.18);
+    --rule-light:    rgba(74,53,32,0.10);
+    --border:        rgba(74,53,32,0.18);
+
+    /* summary-type accent colors */
+    --sum-direct:    #4a6040;   /* moss — direct quote */
+    --sum-para:      #3a4868;   /* indigo — paraphrase */
+    --sum-sum:       #7a4e28;   /* umber — summary */
+    --sum-direct-wash: rgba(74,96,64,0.09);
+    --sum-para-wash:   rgba(58,72,104,0.09);
+    --sum-sum-wash:    rgba(122,78,40,0.09);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #2c1a0a 0%, #4a2e10 45%, #3a2818 100%);
+    padding: 0; overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.012) 28px, rgba(255,255,255,0.012) 29px);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    position: absolute; top: -20px; right: -20px;
+    width: 300px; height: 300px;
+    opacity: 0.07; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 960px; margin: 0 auto;
+    padding: 52px 48px 48px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .hero-module-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--umber-pale); opacity: 0.8;
+  }
+  .hero-module-tag::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--umber-pale); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 4.5vw, 42px);
+    font-weight: 700; color: var(--paper);
+    line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--umber-pale); }
+  .hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; font-weight: 400; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5;
+    max-width: 560px; opacity: 0.85;
+  }
+  .hero-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--umber-light), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 960px; margin: 0 auto;
+    padding: 52px 48px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--umber-mid); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+    max-width: 120px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700;
+    color: var(--ink-warm); line-height: 1.2; margin-bottom: 18px;
+  }
+  .section-title em { font-style: italic; color: var(--umber); }
+  .prose {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; line-height: 1.8;
+    color: var(--ink-mid); max-width: 720px;
+  }
+  .prose + .prose { margin-top: 14px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .prose em { font-style: italic; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+  .divider-ornament { text-align: center; margin: -10px 0 0; }
+  .divider-ornament::before, .divider-ornament::after {
+    content: ''; display: inline-block;
+    width: 48px; height: 1px; background: var(--rule);
+    vertical-align: middle; margin: 0 12px;
+  }
+  .divider-ornament span {
+    font-family: 'Crimson Pro', serif; font-size: 18px;
+    color: var(--dust); vertical-align: middle;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid var(--umber-mid);
+    background: var(--umber-wash);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 22px; margin: 20px 0;
+  }
+  .callout-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--umber); margin-bottom: 6px;
+  }
+  .callout p {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.7; margin: 0;
+  }
+  .callout p + p { margin-top: 8px; }
+  .callout p strong { color: var(--ink); }
+  .callout.moss { border-color: var(--moss-mid); background: var(--moss-wash); }
+  .callout.moss .callout-label { color: var(--moss); }
+  .callout.indigo { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .callout.indigo .callout-label { color: var(--indigo); }
+
+  /* ══════════════════════════════════
+     THREE-TYPE COMPARISON TABLE
+  ══════════════════════════════════ */
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    margin: 28px 0;
+  }
+  .type-col { display: flex; flex-direction: column; }
+  .type-col:not(:last-child) { border-right: 1px solid var(--border); }
+
+  .type-head {
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .type-head.direct  { background: var(--sum-direct); }
+  .type-head.para    { background: var(--sum-para); }
+  .type-head.summary { background: var(--sum-sum); }
+  .type-head-label {
+    font-family: 'Lora', serif; font-size: 14px; font-weight: 700;
+    color: white; letter-spacing: 0.03em;
+  }
+  .type-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: white; flex-shrink: 0;
+  }
+  .type-body {
+    background: var(--paper);
+    border-top: 1px solid var(--border);
+    padding: 18px 20px;
+    flex: 1;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .type-def {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    color: var(--ink-mid); line-height: 1.7;
+    border-left: 3px solid var(--border);
+    padding-left: 12px;
+  }
+  .type-def strong { color: var(--ink); }
+
+  .type-when-head {
+    font-family: 'Lora', serif; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--faded); margin-bottom: 2px;
+  }
+  .type-when-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .type-when-list li {
+    font-family: 'Crimson Pro', serif; font-size: 14.5px;
+    color: var(--ink-mid); line-height: 1.6;
+    padding-left: 16px; position: relative;
+  }
+  .type-when-list li::before {
+    content: '◆';
+    position: absolute; left: 0; top: 4px;
+    font-size: 6px; color: var(--shadow);
+  }
+
+  /* ══════════════════════════════════
+     STEP CARDS
+  ══════════════════════════════════ */
+  .step-grid {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-top: 10px;
+  }
+  .step-card {
+    display: flex; gap: 20px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--umber);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 700;
+    color: white; flex-shrink: 0;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-family: 'Lora', serif; font-size: 15px; font-weight: 700;
+    color: var(--ink-warm); margin-bottom: 6px;
+  }
+  .step-body {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.7;
+  }
+  .step-body strong { color: var(--ink); }
+  .step-tip {
+    margin-top: 10px;
+    background: var(--umber-wash);
+    border: 1px solid var(--umber-pale);
+    border-radius: 6px; padding: 10px 14px;
+    font-family: 'Crimson Pro', serif; font-size: 14.5px;
+    color: var(--umber-dark); line-height: 1.6;
+  }
+  .step-tip strong { font-weight: 600; }
+
+  /* ══════════════════════════════════
+     CITATION PATTERN BLOCKS
+  ══════════════════════════════════ */
+  .cite-section-head {
+    background: var(--ink-warm); color: var(--paper);
+    padding: 14px 20px; border-radius: 8px 8px 0 0;
+    font-family: 'Lora', serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .cite-section-head .src-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em;
+    text-transform: uppercase; padding: 2px 9px; border-radius: 3px;
+    background: rgba(255,255,255,0.12); color: var(--umber-pale);
+  }
+  .cite-section-body {
+    border: 1px solid var(--border); border-top: none;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 28px;
+  }
+
+  .cite-pattern-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .cite-pattern {
+    padding: 18px 22px;
+    border-top: 1px solid var(--border);
+  }
+  .cite-pattern:nth-child(even) {
+    border-left: 1px solid var(--border);
+  }
+  .cite-pattern-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .cite-pattern-label.correct { color: var(--moss); }
+  .cite-pattern-label.error   { color: var(--plum); }
+  .cite-pattern-format {
+    background: var(--vellum);
+    border: 1px solid var(--border);
+    border-radius: 5px; padding: 8px 14px; margin-bottom: 10px;
+    font-family: 'Lora', serif; font-size: 12.5px;
+    color: var(--ink-warm); line-height: 1.6;
+  }
+  .cite-pattern-example {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    font-style: italic; color: var(--ink-mid); line-height: 1.65;
+  }
+  .cite-pattern-note {
+    font-family: 'Crimson Pro', serif; font-size: 13.5px;
+    color: var(--faded); line-height: 1.5;
+    margin-top: 8px;
+  }
+  .cite-pattern-note strong { color: var(--ink-mid); }
+
+  .cite-rule-strip {
+    background: var(--vellum);
+    border-top: 1px solid var(--border);
+    padding: 12px 22px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    color: var(--ink-mid);
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .cite-rule-strip::before { content: '⚑'; color: var(--umber); flex-shrink: 0; }
+
+  /* ══════════════════════════════════
+     TRANSFORM (SOURCE → SUMMARY) BLOCKS
+  ══════════════════════════════════ */
+  .transform-block {
+    border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    margin: 28px 0;
+  }
+  .transform-meta {
+    background: var(--vellum);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .transform-meta-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--faded);
+  }
+  .transform-meta-badge {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 3px;
+  }
+  .transform-meta-badge.pdf  { background: var(--moss-wash); color: var(--moss); border: 1px solid var(--moss-pale); }
+  .transform-meta-badge.html { background: var(--indigo-wash); color: var(--indigo); border: 1px solid var(--indigo-pale); }
+  .transform-meta-badge.noauthor { background: var(--plum-wash); color: var(--plum); border: 1px solid var(--plum-pale); }
+
+  .transform-body { display: grid; grid-template-columns: 1fr 48px 1fr; }
+
+  .transform-side { padding: 22px 24px; }
+  .transform-side.original { background: var(--paper); border-right: 1px solid var(--border); }
+  .transform-side.result   { background: var(--umber-wash); }
+
+  .transform-side-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .transform-side.original .transform-side-label { color: var(--faded); }
+  .transform-side.result   .transform-side-label { color: var(--umber); }
+
+  .transform-passage {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    color: var(--ink-mid); line-height: 1.7;
+    font-style: italic;
+  }
+  .transform-passage cite {
+    display: block; margin-top: 10px;
+    font-style: normal; font-size: 13px;
+    color: var(--faded);
+  }
+
+  .transform-summary {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    color: var(--ink); line-height: 1.7;
+    font-style: italic;
+  }
+  .transform-summary .highlight {
+    background: rgba(122,78,40,0.12);
+    border-radius: 2px; padding: 0 2px;
+    font-style: normal;
+  }
+
+  .transform-arrow {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--vellum);
+    border-right: 1px solid var(--border);
+    font-size: 20px; color: var(--umber-mid);
+  }
+
+  .transform-footer {
+    background: var(--vellum);
+    border-top: 1px solid var(--border);
+    padding: 12px 20px;
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--ink-mid); line-height: 1.6;
+  }
+  .transform-footer strong { color: var(--umber-dark); }
+
+  /* ══════════════════════════════════
+     ERROR COMPARISON BLOCKS
+  ══════════════════════════════════ */
+  .error-pair {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin: 20px 0;
+  }
+  .error-card {
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .error-card-head {
+    padding: 10px 16px;
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.10em; text-transform: uppercase;
+  }
+  .error-card-head.bad  { background: var(--plum-wash);  color: var(--plum); border-bottom: 1px solid var(--plum-pale); }
+  .error-card-head.good { background: var(--moss-wash);  color: var(--moss); border-bottom: 1px solid var(--moss-pale); }
+  .error-card-body {
+    padding: 16px 18px;
+    background: var(--paper);
+  }
+  .error-card-body p {
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    font-style: italic; color: var(--ink-mid);
+    line-height: 1.7; margin: 0;
+  }
+  .error-card-body .annotation {
+    margin-top: 10px; font-style: normal;
+    font-family: 'Crimson Pro', serif; font-size: 13.5px;
+    color: var(--faded); line-height: 1.6;
+  }
+  .error-card-body .annotation strong { color: var(--ink-mid); }
+
+  /* ══════════════════════════════════
+     QUIZ BLOCKS (formative checks)
+  ══════════════════════════════════ */
+  .quiz-block {
+    background: var(--vellum);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--umber);
+    border-radius: 0 0 10px 10px;
+    padding: 22px 28px;
+    margin: 40px 0;
+  }
+  .quiz-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--umber-mid); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .quiz-label::before {
+    content: ''; display: inline-block;
+    width: 20px; height: 2px; background: var(--umber-pale);
+  }
+  .quiz-q {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 600;
+    color: var(--ink-warm); line-height: 1.4; margin-bottom: 14px;
+  }
+  .quiz-scenario {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--umber-pale);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px; margin: 14px 0;
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    font-style: italic; color: var(--ink-mid); line-height: 1.7;
+  }
+  .quiz-reveal-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--umber);
+    color: white;
+    border: none; border-radius: 6px;
+    padding: 9px 20px; cursor: pointer;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.15s ease;
+  }
+  .quiz-reveal-btn:hover { background: var(--umber-dark); }
+  .quiz-reveal-btn::before { content: '▶'; font-size: 9px; }
+  .quiz-answer {
+    display: none;
+    margin-top: 16px;
+    background: var(--paper);
+    border: 1px solid var(--umber-pale);
+    border-radius: 8px; padding: 18px 22px;
+  }
+  .quiz-answer-label {
+    font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--umber); margin-bottom: 8px;
+  }
+  .quiz-answer p {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.75; margin: 0;
+  }
+  .quiz-answer p + p { margin-top: 10px; }
+  .quiz-answer p strong { color: var(--ink); }
+  .quiz-answer .example {
+    margin-top: 12px;
+    background: var(--umber-wash);
+    border-radius: 6px; padding: 12px 16px;
+    font-family: 'Crimson Pro', serif; font-size: 15.5px;
+    font-style: italic; color: var(--ink); line-height: 1.7;
+  }
+
+  @media (max-width: 720px) {
+    .hero-inner { padding: 36px 24px; }
+    .page-body  { padding: 36px 24px 60px; }
+    .type-grid  { grid-template-columns: 1fr; }
+    .cite-pattern-grid { grid-template-columns: 1fr; }
+    .transform-body { grid-template-columns: 1fr; }
+    .transform-arrow { display: none; }
+    .transform-side.original { border-right: none; border-bottom: 1px solid var(--border); }
+    .error-pair { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <!-- Quill ornament -->
+  <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="120" cy="60" rx="60" ry="28" stroke="#dfc8a8" stroke-width="0.7" fill="none" opacity="0.6" transform="rotate(-35 120 60)"/>
+    <ellipse cx="120" cy="60" rx="45" ry="18" stroke="#dfc8a8" stroke-width="0.5" fill="none" opacity="0.4" transform="rotate(-35 120 60)"/>
+    <line x1="120" y1="60" x2="40" y2="160" stroke="#dfc8a8" stroke-width="0.8" opacity="0.5"/>
+    <line x1="40" y1="160" x2="36" y2="168" stroke="#dfc8a8" stroke-width="1.5" opacity="0.7" stroke-linecap="round"/>
+    <path d="M85 110 C90 100 100 95 108 98" stroke="#dfc8a8" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <path d="M72 125 C78 115 88 110 96 112" stroke="#dfc8a8" stroke-width="0.5" fill="none" opacity="0.4"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-module-tag">MLA Documentation · Module Seven</span>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">How to Write<br><em>a Summary</em></h1>
+    <p class="hero-subtitle">Condensing a scholar's argument into your own words — and how to cite it correctly in MLA format.</p>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE BODY
+════════════════════════════════════════════════ -->
+<main class="page-body">
+
+  <!-- ══════════════════════════════════
+       SECTION 1: WHAT IS A SUMMARY?
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Section One</p>
+    <h2 class="section-title">What Is <em>a Summary</em>?</h2>
+
+    <p class="prose">A <strong>summary</strong> is a condensed restatement — in your own words — of the <em>main argument or overall point</em> of a source or a large section of one. Unlike a direct quote or a paraphrase, a summary does not focus on the specific language or details of a passage. Instead, it steps back and captures the big picture: what is this scholar's central claim?</p>
+    <p class="prose" style="margin-top: 14px;">Like a paraphrase, a summary must be written entirely in your own words and must still acknowledge the source through a signal phrase, a citation, or both. Summarizing someone else's argument without attribution is plagiarism — the idea remains theirs even when you compress it.</p>
+
+    <div class="callout" style="margin-top: 24px;">
+      <div class="callout-label">The Key Distinction</div>
+      <p>The most important thing to understand about summaries is how they differ from paraphrases. A <strong>paraphrase</strong> zooms in — it restates a specific passage in your own words, staying close to the original in scope and often in length. A <strong>summary</strong> zooms out — it compresses a larger argument, section, or article into a single sentence or two, focusing only on the main claim and leaving out the supporting details.</p>
+    </div>
+
+    <div class="type-grid" style="margin-top: 36px;">
+
+      <!-- DIRECT QUOTE -->
+      <div class="type-col">
+        <div class="type-head direct">
+          <div class="type-icon">❝</div>
+          <span class="type-head-label">Direct Quote</span>
+        </div>
+        <div class="type-body">
+          <p class="type-def">You reproduce the scholar's <strong>exact words</strong>, enclosed in quotation marks.</p>
+          <div>
+            <p class="type-when-head">Use when</p>
+            <ul class="type-when-list">
+              <li>The scholar's exact wording is striking, precise, or will be the subject of your own analysis</li>
+              <li>The phrasing is so specific that paraphrasing would distort it</li>
+              <li>You want to introduce a term the scholar coins</li>
+            </ul>
+          </div>
+          <div style="margin-top: 8px; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); font-style: italic; border-top: 1px solid var(--rule-light); padding-top: 10px;">Scope: a specific phrase or sentence</div>
+        </div>
+      </div>
+
+      <!-- PARAPHRASE -->
+      <div class="type-col">
+        <div class="type-head para">
+          <div class="type-icon">✎</div>
+          <span class="type-head-label">Paraphrase</span>
+        </div>
+        <div class="type-body">
+          <p class="type-def">You restate a <strong>specific passage</strong> completely in your own words, preserving the original's level of detail.</p>
+          <div>
+            <p class="type-when-head">Use when</p>
+            <ul class="type-when-list">
+              <li>The scholar's <em>idea</em> matters more than their specific wording</li>
+              <li>The original passage is complex and clearer in your own words</li>
+              <li>You want to vary your evidence style within a paragraph</li>
+            </ul>
+          </div>
+          <div style="margin-top: 8px; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); font-style: italic; border-top: 1px solid var(--rule-light); padding-top: 10px;">Scope: a specific sentence or passage — similar in length to the original</div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="type-col">
+        <div class="type-head summary">
+          <div class="type-icon">◈</div>
+          <span class="type-head-label">Summary</span>
+        </div>
+        <div class="type-body">
+          <p class="type-def">You condense a scholar's <strong>overall argument or main point</strong> into one or two sentences. Details are left out.</p>
+          <div>
+            <p class="type-when-head">Use when</p>
+            <ul class="type-when-list">
+              <li>You need to mention a scholar's general position without diving into specifics</li>
+              <li>A source's <em>conclusion</em> matters to your argument but its evidence does not</li>
+              <li>You want to gesture at a larger conversation in the field without stopping to quote it</li>
+            </ul>
+          </div>
+          <div style="margin-top: 8px; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); font-style: italic; border-top: 1px solid var(--rule-light); padding-top: 10px;">Scope: the whole article, a major section, or the scholar's main thesis — always <em>shorter</em> than the original</div>
+        </div>
+      </div>
+
+    </div><!-- /type-grid -->
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block">
+    <p class="quiz-label">Formative Check</p>
+    <p class="quiz-q">Which type of source use fits this situation?</p>
+    <div class="quiz-scenario">
+      A literary critic publishes a ten-page article arguing that Yusef Komunyakaa's use of the reflective surface in "Facing It" forces the speaker into an unstable position between grief and survival. You want to mention this argument in your body paragraph — not the critic's specific wording or detailed evidence, just the main claim — because it supports the point you're making about the poem's central tension.
+    </div>
+    <button class="quiz-reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+    <div class="quiz-answer">
+      <p class="quiz-answer-label">Answer</p>
+      <p><strong>Summary.</strong> You don't need the critic's exact words (which would require a direct quote), and you don't need to restate the details of a specific passage (which would require a paraphrase). You just need to convey the scholar's central claim — which is exactly what a summary does. A one-sentence summary lets you bring in the scholar's authority without slowing your paragraph down with detail it doesn't need.</p>
+      <div class="example">In her study of Komunyakaa's Vietnam poetry, Andrea Chen argues that the poem's reflective surface positions the speaker in a state of continuous oscillation between survival and mourning (45).</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════
+       SECTION 2: HOW TO WRITE A SUMMARY
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Section Two</p>
+    <h2 class="section-title">How to Write <em>a Summary</em></h2>
+    <p class="prose">A reliable summary does not happen by skimming the source and copying its topic sentences. The process requires you to understand the scholar's argument well enough to express it in your own language. Follow these five steps.</p>
+
+    <div class="step-grid" style="margin-top: 28px;">
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-title">Read the source all the way through</p>
+          <p class="step-body">Do not try to write a summary from an incomplete reading. Read the entire article — or the section you're summarizing — carefully before you write anything. Pay attention to the <strong>thesis statement</strong> (usually near the beginning), the topic sentence of each paragraph, and the <strong>conclusion</strong>, which often restates the main argument in a different form.</p>
+          <div class="step-tip"><strong>For your essay:</strong> Your two internet sources may be long. You don't have to memorize every detail — but you do need to understand what the scholar is ultimately arguing before you can represent it fairly.</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-title">Set the source aside and identify the main claim</p>
+          <p class="step-body">Close the article (or look away from it) and ask yourself: <strong>"In one sentence, what is this scholar's argument?"</strong> Forcing yourself to answer without looking at the text is the most reliable way to produce a genuine summary rather than a disguised paraphrase. If you can't answer the question, read the article again.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-title">Write your sentence — without looking at the original</p>
+          <p class="step-body">Draft your one- or two-sentence summary entirely in <strong>your own words</strong>. Do not look at the source while you write. The phrasing must be yours — not the scholar's words rearranged, not their sentence structure with synonyms substituted. Proper nouns (the author's name, the poem's title) may remain as-is.</p>
+          <div class="step-tip"><strong>Watch for patchwriting:</strong> If your summary sentence still sounds like the original — same structure, same key phrases — you have produced a paraphrase at best, and patchwriting at worst. Set the original aside and try again.</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <p class="step-title">Check your sentence against the original</p>
+          <p class="step-body">Now look back at the source. Ask two questions: <strong>(1) Is my summary accurate?</strong> Does it represent what the scholar actually argues, or have I distorted, oversimplified, or exaggerated their position? <strong>(2) Is my summary specific enough?</strong> A summary that says only "Smith discusses Brooks's poem" tells the reader nothing. A useful summary identifies the scholar's actual claim.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <p class="step-title">Add your signal phrase and citation</p>
+          <p class="step-body">Introduce your summary with a <strong>signal phrase</strong> that names the author (or provides context) and uses a present-tense signal verb. Then add the appropriate parenthetical citation based on your source type. See Section Three for the citation formats.</p>
+          <div class="step-tip"><strong>Signal verbs for summaries</strong> (use present tense): <em>argues, contends, maintains, claims, traces, examines, surveys, explores, demonstrates, proposes, suggests, reads, interprets, situates.</em></div>
+        </div>
+      </div>
+
+    </div><!-- /step-grid -->
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════
+       SECTION 3: CITATION RULES
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Section Three</p>
+    <h2 class="section-title">Citation Rules <em>for Summaries</em></h2>
+    <p class="prose" style="margin-bottom: 32px;">The citation format for a summary is identical to that for a direct quote or paraphrase — the scholar still receives credit through a signal phrase, a parenthetical citation, or both. The format depends on <strong>your source type</strong> (PDF with fixed page numbers vs. HTML without page numbers) and <strong>where the author's name appears</strong> in your sentence.</p>
+
+    <!-- PDF SOURCES -->
+    <div class="cite-section-head">
+      <span class="src-label">PDF Source</span>
+      Fixed Page Numbers
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;Pattern A — Author's Name in the Citation</p>
+          <div class="cite-pattern-format">Summary sentence (LastName PageNumber).</div>
+          <p class="cite-pattern-example">Critics have argued that the reflective surface of the Vietnam Veterans Memorial functions as Komunyakaa's central metaphor, staging a continuous collapse of the boundary between the living and the dead (Chen 45).</p>
+          <p class="cite-pattern-note">Author not named in signal → include <strong>last name + page number</strong> in the parenthetical. No comma between them.</p>
+        </div>
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;Pattern B — Author's Name in the Signal Phrase</p>
+          <div class="cite-pattern-format">Author argues that summary sentence (PageNumber).</div>
+          <p class="cite-pattern-example">In her study of Komunyakaa's Vietnam poetry, Andrea Chen argues that the memorial's reflective surface forces the speaker into an unstable position — simultaneously survivor and ghost — that defines the poem's psychological landscape (45).</p>
+          <p class="cite-pattern-note">Author named in signal → <strong>page number only</strong> in the parenthetical. Do not repeat the name.</p>
+        </div>
+      </div>
+      <div class="cite-rule-strip">
+        No comma between the author's name and the page number in MLA format: (Chen 45) not (Chen, 45).
+      </div>
+    </div>
+
+    <!-- HTML SOURCES -->
+    <div class="cite-section-head">
+      <span class="src-label">HTML / Internet Source</span>
+      No Fixed Page Numbers
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;Pattern C — Author's Name in the Citation</p>
+          <div class="cite-pattern-format">Summary sentence (LastName).</div>
+          <p class="cite-pattern-example">Some critics have read Sexton's identification with female outcasts in "Her Kind" as a move that goes beyond metaphor — the speaker does not merely compare herself to these figures but claims their identity as her own, giving the poem its confrontational intensity (Webb).</p>
+          <p class="cite-pattern-note">HTML source has no page numbers. Author not named in signal → <strong>last name only</strong> in the parenthetical. Do not invent a page number.</p>
+        </div>
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;Pattern D — Author's Name in the Signal Phrase</p>
+          <div class="cite-pattern-format">Author argues that summary sentence.</div>
+          <p class="cite-pattern-example">Critic Marcus Webb argues that what distinguishes Sexton's use of the witch and outcast archetypes in "Her Kind" is the speaker's act of identification — not encounter but belonging — which is what gives the poem its lasting challenge to the reader's sympathy.</p>
+          <p class="cite-pattern-note">HTML source + author named in signal → <strong>no parenthetical citation needed.</strong> The period goes after the last word of your sentence (or inside the closing quotation mark if you end with a quote). Do not add a redundant (Webb) at the end.</p>
+        </div>
+      </div>
+      <div class="cite-rule-strip">
+        When the author is in the signal phrase and the source has no page numbers, no parenthetical citation is required. The reader can find the source on your Works Cited page.
+      </div>
+    </div>
+
+    <!-- NO AUTHOR -->
+    <div class="cite-section-head">
+      <span class="src-label">No Identified Author</span>
+      Use Shortened Title
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;HTML — No Author</p>
+          <div class="cite-pattern-format">Summary sentence ("Shortened Title").</div>
+          <p class="cite-pattern-example">One recent analysis of Espada's poem notes that its most distinctive feature is its refusal to frame the September 11 victims as national symbols, insisting instead on honoring them as undocumented immigrant workers whose labor had been largely invisible ("Alabanza and the Politics").</p>
+          <p class="cite-pattern-note">No author identified → use the <strong>first two to three significant words of the title</strong> in quotation marks. HTML source: no page number.</p>
+        </div>
+        <div class="cite-pattern">
+          <p class="cite-pattern-label correct">✓ &nbsp;PDF — No Author</p>
+          <div class="cite-pattern-format">Summary sentence ("Shortened Title" PageNumber).</div>
+          <p class="cite-pattern-example">A survey of critical responses to Neruda's "Sonnet XVII" notes that the poem has consistently resisted allegorical readings because its imagery is so deliberately vague that it refuses to resolve into any single interpretation ("Neruda's Metaphors" 12).</p>
+          <p class="cite-pattern-note">No author + PDF source → title fragment in quotes + <strong>page number</strong>. Use the database's Citation Tool to confirm pagination.</p>
+        </div>
+      </div>
+      <div class="cite-rule-strip">
+        Sources without identified authors are less credible than named scholarship. When possible, choose sources with identifiable authors for your research essay.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block">
+    <p class="quiz-label">Formative Check</p>
+    <p class="quiz-q">Which citation format is correct for this situation?</p>
+    <div class="quiz-scenario">
+      You are summarizing an argument from a literary criticism website — an HTML source with no fixed page numbers — written by critic Sarah Donnelly. You have already named her in your signal phrase: "Critic Sarah Donnelly argues that Brooks's use of the second person in 'the mother'..." How does your sentence end, and do you include a parenthetical citation?
+    </div>
+    <button class="quiz-reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+    <div class="quiz-answer">
+      <p class="quiz-answer-label">Answer</p>
+      <p><strong>No parenthetical citation is needed.</strong> Because you've named the author in the signal phrase and the source is an HTML article with no page numbers, Pattern D applies: the sentence ends with a period (or with the period after the closing quotation mark, if you end with quoted language), and no parenthetical appears. Adding (Donnelly) at the end would be redundant — the reader already knows who you're citing.</p>
+      <div class="example">Critic Sarah Donnelly argues that Brooks's use of the second person address in "the mother" forces the reader into an uncomfortable position of being both witness and recipient of the speaker's grief.</div>
+      <p style="margin-top: 12px; font-size: 15px; color: var(--ink-mid);">Compare this to a situation where the author is <em>not</em> in the signal phrase, where (Donnelly) would appear at the end before the period.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════
+       SECTION 4: COMPLETE EXAMPLES
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Section Four</p>
+    <h2 class="section-title">Complete <em>Summary Examples</em></h2>
+    <p class="prose" style="margin-bottom: 8px;">Each example below shows a source passage followed by a correctly written summary. Notice how the summary captures the scholar's main argument in a single sentence — without reproducing their wording, following their sentence structure, or including their supporting details.</p>
+
+    <!-- EXAMPLE 1: PDF, author in signal phrase -->
+    <p style="margin: 32px 0 4px; font-family: 'Lora', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--umber);">Example 1 — PDF Source, Author in Signal Phrase</p>
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Source type:</span>
+        <span class="transform-meta-badge pdf">PDF · Fixed Pages</span>
+        <span class="transform-meta-label" style="margin-left: 8px;">Author location:</span>
+        <span class="transform-meta-badge pdf">Signal Phrase</span>
+      </div>
+      <div class="transform-body">
+        <div class="transform-side original">
+          <p class="transform-side-label">Original Passage</p>
+          <p class="transform-passage">"The Vietnam Veterans Memorial's black granite surface serves Komunyakaa not merely as a backdrop but as the poem's central figure: a mirror that refuses to distinguish between the living and the dead, between the soldier who survived and those whose names are carved permanently into stone. Komunyakaa exploits this ambiguity throughout 'Facing It,' using the reflective surface to stage a continuous oscillation between presence and absence, self and other, past and present. The speaker's face appears and disappears within the stone — at once a visitor to the memorial and, in moments of reflection, one of the dead — and this instability defines what it means to carry the weight of survival."<cite>— Andrea Chen, "The Reflective Self: Memory and the Monumental in Komunyakaa's Vietnam Poetry," MELUS, p. 45.</cite></p>
+        </div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-side result">
+          <p class="transform-side-label">Summary (Written by You)</p>
+          <p class="transform-summary">In her study of Komunyakaa's Vietnam poetry, <span class="highlight">Andrea Chen argues</span> that the memorial's reflective surface functions as the poem's central metaphor — a mirror that collapses the boundary between survivor and the dead, forcing the speaker to occupy both positions simultaneously <span class="highlight">(45)</span>.</p>
+        </div>
+      </div>
+      <div class="transform-footer">
+        <strong>What the summary does:</strong> Identifies the scholar, uses a present-tense signal verb ("argues"), and captures the central claim — the mirror as a metaphor for unstable identity — in one sentence, without reproducing Chen's phrasing or including the paragraph's supporting observations. Pattern B: author in signal phrase → page number only in citation.
+      </div>
+    </div>
+
+    <!-- EXAMPLE 2: HTML, author in citation -->
+    <p style="margin: 32px 0 4px; font-family: 'Lora', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--umber);">Example 2 — HTML Source, Author in Parenthetical Citation</p>
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Source type:</span>
+        <span class="transform-meta-badge html">HTML · No Page Numbers</span>
+        <span class="transform-meta-label" style="margin-left: 8px;">Author location:</span>
+        <span class="transform-meta-badge html">Parenthetical</span>
+      </div>
+      <div class="transform-body">
+        <div class="transform-side original">
+          <p class="transform-side-label">Original Passage</p>
+          <p class="transform-passage">"Sexton's 'Her Kind' is perhaps the most sustained articulation of what we might call the 'witch's poetics' in the confessional tradition — a mode of writing that refuses to separate the speaker's identity from society's most stigmatized categories. Where Plath's witch-figures tend to be transient presences, apparitions at the edges of the poem, Sexton makes the witch central and continuous: the speaker does not merely encounter these figures; she claims them as her own face in the mirror, her own voice, her own kind. This move from encounter to identification is what gives the poem its unusual intensity and its lasting challenge to the reader's sympathy."<cite>— Marcus Webb, "Confessional Defiance: Anne Sexton and the Female Outcast," Plath Profiles [online, no page numbers].</cite></p>
+        </div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-side result">
+          <p class="transform-side-label">Summary (Written by You)</p>
+          <p class="transform-summary">Some critics have read Sexton's use of outcast archetypes in "Her Kind" not as mere comparison but as a sustained act of self-identification — the speaker does not describe these figures from the outside but claims their identity as her own, which is the source of the poem's confrontational energy <span class="highlight">(Webb)</span>.</p>
+        </div>
+      </div>
+      <div class="transform-footer">
+        <strong>What the summary does:</strong> Accurately captures Webb's central claim — that Sexton moves from encounter to identification — without using Webb's specific phrases ("witch's poetics," "transient presences") or following his sentence structure. Pattern C: HTML source, author not in signal → last name only in citation, no page number.
+      </div>
+    </div>
+
+    <!-- EXAMPLE 3: HTML, author in signal, no citation -->
+    <p style="margin: 32px 0 4px; font-family: 'Lora', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--umber);">Example 3 — HTML Source, Author in Signal Phrase (No Parenthetical Needed)</p>
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Source type:</span>
+        <span class="transform-meta-badge html">HTML · No Page Numbers</span>
+        <span class="transform-meta-label" style="margin-left: 8px;">Author location:</span>
+        <span class="transform-meta-badge html">Signal Phrase</span>
+      </div>
+      <div class="transform-body">
+        <div class="transform-side original">
+          <p class="transform-side-label">Original Passage</p>
+          <p class="transform-passage">"Espada's poem is unusual among the many elegies written about September 11 in that it refuses the nationalist frame most such poems adopt. Rather than mourning the victims as Americans lost in a national tragedy, 'Alabanza' insists on honoring them specifically as immigrant workers — undocumented, underpaid, and largely invisible to the culture that employed them. The poem's repeated 'alabanza' (praise) functions as a liturgical refrain that transforms mourning into a counter-cultural act of recognition."<cite>— Diana Fuss, "Labor, Elegy, and the Politics of Praise," Contemporary Literature [online, no page numbers].</cite></p>
+        </div>
+        <div class="transform-arrow">→</div>
+        <div class="transform-side result">
+          <p class="transform-side-label">Summary (Written by You)</p>
+          <p class="transform-summary">Critic <span class="highlight">Diana Fuss argues</span> that what distinguishes "Alabanza" from other September 11 elegies is its insistence on honoring the victims not as national symbols but as immigrant laborers — a distinction the poem reinforces through its repeated "alabanza" refrain, which she reads as an act of counter-cultural recognition.</p>
+        </div>
+      </div>
+      <div class="transform-footer">
+        <strong>What the summary does:</strong> Author named in signal phrase ("Diana Fuss argues") + HTML source = <strong>no parenthetical citation at all.</strong> The sentence ends with a period. The reader can locate the source on the Works Cited page under "Fuss." Note also: the summary includes the word "alabanza" in quotation marks because it is the poem's actual title and the central term — this is not copying the scholar's language but referring to the poem itself.
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════
+       SECTION 5: COMMON ERRORS
+  ══════════════════════════════════ -->
+  <section class="section">
+    <p class="section-label">Section Five</p>
+    <h2 class="section-title">Common <em>Errors</em></h2>
+
+    <!-- ERROR 1: Over-detailing -->
+    <h3 style="font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: var(--ink-warm); margin: 0 0 6px;">Error 1 — Over-Detailing: The "Summary" That Is Actually a Paraphrase</h3>
+    <p class="prose" style="margin-bottom: 16px;">The most common mistake is writing a summary that includes too much of the original's supporting detail. If your sentence follows the scholar's argument step by step, reproducing their reasoning in condensed form, you have written a paraphrase — not a summary. A summary should be shorter than a paraphrase and should leave out the specific evidence and reasoning, keeping only the main claim.</p>
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">✗ &nbsp;Over-Detailed — This is a paraphrase, not a summary</div>
+        <div class="error-card-body">
+          <p>In her analysis, Chen argues that Komunyakaa uses the memorial's reflective surface as a central figure, exploiting its ambiguity to stage a continuous oscillation between presence and absence, between self and other, so that the speaker's face appears and disappears within the stone, positioning him as both a surviving visitor and, in moments of reflection, one of the dead, which Chen suggests defines what it means to carry the weight of survival (45).</p>
+          <p class="annotation"><strong>Problem:</strong> This sentence follows Chen's paragraph almost point-by-point, reproducing her specific examples ("oscillation between presence and absence," "face appears and disappears") and her conclusion. It is a compressed paraphrase, not a summary.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">✓ &nbsp;Correct — Main claim only</div>
+        <div class="error-card-body">
+          <p>In her study of Komunyakaa's Vietnam poetry, Andrea Chen argues that the memorial's reflective surface functions as the poem's central metaphor — a mirror that collapses the boundary between survivor and the dead, forcing the speaker to occupy both positions simultaneously (45).</p>
+          <p class="annotation"><strong>Why it works:</strong> The sentence captures Chen's thesis in original language without following her reasoning step by step. The supporting details ("oscillation," "face appears and disappears") are omitted because they are the evidence for the claim, not the claim itself.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR 2: Vague summary -->
+    <h3 style="font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: var(--ink-warm); margin: 28px 0 6px;">Error 2 — The Empty Summary: Too Vague to Be Useful</h3>
+    <p class="prose" style="margin-bottom: 16px;">A summary that says only that the scholar "discusses" or "talks about" a topic is useless — it doesn't tell the reader what the scholar actually argues. Identify the scholar's specific claim, not just their subject.</p>
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">✗ &nbsp;Too vague — tells the reader nothing</div>
+        <div class="error-card-body">
+          <p>In her article, Andrea Chen discusses Komunyakaa's "Facing It" and the Vietnam Veterans Memorial (45).</p>
+          <p class="annotation"><strong>Problem:</strong> This tells us only the topic, not the argument. What does Chen say about the poem? What is her claim? A useful summary answers that question.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">✓ &nbsp;Specific — captures the actual argument</div>
+        <div class="error-card-body">
+          <p>In her study of Komunyakaa's Vietnam poetry, Andrea Chen argues that the memorial's reflective surface functions as the poem's central metaphor — a mirror that collapses the boundary between survivor and the dead, forcing the speaker to occupy both positions simultaneously (45).</p>
+          <p class="annotation"><strong>Why it works:</strong> The reader now knows <em>what</em> Chen argues, not just that she wrote about the poem. This summary contributes to the paragraph's argument rather than merely name-dropping a source.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR 3: Missing attribution -->
+    <h3 style="font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: var(--ink-warm); margin: 28px 0 6px;">Error 3 — Missing Attribution: The Unacknowledged Summary</h3>
+    <p class="prose" style="margin-bottom: 16px;">A summary without a signal phrase or citation looks like your own original idea — which means you are presenting someone else's argument as your own. This is plagiarism, even though you didn't quote directly. Every summary needs attribution.</p>
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">✗ &nbsp;No attribution — plagiarism</div>
+        <div class="error-card-body">
+          <p>The memorial's reflective surface functions as Komunyakaa's central metaphor, creating an unstable space in which the speaker simultaneously occupies the roles of survivor and ghost.</p>
+          <p class="annotation"><strong>Problem:</strong> This is Chen's argument, but there is no signal phrase and no citation. The reader has no way to know this came from a source. This is plagiarism.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">✓ &nbsp;Properly attributed</div>
+        <div class="error-card-body">
+          <p>In her study of Komunyakaa's Vietnam poetry, Andrea Chen argues that the memorial's reflective surface functions as the poem's central metaphor — a mirror that forces the speaker to occupy the roles of survivor and ghost simultaneously (45).</p>
+          <p class="annotation"><strong>Why it works:</strong> The signal phrase ("Andrea Chen argues") and the citation (45) make clear that this argument belongs to Chen, not to you.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block">
+    <p class="quiz-label">Formative Check</p>
+    <p class="quiz-q">Identify the error in this "summary" of a critic's argument about Pablo Neruda's "Sonnet XVII."</p>
+    <div class="quiz-scenario">
+      In his article, critic Jason Moore argues that Neruda's "Sonnet XVII" works to define love by using a series of unusual comparisons, saying that the speaker describes love not as "a rose of salt" or as "an obscure arrow" — both being conventional poetic images of desire — but as something more intimate and invisible: "the secret word" and "the hidden light," images drawn from natural phenomena that resist easy interpretation and suggest a love that is felt rather than seen or described in traditional lyric terms (Moore 78).
+    </div>
+    <button class="quiz-reveal-btn" onclick="revealAnswer(this)">Reveal Answer</button>
+    <div class="quiz-answer">
+      <p class="quiz-answer-label">Answer</p>
+      <p><strong>This is a paraphrase, not a summary.</strong> The sentence follows Moore's argument in detail — listing his specific examples (the rejected comparisons, the alternative images), reproducing his interpretive logic step by step, and concluding with his specific reading ("a love that is felt rather than seen"). It is far more detailed than a summary needs to be and is essentially an over-detailed paraphrase.</p>
+      <p>A summary of Moore's argument would capture only his central claim in one or two sentences, leaving out the specific images and reasoning:</p>
+      <div class="example">Critic Jason Moore argues that "Sonnet XVII" defines love through a series of negative comparisons — by rejecting conventional poetic images of desire in favor of more elusive, intimate alternatives — a strategy that suggests love in the poem is experienced rather than articulated (78).</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function revealAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  if (answer.style.display === 'block') {
+    answer.style.display = 'none';
+    btn.textContent = '';
+    btn.innerHTML = '&#9654; Reveal Answer';
+  } else {
+    answer.style.display = 'block';
+    btn.innerHTML = '&#9660; Hide Answer';
+  }
+}
+</script>
+
+</body>
+</html>
