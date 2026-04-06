@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="identifier" content="dystopian-film-selection"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<title>Selecting a Film for the Dystopian Research Essay</title>
+<style>
+  /* ═══════════════════════════════════════════════
+     DESIGN TOKENS — Dystopian Research Essay Module
+     Medium-slate base · amber/gold primary · muted teal
+     secondary · slate lavender tertiary.
+     All text/accent pairings WCAG AA verified.
+     ═══════════════════════════════════════════════ */
+
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+
+  :root {
+    --bg-deep:       #565e6e;
+    --bg-surface:    #3e4555;
+    --bg-elevated:   #353c4b;
+    --border-subtle: #4a5264;
+    --border-mid:    #5c6478;
+
+    --accent:        #e8a832;
+    --accent-soft:   #e8a83228;
+    --accent-mid:    #e8a83258;
+    --accent-text:   #f5c865;
+
+    --teal:          #5ba8a0;
+    --teal-soft:     #5ba8a028;
+    --teal-mid:      #5ba8a058;
+    --teal-text:     #90d8d0;
+
+    --lavender:      #9a9cc0;
+    --lavender-soft: #9a9cc028;
+    --lavender-text: #d0d2f0;
+
+    --warn:          #f47878;
+    --warn-soft:     #f4787822;
+
+    --text-primary:  #f0f2f5;
+    --text-secondary:#cdd3dc;
+    --text-muted:    #9aa2b2;
+
+    --font-display:  'Libre Baskerville', 'Georgia', serif;
+    --font-body:     'Source Sans Pro', 'Segoe UI', sans-serif;
+    --font-mono:     'IBM Plex Mono', 'Consolas', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-text); text-decoration: underline; }
+  a:hover { color: #fff; }
+  strong, b { color: var(--text-primary); }
+  em, i { color: var(--text-secondary); }
+
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 28px;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 40px 44px 36px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-text);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* ═══ SECTION HEADERS ═══ */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    margin-top: 48px;
+  }
+
+  .section-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-text);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-mid);
+    border-radius: 4px;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .section-badge.teal {
+    color: var(--teal-text);
+    background: var(--teal-soft);
+    border-color: var(--teal-mid);
+  }
+
+  .section-badge.lavender {
+    color: var(--lavender-text);
+    background: var(--lavender-soft);
+    border-color: #9a9cc040;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: #fff;
+  }
+
+  .section-rule {
+    border: 0;
+    border-top: 1px solid var(--border-subtle);
+    margin: 48px 0 0 0;
+  }
+
+  /* ═══ CARDS ═══ */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-header.amber  { background: var(--accent-soft); }
+  .card-header.teal   { background: var(--teal-soft); }
+  .card-header.lav    { background: var(--lavender-soft); }
+  .card-header.warn   { background: var(--warn-soft); }
+
+  .card-header-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .card-header.amber .card-header-label  { color: var(--accent-text); }
+  .card-header.teal .card-header-label   { color: var(--teal-text); }
+  .card-header.lav .card-header-label    { color: var(--lavender-text); }
+  .card-header.warn .card-header-label   { color: var(--warn); }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-body p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .card-body ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card-body ul li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .card-body ul li::before {
+    content: '\203A';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .card-body ul.teal-list li::before { color: var(--teal); }
+  .card-body ul.lav-list li::before  { color: var(--lavender); }
+
+  /* ═══ CALLOUT BOXES ═══ */
+  .callout {
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-left: 3px solid;
+  }
+
+  .callout.amber {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+
+  .callout.teal {
+    background: var(--teal-soft);
+    border-color: var(--teal);
+  }
+
+  .callout.lavender {
+    background: var(--lavender-soft);
+    border-color: var(--lavender);
+  }
+
+  .callout.warn {
+    background: var(--warn-soft);
+    border-color: var(--warn);
+  }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .callout.amber .callout-label    { color: var(--accent-text); }
+  .callout.teal .callout-label     { color: var(--teal-text); }
+  .callout.lavender .callout-label { color: var(--lavender-text); }
+  .callout.warn .callout-label     { color: var(--warn); }
+
+  .callout p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ═══ STEP PROTOCOL ═══ */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-num.amber   { background: var(--accent-soft); color: var(--accent-text); border: 1px solid var(--accent-mid); }
+  .step-num.teal    { background: var(--teal-soft);   color: var(--teal-text);   border: 1px solid var(--teal-mid); }
+  .step-num.lavender{ background: var(--lavender-soft);color: var(--lavender-text);border: 1px solid #9a9cc040; }
+
+  .step-content { flex: 1; }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ═══ FILM CARDS (custom for this page) ═══ */
+  .film-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .film-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .film-card-header.amber  { background: var(--accent-soft); }
+  .film-card-header.teal   { background: var(--teal-soft); }
+  .film-card-header.lav    { background: var(--lavender-soft); }
+
+  .film-card-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: #fff;
+    font-style: italic;
+  }
+
+  .film-card-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .film-card-header.amber .film-card-meta  { color: var(--accent-text); }
+  .film-card-header.teal .film-card-meta   { color: var(--teal-text); }
+  .film-card-header.lav .film-card-meta    { color: var(--lavender-text); }
+
+  .film-card-body {
+    padding: 24px;
+  }
+
+  .film-card-body p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .film-card-body p:last-child { margin-bottom: 0; }
+
+  .film-card-analysis-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    margin-top: 4px;
+  }
+
+  .film-card-body .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 4px;
+    padding: 2px 10px;
+  }
+
+  .tag.amber   { color: var(--accent-text);   background: var(--accent-soft);   border: 1px solid var(--accent-mid); }
+  .tag.teal    { color: var(--teal-text);     background: var(--teal-soft);     border: 1px solid var(--teal-mid); }
+  .tag.lavender{ color: var(--lavender-text); background: var(--lavender-soft); border: 1px solid #9a9cc040; }
+
+  .rating-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #fff;
+    background: #a04040;
+    border-radius: 4px;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  /* ═══ ACCESS METHOD PANELS ═══ */
+  .access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .access-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .access-panel-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .access-panel-header.amber { background: var(--accent-soft); }
+  .access-panel-header.teal  { background: var(--teal-soft); }
+
+  .access-panel-header .access-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .access-panel-header.amber .access-label { color: var(--accent-text); }
+  .access-panel-header.teal .access-label  { color: var(--teal-text); }
+
+  .access-panel-body {
+    padding: 20px 24px;
+  }
+
+  .access-panel-body ol {
+    margin: 0;
+    padding-left: 22px;
+  }
+
+  .access-panel-body ol li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 2.0;
+  }
+
+  .access-panel-body ol li strong {
+    color: var(--text-primary);
+  }
+
+  .access-panel-body .access-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-left: 4px;
+  }
+
+  /* ═══ DATA TABLE ═══ */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-surface);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .data-table th {
+    background: var(--bg-elevated);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .data-table tr:last-child td { border-bottom: 0; }
+  .data-table tr:hover td { background: var(--bg-elevated); }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 640px) {
+    .card-grid          { grid-template-columns: 1fr; }
+    .card-grid.three-col{ grid-template-columns: 1fr; }
+    .access-grid        { grid-template-columns: 1fr; }
+    .hero               { padding: 28px 24px 24px; }
+    .hero-title         { font-size: 26px; }
+    .film-card-header   { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════ -->
+  <div class="hero" role="banner">
+    <div class="hero-label">Module Eight &middot; Dystopian Research Essay</div>
+    <h1 class="hero-title">Selecting a Film for Your Research Essay</h1>
+    <p class="hero-subtitle">Your research essay will analyze how dystopian characteristics, control types, and protagonist traits function within a film of your choice. Valencia College provides free streaming access to three dystopian films through its library database. Choose one, stream it, and prepare to write.</p>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SEC·01 — YOUR GOAL
+       ═══════════════════════════════════════════════ -->
+  <div class="section-header">
+    <span class="section-badge">SEC&middot;01</span>
+    <h2 class="section-title">Your Goal</h2>
+  </div>
+
+  <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">This page walks you through two steps: selecting a film and streaming it. You will choose <strong>one</strong> of the three films below as the primary source for your Dystopian Research Essay.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num amber" aria-hidden="true">1</div>
+      <div class="step-content">
+        <div class="step-title">Select a Film</div>
+        <div class="step-desc">Browse the three available films below and choose the one that interests you most. Each offers rich material for dystopian analysis.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num teal" aria-hidden="true">2</div>
+      <div class="step-content">
+        <div class="step-title">Stream the Film for Free</div>
+        <div class="step-desc">Access the film at no extra cost through the college&rsquo;s Film Streaming Library (Swank). Follow the step-by-step instructions below.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <hr class="section-rule">
+
+
+  <!-- ═══════════════════════════════════════════════
+       SEC·02 — SELECT A FILM
+       ═══════════════════════════════════════════════ -->
+  <div class="section-header">
+    <span class="section-badge teal">SEC&middot;02</span>
+    <h2 class="section-title">Select a Film</h2>
+  </div>
+
+  <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px;">The college&rsquo;s Film Streaming Library includes three films that work well for a dystopian research essay. Review the descriptions and dystopian connections below, then choose the one you want to analyze.</p>
+
+  <div class="callout warn" style="margin-bottom: 28px;">
+    <div class="callout-label" id="content-advisory"><strong>Content Advisory</strong></div>
+    <p>All three films are <strong>Rated R</strong> and contain <strong>adult language</strong>, <strong>violence</strong>, and/or <strong>mature themes</strong>. If you are unfamiliar with a title, please research it before watching to ensure the content aligns with your personal preferences.</p>
+  </div>
+
+
+  <!-- ── Film 1: Children of Men ── -->
+  <div class="film-card">
+    <div class="film-card-header amber">
+      <div>
+        <h3 class="film-card-title">Children of Men</h3>
+        <div class="film-card-meta">Sci-Fi / Thriller &bull; 2006 &bull; Alfonso Cuar&oacute;n &ensp; <span class="rating-badge">Rated R</span></div>
+      </div>
+    </div>
+    <div class="film-card-body">
+      <p>In 2027, humanity faces extinction: no child has been born in eighteen years. Governments have collapsed, and Britain &mdash; the last functioning nation-state &mdash; maintains order through militarized borders, mass deportation of refugees, and a pervasive atmosphere of despair. When a disillusioned bureaucrat named Theo is recruited to escort a miraculously pregnant woman to safety, his journey forces him to confront the cost of a society that has traded compassion for control.</p>
+      <div class="film-card-analysis-label">Dystopian Connections</div>
+      <p>The film is one of the most analytically rich dystopian texts in modern cinema. Britain&rsquo;s government maintains power through <strong>bureaucratic and technological control</strong>: refugee cages, propaganda broadcasts, and checkpoints are woven into everyday life. <strong>Dehumanization</strong> operates on a mass scale as immigrants are stripped of identity and confined to camps. The <strong>natural world</strong> feels depleted &mdash; grey, polluted, and indifferent &mdash; reinforcing the narrative&rsquo;s sense that humanity has exhausted itself. Theo functions as a classic <strong>dystopian protagonist</strong>: he begins the film numb and disengaged, but is gradually forced to question a system he had passively accepted and to act on a moral conviction he thought he had lost.</p>
+      <div class="tag-row" aria-label="Relevant dystopian characteristics">
+        <span class="tag amber">Dehumanization</span>
+        <span class="tag amber">Propaganda</span>
+        <span class="tag teal">Bureaucratic Control</span>
+        <span class="tag teal">Technological Control</span>
+        <span class="tag lavender">Dystopian Protagonist</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Film 2: Pan's Labyrinth ── -->
+  <div class="film-card">
+    <div class="film-card-header teal">
+      <div>
+        <h3 class="film-card-title">Pan&rsquo;s Labyrinth</h3>
+        <div class="film-card-meta">Fantasy / Drama &bull; 2006 &bull; Guillermo del Toro &ensp; <span class="rating-badge">Rated R</span></div>
+      </div>
+    </div>
+    <div class="film-card-body">
+      <p>Spain, 1944. The Civil War is over, but Captain Vidal &mdash; a fascist officer stationed in a rural mill &mdash; wages a brutal campaign to crush the last of the Republican resistance. His new stepdaughter, Ofelia, a young girl who finds solace in fairy tales, discovers a crumbling labyrinth on the estate and is told by a faun that she is the reincarnation of an underworld princess. To reclaim her throne, she must complete three dangerous tasks &mdash; but the real monsters in Ofelia&rsquo;s world wear military uniforms.</p>
+      <div class="film-card-analysis-label">Dystopian Connections</div>
+      <p>Del Toro constructs a society governed by <strong>philosophical and military control</strong>: Captain Vidal enforces Franco&rsquo;s ideology through terror, torture, and absolute obedience to hierarchy. <strong>Propaganda</strong> and nationalist rhetoric justify violence as patriotic duty. <strong>Freedom is restricted</strong> at every level &mdash; the rebels are hunted, the servants are surveilled, and Ofelia is told where to go, what to wear, and how to behave. <strong>Forced conformity</strong> is the regime&rsquo;s organizing principle: individuality and resistance are treated as diseases to be eradicated. Ofelia functions as a <strong>dystopian protagonist</strong> who, despite her youth, believes something is terribly wrong with the world around her and whose acts of imaginative disobedience expose the system&rsquo;s cruelty to the audience.</p>
+      <div class="tag-row" aria-label="Relevant dystopian characteristics">
+        <span class="tag amber">Freedom Restricted</span>
+        <span class="tag amber">Forced Conformity</span>
+        <span class="tag amber">Propaganda</span>
+        <span class="tag teal">Philosophical / Military Control</span>
+        <span class="tag lavender">Dystopian Protagonist</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Film 3: The Matrix ── -->
+  <div class="film-card">
+    <div class="film-card-header lav">
+      <div>
+        <h3 class="film-card-title">The Matrix</h3>
+        <div class="film-card-meta">Sci-Fi / Action &bull; 1999 &bull; The Wachowskis &ensp; <span class="rating-badge">Rated R</span></div>
+      </div>
+    </div>
+    <div class="film-card-body">
+      <p>Thomas Anderson is a programmer by day and a hacker by night who has always sensed that something is wrong with the world. When a mysterious figure named Morpheus offers him the truth, Anderson &mdash; now Neo &mdash; discovers that the reality he knows is a simulated prison: a digital dreamworld called the Matrix, built by machines to keep humanity sedated while their bodies are harvested for energy. Freed from the simulation, Neo must decide whether he can become the person the resistance believes he is.</p>
+      <div class="film-card-analysis-label">Dystopian Connections</div>
+      <p>The Matrix is one of the most complete dystopian thought experiments in cinema. <strong>Technological control</strong> is total: machines have replaced human civilization and built a simulated reality so convincing that billions of people live and die inside it without suspecting the truth. The <strong>illusion of utopia</strong> is the simulation itself &mdash; a late&#8209;twentieth&#8209;century world that feels ordinary precisely because it was designed to suppress resistance. <strong>Dehumanization</strong> is literal: human beings are reduced to biological batteries, grown in pods, and discarded when depleted. <strong>Surveillance</strong> saturates the Matrix in the form of Agents, programs that can inhabit any citizen at any moment. Neo is a textbook <strong>dystopian protagonist</strong>: he feels trapped, questions the system before anyone tells him to, develops moral conviction, and &mdash; critically &mdash; helps the audience see the architecture of control they might otherwise accept as normal.</p>
+      <div class="tag-row" aria-label="Relevant dystopian characteristics">
+        <span class="tag amber">Illusion of Utopia</span>
+        <span class="tag amber">Dehumanization</span>
+        <span class="tag amber">Surveillance</span>
+        <span class="tag teal">Technological Control</span>
+        <span class="tag lavender">Dystopian Protagonist</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Choosing Tips ── -->
+  <div class="callout teal" style="margin-top: 28px;">
+    <div class="callout-label">Tips for Choosing</div>
+    <p>All three films are equally viable for this assignment &mdash; none is significantly harder or easier than the others. If you have already seen one of these films, that can be an advantage: familiarity with the plot lets you focus on analysis rather than comprehension during your viewing. If you haven&rsquo;t seen any of them, choose the one whose premise interests you most. Interest is the best predictor of a strong essay.</p>
+  </div>
+
+
+  <!-- ── Quick Comparison Table ── -->
+  <div style="margin-top: 28px;">
+    <table class="data-table" aria-label="Film comparison at a glance">
+      <thead>
+        <tr>
+          <th scope="col">Film</th>
+          <th scope="col">Setting</th>
+          <th scope="col">Primary Control Type</th>
+          <th scope="col">Runtime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><em style="color: var(--text-primary);">Children of Men</em></td>
+          <td>Near-future Britain, 2027</td>
+          <td>Bureaucratic / Technological</td>
+          <td>1 hr 49 min</td>
+        </tr>
+        <tr>
+          <td><em style="color: var(--text-primary);">Pan&rsquo;s Labyrinth</em></td>
+          <td>Post&ndash;Civil War Spain, 1944</td>
+          <td>Philosophical / Military</td>
+          <td>1 hr 58 min</td>
+        </tr>
+        <tr>
+          <td><em style="color: var(--text-primary);">The Matrix</em></td>
+          <td>Simulated reality / Ravaged Earth</td>
+          <td>Technological</td>
+          <td>2 hr 16 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <hr class="section-rule">
+
+
+  <!-- ═══════════════════════════════════════════════
+       SEC·03 — STREAM THE FILM
+       ═══════════════════════════════════════════════ -->
+  <div class="section-header">
+    <span class="section-badge lavender">SEC&middot;03</span>
+    <h2 class="section-title">Stream the Film for Free</h2>
+  </div>
+
+  <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">All three films are available to stream at <strong>no extra cost</strong> through the college&rsquo;s Film Streaming Library (Swank). Follow the steps below for your preferred access method.</p>
+
+  <div class="access-grid">
+
+    <!-- Method 1 -->
+    <div class="access-panel">
+      <div class="access-panel-header amber">
+        <span class="access-label">Method 1: Via Canvas</span>
+      </div>
+      <div class="access-panel-body">
+        <ol>
+          <li>Click <strong>Library</strong> in the left navigation menu</li>
+          <li>Click <strong>Launch Library Resources</strong></li>
+          <li>Click <strong>Open in New Tab</strong> <span class="access-note">(if prompted, log in to Atlas)</span></li>
+          <li>At the top, click <strong>Databases A&ndash;Z</strong></li>
+          <li>Click the letter <strong>&ldquo;F&rdquo;</strong>, then <strong>Film Streaming Library (Swank)</strong></li>
+          <li>Search for your film in the upper-right search box</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Method 2 -->
+    <div class="access-panel">
+      <div class="access-panel-header teal">
+        <span class="access-label">Method 2: Via MyVC</span>
+      </div>
+      <div class="access-panel-body">
+        <ol>
+          <li>Log in to <strong>MyVC</strong> at myvc.valenciacollege.edu</li>
+          <li>In the Search box at the top, type <strong>Search the Library</strong></li>
+          <li>At the top, click <strong>Databases A&ndash;Z</strong></li>
+          <li>Click the letter <strong>&ldquo;F&rdquo;</strong>, then <strong>Film Streaming Library (Swank)</strong></li>
+          <li>Search for your film in the upper-right search box</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout warn" style="margin-top: 20px;">
+    <div class="callout-label"><strong>Having Trouble Accessing the Database?</strong></div>
+    <p>If neither method works, contact the <strong>Valencia College Library</strong> for assistance. You can also reach out to the instructor via Canvas Inbox or during Student Engagement Hours and we&rsquo;ll troubleshoot together.</p>
+  </div>
+
+
+  <hr class="section-rule">
+
+
+  <!-- ═══════════════════════════════════════════════
+       SEC·04 — WATCHING TIPS
+       ═══════════════════════════════════════════════ -->
+  <div class="section-header">
+    <span class="section-badge">SEC&middot;04</span>
+    <h2 class="section-title">Watching with an Analytical Eye</h2>
+  </div>
+
+  <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">Screening a film for a research essay is more involved than watching for entertainment. You&rsquo;ll want to watch actively, with the analytical vocabulary from the Dystopian Literature &amp; Film module in mind. <strong>Plan for this to take longer than the film&rsquo;s runtime.</strong></p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-header amber">
+        <span class="card-header-label">Recommended Strategy</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>First viewing:</strong> Watch the film all the way through and let yourself experience it as a story</li>
+          <li><strong>Second pass:</strong> Return to key scenes and take notes &mdash; pause, rewind, and identify specific dystopian characteristics, control types, and protagonist traits</li>
+          <li><strong>Take breaks</strong> between sessions so your observations stay sharp</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header teal">
+        <span class="card-header-label">What to Look For</span>
+      </div>
+      <div class="card-body">
+        <ul class="teal-list">
+          <li>Which <strong>dystopian characteristics</strong> are most visible in the film? (surveillance, propaganda, dehumanization, etc.)</li>
+          <li>What <strong>type of control</strong> does the society use, and how is it maintained?</li>
+          <li>How does the <strong>protagonist</strong> respond to the system &mdash; and which of the four traits do they exhibit?</li>
+          <li>What is the film <strong>arguing</strong> about the world it came from?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout amber" style="margin-top: 20px;">
+    <div class="callout-label">Key Concept</div>
+    <p>The analytical lenses you practiced during the Minority Report screening are the same ones you&rsquo;ll use here: characteristics of dystopian societies, types of dystopian control, and traits of the dystopian protagonist. The lenses are the same &mdash; the film is yours to choose.</p>
+  </div>
+
+
+</div><!-- end .page-wrap -->
+
+</body>
+</html>

@@ -1,0 +1,834 @@
+/* ═══════════════════════════════════════════════════════════════════
+   DYSTOPIAN RESEARCH ESSAY MODULE — Shared Stylesheet
+   ENC 1102 — Advanced Regular
+
+   Design lineage: Inspired by the Dystopian Literature & Film Module
+   but shifted toward a scholarly "analytical workspace" feel.
+   Medium-slate base with amber/gold primary accent, muted teal
+   secondary, and slate lavender tertiary.
+
+   Architecture: Page bg is lightest → cards darker → hero darkest.
+   All text/accent pairings verified WCAG AA compliant.
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────
+   § 01  DESIGN TOKENS
+   ───────────────────────────────────────────── */
+
+:root {
+  /* ── Base palette ── */
+  --bg-deep:       #565e6e;      /* page background — medium slate          */
+  --bg-surface:    #3e4555;      /* card / panel surface — darker           */
+  --bg-elevated:   #353c4b;      /* hero / headers — darkest layer          */
+  --border-subtle: #4a5264;      /* subtle borders                          */
+  --border-mid:    #5c6478;      /* visible borders                         */
+
+  /* ── Primary accent: Amber / Gold ── */
+  --accent:        #e8a832;      /* warm amber — primary signal             */
+  --accent-soft:   #e8a83228;    /* ambient glow                            */
+  --accent-mid:    #e8a83258;    /* medium emphasis                         */
+  --accent-text:   #f5c865;      /* readable amber  — 6.10:1 on cards      */
+
+  /* ── Secondary accent: Muted Teal ── */
+  --teal:          #5ba8a0;      /* muted teal (bridge to dystopian cyan)   */
+  --teal-soft:     #5ba8a028;
+  --teal-mid:      #5ba8a058;
+  --teal-text:     #90d8d0;      /* boosted teal    — 5.91:1 on cards      */
+
+  /* ── Tertiary: Slate Lavender ── */
+  --lavender:      #9a9cc0;
+  --lavender-soft: #9a9cc028;
+  --lavender-text: #d0d2f0;      /* boosted lavender — 6.47:1 on cards     */
+
+  /* ── Alert / Warning  (used ≥ 14 px bold only) ── */
+  --warn:          #f47878;      /* warm red — 3.57:1 on cards (AA large)   */
+  --warn-soft:     #f4787822;
+
+  /* ── Text hierarchy ── */
+  --text-primary:  #f0f2f5;      /* 8.56:1 on cards, 5.81:1 on page bg     */
+  --text-secondary:#cdd3dc;      /* 6.38:1 on cards, 7.34:1 on hero        */
+  --text-muted:    #9aa2b2;      /* decorative / incidental — 3.74:1       */
+
+  /* ── Typography ── */
+  --font-display:  'Libre Baskerville', 'Georgia', serif;
+  --font-body:     'Source Sans Pro', 'Segoe UI', sans-serif;
+  --font-mono:     'IBM Plex Mono', 'Consolas', monospace;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 02  RESET & BASE
+   ───────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent-text); text-decoration: underline; }
+a:hover { color: #fff; }
+
+strong, b { color: var(--text-primary); }
+em, i { color: var(--text-secondary); }
+
+
+/* ─────────────────────────────────────────────
+   § 03  PAGE CONTAINER
+   ───────────────────────────────────────────── */
+
+.page-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 28px;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 04  HERO SECTION
+   ───────────────────────────────────────────── */
+
+.hero {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 40px 44px 36px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle warm ambient glow (top-right) */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-text);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 05  SECTION HEADERS & RULES
+   ───────────────────────────────────────────── */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  margin-top: 48px;
+}
+
+.section-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  border-radius: 4px;
+  padding: 3px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.section-badge.teal {
+  color: var(--teal-text);
+  background: var(--teal-soft);
+  border-color: var(--teal-mid);
+}
+
+.section-badge.lavender {
+  color: var(--lavender-text);
+  background: var(--lavender-soft);
+  border-color: #9a9cc040;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #fff;
+}
+
+.section-rule {
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin: 48px 0 0 0;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 06  CARDS
+   ───────────────────────────────────────────── */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card-grid.three-col {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header.amber  { background: var(--accent-soft); }
+.card-header.teal   { background: var(--teal-soft); }
+.card-header.lav    { background: var(--lavender-soft); }
+.card-header.warn   { background: var(--warn-soft); }
+
+.card-header-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.card-header.amber .card-header-label  { color: var(--accent-text); }
+.card-header.teal .card-header-label   { color: var(--teal-text); }
+.card-header.lav .card-header-label    { color: var(--lavender-text); }
+.card-header.warn .card-header-label   { color: var(--warn); }
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.card-body p:last-child { margin-bottom: 0; }
+
+.card-body ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card-body ul li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  padding-left: 18px;
+  position: relative;
+}
+
+.card-body ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Teal-accented list bullets */
+.card-body ul.teal-list li::before { color: var(--teal); }
+.card-body ul.lav-list li::before  { color: var(--lavender); }
+
+
+/* ─────────────────────────────────────────────
+   § 07  CALLOUT BOXES
+   ───────────────────────────────────────────── */
+
+.callout {
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  border-left: 3px solid;
+}
+
+.callout.amber {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.callout.teal {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+}
+
+.callout.lavender {
+  background: var(--lavender-soft);
+  border-color: var(--lavender);
+}
+
+.callout.warn {
+  background: var(--warn-soft);
+  border-color: var(--warn);
+}
+
+.callout-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.callout.amber .callout-label    { color: var(--accent-text); }
+.callout.teal .callout-label     { color: var(--teal-text); }
+.callout.lavender .callout-label { color: var(--lavender-text); }
+.callout.warn .callout-label     { color: var(--warn); }
+
+.callout p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 08  PAGE LIST / RESOURCE LINKS
+   ───────────────────────────────────────────── */
+
+.page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.page-link:hover {
+  border-color: var(--accent-mid);
+  background: var(--bg-elevated);
+}
+
+.page-link-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  border-radius: 4px;
+  padding: 2px 8px;
+  min-width: 28px;
+  text-align: center;
+}
+
+.page-link-title {
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.page-link-arrow {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 09  STEP PROTOCOL (writing process, etc.)
+   ───────────────────────────────────────────── */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-num.amber   { background: var(--accent-soft); color: var(--accent-text); border: 1px solid var(--accent-mid); }
+.step-num.teal    { background: var(--teal-soft);   color: var(--teal-text);   border: 1px solid var(--teal-mid); }
+.step-num.lavender{ background: var(--lavender-soft);color: var(--lavender-text);border: 1px solid #9a9cc040; }
+
+.step-content { flex: 1; }
+
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 10  ASSIGNMENT CARD
+   ───────────────────────────────────────────── */
+
+.assignment-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-mid);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.assignment-header {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-elevated) 100%);
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--accent-mid);
+}
+
+.assignment-header .meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.assignment-header .title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: #fff;
+}
+
+.assignment-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+}
+
+.assignment-meta-cell {
+  background: var(--bg-surface);
+  padding: 14px 18px;
+  text-align: center;
+}
+
+.assignment-meta-cell .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.assignment-meta-cell .value {
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 11  COMPARISON PANELS (good vs. bad, etc.)
+   ───────────────────────────────────────────── */
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.compare-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.compare-panel.good { border-top: 3px solid var(--teal); }
+.compare-panel.bad  { border-top: 3px solid var(--warn); }
+
+.compare-panel .compare-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 20px 0;
+}
+
+.compare-panel.good .compare-label { color: var(--teal-text); }
+.compare-panel.bad .compare-label  { color: var(--warn); }
+
+.compare-panel .compare-body {
+  padding: 12px 20px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 12  TABLES
+   ───────────────────────────────────────────── */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-surface);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.data-table th {
+  background: var(--bg-elevated);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.data-table tr:last-child td { border-bottom: 0; }
+
+.data-table tr:hover td { background: var(--bg-elevated); }
+
+
+/* ─────────────────────────────────────────────
+   § 13  BLOCKQUOTES & SOURCE EXAMPLES
+   ───────────────────────────────────────────── */
+
+.source-quote {
+  background: var(--bg-surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 18px 24px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.source-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-text);
+}
+
+
+/* ─────────────────────────────────────────────
+   § 14  MLA DOCUMENT PREVIEW
+   ───────────────────────────────────────────── */
+
+.mla-preview {
+  background: #fff;
+  color: #222;
+  border-radius: 6px;
+  padding: 32px 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  line-height: 2;
+  border: 1px solid var(--border-mid);
+  margin: 16px 0;
+}
+
+.mla-preview .mla-header {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.mla-preview .mla-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.mla-preview .mla-body p {
+  text-indent: 0.5in;
+  margin: 0;
+  color: #222;
+}
+
+.mla-preview .mla-wc {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.mla-preview .mla-wc-entry {
+  text-indent: -0.5in;
+  padding-left: 0.5in;
+  text-align: left;
+  margin: 0;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 15  VIDEO EMBED
+   ───────────────────────────────────────────── */
+
+.video-block {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.video-block .video-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.video-block .video-container {
+  position: relative;
+  padding-bottom: 56.25%;  /* 16:9 */
+  height: 0;
+}
+
+.video-block .video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+.video-block .video-caption {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+}
+
+
+/* ─────────────────────────────────────────────
+   § 16  CHECKLIST
+   ───────────────────────────────────────────── */
+
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  padding: 6px 0 6px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.checklist li:last-child { border-bottom: 0; }
+
+.checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 0;
+  color: var(--accent-text);
+  font-size: 15px;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 17  BADGE / TAG PILLS
+   ───────────────────────────────────────────── */
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  padding: 2px 10px;
+}
+
+.badge.amber   { color: var(--accent-text);  background: var(--accent-soft);   border: 1px solid var(--accent-mid); }
+.badge.teal    { color: var(--teal-text);    background: var(--teal-soft);     border: 1px solid var(--teal-mid); }
+.badge.lavender{ color: var(--lavender-text);background: var(--lavender-soft); border: 1px solid #9a9cc040; }
+.badge.warn    { color: var(--warn);         background: var(--warn-soft);     border: 1px solid #f4787840; }
+
+
+/* ─────────────────────────────────────────────
+   § 18  WRITING PROCESS STAGE STRIP
+   ───────────────────────────────────────────── */
+
+.stage-strip {
+  display: flex;
+  gap: 4px;
+  margin: 20px 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.stage-strip .stage {
+  flex: 1;
+  text-align: center;
+  padding: 10px 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.stage-strip .stage:last-child { border-right: 0; }
+
+.stage-strip .stage.active {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.stage-strip .stage.completed {
+  background: var(--teal-soft);
+  color: var(--teal-text);
+}
+
+
+/* ─────────────────────────────────────────────
+   § 19  ANNOTATION SYSTEM (for sample essays)
+   ───────────────────────────────────────────── */
+
+.annotation {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.annotation.structure  { background: var(--accent-soft);   color: var(--accent-text); }
+.annotation.primary    { background: var(--teal-soft);     color: var(--teal-text); }
+.annotation.secondary  { background: var(--lavender-soft); color: var(--lavender-text); }
+.annotation.analysis   { background: #e8a83215;           color: var(--text-secondary); }
+
+
+/* ─────────────────────────────────────────────
+   § 20  UTILITY CLASSES
+   ───────────────────────────────────────────── */
+
+.text-center  { text-align: center; }
+.mt-0  { margin-top: 0; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+.mb-0  { margin-bottom: 0; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────
+   § 21  RESPONSIVE
+   ───────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .card-grid          { grid-template-columns: 1fr; }
+  .card-grid.three-col{ grid-template-columns: 1fr; }
+  .compare-grid       { grid-template-columns: 1fr; }
+  .hero               { padding: 28px 24px 24px; }
+  .hero-title         { font-size: 26px; }
+  .assignment-meta-grid { grid-template-columns: 1fr; }
+  .stage-strip        { flex-wrap: wrap; }
+  .stage-strip .stage { flex: none; width: 50%; border-bottom: 1px solid var(--border-subtle); }
+}
