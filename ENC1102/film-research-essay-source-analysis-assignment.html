@@ -769,6 +769,134 @@
   }
   .meta-card-value strong { color: var(--text-primary); font-weight: 600; }
 
+  /* ═══ ANNOTATED CITATION ═══ */
+  .anno-wrap {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 32px 36px 30px;
+    margin: 24px 0 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .anno-wrap::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .anno-citation {
+    font-family: var(--font-display);
+    font-size: 17px;
+    line-height: 2.4;
+    color: var(--text-primary);
+    padding-left: 36px;
+    text-indent: -36px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .anno-seg {
+    position: relative;
+    display: inline;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border-bottom: 2px solid;
+    white-space: normal;
+  }
+  .anno-seg .anno-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 4px;
+    vertical-align: 2px;
+  }
+  .anno-seg.c1 { background: rgba(232,168,50,0.18); border-bottom-color: var(--accent); }
+  .anno-seg.c1 .anno-num { background: var(--accent); }
+  .anno-seg.c2 { background: rgba(91,168,160,0.18); border-bottom-color: var(--teal); }
+  .anno-seg.c2 .anno-num { background: var(--teal); }
+  .anno-seg.c3 { background: rgba(154,156,192,0.20); border-bottom-color: var(--lavender); }
+  .anno-seg.c3 .anno-num { background: var(--lavender); }
+  .anno-seg.c4 { background: rgba(240,176,197,0.18); border-bottom-color: var(--sift-s); }
+  .anno-seg.c4 .anno-num { background: var(--sift-s); }
+  .anno-seg.c5 { background: rgba(176,204,232,0.18); border-bottom-color: var(--sift-i); }
+  .anno-seg.c5 .anno-num { background: var(--sift-i); }
+  .anno-seg.c6 { background: rgba(244,120,120,0.16); border-bottom-color: var(--warn); }
+  .anno-seg.c6 .anno-num { background: var(--warn); }
+
+  .anno-key {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .anno-key-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid;
+    border-radius: 0 5px 5px 0;
+    padding: 12px 16px;
+  }
+  .anno-key-item.c1 { border-left-color: var(--accent); }
+  .anno-key-item.c2 { border-left-color: var(--teal); }
+  .anno-key-item.c3 { border-left-color: var(--lavender); }
+  .anno-key-item.c4 { border-left-color: var(--sift-s); }
+  .anno-key-item.c5 { border-left-color: var(--sift-i); }
+  .anno-key-item.c6 { border-left-color: var(--warn); }
+  .anno-key-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .anno-key-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .anno-key-item.c1 .anno-key-num { background: var(--accent); }
+  .anno-key-item.c2 .anno-key-num { background: var(--teal); }
+  .anno-key-item.c3 .anno-key-num { background: var(--lavender); }
+  .anno-key-item.c4 .anno-key-num { background: var(--sift-s); }
+  .anno-key-item.c5 .anno-key-num { background: var(--sift-i); }
+  .anno-key-item.c6 .anno-key-num { background: var(--warn); }
+  .anno-key-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+  .anno-key-body {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .anno-key-body em {
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
   /* ═══ RESOURCES LIST ═══ */
   .resources-list {
     list-style: none;
@@ -801,7 +929,8 @@
   @media (max-width: 700px) {
     .page-wrap { padding: 28px 16px; }
     .hero { padding: 28px 24px 24px; }
-    .outcomes-grid, .meta-grid, .form-sample-cl { grid-template-columns: 1fr; }
+    .outcomes-grid, .meta-grid, .form-sample-cl, .anno-key { grid-template-columns: 1fr; }
+    .anno-wrap { padding: 24px 22px; }
     .form-sample-cl-col:first-child { border-right: none; border-bottom: 1px solid var(--border-subtle); }
     .source-requirements { padding-left: 0; }
     .form-sample-banner { flex-direction: column; }
@@ -1037,7 +1166,7 @@
       </div>
 
       <div class="form-sample-instructions">
-        <strong>Sample submission</strong> &nbsp; Alfonso Cuar&oacute;n, <em>Children of Men</em> (2006). This is a complete, model level response for both parts of the assignment. Use it as a guide for format, length, and depth.
+        <strong>Sample submission</strong> &nbsp; Steven Spielberg, <em>Minority Report</em> (2002). This is a complete, model level response for both parts of the assignment. Use it as a guide for format, length, and depth.
       </div>
 
       <div class="form-sample-body">
@@ -1056,12 +1185,12 @@
         <div class="form-sample-flabel">MLA Citation</div>
         <div class="form-sample-fnote">Use the database's citation tool. Apply double spacing and a hanging indent to the entry.</div>
         <div class="form-sample-field">
-          <div class="sample-citation">Amago, Samuel. "Ethics, Aesthetics, and the Future in Alfonso Cuar&oacute;n's <em>Children of Men</em>." <em>Discourse</em>, vol. 32, no. 2, Spring 2010, pp. 212-235. <em>Academic OneFile</em>, link.gale.com/apps/doc/A253058624/AONE.</div>
+          <div class="sample-citation">Bakewell, Geoffrey W. "The One-Eyed Man Is King: Oedipal Vision in <em>Minority Report</em>." <em>Arethusa</em>, vol. 41, no. 1, Winter 2008, pp. 95-112. <em>JSTOR</em>, www.jstor.org/stable/44578363.</div>
         </div>
         <div class="form-sample-flabel lav">How does this source relate to your argument?</div>
         <div class="form-sample-fnote">In one or two sentences, explain what this source discusses and how you plan to use it.</div>
         <div class="form-sample-field">
-          <span class="sample-response-text">Amago argues that Cuar&oacute;n's film mobilizes its visual aesthetic in the service of a sustained political critique, organizing its dystopian imagery around a structuring tension between the foreground action and the background environment. I plan to draw on Amago's analysis of the film's long takes and background detail to support my argument that the camera in <em>Children of Men</em> trains viewers to attend to political conditions the protagonist himself ignores.</span>
+          <span class="sample-response-text">Bakewell reads <em>Minority Report</em> as a modern adaptation of Sophocles' <em>Oedipus Tyrannus</em>, arguing that both the play and the film braid together images of blindness, sight, and knowledge to trace a detective who reopens a case only to discover he is himself the criminal. I plan to use Bakewell's analysis of the film's recurring eye imagery to support my argument that Spielberg uses the iconography of vision and surveillance to question whether seeing the future ever really means knowing it.</span>
         </div>
 
         <!-- Source 2: Internet 1 -->
@@ -1072,7 +1201,7 @@
         <div class="form-sample-flabel web">MLA Citation</div>
         <div class="form-sample-fnote">Format using MLA 9th edition guidelines for online sources. Double space and apply a hanging indent.</div>
         <div class="form-sample-field">
-          <div class="sample-citation">Ogrodnik, Ben. "Focalisation Realism and Narrative Asymmetry in Alfonso Cuar&oacute;n's <em>Children of Men</em>." <em>Senses of Cinema</em>, no. 71, June 2014, www.sensesofcinema.com/2014/feature-articles/focalization-realism-and-narrative-asymmetry-in-alfonso-cuarons-children-of-men/. Accessed 4 Apr. 2026.</div>
+          <div class="sample-citation">Eggert, Brian. "Minority Report (2002)." <em>Deep Focus Review</em>, The Definitives, www.deepfocusreview.com/definitives/minority-report/. Accessed 4 Apr. 2026.</div>
         </div>
 
         <!-- Source 3: Internet 2 -->
@@ -1083,7 +1212,7 @@
         <div class="form-sample-flabel web">MLA Citation</div>
         <div class="form-sample-fnote">Format using MLA 9th edition guidelines for online sources. Double space and apply a hanging indent.</div>
         <div class="form-sample-field">
-          <div class="sample-citation">Jacobson, Gavin. "Why <em>Children of Men</em> Haunts the Present Moment." <em>New Statesman</em>, 1 July 2020, www.newstatesman.com/culture/film/2020/07/children-of-men-alfonso-cuaron-2006-apocalypse-coronavirus. Accessed 4 Apr. 2026.</div>
+          <div class="sample-citation">Edelstein, David. "<em>Minority Report</em> Is a Fabulous, Witty Totalitarian Nightmare." <em>Slate</em>, 21 June 2002, slate.com/culture/2002/06/minority-report-is-a-fabulous-witty-totalitarian-nightmare.html. Accessed 4 Apr. 2026.</div>
         </div>
 
         <!-- PART TWO -->
@@ -1093,7 +1222,7 @@
         </div>
         <p style="font-size: 13.5px; font-style: italic; color: var(--text-muted); margin-bottom: 18px; line-height: 1.65;">For each source, all four SIFT letters are addressed in order. Responses name specific search terms, websites, and publications, not just general impressions.</p>
 
-        <!-- SIFT: Source 2 (Ogrodnik) -->
+        <!-- SIFT: Source 2 (Eggert / Deep Focus Review) -->
         <div class="form-sample-src web">
           <span class="form-sample-src-label">Internet Source One (Source 2)</span>
           <span class="form-sample-src-sub"> &middot; SIFT Evaluation</span>
@@ -1107,7 +1236,7 @@
               <div class="fs-sift-note">If you used an AI tool to suggest keywords, briefly describe how and what terms it offered.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">I searched Google using the terms <em>Children of Men Cuar&oacute;n long take camera scholarly analysis</em>. The first page returned a mix of fan blogs, news features, and one result from a site called <em>Senses of Cinema</em>. The URL ended in .com but the page title described a feature article on focalisation and narrative asymmetry in the film, which sounded considerably more analytical than the surrounding results. The article had a named author, footnotes, and a list of works cited at the bottom, which made me decide it was worth investigating further.</div>
+          <div class="fs-sift-resp">I searched Google using the terms <em>Minority Report Spielberg film essay surveillance precrime analysis</em>. The first page returned a mix of fan reviews, Wikipedia, and a site called <em>Deep Focus Review</em>. The page that came up was part of a series called "The Definitives," and its essay on <em>Minority Report</em> was considerably longer and more thoroughly argued than the surrounding results. The article had a named author, an extensive bibliography at the bottom of the page, and engaged directly with the film's visual style and philosophical questions about free will, which made me decide it was worth investigating further.</div>
         </div>
 
         <div class="fs-sift">
@@ -1118,7 +1247,7 @@
               <div class="fs-sift-note">Name the specific websites, publications, or results you found. "It looked legitimate" is not sufficient.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">I opened a new tab and searched <em>Senses of Cinema journal academic peer reviewed</em>. I learned that <em>Senses of Cinema</em> is an independent, online quarterly film journal founded in 1999 in Australia, with an international editorial board and an advisory board that includes recognized film scholars. The Wikipedia entry on the journal cited its inclusion in academic film studies course syllabi and described its editorial review process. I then searched for Ben Ogrodnik and found that he has published peer reviewed work on film and media in venues including <em>Film Criticism</em> and has been listed as a graduate scholar at the University of Pittsburgh. His other Senses of Cinema essays appeared on the same site and dealt with similar topics in narrative film theory.</div>
+          <div class="fs-sift-resp">I opened a new tab and searched <em>Deep Focus Review credibility film critic Brian Eggert</em>. I learned that <em>Deep Focus Review</em> is an independent film criticism site founded in 2007 by Brian Eggert, who is a member of the Online Film Critics Society and whose reviews are aggregated on Rotten Tomatoes as a tomatometer approved critic. The Independent Film Critics of America named Eggert Critic of the Year in 2024. I also searched for other citations of his "Definitives" essays and found them linked in academic course reading lists and quoted in other critical pieces. His byline is consistent, verifiable, and publicly attached to his work.</div>
         </div>
 
         <div class="fs-sift">
@@ -1129,7 +1258,7 @@
               <div class="fs-sift-note">You do not need exact agreement, just evidence the critical conversation it joins is real and established.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">My JSTOR search for <em>Children of Men long take Cuar&oacute;n</em> returned several articles discussing the film's camera technique and political critique, including the Samuel Amago article in <em>Discourse</em> that I am using as my database source. Both the Amago and the Ogrodnik essays foreground the relationship between camera movement and political meaning in the film, even though they reach somewhat different conclusions about how the spectator is positioned. The critical conversation Ogrodnik is participating in is clearly active and ongoing.</div>
+          <div class="fs-sift-resp">My JSTOR search for <em>Minority Report Spielberg vision surveillance</em> returned several peer reviewed articles on the film's imagery of eyes, blindness, and predictive policing, including the Bakewell article in <em>Arethusa</em> that I am using as my database source. Eggert's essay draws on similar themes, particularly the film's treatment of vision as both literal and metaphorical, and the bibliography at the bottom of his page cites scholarly work on Spielberg and on Philip K. Dick's original short story. The critical conversation Eggert is participating in is clearly active and well established.</div>
         </div>
 
         <div class="fs-sift">
@@ -1140,12 +1269,12 @@
               <div class="fs-sift-note">Consider: author credentials, publisher reputation, citation practices, and any unverifiable claims.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">I am confident this source is appropriate for academic use for three reasons: <em>Senses of Cinema</em> is an established film studies journal with an editorial board and a long publication history, the author has a verifiable graduate research profile and other peer reviewed work on film, and the article itself uses footnotes and an in text bibliography rather than unsupported assertions. What would have disqualified it: an anonymous author, a site with no editorial structure, or an article that just summarized the plot of the film without making an interpretive argument. None of those problems were present.</div>
+          <div class="fs-sift-resp">I am confident this source is appropriate for academic use for three reasons: <em>Deep Focus Review</em> has a clear editorial identity and nearly two decades of sustained film criticism, the author has recognized professional standing as a critic and is aggregated on Rotten Tomatoes as a tomatometer approved critic, and the essay itself cites its sources and engages with the film's formal and thematic choices rather than simply summarizing the plot. What would have disqualified it: an anonymous author, a site with no editorial structure, or an article that just described the film's action. None of those problems were present.</div>
         </div>
 
         <div style="height: 1px; background: var(--border-subtle); margin: 22px 0;"></div>
 
-        <!-- SIFT: Source 3 (Jacobson / New Statesman) -->
+        <!-- SIFT: Source 3 (Edelstein / Slate) -->
         <div class="form-sample-src web">
           <span class="form-sample-src-label">Internet Source Two (Source 3)</span>
           <span class="form-sample-src-sub"> &middot; SIFT Evaluation</span>
@@ -1159,7 +1288,7 @@
               <div class="fs-sift-note">If you used an AI tool to suggest keywords, briefly describe how and what terms it offered.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">I used Google with the search terms <em>Children of Men contemporary politics dystopia essay 2020</em>. I asked an AI assistant for additional keywords and it suggested adding <em>capitalist realism</em> and <em>refugee crisis</em>, which narrowed my results. The article in <em>New Statesman</em> by Gavin Jacobson appeared on the first page. The headline argued that the film "haunts the present moment," which suggested a sustained interpretive argument rather than a list of trivia, and the byline identified a named writer, so it seemed worth a closer look.</div>
+          <div class="fs-sift-resp">I used Google with the search terms <em>Minority Report Spielberg review totalitarian civil liberties</em>. I asked an AI assistant for additional keywords and it suggested adding <em>precrime</em> and <em>preemption</em>, which narrowed my results. An article in <em>Slate</em> by David Edelstein appeared on the first page. The headline argued that the film was "a fabulous, witty totalitarian nightmare," which suggested a sustained argument about the film's politics rather than a plot summary, and the byline identified a named writer, so it seemed worth a closer look.</div>
         </div>
 
         <div class="fs-sift">
@@ -1170,7 +1299,7 @@
               <div class="fs-sift-note">Name the specific websites, publications, or results you found. "It looked legitimate" is not sufficient.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">In a new tab, I searched <em>New Statesman magazine credibility</em> and read its Wikipedia entry, which described it as a long established British weekly founded in 1913, known for political and cultural commentary. I then searched <em>Gavin Jacobson writer</em> and found his author page at <em>New Statesman</em>, where he is listed as a Senior Writer specializing in ideas and politics, with a substantial archive of essays. His byline also appeared on book reviews for <em>The New York Review of Books</em> and <em>Foreign Affairs</em>. None of the results I found suggested he was anonymous, undisclosed, or unaffiliated with established publications.</div>
+          <div class="fs-sift-resp">In a new tab, I searched <em>Slate magazine credibility editorial</em> and read its Wikipedia entry, which described <em>Slate</em> as an American online magazine of news and culture that has been publishing since 1996 and currently operates under The Slate Group. I then searched <em>David Edelstein film critic</em> and found that he has been the lead film critic for <em>New York</em> magazine and <em>Vulture</em>, has contributed to <em>NPR's Fresh Air</em>, and has been a member of the New York Film Critics Circle. His byline and professional affiliations were corroborated by multiple independent sources, including his author pages at those outlets.</div>
         </div>
 
         <div class="fs-sift">
@@ -1181,7 +1310,7 @@
               <div class="fs-sift-note">You do not need exact agreement, just evidence the critical conversation it joins is real and established.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">A search in JSTOR and Academic Search Complete for criticism that links <em>Children of Men</em> to contemporary politics returned multiple peer reviewed articles discussing the film's relevance to refugee policy, surveillance, and what theorists have called "capitalist realism," the same framework Jacobson invokes. Multiple academic essays cite Mark Fisher's book <em>Capitalist Realism</em> in connection with Cuar&oacute;n's film, which is the central reference Jacobson is drawing on. Jacobson's argument fits squarely within an established critical conversation rather than standing alone.</div>
+          <div class="fs-sift-resp">A search in JSTOR and Academic Search Complete for criticism that links <em>Minority Report</em> to surveillance, preemption, and civil liberties returned multiple peer reviewed articles discussing the film's relevance to post 9/11 politics and predictive policing, which is exactly the framework Edelstein invokes when he calls the film a "totalitarian nightmare." Several academic essays, including Bakewell's <em>Arethusa</em> piece, also draw out the same tension between security and freedom that Edelstein identifies as the film's central question. Edelstein's argument fits squarely within an established critical conversation rather than standing alone.</div>
         </div>
 
         <div class="fs-sift">
@@ -1192,7 +1321,7 @@
               <div class="fs-sift-note">Consider: author credentials, publisher reputation, citation practices, and any unverifiable claims.</div>
             </div>
           </div>
-          <div class="fs-sift-resp">The combination of a long established publication with an editorial process, a named senior writer with a verifiable byline at multiple reputable outlets, and an argument that draws on a recognizable theoretical framework makes me confident this source is appropriate for academic use. It is a journalistic essay rather than a peer reviewed scholarly article, so I plan to use it for context and argumentative framing rather than as my primary scholarly authority. What would have disqualified it: an unsigned post, a site with no editorial oversight, or claims about the film that I could not corroborate elsewhere. None of those problems were present.</div>
+          <div class="fs-sift-resp">The combination of an established online magazine with an editorial process, a critic with a verifiable record at multiple reputable outlets, and an argument grounded in the film's actual depiction of precrime policing makes me confident this source is appropriate for academic use. It is a critical review written close to the film's release rather than a peer reviewed scholarly article, so I plan to use it for early reception and framing rather than as my primary scholarly authority. What would have disqualified it: an unsigned post, a site with no editorial oversight, or claims about the film that I could not corroborate elsewhere. None of those problems were present.</div>
         </div>
 
         <!-- Checklist -->
@@ -1223,11 +1352,86 @@
 <hr class="section-rule">
 
 <!-- ═══════════════════════════════════
-     SECTION THREE: GRADING & SUBMISSION
+     SECTION THREE: ANATOMY OF AN MLA 9 CITATION
+═══════════════════════════════════ -->
+<section aria-labelledby="anatomy-heading" class="fade-in fade-d3">
+  <div class="section-header">
+    <span class="section-badge">SEC &middot; 03</span>
+    <h2 class="section-title" id="anatomy-heading">Anatomy of an <em>MLA 9 Citation</em></h2>
+  </div>
+
+  <p class="prose">Below is the Works Cited entry for one of the internet sources in the sample submission above, with each of its core components identified. MLA 9 organizes every citation around the same set of core elements. Not every source will have every element (a review may have no volume number, a webpage may have no listed author), but when an element is present, it appears in a fixed order and is followed by a specific punctuation mark.</p>
+
+  <div class="anno-wrap">
+    <div class="anno-citation">
+      <span class="anno-seg c1"><span class="anno-num">1</span>Edelstein, David.</span>
+      &nbsp;<span class="anno-seg c2"><span class="anno-num">2</span>"<em>Minority Report</em> Is a Fabulous, Witty Totalitarian Nightmare."</span>
+      &nbsp;<span class="anno-seg c3"><span class="anno-num">3</span><em>Slate</em>,</span>
+      &nbsp;<span class="anno-seg c4"><span class="anno-num">4</span>21 June 2002,</span>
+      &nbsp;<span class="anno-seg c5"><span class="anno-num">5</span>slate.com/culture/2002/06/minority-report-is-a-fabulous-witty-totalitarian-nightmare.html.</span>
+      &nbsp;<span class="anno-seg c6"><span class="anno-num">6</span>Accessed 4 Apr. 2026.</span>
+    </div>
+
+    <div class="anno-key">
+      <div class="anno-key-item c1">
+        <div class="anno-key-header">
+          <span class="anno-key-num">1</span>
+          <span class="anno-key-title">Author</span>
+        </div>
+        <div class="anno-key-body">Last name first, then first name, followed by a period. If the source has no listed author, skip this element and begin the entry with the title.</div>
+      </div>
+      <div class="anno-key-item c2">
+        <div class="anno-key-header">
+          <span class="anno-key-num">2</span>
+          <span class="anno-key-title">Title of Source</span>
+        </div>
+        <div class="anno-key-body">The title of the specific article, essay, or page, placed in quotation marks because it is part of a larger container. Film titles inside the article title stay italicized. Ends with a period inside the closing quotation mark.</div>
+      </div>
+      <div class="anno-key-item c3">
+        <div class="anno-key-header">
+          <span class="anno-key-num">3</span>
+          <span class="anno-key-title">Title of Container</span>
+        </div>
+        <div class="anno-key-body">The larger work in which the article appears, italicized and followed by a comma. For a web source, the container is usually the name of the website or magazine (here, <em>Slate</em>).</div>
+      </div>
+      <div class="anno-key-item c4">
+        <div class="anno-key-header">
+          <span class="anno-key-num">4</span>
+          <span class="anno-key-title">Publication Date</span>
+        </div>
+        <div class="anno-key-body">In MLA 9, dates for online sources are given day first, month (abbreviated if longer than four letters), then year, followed by a comma. Use the most specific date available on the page itself.</div>
+      </div>
+      <div class="anno-key-item c5">
+        <div class="anno-key-header">
+          <span class="anno-key-num">5</span>
+          <span class="anno-key-title">Location (URL)</span>
+        </div>
+        <div class="anno-key-body">The full URL of the article, without the <em>https://</em> prefix. MLA 9 recommends using a DOI if one is available; for most web articles, a permanent URL is the right choice. Ends with a period.</div>
+      </div>
+      <div class="anno-key-item c6">
+        <div class="anno-key-header">
+          <span class="anno-key-num">6</span>
+          <span class="anno-key-title">Access Date (Optional but Recommended)</span>
+        </div>
+        <div class="anno-key-body">Because online content can change or disappear, MLA 9 recommends including the date you last viewed the source. Format: <em>Accessed</em> followed by day, abbreviated month, and year, with a period at the end.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <div class="callout-label">Elements You Do Not See Here</div>
+    <p>MLA 9 also recognizes core elements for <strong>other contributors</strong> (such as editors or translators), <strong>version</strong>, <strong>number</strong> (volume and issue), and <strong>publisher</strong>. These are common in citations for scholarly journal articles and edited books but are usually absent from online magazine reviews like this one. When they do appear, they follow the container title in the order listed above.</p>
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════
+     SECTION FOUR: GRADING & SUBMISSION
 ═══════════════════════════════════ -->
 <section aria-labelledby="grading-heading" class="fade-in fade-d3">
   <div class="section-header">
-    <span class="section-badge lavender">SEC &middot; 03</span>
+    <span class="section-badge lavender">SEC &middot; 04</span>
     <h2 class="section-title" id="grading-heading">Grading, Format, &amp; <em>Submission</em></h2>
   </div>
 
@@ -1243,7 +1447,7 @@
     </div>
     <div class="meta-card">
       <div class="meta-card-label">Due Date</div>
-      <div class="meta-card-value"><strong>[Due Date TBD]</strong></div>
+      <div class="meta-card-value"><strong>Sunday, April 19</strong> at 11:59 pm.</div>
     </div>
     <div class="meta-card">
       <div class="meta-card-label">Minimum Length</div>
@@ -1251,7 +1455,7 @@
     </div>
     <div class="meta-card">
       <div class="meta-card-label">Grace Period</div>
-      <div class="meta-card-value">You will have <strong>two days</strong> after the due date to submit for full credit.</div>
+      <div class="meta-card-value">Since the semester is nearly over, there is no grace period for this assignment. The Late Assignment Policy (two points deducted per 24 hours it is late) will be applied.</div>
     </div>
   </div>
 
@@ -1262,20 +1466,14 @@
 <hr class="section-rule">
 
 <!-- ═══════════════════════════════════
-     SECTION FOUR: RESOURCES
+     SECTION FIVE: RESOURCES
 ═══════════════════════════════════ -->
 <section aria-labelledby="resources-heading" class="fade-in fade-d4">
   <div class="section-header">
-    <span class="section-badge teal">SEC &middot; 04</span>
+    <span class="section-badge teal">SEC &middot; 05</span>
     <h2 class="section-title" id="resources-heading">Module <em>Resources</em></h2>
   </div>
-  <ul class="resources-list" role="list">
-    <li><span class="resource-arrow">&#x25C6;</span><a class="resource-link" href="#">Academic Research: Using the Internet</a></li>
-    <li><span class="resource-arrow">&#x25C6;</span><a class="resource-link" href="#">AI and Academic Research</a></li>
-    <li><span class="resource-arrow">&#x25C6;</span><a class="resource-link" href="#">Using Academic Databases for Film Research</a></li>
-    <li><span class="resource-arrow">&#x25C6;</span><a class="resource-link" href="#">MLA Documentation: Quoting &amp; Paraphrasing from Secondary Sources</a></li>
-    <li><span class="resource-arrow">&#x25C6;</span><a class="resource-link" href="#">Valencia College Library: Research Help</a></li>
-  </ul>
+  <p class="prose" style="margin-top: 8px;">These will be available soon.</p>
 </section>
 
 </div>
