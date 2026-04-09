@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works Cited Entries for Your Poem | ENC 1102 — Module Seven</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:         #f4ede0;
+    --vellum:        #ede3cf;
+    --aged:          #e4d8be;
+    --worn:          #d8c9a8;
+    --shadow:        #c4b48e;
+    --ink:           #1e160a;
+    --ink-warm:      #2c1f0e;
+    --ink-mid:       #4a3520;
+    --quill:         #6b4e2e;
+    --faded:         #7d6041;
+    --dust:          #7f6748;
+    --moss:          #4a6040;
+    --moss-mid:      #5e7852;
+    --moss-light:    #7a9468;
+    --moss-pale:     #c8d8bc;
+    --moss-wash:     rgba(90,120,72,0.08);
+    --moss-glow:     rgba(90,120,72,0.14);
+    --moss-mid-aa:   #5a734e;
+    --umber:         #7a4e28;
+    --umber-mid:     #9a6438;
+    --umber-pale:    #dfc8a8;
+    --umber-wash:    rgba(122,78,40,0.08);
+    --indigo:        #3a4868;
+    --indigo-mid:    #4e608a;
+    --indigo-pale:   #c0cce0;
+    --indigo-wash:   rgba(58,72,104,0.08);
+    --rule:          rgba(74,53,32,0.18);
+    --rule-light:    rgba(74,53,32,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    text-align: left;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #243418 0%, #1c2c12 60%, #2c3e1e 100%);
+    padding: 0; overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.025) 28px, rgba(255,255,255,0.025) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.015) 28px, rgba(255,255,255,0.015) 29px);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    position: absolute; top: 0; right: 0;
+    width: 320px; height: 320px;
+    opacity: 0.06; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 960px; margin: 0 auto;
+    padding: 52px 48px 48px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .hero-module-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--moss-pale); opacity: 0.8;
+  }
+  .hero-module-tag::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--moss-pale); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(30px, 4.5vw, 46px);
+    font-weight: 700; color: var(--paper);
+    line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--moss-pale); }
+  .hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5;
+    max-width: 620px; opacity: 0.9;
+  }
+  .hero-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--moss-light), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 960px; margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--moss-mid-aa); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+    max-width: 120px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+    color: var(--ink-warm); line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--moss); }
+  .prose {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; line-height: 1.8;
+    color: var(--ink-mid); max-width: 720px;
+  }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  /* ── WORKS CITED PAPER ── */
+  .wc-paper-wrap {
+    margin-top: 24px;
+    padding: 14px;
+    background: var(--worn);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(30,22,10,0.10);
+  }
+  .wc-paper {
+    background: #fdfaf0;
+    padding: 54px 68px 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    color: #111;
+    line-height: 2.0;
+    min-height: 200px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .wc-heading {
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  .wc-entry {
+    margin: 0;
+    padding-left: 36px;
+    text-indent: -36px;
+  }
+  .wc-entry + .wc-entry { margin-top: 0; }
+
+  /* ── TIP CARD ── */
+  .tip-card {
+    margin-top: 28px;
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--umber-mid);
+    border-radius: 8px;
+    padding: 18px 24px;
+  }
+  .tip-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--umber); margin-bottom: 6px;
+  }
+  .tip-card p {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.7; margin: 0;
+  }
+  .tip-card p + p { margin-top: 8px; }
+  .tip-card strong { color: var(--ink); font-weight: 600; }
+
+  /* ── BACK LINK ── */
+  .back-link {
+    display: inline-block;
+    margin-top: 40px;
+    font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+    color: var(--moss); text-decoration: none;
+    border-bottom: 1px solid rgba(74,96,64,0.3);
+  }
+  .back-link:hover { color: var(--moss-mid); border-color: var(--moss-mid); }
+
+  @media (max-width: 760px) {
+    .hero-inner { padding: 40px 24px 36px; }
+    .page-body { padding: 40px 24px 60px; }
+    .wc-paper { padding: 36px 28px 40px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <svg class="hero-ornament" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="170" cy="170" r="110" fill="none" stroke="white" stroke-width="1.5"/>
+    <circle cx="170" cy="170" r="80" fill="none" stroke="white" stroke-width="1"/>
+    <circle cx="170" cy="170" r="50" fill="none" stroke="white" stroke-width="0.8"/>
+    <line x1="60" y1="170" x2="280" y2="170" stroke="white" stroke-width="0.8"/>
+    <line x1="170" y1="60" x2="170" y2="280" stroke="white" stroke-width="0.8"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-module-tag">Module Seven &nbsp;·&nbsp; Resource</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">Works Cited Entries for <em>Your Poem</em></h1>
+    <p class="hero-subtitle">Pre-formatted MLA 9 entries for all six research essay poem options.</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <section class="section">
+    <div class="section-label">How to Use This Page</div>
+    <h2 class="section-title">Find Your Poem, <em>Copy the Entry</em></h2>
+    <p class="prose">All six poems available for this essay come from the <em>Poetry Foundation</em> website, which means the Works Cited format is the same for every option. Below you will find a completed MLA 9 entry for each poem, in the order they should appear on your Works Cited page (alphabetized by the poet's last name). Locate your poem, copy its entry exactly as it appears, and paste it into your Works Cited.</p>
+
+    <div class="wc-paper-wrap">
+      <div class="wc-paper">
+        <p class="wc-heading">Works Cited Entries &mdash; Poetry Foundation</p>
+        <p class="wc-entry">Brooks, Gwendolyn. "the mother." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/43309/the-mother-56d2220767a02. Accessed 15 Oct. 2025.</p>
+        <p class="wc-entry">Dickinson, Emily. "Because I could not stop for Death &mdash; (479)." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/47652/because-i-could-not-stop-for-death-479. Accessed 15 Oct. 2025.</p>
+        <p class="wc-entry">Espada, Mart&iacute;n. "Alabanza: In Praise of Local 100." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/47868/alabanza-in-praise-of-local-100. Accessed 15 Oct. 2025.</p>
+        <p class="wc-entry">Komunyakaa, Yusef. "Facing It." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/47867/facing-it. Accessed 15 Oct. 2025.</p>
+        <p class="wc-entry">Neruda, Pablo. "One Hundred Love Sonnets: XVII." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/49236/one-hundred-love-sonnets-xvii. Accessed 15 Oct. 2025.</p>
+        <p class="wc-entry">Sexton, Anne. "Her Kind." <em>Poetry Foundation</em>, www.poetryfoundation.org/poems/42556/her-kind. Accessed 15 Oct. 2025.</p>
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-label">Before You Paste</div>
+      <p><strong>Update the Accessed date.</strong> The date shown above is a placeholder. Replace "15 Oct. 2025" with the actual date on which you most recently opened your poem on the Poetry Foundation website.</p>
+      <p><strong>Alphabetize.</strong> Place your poem's entry in alphabetical order alongside your three secondary source entries. Most of the time, that means by the poet's last name.</p>
+      <p><strong>Keep the italics.</strong> The website name <em>Poetry Foundation</em> must remain italicized after you paste. If pasting strips the italics, reapply them by hand.</p>
+    </div>
+
+    <a class="back-link" href="M7mla-documentation-the-works-cited.html">&larr; Back to MLA Documentation: The Works Cited</a>
+  </section>
+
+</main>
+</body>
+</html>

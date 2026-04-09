@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Create Your Works Cited | ENC 1102 — Module Seven</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:         #f4ede0;
+    --vellum:        #ede3cf;
+    --aged:          #e4d8be;
+    --worn:          #d8c9a8;
+    --shadow:        #c4b48e;
+    --ink:           #1e160a;
+    --ink-warm:      #2c1f0e;
+    --ink-mid:       #4a3520;
+    --quill:         #6b4e2e;
+    --faded:         #7d6041;
+    --dust:          #7f6748;
+    --moss:          #4a6040;
+    --moss-mid:      #5e7852;
+    --moss-light:    #7a9468;
+    --moss-pale:     #c8d8bc;
+    --moss-wash:     rgba(90,120,72,0.08);
+    --moss-glow:     rgba(90,120,72,0.14);
+    --moss-mid-aa:   #5a734e;
+    --umber:         #7a4e28;
+    --umber-mid:     #9a6438;
+    --umber-pale:    #dfc8a8;
+    --umber-wash:    rgba(122,78,40,0.08);
+    --indigo:        #3a4868;
+    --indigo-mid:    #4e608a;
+    --indigo-pale:   #c0cce0;
+    --indigo-wash:   rgba(58,72,104,0.08);
+    --danger:        #8b2a2a;
+    --danger-pale:   #fceaea;
+    --danger-mid:    #c0403c;
+    --warn:          #7a5010;
+    --warn-pale:     #fef4e0;
+    --warn-mid:      #c08030;
+    --rule:          rgba(74,53,32,0.18);
+    --rule-light:    rgba(74,53,32,0.10);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    text-align: left;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #243418 0%, #1c2c12 60%, #2c3e1e 100%);
+    padding: 0; overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.025) 28px, rgba(255,255,255,0.025) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.015) 28px, rgba(255,255,255,0.015) 29px);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    position: absolute; top: 0; right: 0;
+    width: 320px; height: 320px;
+    opacity: 0.06; pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 960px; margin: 0 auto;
+    padding: 52px 48px 48px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .hero-module-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--moss-pale); opacity: 0.8;
+  }
+  .hero-module-tag::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--moss-pale); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(30px, 4.5vw, 46px);
+    font-weight: 700; color: var(--paper);
+    line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--moss-pale); }
+  .hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5;
+    max-width: 620px; opacity: 0.9;
+  }
+  .hero-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--moss-light), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 960px; margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+
+  /* ── PREFLIGHT & FOLLOW-ALONG CARDS ── */
+  .preflight-card, .follow-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px 26px;
+    margin-bottom: 22px;
+  }
+  .preflight-card {
+    background: var(--moss-wash);
+    border-left: 4px solid var(--moss-mid);
+  }
+  .follow-card {
+    background: var(--warn-pale);
+    border-left: 4px solid var(--warn-mid);
+    margin-bottom: 40px;
+  }
+  .preflight-label, .follow-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .preflight-label { color: var(--moss); }
+  .follow-label { color: var(--warn); }
+  .preflight-card p, .follow-card p {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.75; margin: 0 0 8px 0;
+  }
+  .preflight-card ul {
+    margin: 8px 0 0 0; padding-left: 22px;
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 2.0;
+  }
+  .preflight-card li { margin: 0; }
+  .preflight-card strong, .follow-card strong { color: var(--ink); font-weight: 600; }
+
+  /* ── STEP SECTIONS ── */
+  .step-section {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .step-header {
+    background: linear-gradient(135deg, rgba(74,96,64,0.18) 0%, rgba(90,120,72,0.10) 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 26px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .step-number {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    background: var(--moss);
+    color: var(--paper);
+    border-radius: 50%;
+    font-family: 'Lora', serif; font-size: 15px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-title {
+    font-family: 'Lora', serif; font-size: 19px; font-weight: 700;
+    color: var(--ink-warm); margin: 0; line-height: 1.3;
+  }
+  .step-body {
+    padding: 22px 26px 26px;
+  }
+  .step-body p.prose-step {
+    font-family: 'Crimson Pro', serif; font-size: 16px;
+    color: var(--ink-mid); line-height: 1.75; margin: 0 0 12px 0;
+  }
+  .step-body p.prose-step strong { color: var(--ink); font-weight: 600; }
+
+  /* ── INLINE TIP CALLOUT ── */
+  .step-tip {
+    background: var(--moss-wash);
+    border-left: 3px solid var(--moss-mid);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 10px 0 4px 0;
+  }
+  .step-tip p {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--ink-mid); line-height: 1.6; margin: 0;
+  }
+  .step-tip strong { color: var(--ink); font-weight: 600; }
+
+  /* ── 2-COL METHOD CARDS (Step 5) ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .method-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .method-card-label {
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 600;
+    color: var(--moss); margin-bottom: 4px;
+  }
+  .method-card p {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--ink-mid); line-height: 1.6; margin: 0;
+  }
+
+  /* ── 3-COL TITLE-TYPE CARDS (Step 7) ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0 8px;
+  }
+  .type-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .type-card-label {
+    font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .type-card-desc {
+    font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic;
+    color: var(--faded); line-height: 1.5;
+  }
+  .type-card-desc em { font-style: italic; color: var(--moss); }
+
+  /* ── 4-COL HEADING-FORMAT CARDS (Step 8) ── */
+  .heading-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 12px 0 4px;
+  }
+  .heading-card {
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid var(--rule);
+  }
+  .heading-card.yes { background: #e8f4ea; border-color: #9ac6a0; }
+  .heading-card.no  { background: var(--danger-pale); border-color: #e8a0a0; }
+  .heading-card-label {
+    font-family: 'Lora', serif; font-size: 12px; font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .heading-card.yes .heading-card-label { color: #2e5a30; }
+  .heading-card.no  .heading-card-label { color: var(--danger); }
+  .heading-card-desc {
+    font-family: 'Crimson Pro', serif; font-size: 12px; line-height: 1.5;
+  }
+  .heading-card.yes .heading-card-desc { color: #3a5e42; }
+  .heading-card.no  .heading-card-desc { color: var(--danger); }
+
+  /* ── PROBLEM-LINK CARDS (Step 4) ── */
+  .prob-link {
+    background: var(--danger-pale);
+    border: 1px solid #e8a0a0;
+    border-left: 4px solid var(--danger);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 10px 0;
+  }
+  .prob-link p {
+    font-family: 'Crimson Pro', serif; font-size: 14px;
+    color: var(--ink-mid); line-height: 1.6; margin: 0;
+  }
+  .prob-link strong { color: var(--danger); font-weight: 600; }
+  .prob-link .inline-fix {
+    display: block; margin-top: 6px;
+    color: #2e5a30;
+  }
+  .prob-link .inline-fix strong { color: #2e5a30; }
+
+  /* ── JORDAN'S EXAMPLE PANEL ── */
+  .jordan {
+    border-top: 2px dashed var(--warn-mid);
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+  .jordan-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--warn);
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .jordan-label::before {
+    content: '✎'; font-size: 15px; color: var(--warn-mid);
+  }
+  .jordan p.jordan-narrative {
+    font-family: 'Crimson Pro', serif; font-size: 14px; font-style: italic;
+    color: var(--dust); line-height: 1.7; margin: 0 0 12px 0;
+  }
+  .jordan p.jordan-narrative strong { color: var(--ink); font-style: normal; font-weight: 600; }
+  .jordan .jordan-caption {
+    font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic;
+    color: var(--faded); line-height: 1.6; margin: 8px 0 14px 0;
+  }
+
+  /* ── BEFORE / AFTER LABELS ── */
+  .ba-label {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin: 6px 0 6px 0;
+  }
+  .ba-label.before { color: var(--danger); }
+  .ba-label.after  { color: #2e5a30; }
+  .ba-label::before {
+    display: inline-block; width: 18px; text-align: center;
+  }
+  .ba-label.before::before { content: '✗'; }
+  .ba-label.after::before  { content: '✓'; }
+
+  /* ── PAPER MOCKUP (Jordan's Works Cited at each step) ── */
+  .paper-wrap {
+    padding: 10px;
+    background: var(--shadow);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(30,22,10,0.10);
+    margin-bottom: 10px;
+  }
+  .paper {
+    background: #fdfaf0;
+    padding: 34px 46px 38px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: #111;
+    line-height: 2.0;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .paper.template {
+    padding: 32px 48px;
+    line-height: 1.7;
+  }
+  .paper p { margin: 0; }
+  .paper p.hanging { padding-left: 32px; text-indent: -32px; }
+  .paper p.flush   { padding: 0; }
+  .paper p.single  { line-height: 1.35; }
+  .paper p.gap     { line-height: 1.35; margin: 0; }
+  .paper p.center  { text-align: center; }
+  .paper .hl       { background: #fff7cc; }
+  .paper .blue     { color: #0563c1; text-decoration: underline; }
+  .paper .wc-head  { text-align: center; }
+
+  /* Template mockup styling */
+  .template .tmpl-title { text-align: center; margin-bottom: 6px; }
+  .template .tmpl-sub   { text-align: center; margin-bottom: 18px; }
+  .template .src-head   { margin: 0 0 4px 0; font-weight: 700; }
+  .template .src-line   { margin: 0 0 2px 0; padding-left: 18px; }
+  .template .src-cite   { margin: 0 0 10px 0; padding-left: 32px; }
+  .template .src-sub    { margin: 0 0 2px 0; padding-left: 36px; }
+  .template .src-gap    { margin: 0 0 18px 0; padding-left: 36px; }
+
+  /* ── FINAL CHECKLIST ── */
+  .checklist-panel {
+    background: var(--vellum);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--moss-mid);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+  .checklist-panel-title {
+    font-family: 'Lora', serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .checklist-panel-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--rule), transparent);
+  }
+  .checklist-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 32px;
+  }
+  .check-row {
+    font-family: 'Crimson Pro', serif; font-size: 15px;
+    color: var(--ink-mid); line-height: 1.6;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule-light);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .check-box {
+    width: 16px; height: 16px; border-radius: 3px;
+    border: 1.5px solid var(--shadow);
+    flex-shrink: 0; margin-top: 3px;
+    background: var(--paper);
+  }
+  .check-row strong { color: var(--ink); font-weight: 600; }
+
+  /* ── BACK BANNER ── */
+  .back-banner {
+    background: linear-gradient(135deg, #243418 0%, #2c3e1e 100%);
+    border-radius: 10px;
+    padding: 22px 32px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .back-banner-tag {
+    font-family: 'Lora', serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--moss-pale); opacity: 0.85; margin-bottom: 6px;
+  }
+  .back-banner a {
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 700;
+    color: var(--paper); text-decoration: none;
+    border-bottom: 1px solid rgba(200,216,188,0.4);
+  }
+  .back-banner a:hover { border-color: var(--moss-pale); }
+  .back-banner-desc {
+    font-family: 'Crimson Pro', serif; font-size: 14px; font-style: italic;
+    color: var(--umber-pale); line-height: 1.5; margin-top: 6px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 760px) {
+    .hero-inner { padding: 40px 24px 36px; }
+    .page-body { padding: 32px 20px 60px; }
+    .method-grid, .type-grid { grid-template-columns: 1fr; }
+    .heading-grid { grid-template-columns: 1fr 1fr; }
+    .checklist-cols { grid-template-columns: 1fr; }
+    .paper { padding: 24px 22px 28px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-texture"></div>
+  <svg class="hero-ornament" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M60 60 L280 60 L280 280 L60 280 Z" fill="none" stroke="white" stroke-width="1.5"/>
+    <line x1="90" y1="110" x2="250" y2="110" stroke="white" stroke-width="1"/>
+    <line x1="90" y1="140" x2="250" y2="140" stroke="white" stroke-width="1"/>
+    <line x1="90" y1="170" x2="230" y2="170" stroke="white" stroke-width="1"/>
+    <line x1="90" y1="200" x2="250" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="90" y1="230" x2="210" y2="230" stroke="white" stroke-width="1"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-module-tag">Module Seven &nbsp;·&nbsp; MLA Documentation</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">How to Create <em>Your Works Cited</em></h1>
+    <p class="hero-subtitle">A step-by-step walkthrough for building, formatting, and finalizing your Works Cited page.</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <!-- PREFLIGHT -->
+  <div class="preflight-card">
+    <div class="preflight-label">Before You Begin</div>
+    <p>Have the following open and ready before you start working through the eight steps below:</p>
+    <ul>
+      <li>Your completed <strong>Poetry Research Essay Source Analysis Assignment</strong> &mdash; your three secondary source MLA citations are already there</li>
+      <li>Your <strong>research essay document</strong>, open and ready to edit</li>
+      <li>The <strong>Works Cited Entries for Your Poem</strong> page &mdash; linked on the previous page; you will need it for Step 3</li>
+    </ul>
+  </div>
+
+  <!-- FOLLOW ALONG -->
+  <div class="follow-card">
+    <div class="follow-label">Follow Along with Jordan Rivera</div>
+    <p>Jordan is writing a poetry research essay about Sylvia Plath's "Morning Song." She has already completed her Source Analysis Assignment and has three secondary source citations ready to go &mdash; the same three sources used in the sample essay on the previous module page. At each step, a <strong>Jordan's Example</strong> section shows exactly what her Works Cited looks like at that stage. Follow along to see how a real Works Cited page comes together from start to finish.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STEP 1 — COPY CITATIONS
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h3 class="step-title">Copy Your Secondary Source Citations</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">Open your completed <strong>Poetry Research Essay Source Analysis Assignment</strong>. Your three MLA citations are listed there, each under its own source section. For each source, <strong>select and copy the MLA Citation</strong> and then <strong>paste it into your research essay document</strong> to begin building your Works Cited. Paste all three entries one after another &mdash; you will alphabetize them in Step 2.</p>
+      <div class="step-tip">
+        <p><strong>Tip:</strong> Paste the entries at the very end of your essay document, after your conclusion paragraph. You may want to insert a page break first so the Works Cited starts on its own page.</p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan opens her Source Analysis Assignment. She copies the MLA Citation for each of her three sources and pastes them one by one into her research essay document. Below is what her assignment template looks like with the three entries filled in. The key step is locating the MLA Citation field for each source and copying that text.</p>
+
+        <div class="paper-wrap">
+          <div class="paper template">
+            <p class="tmpl-title">Module Seven: The Poetry Research Essay</p>
+            <p class="tmpl-sub">Source Analysis Assignment Template</p>
+
+            <p class="src-head">First Secondary Source</p>
+            <p class="src-line">1. &nbsp; [paste MLA citation below]</p>
+            <p class="src-cite">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="src-line">2. &nbsp; Identify the following:</p>
+            <p class="src-sub">a. &nbsp; Author of Source: Katz</p>
+            <p class="src-gap">b. &nbsp; Format of Source: .pdf (open-access journal)</p>
+
+            <p class="src-head">Second Secondary Source</p>
+            <p class="src-line">1. &nbsp; [paste MLA citation below]</p>
+            <p class="src-cite">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="src-line">2. &nbsp; Identify the following:</p>
+            <p class="src-sub">a. &nbsp; Author of Source: Montgomery</p>
+            <p class="src-gap">b. &nbsp; Format of Source: .html (online magazine)</p>
+
+            <p class="src-head">Third Secondary Source</p>
+            <p class="src-line">1. &nbsp; [paste MLA citation below]</p>
+            <p class="src-cite">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="src-line">2. &nbsp; Identify the following:</p>
+            <p class="src-sub">a. &nbsp; Author of Source: Barrett</p>
+            <p class="src-sub">b. &nbsp; Format of Source: .pdf (EBSCOhost database)</p>
+          </div>
+        </div>
+        <p class="jordan-caption">Jordan copies each of the three MLA Citation entries and pastes them into her research essay document. They are now in her Works Cited section, in the order she pasted them: Katz first, Montgomery second, Barrett third.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 2 — ALPHABETIZE
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h3 class="step-title">Alphabetize Your Entries</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">You now have three secondary source citations in your document. Arrange them in <strong>alphabetical order by the author's last name</strong>. If an entry has no author, alphabetize it by the first significant word of the article title.</p>
+      <div class="step-tip">
+        <p><strong>Note:</strong> If the first word of an authorless title is "A," "An," or "The," skip it and alphabetize by the next word instead.</p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan's three pasted entries are in the order she copied them from her template: Katz, Montgomery, Barrett. She reorders them alphabetically. "B" (Barrett) comes first, then "K" (Katz), then "M" (Montgomery).</p>
+
+        <div class="ba-label before"> &nbsp; Before: entries pasted in template order, not alphabetized</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+
+        <div class="ba-label after"> &nbsp; After: alphabetized as Barrett / Katz / Montgomery</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 3 — PRIMARY SOURCE ENTRY
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h3 class="step-title">Add Your Primary Source Entry</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">Your primary source &mdash; the poem you wrote about &mdash; also needs a Works Cited entry. Because you're special, that entry is already formatted for you.</p>
+      <p class="prose-step">Follow these four moves to obtain and place your primary source Works Cited entry:</p>
+      <div class="step-tip" style="background:var(--umber-wash); border-color: var(--umber-mid);">
+        <p><strong>1.</strong> &nbsp; Open the <strong>Works Cited Entries for Your Poem</strong> page (linked from the previous module page).<br>
+        <strong>2.</strong> &nbsp; Locate the pre-formatted Works Cited entry for your chosen poem.<br>
+        <strong>3.</strong> &nbsp; Copy it and paste it into your Works Cited alongside your three secondary source entries.<br>
+        <strong>4.</strong> &nbsp; Place it in its correct alphabetical position by the poet's last name.</p>
+      </div>
+      <div class="step-tip">
+        <p><strong>Note:</strong> After pasting, check whether the entry came through with a URL styled as a blue hyperlink. If so, you will fix that in Step 4.</p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan's poem is Plath's "Morning Song," which she located through Gale Literature: LitFinder via her college library, so her primary source entry looks slightly different from the six standard Poetry Foundation entries on the Works Cited Entries for Your Poem page. The steps are the same either way: find it, copy it, paste it in alphabetical position. "P" comes after "M" (Montgomery), so Plath becomes the fourth and final entry.</p>
+
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="flush hl">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+        <p class="jordan-caption">The highlighted entry is the one Jordan just added. The URL still needs to be de-linked (Step 4), and the journal, anthology, and database titles still need italics (Step 7).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 4 — FIX URL FORMATTING
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h3 class="step-title">Fix URL Formatting</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">When you paste entries from a database or webpage, URLs often arrive with two separate problems. Check for both:</p>
+
+      <div class="prob-link">
+        <p><strong>Problem:</strong> Empty gaps appearing before or within a URL. Long URLs sometimes create an awkward blank space on the line just before them.
+        <span class="inline-fix"><strong>Fix:</strong> See <strong>Video 2</strong> on the MLA Documentation: The Works Cited page for the technique.</span></p>
+      </div>
+
+      <div class="prob-link">
+        <p><strong>Problem:</strong> URL appears as blue underlined hyperlink text. MLA requires URLs as plain black text, not clickable links.
+        <span class="inline-fix"><strong>Fix:</strong> Right-click the hyperlink and select <strong>Remove Hyperlink</strong>. Then confirm the text color matches the rest of the entry.</span></p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">All four of Jordan's entries pasted with blue hyperlinked URLs. She right-clicks each one and selects Remove Hyperlink to convert them to plain black text.</p>
+
+        <div class="ba-label before"> &nbsp; Before: URLs appear as blue hyperlinks</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, <span class="blue">research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa</span>. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, <span class="blue">jarm.journals.yorku.ca/index.php/jarm/article/view/1869</span>. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, <span class="blue">thenewinquiry.com/precarious-verse/</span>. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, <span class="blue">link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64</span>. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+
+        <div class="ba-label after"> &nbsp; After: all URLs converted to plain black text</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 5 — HANGING INDENTS
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h3 class="step-title">Apply Hanging Indents</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">Every Works Cited entry requires a <strong>hanging indent</strong>: the first line of the entry sits at the left margin, and every line after it is indented half an inch.</p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-card-label">Manual Method</div>
+          <p>Place your cursor at the beginning of each continuation line and press <strong>Tab</strong> once to indent it.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-card-label">Automatic Method (recommended)</div>
+          <p>Use your word processor's <strong>Hanging Indent</strong> paragraph formatting option. <strong>Video 1</strong> on the previous page demonstrates this step by step.</p>
+        </div>
+      </div>
+
+      <div class="step-tip">
+        <p><strong>Note:</strong> Applying indents can shift URL spacing again. After this step, go back and double-check Step 4 to make sure URL gaps and hyperlinks are still corrected.</p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan selects all four entries and applies the Hanging Indent paragraph option. Every second line and beyond shifts in by half an inch.</p>
+
+        <div class="ba-label before"> &nbsp; Before: all lines flush left</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="flush">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="flush">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+
+        <div class="ba-label after"> &nbsp; After: hanging indents applied to all entries</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="hanging">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 6 — ADJUST SPACING
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h3 class="step-title">Adjust Spacing</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">The Works Cited page must be <strong>double-spaced throughout</strong> &mdash; both within each entry and between entries. Select all the text on the Works Cited page and apply double spacing.</p>
+
+      <div class="prob-link">
+        <p><strong>Common mistake:</strong> Extra blank lines between entries. Do not insert a blank line between entries to create visual separation. The space between entries should look identical to the space between lines within a single entry.
+        <span class="inline-fix"><strong>Fix:</strong> Delete any blank lines between entries, then select all and apply double spacing in a single pass.</span></p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan had pressed Enter twice between entries to add visual space. She deletes the extra blank lines, then selects all four entries and sets line spacing to double. The result is consistent spacing throughout.</p>
+
+        <div class="ba-label before"> &nbsp; Before: single-spaced entries with blank lines inserted between them</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="hanging single">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="gap">&nbsp;</p>
+            <p class="hanging single">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="gap">&nbsp;</p>
+            <p class="hanging single">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="gap">&nbsp;</p>
+            <p class="hanging single">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+
+        <div class="ba-label after"> &nbsp; After: blank lines removed, consistent double-spacing throughout</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="hanging">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 7 — ITALICIZE TITLES
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">7</span>
+      <h3 class="step-title">Italicize Journal, Database, and Website Titles</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">When you paste bibliographic information from a database or website, the original italics are often stripped. Go through each entry carefully and italicize any of the following types of titles that appear:</p>
+
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="type-card-label">Journal and magazine titles</div>
+          <div class="type-card-desc">e.g., <em>Oswald Review</em>, <em>The New Inquiry</em></div>
+        </div>
+        <div class="type-card">
+          <div class="type-card-label">Database titles</div>
+          <div class="type-card-desc">e.g., <em>EBSCOhost</em>, <em>Gale Literature: LitFinder</em></div>
+        </div>
+        <div class="type-card">
+          <div class="type-card-label">Anthology and website titles</div>
+          <div class="type-card-desc">e.g., <em>The Norton Anthology of Poetry</em>, <em>Poetry Foundation</em></div>
+        </div>
+      </div>
+
+      <div class="step-tip">
+        <p><strong>Reminder:</strong> Article titles, poem titles, and short story titles go in quotation marks, not italics. Only the containing publication, anthology, database, or website name is italicized.</p>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example</div>
+        <p class="jordan-narrative">Jordan's database entries lost their italics when she pasted them. She goes through each entry and italicizes the journal, database, website, and anthology titles. All four entries have at least one title that needs italicizing.</p>
+
+        <div class="ba-label before"> &nbsp; Before: journal, database, website, and anthology titles not italicized</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="hanging">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" Oswald Review, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. EBSCOhost, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" Journal of the Motherhood Initiative for Research and Community Involvement, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Montgomery, Erwin. "Precarious Verse." The New Inquiry, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Plath, Sylvia. "Morning Song." The Norton Anthology of Poetry, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. Gale Literature: LitFinder, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+
+        <div class="ba-label after"> &nbsp; After: all journal, database, website, and anthology titles italicized</div>
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="hanging">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" <em>Oswald Review</em>, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. <em>EBSCOhost</em>, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" <em>Journal of the Motherhood Initiative for Research and Community Involvement</em>, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Montgomery, Erwin. "Precarious Verse." <em>The New Inquiry</em>, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Plath, Sylvia. "Morning Song." <em>The Norton Anthology of Poetry</em>, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. <em>Gale Literature: LitFinder</em>, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 8 — WORKS CITED HEADING
+  ══════════════════════════════════════ -->
+  <section class="step-section">
+    <div class="step-header">
+      <span class="step-number">8</span>
+      <h3 class="step-title">Add the Works Cited Heading</h3>
+    </div>
+    <div class="step-body">
+      <p class="prose-step">At the very top of the page, type the words <strong>Works Cited</strong>. Then apply the following formatting to the heading:</p>
+
+      <div class="heading-grid">
+        <div class="heading-card yes">
+          <div class="heading-card-label">✓ Centered</div>
+          <div class="heading-card-desc">Align it to the center of the page</div>
+        </div>
+        <div class="heading-card no">
+          <div class="heading-card-label">✗ Not bold</div>
+          <div class="heading-card-desc">Same weight as the entry text</div>
+        </div>
+        <div class="heading-card no">
+          <div class="heading-card-label">✗ Not underlined</div>
+          <div class="heading-card-desc">Plain text only</div>
+        </div>
+        <div class="heading-card no">
+          <div class="heading-card-label">✗ Not in quotes</div>
+          <div class="heading-card-desc">Write it without quotation marks</div>
+        </div>
+      </div>
+
+      <div class="jordan">
+        <div class="jordan-label">Jordan's Example: The Finished Works Cited Page</div>
+        <p class="jordan-narrative">Jordan types "Works Cited" at the top of her page, centers it, and confirms it is plain text with no bold, underline, or quotation marks. All eight steps are now complete. Here is her finished Works Cited page.</p>
+
+        <div class="paper-wrap">
+          <div class="paper">
+            <p class="wc-head">Works Cited</p>
+            <p class="hanging">Barrett, Allison. "The Identity In-Between: A Historical Close Reading of Sylvia Plath's 'Morning Song.'" <em>Oswald Review</em>, vol. 19, no. 1, Sept. 2017, pp. 66&ndash;75. <em>EBSCOhost</em>, research.ebsco.com/linkprocessor/plink?id=8cf3275b-6bf2-3640-a885-c0e481466efa. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Katz, Lisa. "The Space of Motherhood: Sylvia Plath's 'Morning Song' and 'Three Women.'" <em>Journal of the Motherhood Initiative for Research and Community Involvement</em>, vol. 4, no. 2, Nov. 2002, pp. 113&ndash;20, jarm.journals.yorku.ca/index.php/jarm/article/view/1869. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Montgomery, Erwin. "Precarious Verse." <em>The New Inquiry</em>, 10 Apr. 2012, thenewinquiry.com/precarious-verse/. Accessed 15 Oct. 2025.</p>
+            <p class="hanging">Plath, Sylvia. "Morning Song." <em>The Norton Anthology of Poetry</em>, edited by Margaret Ferguson, et al., W. W. Norton, 2005, p. 1837. <em>Gale Literature: LitFinder</em>, link.gale.com/apps/doc/LTF0000539829WK/LITF?u=lincclin_vcc&amp;sid=bookmark-LITF&amp;xid=c6055a64. Accessed 15 Oct. 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CHECKLIST -->
+  <div class="checklist-panel">
+    <div class="checklist-panel-title">Final Checklist &mdash; Before You Submit</div>
+    <div class="checklist-cols">
+      <div>
+        <div class="check-row"><div class="check-box"></div><span>Titled <strong>Works Cited</strong> &mdash; centered, not bolded, not in quotes</span></div>
+        <div class="check-row"><div class="check-box"></div><span>Entries in <strong>alphabetical order</strong> by author's last name</span></div>
+        <div class="check-row"><div class="check-box"></div><span>Entire page is <strong>double-spaced</strong> &mdash; no extra blank lines</span></div>
+        <div class="check-row"><div class="check-box"></div><span><strong>Hanging indent</strong> applied to all entries</span></div>
+      </div>
+      <div>
+        <div class="check-row"><div class="check-box"></div><span>All URLs are <strong>plain black text</strong> &mdash; no blue hyperlinks</span></div>
+        <div class="check-row"><div class="check-box"></div><span>Font and size <strong>match the rest of the essay</strong></span></div>
+        <div class="check-row"><div class="check-box"></div><span><strong>Four entries total</strong>: one primary source + three secondary sources</span></div>
+        <div class="check-row"><div class="check-box"></div><span>Every source cited in the essay <strong>appears on the Works Cited</strong> &mdash; and vice versa</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK BANNER -->
+  <div class="back-banner">
+    <div class="back-banner-tag">For Help with Specific Formatting Problems</div>
+    <a href="M7mla-documentation-the-works-cited.html">MLA Documentation: The Works Cited &rarr;</a>
+    <div class="back-banner-desc">Videos for hanging indents and long URLs, plus the link to the Works Cited Entries for Your Poem resource.</div>
+  </div>
+
+</main>
+</body>
+</html>
