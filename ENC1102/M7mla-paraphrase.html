@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="identifier" content="m7-mla-paraphrase"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<title>MLA Documentation: How to Create a Paraphrase | ENC 1102</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+  :root {
+    --paper:#f4ede0; --vellum:#ede3cf; --aged:#e4d8be; --worn:#d8c9a8; --shadow:#c4b48e;
+    --ink:#1e160a; --ink-warm:#2c1f0e; --ink-mid:#4a3520; --quill:#6b4e2e; --faded:#7d6041; --dust:#7f6748;
+    --moss:#4a6040; --moss-mid:#5e7852; --moss-pale:#c8d8bc; --moss-wash:rgba(90,120,72,0.08);
+    --umber:#7a4e28; --umber-mid:#9a6438; --umber-light:#b87848; --umber-pale:#dfc8a8; --umber-dark:#5a3818; --umber-wash:rgba(122,78,40,0.09);
+    --indigo:#3a4868; --indigo-mid:#4e608a; --indigo-pale:#c0cce0; --indigo-wash:rgba(58,72,104,0.08);
+    --plum:#6a3a50; --plum-mid:#8a4e6a; --plum-pale:#d4b8c8; --plum-wash:rgba(106,58,80,0.10);
+    --rule:rgba(74,53,32,0.18); --border:rgba(74,53,32,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background-color: var(--paper); color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif; font-size: 17px; line-height: 1.75;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* HERO */
+  .hero { position: relative; background: linear-gradient(135deg, #2c1a0a 0%, #4a2e10 45%, #3a2818 100%); overflow: hidden; }
+  .hero-texture { position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.012) 28px, rgba(255,255,255,0.012) 29px);
+    pointer-events: none; }
+  .hero-ornament { position: absolute; top: -20px; right: -20px; width: 300px; height: 300px; opacity: 0.07; pointer-events: none; }
+  .hero-inner { position: relative; max-width: 960px; margin: 0 auto; padding: 52px 48px 48px; display: flex; flex-direction: column; gap: 14px; }
+  .hero-module-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'Lora', serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--umber-pale); opacity: 0.85; }
+  .hero-module-tag::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--umber-pale); opacity: 0.6; }
+  .hero-rule { width: 60px; height: 2px; background: linear-gradient(90deg, var(--umber-light), transparent); margin: 4px 0; }
+  .hero-title { font-family: 'Lora', serif; font-size: clamp(26px, 4.5vw, 42px); font-weight: 700; color: var(--paper); line-height: 1.1; letter-spacing: -0.01em; }
+  .hero-title em { font-style: italic; color: var(--umber-pale); }
+  .hero-subtitle { font-family: 'Crimson Pro', serif; font-size: 17px; font-weight: 400; font-style: italic; color: var(--umber-pale); line-height: 1.55; max-width: 640px; opacity: 0.9; }
+
+  .page-body { max-width: 960px; margin: 0 auto; padding: 52px 48px 80px; }
+  .section { margin-bottom: 56px; }
+  .section-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--umber-mid); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--rule), transparent); max-width: 120px; }
+  .section-title { font-family: 'Lora', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: var(--ink-warm); line-height: 1.2; margin-bottom: 18px; }
+  .section-title em { font-style: italic; color: var(--umber); }
+  .subsection-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: var(--ink-warm); margin: 28px 0 10px; }
+  .prose { font-family: 'Crimson Pro', serif; font-size: 17px; line-height: 1.8; color: var(--ink-mid); max-width: 720px; }
+  .prose + .prose { margin-top: 14px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .prose em { font-style: italic; }
+
+  /* TOC */
+  .toc { background: var(--vellum); border: 1px solid var(--border); border-left: 3px solid var(--umber); border-radius: 0 8px 8px 0; padding: 22px 28px; margin: 24px 0 32px; }
+  .toc-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--umber); margin-bottom: 12px; }
+  .toc-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .toc-list li { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--ink-mid); line-height: 1.55; padding-left: 18px; position: relative; }
+  .toc-list li::before { content: '\00A7'; position: absolute; left: 0; color: var(--umber-mid); font-size: 13px; top: 1px; }
+  .toc-list a { color: var(--ink-mid); text-decoration: none; }
+  .toc-list a:hover { color: var(--umber); }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid var(--umber-mid); background: var(--umber-wash); border-radius: 0 8px 8px 0; padding: 18px 24px; margin: 22px 0; }
+  .callout.plum { border-color: var(--plum-mid); background: var(--plum-wash); }
+  .callout.plum .callout-label { color: var(--plum); }
+  .callout.indigo { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .callout.indigo .callout-label { color: var(--indigo); }
+  .callout.moss { border-color: var(--moss-mid); background: var(--moss-wash); }
+  .callout.moss .callout-label { color: var(--moss); }
+  .callout-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--umber); margin-bottom: 8px; }
+  .callout p { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+  .callout p + p { margin-top: 8px; }
+  .callout p strong { color: var(--ink); }
+
+  /* RULE BOX */
+  .rule-box { background: var(--vellum); border: 1px solid var(--border); border-radius: 8px; padding: 16px 22px; margin: 18px 0 22px; font-family: 'Lora', serif; font-size: 14px; color: var(--ink-warm); line-height: 1.6; }
+  .rule-box strong { color: var(--umber); }
+
+  /* WHEN-TO COMPARISON */
+  .when-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
+  .when-card { background: var(--paper); border: 1px solid var(--border); border-top: 4px solid var(--moss); border-radius: 10px; padding: 22px 24px; }
+  .when-card.umber { border-top-color: var(--umber); }
+  .when-card-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--moss); margin-bottom: 10px; }
+  .when-card.umber .when-card-label { color: var(--umber); }
+  .when-card-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .when-card-list li { font-family: 'Crimson Pro', serif; font-size: 15.5px; color: var(--ink-mid); line-height: 1.6; padding-left: 18px; position: relative; }
+  .when-card-list li::before { content: '\25C6'; position: absolute; left: 0; top: 6px; font-size: 7px; color: var(--shadow); }
+
+  /* STEP CARDS */
+  .step-grid { display: flex; flex-direction: column; gap: 16px; margin-top: 14px; }
+  .step-card { display: flex; gap: 20px; background: var(--paper); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; align-items: flex-start; }
+  .step-num { width: 38px; height: 38px; border-radius: 50%; background: var(--umber); display: flex; align-items: center; justify-content: center; font-family: 'Lora', serif; font-size: 16px; font-weight: 700; color: white; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-title { font-family: 'Lora', serif; font-size: 15px; font-weight: 700; color: var(--ink-warm); margin-bottom: 6px; }
+  .step-body { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--ink-mid); line-height: 1.7; }
+  .step-body strong { color: var(--ink); }
+
+  /* CITATION PATTERN BLOCKS */
+  .cite-section-head { background: var(--ink-warm); color: var(--paper); padding: 14px 20px; border-radius: 8px 8px 0 0; font-family: 'Lora', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px; }
+  .cite-section-head .src-label { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 2px 9px; border-radius: 3px; background: rgba(255,255,255,0.12); color: var(--umber-pale); }
+  .cite-section-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 28px; background: var(--paper); }
+  .cite-pattern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .cite-pattern { padding: 18px 22px; border-top: 1px solid var(--border); }
+  .cite-pattern:nth-child(even) { border-left: 1px solid var(--border); }
+  .cite-pattern-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); margin-bottom: 8px; }
+  .cite-pattern-format { background: var(--vellum); border: 1px solid var(--border); border-radius: 5px; padding: 8px 14px; margin-bottom: 10px; font-family: 'Lora', serif; font-size: 12.5px; color: var(--ink-warm); line-height: 1.6; }
+  .cite-pattern-example { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-style: italic; color: var(--ink-mid); line-height: 1.65; }
+  .cite-pattern-note { font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); line-height: 1.5; margin-top: 8px; font-style: normal; }
+
+  /* TRANSFORM (ORIGINAL TO PARAPHRASE) */
+  .transform-block { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 28px 0; }
+  .transform-meta { background: var(--vellum); border-bottom: 1px solid var(--border); padding: 10px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .transform-meta-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faded); }
+  .transform-meta-title { font-family: 'Lora', serif; font-size: 13px; font-weight: 600; color: var(--ink-warm); }
+  .transform-meta-badge { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 9px; border-radius: 3px; }
+  .transform-meta-badge.pdf  { background: var(--moss-wash); color: var(--moss); border: 1px solid var(--moss-pale); }
+  .transform-meta-badge.html { background: var(--indigo-wash); color: var(--indigo); border: 1px solid var(--indigo-pale); }
+
+  .transform-original { background: var(--paper); padding: 22px 24px; border-bottom: 1px solid var(--border); }
+  .transform-side-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faded); margin-bottom: 10px; }
+  .transform-passage { font-family: 'Crimson Pro', serif; font-size: 15.5px; color: var(--ink-mid); line-height: 1.7; font-style: italic; }
+
+  .versions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .version-card { padding: 22px 24px; }
+  .version-card.bad { background: var(--plum-wash); border-right: 1px solid var(--border); }
+  .version-card.good { background: var(--moss-wash); }
+  .version-card .version-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .version-card.bad .version-label { color: var(--plum); }
+  .version-card.good .version-label { color: var(--moss); }
+  .version-card p.text { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-style: italic; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+  .version-card .why { margin-top: 12px; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); line-height: 1.55; font-style: normal; }
+  .version-card .why strong { color: var(--ink-mid); }
+  .version-card .why ul { margin: 6px 0 0 18px; padding: 0; }
+  .version-card .why li { margin-bottom: 4px; }
+
+  /* ERROR PAIR */
+  .error-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
+  .error-card { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .error-card-head { padding: 10px 16px; font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; }
+  .error-card-head.bad  { background: var(--plum-wash); color: var(--plum); border-bottom: 1px solid var(--plum-pale); }
+  .error-card-head.good { background: var(--moss-wash); color: var(--moss); border-bottom: 1px solid var(--moss-pale); }
+  .error-card-body { padding: 16px 18px; background: var(--paper); }
+  .error-card-body p { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-style: italic; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+  .error-card-body .annotation { margin-top: 10px; font-style: normal; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); line-height: 1.55; }
+  .error-card-body .annotation strong { color: var(--ink-mid); }
+
+  /* PART HEADER */
+  .part-header { background: var(--ink-warm); color: var(--paper); padding: 14px 24px; border-radius: 8px; margin: 40px 0 28px; font-family: 'Lora', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .part-header .part-num { font-size: 11px; color: var(--umber-pale); background: rgba(255,255,255,0.10); padding: 3px 9px; border-radius: 3px; letter-spacing: 0.12em; }
+
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  @media (max-width: 720px) {
+    .hero-inner { padding: 36px 24px; }
+    .page-body  { padding: 36px 24px 60px; }
+    .toc-list, .when-grid, .cite-pattern-grid, .versions-grid, .error-pair { grid-template-columns: 1fr; }
+    .version-card.bad { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="120" cy="60" rx="60" ry="28" stroke="#dfc8a8" stroke-width="0.7" fill="none" opacity="0.6" transform="rotate(-35 120 60)"/>
+    <ellipse cx="120" cy="60" rx="45" ry="18" stroke="#dfc8a8" stroke-width="0.5" fill="none" opacity="0.4" transform="rotate(-35 120 60)"/>
+    <line x1="120" y1="60" x2="40" y2="160" stroke="#dfc8a8" stroke-width="0.8" opacity="0.5"/>
+    <line x1="40" y1="160" x2="36" y2="168" stroke="#dfc8a8" stroke-width="1.5" opacity="0.7" stroke-linecap="round"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-module-tag">MLA Documentation &middot; Module Seven</span>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">How to Create<br><em>a Paraphrase</em></h1>
+    <p class="hero-subtitle">How to incorporate a scholar's ideas in your own words: rules, examples, and the most common errors to avoid.</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <p class="prose">A paraphrase lets you fold a scholar's argument into your own prose without quoting directly. It is one of the most useful moves in research writing, but it is also one of the easiest to do badly. This page walks you through what a paraphrase actually is, when to choose one over a direct quote, the step by step process for building one, the citation rules, three full examples, and the five most common ways students get paraphrasing wrong.</p>
+
+  <div class="toc">
+    <p class="toc-label">On This Page</p>
+    <ol class="toc-list">
+      <li><a href="#sec-what">What Is a Paraphrase?</a></li>
+      <li><a href="#sec-when">When to Paraphrase vs. Quote</a></li>
+      <li><a href="#sec-build">How to Build a Paraphrase</a></li>
+      <li><a href="#sec-cite">Citation Rules for Paraphrases</a></li>
+      <li><a href="#sec-examples">Complete Paraphrase Examples</a></li>
+      <li><a href="#err-patch">Common Error: Patchwriting</a></li>
+      <li><a href="#err-long">Common Error: Too Long</a></li>
+      <li><a href="#err-cite">Common Error: Missing Citation</a></li>
+      <li><a href="#err-acc">Common Error: Inaccurate Paraphrase</a></li>
+      <li><a href="#err-analysis">Common Error: No Follow Up Analysis</a></li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PART ONE: CORE SKILLS
+  ═══════════════════════════════════ -->
+  <div class="part-header">
+    <span class="part-num">Part One</span>
+    Core Skills
+  </div>
+
+  <!-- Section 1 -->
+  <section class="section" id="sec-what">
+    <p class="section-label">Section One</p>
+    <h2 class="section-title">What Is <em>a Paraphrase</em>?</h2>
+
+    <p class="prose">A <strong>paraphrase</strong> is when you take a scholar's idea or argument from a secondary source and restate it <em>completely</em> in your own words. You are not quoting the author directly. You are translating their point into your own prose while accurately representing their meaning. The scholar still receives full credit through a signal phrase, a parenthetical citation, and a Works Cited entry, just as they would for a direct quote.</p>
+
+    <p class="prose">The key word in that definition is <em>completely</em>. A paraphrase is not a light editing job. It is not a matter of replacing a few words with synonyms while keeping the original sentence structure. It requires that you understand the scholar's point well enough to reconstruct it in an entirely new sentence (your sentence) that captures the same idea.</p>
+
+    <h3 class="subsection-title">Three things a paraphrase must do</h3>
+
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Accurately represent the original</div>
+          <div class="step-body">The scholar's actual argument must come through. Distorting or oversimplifying what they said is just as problematic as copying their words.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Be written entirely in your words</div>
+          <div class="step-body">Every word, phrase, and sentence structure must be yours. The only exceptions are proper nouns (names, titles) and highly technical terms that have no real alternatives.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Acknowledge the source</div>
+          <div class="step-body">A paraphrase without a signal phrase or citation is plagiarism, even though you rewrote the language. The idea still belongs to the scholar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="section" id="sec-when">
+    <p class="section-label">Section Two</p>
+    <h2 class="section-title">When to Paraphrase <em>vs. Quote Directly</em></h2>
+
+    <p class="prose">Both direct quotes and paraphrases are legitimate ways to incorporate secondary source evidence, and your essay will use both. The choice between them depends on what you are trying to do with the scholar's material. Understanding when each is appropriate makes your writing more purposeful.</p>
+
+    <div class="when-grid">
+      <div class="when-card umber">
+        <div class="when-card-label">&#10003; Use a direct quote when&hellip;</div>
+        <ul class="when-card-list">
+          <li>The scholar's specific wording is particularly precise, striking, or memorable.</li>
+          <li>The exact language is itself the subject of analysis.</li>
+          <li>Paraphrasing would require so much explanation that quoting directly is more efficient.</li>
+          <li>The scholar coins or uses a specific term or phrase you want to introduce.</li>
+        </ul>
+      </div>
+      <div class="when-card">
+        <div class="when-card-label">&#10003; Use a paraphrase when&hellip;</div>
+        <ul class="when-card-list">
+          <li>The scholar's idea matters more than their specific wording.</li>
+          <li>The original passage is longer than what you actually need.</li>
+          <li>The scholar's sentence is complex or technical and would read more clearly in your own words.</li>
+          <li>You want to vary your evidence use, so that not every secondary source moment is a direct quote.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout indigo">
+      <div class="callout-label">Reminder</div>
+      <p>Your essay requires six secondary source uses total across three body paragraphs. These can be a combination of direct quotes and paraphrases. The sample essays use roughly four direct quotes and two paraphrases. Both count equally toward your total.</p>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="section" id="sec-build">
+    <p class="section-label">Section Three</p>
+    <h2 class="section-title">How to Build a Paraphrase: <em>A Step by Step Process</em></h2>
+
+    <p class="prose">A reliable paraphrase does not happen by staring at the original sentence and changing words one at a time. That process almost always produces patchwriting (see Section 6). Instead, follow these six steps to produce a genuinely rewritten version of the scholar's idea.</p>
+
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Read the passage carefully until you understand the scholar's point</div>
+          <div class="step-body">Do not begin writing until you can summarize the idea in your head without looking at the text. If you cannot do this, you do not yet understand the passage well enough to paraphrase it.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Set the original aside; do not look at it while you write</div>
+          <div class="step-body">Scroll past it or cover it on the page. Writing from memory forces you to use your own language instead of the scholar's. This single step eliminates most patchwriting problems.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Restructure: start from a different point in the argument</div>
+          <div class="step-body">If the original sentence moves from A to B, try writing your paraphrase moving from B to A, or entering from a different angle entirely. This ensures your organization is yours, not the scholar's.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Keep it shorter than the original</div>
+          <div class="step-body">A paraphrase that is as long as the original passage is almost certainly still too close to it. Aim to distill the scholar's point into one well constructed sentence of your own.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Re-read your paraphrase alongside the original and check for borrowed language</div>
+          <div class="step-body">Your brain naturally gravitates back toward the original phrasing. Re-reading with the source visible helps you catch any words or phrases that crept in without your noticing. If you find them, rewrite those parts. Do not just swap individual words for synonyms.</div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-title">Add your signal phrase, citation, and your own analytical sentence</div>
+          <div class="step-body">A paraphrase without a signal phrase is plagiarism. A paraphrase without your own follow up analysis is a wasted opportunity. The paraphrase delivers the scholar's point; your analysis connects that point to your argument.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="section" id="sec-cite">
+    <p class="section-label">Section Four</p>
+    <h2 class="section-title">Citation Rules <em>for Paraphrases</em></h2>
+
+    <p class="prose">Paraphrases follow the same citation rules as direct quotes: the same four patterns based on source format (PDF vs. HTML) and where you place the author's name (signal phrase vs. parenthetical). The only difference between citing a quote and citing a paraphrase is that a paraphrase has no quotation marks.</p>
+
+    <!-- PDF -->
+    <div class="cite-section-head">
+      <span class="src-label">PDF Source</span>
+      <span>Author's Name in Signal Phrase or in Parenthetical</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">Pattern A &middot; Author in Signal Phrase</div>
+          <div class="cite-pattern-format">Author argues that paraphrased idea (PageNumber).</div>
+          <p class="cite-pattern-example">Literary critic Louise Westling argues that Hulga's nihilism is less a genuine philosophical stance than a psychological strategy she adopted to protect herself from vulnerability (48).</p>
+          <p class="cite-pattern-note">Author named in signal phrase, so the page number stands alone in the citation. No quotation marks.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">Pattern B &middot; Author in Parenthetical</div>
+          <div class="cite-pattern-format">Paraphrased idea (LastName PageNumber).</div>
+          <p class="cite-pattern-example">One critic has argued that Hulga's nihilism is less a genuine philosophical stance than a psychological strategy she adopted to protect herself from vulnerability (Westling 48).</p>
+          <p class="cite-pattern-note">Author not named in signal phrase, so last name and page number both appear in the citation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HTML -->
+    <div class="cite-section-head">
+      <span class="src-label">HTML Source</span>
+      <span>Author's Name in Signal Phrase or in Parenthetical</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">Pattern C &middot; Author in Signal Phrase</div>
+          <div class="cite-pattern-format">Author argues that paraphrased idea.</div>
+          <p class="cite-pattern-example">O'Connor scholar Frederick Asals has observed that the conflict between Hulga and Mrs. Hopewell represents a stalemate between two equally distorted ways of perceiving the world.</p>
+          <p class="cite-pattern-note">HTML source plus author in signal phrase: no parenthetical citation needed at all. Period ends the sentence normally.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">Pattern D &middot; Author in Parenthetical</div>
+          <div class="cite-pattern-format">Paraphrased idea (LastName).</div>
+          <p class="cite-pattern-example">One scholar has observed that the conflict between Hulga and Mrs. Hopewell represents a stalemate between two equally distorted ways of perceiving the world (Asals).</p>
+          <p class="cite-pattern-note">HTML source plus author not in signal phrase: last name only in the parenthetical citation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout plum">
+      <div class="callout-label">The Most Common Citation Error</div>
+      <p>Students sometimes feel that because they rewrote the language, the paraphrase is now &ldquo;theirs&rdquo; and no citation is needed. This is incorrect. The scholar's idea belongs to them, not just their words. <strong>A paraphrase without a citation is plagiarism.</strong> See Section 8 below.</p>
+    </div>
+  </section>
+
+  <!-- Section 5: Examples -->
+  <section class="section" id="sec-examples">
+    <p class="section-label">Section Five</p>
+    <h2 class="section-title">Complete Paraphrase Examples: <em>Original, Bad, Good</em></h2>
+
+    <p class="prose">Each example below shows the original passage from a secondary source used in the sample research essays, followed by a bad paraphrase, then a good paraphrase. Read both. Understanding why the bad paraphrase fails is just as instructive as seeing the good one.</p>
+
+    <!-- Example 1: Westling -->
+    <h3 class="subsection-title">Example 1 &middot; Westling on Hulga's Nihilism</h3>
+
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Original Text</span>
+        <span class="transform-meta-title">Westling, p. 48</span>
+        <span class="transform-meta-badge pdf">PDF Article</span>
+      </div>
+      <div class="transform-original">
+        <div class="transform-side-label">From the Source</div>
+        <p class="transform-passage">&ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position, a way of preempting rejection by rejecting everything first. Her investment in her own intellectual superiority is itself a form of hope, a belief that philosophy can insulate her from human vulnerability.&rdquo;</p>
+      </div>
+      <div class="versions-grid">
+        <div class="version-card bad">
+          <div class="version-label">&#10007; Bad Paraphrase</div>
+          <p class="text">Hulga's embrace of nihilism acts as a defense mechanism rather than a real philosophical stance, a way of avoiding rejection by rejecting everything herself. Her belief in her own intellectual superiority is itself a form of hope, a conviction that philosophy can protect her from human vulnerability.</p>
+          <div class="why">
+            <strong>Why it fails:</strong>
+            <ul>
+              <li><strong>Patchwriting:</strong> &ldquo;defense mechanism,&rdquo; &ldquo;intellectual superiority,&rdquo; and &ldquo;human vulnerability&rdquo; are all borrowed directly from Westling.</li>
+              <li><strong>Word substitution only:</strong> &ldquo;adoption&rdquo; becomes &ldquo;embrace&rdquo; and &ldquo;functions as&rdquo; becomes &ldquo;acts as.&rdquo; These are synonyms, not a genuine rewrite.</li>
+              <li><strong>No citation:</strong> Westling receives no credit at all.</li>
+              <li><strong>Too long:</strong> The paraphrase is nearly as long as the original.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card good">
+          <div class="version-label">&#10003; Good Paraphrase</div>
+          <p class="text">Literary critic Louise Westling argues that Hulga's negative worldview is less a genuine belief than a self protective strategy that paradoxically reveals how much she still needs and wants what she claims to have given up (48).</p>
+          <div class="why">
+            <strong>Why it works:</strong>
+            <ul>
+              <li><strong>Entirely new language:</strong> none of Westling's specific phrasing survives, not even &ldquo;defense mechanism.&rdquo;</li>
+              <li><strong>Restructured:</strong> the sentence enters from a different angle, combining both of Westling's points into a single tighter construction.</li>
+              <li><strong>Shorter:</strong> two sentences condensed to one without losing the core argument.</li>
+              <li><strong>Properly cited:</strong> author named in signal phrase, page number in parenthetical.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2: Asals -->
+    <h3 class="subsection-title">Example 2 &middot; Asals on the Mother Daughter Conflict</h3>
+
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Original Text</span>
+        <span class="transform-meta-title">Asals, web article</span>
+        <span class="transform-meta-badge html">HTML Article</span>
+      </div>
+      <div class="transform-original">
+        <div class="transform-side-label">From the Source</div>
+        <p class="transform-passage">&ldquo;The mother daughter relationship in this story functions as a stalemate between two equally limited ways of seeing, Mrs. Hopewell's optimistic blindness and Hulga's pessimistic one, and the story refuses to endorse either as a reliable window onto reality.&rdquo;</p>
+      </div>
+      <div class="versions-grid">
+        <div class="version-card bad">
+          <div class="version-label">&#10007; Bad Paraphrase</div>
+          <p class="text">According to Asals, the relationship between the mother and daughter works as a stalemate between two equally limited perspectives, Mrs. Hopewell's optimistic blindness and Hulga's pessimistic one, and O'Connor refuses to say either of them sees things correctly.</p>
+          <div class="why">
+            <strong>Why it fails:</strong>
+            <ul>
+              <li><strong>Patchwriting:</strong> &ldquo;stalemate,&rdquo; &ldquo;equally limited,&rdquo; &ldquo;optimistic blindness,&rdquo; and &ldquo;pessimistic one&rdquo; are all borrowed directly from Asals.</li>
+              <li><strong>Identical structure:</strong> the sentence follows exactly the same shape as the original.</li>
+              <li>The author is correctly named in the signal phrase, so no parenthetical is needed for an HTML source. The real problem is that the language is still too close to the original.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card good">
+          <div class="version-label">&#10003; Good Paraphrase</div>
+          <p class="text">O'Connor scholar Frederick Asals has observed that Hulga and Mrs. Hopewell are caught at an impasse and that O'Connor refuses to provide any convenient answer to the friction between Hulga's negativity and her mother's positivity.</p>
+          <div class="why">
+            <strong>Why it works:</strong>
+            <ul>
+              <li><strong>New language:</strong> &ldquo;Hulga's negativity and her mother's positivity&rdquo; replaces &ldquo;optimistic blindness and pessimistic one&rdquo; without just swapping synonyms.</li>
+              <li><strong>HTML source plus author in signal phrase:</strong> no parenthetical citation needed. Period ends the sentence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3: Lev -->
+    <h3 class="subsection-title">Example 3 &middot; Lev on Luke and Han</h3>
+
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Original Text</span>
+        <span class="transform-meta-title">Lev, web article</span>
+        <span class="transform-meta-badge html">HTML Article</span>
+      </div>
+      <div class="transform-original">
+        <div class="transform-side-label">From the Source</div>
+        <p class="transform-passage">&ldquo;Lucas constructed Luke's alliance with Han as a structural test of the hero's commitment to something beyond personal survival, and the film's deepest dramatic interest lies not in the battle against the Empire but in whether Luke can hold onto his idealism under pressure from the more pragmatic worldview Han represents.&rdquo;</p>
+      </div>
+      <div class="versions-grid">
+        <div class="version-card bad">
+          <div class="version-label">&#10007; Bad Paraphrase</div>
+          <p class="text">Lev argues that Lucas built Luke's relationship with Han as a test of the hero's dedication to something beyond his own survival, and that the movie's real dramatic interest is not the fight against the Empire but whether Luke can keep his idealism under pressure from Han's more pragmatic worldview (Lev).</p>
+          <div class="why">
+            <strong>Why it fails:</strong>
+            <ul>
+              <li><strong>Patchwriting:</strong> &ldquo;test,&rdquo; &ldquo;personal survival,&rdquo; &ldquo;dramatic interest,&rdquo; &ldquo;idealism,&rdquo; and &ldquo;pragmatic worldview&rdquo; are all lifted from Lev.</li>
+              <li><strong>Identical structure:</strong> the two part sentence shape matches the original exactly.</li>
+              <li><strong>Citation error:</strong> the author is named in the signal phrase, so the &ldquo;(Lev)&rdquo; citation is redundant.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card good">
+          <div class="version-label">&#10003; Good Paraphrase</div>
+          <p class="text">Film scholar Peter Lev has argued that Han's more realistic, and therefore less optimistic, attitude represents another layer of conflict for Luke, whose positivity risks being transformed into pessimism by his alliance with the older smuggler.</p>
+          <div class="why">
+            <strong>Why it works:</strong>
+            <ul>
+              <li><strong>Scholar identified:</strong> &ldquo;Film scholar Peter Lev&rdquo; establishes authority and context immediately.</li>
+              <li><strong>HTML plus author in signal phrase:</strong> no parenthetical citation needed.</li>
+              <li><strong>Accurate representation:</strong> Lev's core argument, that Han functions as a test of Luke's idealism, is preserved and clearly attributed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       PART TWO: COMMON ERRORS
+  ═══════════════════════════════════ -->
+  <div class="part-header">
+    <span class="part-num">Part Two</span>
+    Common Paraphrasing Errors
+  </div>
+
+  <!-- Patchwriting -->
+  <section class="section" id="err-patch">
+    <p class="section-label">Common Error &middot; Most Serious</p>
+    <h2 class="section-title">Patchwriting</h2>
+
+    <p class="prose"><strong>Patchwriting</strong> is the term for a paraphrase that still closely mirrors the original text, using the same sentence structure, the same key phrases, and only substituting individual words for synonyms. It is the most common paraphrasing error, and it is treated as a form of plagiarism even when it is not intentional, because the writing still fundamentally belongs to the original author. The only real fix for patchwriting is to rewrite from scratch using the step by step process in Section 3.</p>
+
+    <div class="callout">
+      <div class="callout-label">The Test</div>
+      <p>If you place your paraphrase next to the original and can draw a line connecting most of your words to matching words in the original, it is patchwriting. A genuine paraphrase, placed next to the original, should look structurally and lexically different in every meaningful way, even if the idea is the same.</p>
+    </div>
+
+    <div class="transform-block">
+      <div class="transform-meta">
+        <span class="transform-meta-label">Original Text</span>
+        <span class="transform-meta-title">Kaminski, p. 172</span>
+        <span class="transform-meta-badge pdf">PDF Article</span>
+      </div>
+      <div class="transform-original">
+        <div class="transform-side-label">From the Source</div>
+        <p class="transform-passage">&ldquo;The refusal of the call was one of the stages Lucas worked hardest to dramatize authentically, understanding it as the moment that establishes what the hero stands to lose by committing, not just comfort, but identity.&rdquo;</p>
+      </div>
+      <div class="versions-grid">
+        <div class="version-card bad">
+          <div class="version-label">&#10007; Patchwriting</div>
+          <p class="text">The refusal of the call was one of the parts that Lucas worked most diligently to portray authentically, seeing it as the moment that shows what the hero has to lose by committing, not just his comfort, but his identity (Kaminski 172).</p>
+          <div class="why">Every key phrase (&ldquo;refusal of the call,&rdquo; &ldquo;authentically,&rdquo; &ldquo;not just comfort, but identity&rdquo;) is lifted from Kaminski. Only minor substitutions were made.</div>
+        </div>
+        <div class="version-card good">
+          <div class="version-label">&#10003; Genuine Paraphrase</div>
+          <p class="text">Film historian Michael Kaminski notes that Luke's initial retreat from Obi Wan's call had to communicate what was actually at stake for the hero, namely whom he understood himself to be (172).</p>
+          <div class="why">The sentence is entirely restructured. No phrases from Kaminski survive. The idea is preserved.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Too Long -->
+  <section class="section" id="err-long">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Paraphrase <em>Too Long</em></h2>
+
+    <p class="prose">One of the chief advantages of paraphrasing over quoting is efficiency. A paraphrase lets you incorporate a scholar's multi sentence argument into a single, well placed sentence of your own. If your paraphrase is as long as the original, or nearly so, you have defeated its purpose, and you have likely been working sentence by sentence through the original, which almost always produces patchwriting as a side effect. A well executed paraphrase should typically be <strong>shorter</strong> than the original passage.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; As long as the original</div>
+        <div class="error-card-body">
+          <p>Westling argues that Hulga's philosophy operates as a defense mechanism rather than a genuine philosophical position, meaning she rejects everything as a way of preventing herself from being rejected. On top of this, her sense of intellectual superiority is actually a kind of hope, because she believes her philosophy can shield her from the vulnerabilities of human feeling (48).</p>
+          <p class="annotation">This paraphrase is longer than the original. It follows the source sentence by sentence and still borrows key phrases.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Concise: one sentence</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that Hulga's negative worldview is less a genuine belief than a self protective strategy that paradoxically reveals how much she still needs and wants what she claims to have given up (48).</p>
+          <p class="annotation">Two original sentences condensed into one. The core insight is preserved; the length is not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missing Citation -->
+  <section class="section" id="err-cite">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Missing Citation <em>on a Paraphrase</em></h2>
+
+    <p class="prose">The most common paraphrasing error of all: students rewrite the language and then, feeling as though the idea is now &ldquo;theirs,&rdquo; leave out the signal phrase or the parenthetical citation. A paraphrase without attribution is plagiarism. The words are yours; the idea belongs to the scholar, and the scholar must be credited. Always include both a signal phrase identifying the source and, for PDF sources, a parenthetical citation with the page number.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; No attribution at all</div>
+        <div class="error-card-body">
+          <p>Hulga's negative worldview is less a genuine belief than a self protective strategy that paradoxically reveals how much she still needs and wants what she claims to have given up.</p>
+          <p class="annotation">No signal phrase, no citation. This passes Westling's argument off as the student's own idea, which is plagiarism.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Signal phrase but no page number</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that Hulga's negative worldview is less a genuine belief than a self protective strategy that paradoxically reveals how much she still needs and wants what she claims to have given up.</p>
+          <p class="annotation">Author named, but this is a PDF source, so the page number must appear in a parenthetical citation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Fully attributed (PDF source)</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that Hulga's negative worldview is less a genuine belief than a self protective strategy that paradoxically reveals how much she still needs and wants what she claims to have given up (48).</p>
+          <p class="annotation">Signal phrase names the scholar; parenthetical gives the page number. Both pieces are required for a PDF source.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Fully attributed (HTML source)</div>
+        <div class="error-card-body">
+          <p>O'Connor scholar Frederick Asals has observed that Hulga and Mrs. Hopewell are caught at an impasse and that O'Connor refuses to provide any convenient answer to the friction between them.</p>
+          <p class="annotation">HTML source plus author in signal phrase: no parenthetical citation needed. Attribution still happens through the signal phrase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inaccurate -->
+  <section class="section" id="err-acc">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Inaccurate <em>Paraphrase</em></h2>
+
+    <p class="prose">A paraphrase that distorts or oversimplifies the scholar's argument is not just a writing error. It misrepresents the source and undermines your essay's credibility. This often happens when a student paraphrases without fully understanding the original, or when the drive to simplify causes nuance to be lost. After writing your paraphrase, re-read the original and ask: <em>Would the scholar recognize this as their argument?</em></p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Meaning distorted</div>
+        <div class="error-card-body">
+          <p>Asals argues that Hulga is the smarter of the two women but that O'Connor still does not agree with her worldview (Asals).</p>
+          <p class="annotation">This loses Asals's key point entirely. The original argues that <strong>both</strong> women are equally limited and that neither is endorsed. The paraphrase invents a hierarchy that the source never makes.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Nuance preserved</div>
+        <div class="error-card-body">
+          <p>O'Connor scholar Frederick Asals has observed that Hulga and Mrs. Hopewell are caught at an impasse and that O'Connor refuses to provide any convenient answer to the friction between Hulga's negativity and her mother's positivity.</p>
+          <p class="annotation">The essential symmetry of Asals's argument, that both women are equally limited, is preserved in the paraphrase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- No analysis -->
+  <section class="section" id="err-analysis">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Paraphrase With <em>No Follow Up Analysis</em></h2>
+
+    <p class="prose">A paraphrase that is dropped into a paragraph without any follow up analysis is as incomplete as a floating quote. The paraphrase delivers the scholar's point. Your job in the sentence or two that follow is to explain what that point contributes to your argument. Without your analysis, the paraphrase just sits there: evidence without interpretation. The same signal, evidence, analysis structure that applies to direct quotes applies to paraphrases equally.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Paraphrase without analysis</div>
+        <div class="error-card-body">
+          <p>O'Connor scholar Frederick Asals has observed that Hulga and Mrs. Hopewell are caught at an impasse and that O'Connor refuses to provide any convenient answer to the friction between Hulga's negativity and her mother's positivity. This helps explain the conflict in the story.</p>
+          <p class="annotation">The final sentence adds nothing. &ldquo;This helps explain the conflict&rdquo; tells the reader nothing about what the scholar's point contributes to the student's argument.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Followed by genuine analysis</div>
+        <div class="error-card-body">
+          <p>O'Connor scholar Frederick Asals has observed that Hulga and Mrs. Hopewell are caught at an impasse and that O'Connor refuses to provide any convenient answer to the friction between Hulga's negativity and her mother's positivity. Asals's point reframes the conflict as structural irony rather than a simple clash of intelligence versus stupidity: O'Connor is not presenting Hulga as the clear sighted figure trapped with a foolish woman. She is presenting two forms of willful blindness in unproductive friction.</p>
+          <p class="annotation">The analysis explains specifically what Asals's point adds to the essay's argument and connects it to the thesis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout moss">
+      <div class="callout-label">Quick Self Check</div>
+      <p>Before you finalize a paraphrase, ask three questions: (1) <strong>Have I rewritten the language entirely</strong>, with no key phrases from the original surviving? (2) <strong>Have I cited the source correctly</strong> for its format (PDF vs. HTML) and signal phrase choice? (3) <strong>Is there a sentence after the paraphrase</strong> that explains what the scholar's point contributes to my argument? If you can answer yes to all three, the paraphrase is doing its job.</p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

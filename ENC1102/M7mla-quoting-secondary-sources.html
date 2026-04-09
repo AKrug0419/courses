@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="identifier" content="m7-mla-quoting-secondary-sources"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<title>MLA Documentation: Quoting from Secondary Sources | ENC 1102</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+  :root {
+    --paper:#f4ede0; --vellum:#ede3cf; --aged:#e4d8be; --worn:#d8c9a8; --shadow:#c4b48e;
+    --ink:#1e160a; --ink-warm:#2c1f0e; --ink-mid:#4a3520; --quill:#6b4e2e; --faded:#7d6041; --dust:#7f6748;
+    --moss:#4a6040; --moss-mid:#5e7852; --moss-pale:#c8d8bc; --moss-wash:rgba(90,120,72,0.08);
+    --umber:#7a4e28; --umber-mid:#9a6438; --umber-light:#b87848; --umber-pale:#dfc8a8; --umber-dark:#5a3818; --umber-wash:rgba(122,78,40,0.09);
+    --indigo:#3a4868; --indigo-mid:#4e608a; --indigo-pale:#c0cce0; --indigo-wash:rgba(58,72,104,0.08);
+    --plum:#6a3a50; --plum-mid:#8a4e6a; --plum-pale:#d4b8c8; --plum-wash:rgba(106,58,80,0.10);
+    --rule:rgba(74,53,32,0.18); --border:rgba(74,53,32,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background-color: var(--paper); color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif; font-size: 17px; line-height: 1.75;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .hero { position: relative; background: linear-gradient(135deg, #2c1a0a 0%, #4a2e10 45%, #3a2818 100%); overflow: hidden; }
+  .hero-texture { position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.02) 28px, rgba(255,255,255,0.02) 29px),
+      repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.012) 28px, rgba(255,255,255,0.012) 29px);
+    pointer-events: none; }
+  .hero-ornament { position: absolute; top: -20px; right: -20px; width: 300px; height: 300px; opacity: 0.07; pointer-events: none; }
+  .hero-inner { position: relative; max-width: 960px; margin: 0 auto; padding: 52px 48px 48px; display: flex; flex-direction: column; gap: 14px; }
+  .hero-module-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'Lora', serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--umber-pale); opacity: 0.85; }
+  .hero-module-tag::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--umber-pale); opacity: 0.6; }
+  .hero-rule { width: 60px; height: 2px; background: linear-gradient(90deg, var(--umber-light), transparent); margin: 4px 0; }
+  .hero-title { font-family: 'Lora', serif; font-size: clamp(26px, 4.5vw, 42px); font-weight: 700; color: var(--paper); line-height: 1.1; letter-spacing: -0.01em; }
+  .hero-title em { font-style: italic; color: var(--umber-pale); }
+  .hero-subtitle { font-family: 'Crimson Pro', serif; font-size: 17px; font-weight: 400; font-style: italic; color: var(--umber-pale); line-height: 1.55; max-width: 640px; opacity: 0.9; }
+
+  .page-body { max-width: 960px; margin: 0 auto; padding: 52px 48px 80px; }
+  .section { margin-bottom: 56px; }
+  .section-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--umber-mid); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--rule), transparent); max-width: 120px; }
+  .section-title { font-family: 'Lora', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: var(--ink-warm); line-height: 1.2; margin-bottom: 18px; }
+  .section-title em { font-style: italic; color: var(--umber); }
+  .subsection-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: var(--ink-warm); margin: 28px 0 10px; }
+  .prose { font-family: 'Crimson Pro', serif; font-size: 17px; line-height: 1.8; color: var(--ink-mid); max-width: 720px; }
+  .prose + .prose { margin-top: 14px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .prose em { font-style: italic; }
+
+  /* TOC */
+  .toc { background: var(--vellum); border: 1px solid var(--border); border-left: 3px solid var(--umber); border-radius: 0 8px 8px 0; padding: 22px 28px; margin: 24px 0 32px; }
+  .toc-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--umber); margin-bottom: 12px; }
+  .toc-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .toc-list li { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--ink-mid); line-height: 1.55; padding-left: 18px; position: relative; }
+  .toc-list li::before { content: '\00A7'; position: absolute; left: 0; color: var(--umber-mid); font-size: 13px; top: 1px; }
+  .toc-list a { color: var(--ink-mid); text-decoration: none; }
+  .toc-list a:hover { color: var(--umber); }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid var(--umber-mid); background: var(--umber-wash); border-radius: 0 8px 8px 0; padding: 18px 24px; margin: 22px 0; }
+  .callout.plum { border-color: var(--plum-mid); background: var(--plum-wash); }
+  .callout.plum .callout-label { color: var(--plum); }
+  .callout.indigo { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .callout.indigo .callout-label { color: var(--indigo); }
+  .callout.moss { border-color: var(--moss-mid); background: var(--moss-wash); }
+  .callout.moss .callout-label { color: var(--moss); }
+  .callout-label { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--umber); margin-bottom: 8px; }
+  .callout p { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+  .callout p + p { margin-top: 8px; }
+  .callout p strong { color: var(--ink); }
+
+  /* CITATION PATTERN BLOCKS */
+  .cite-section-head { background: var(--ink-warm); color: var(--paper); padding: 14px 20px; border-radius: 8px 8px 0 0; font-family: 'Lora', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px; }
+  .cite-section-head .src-label { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; padding: 2px 9px; border-radius: 3px; background: rgba(255,255,255,0.12); color: var(--umber-pale); }
+  .cite-section-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; margin-bottom: 28px; background: var(--paper); }
+  .cite-pattern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .cite-pattern { padding: 18px 22px; border-top: 1px solid var(--border); }
+  .cite-pattern:nth-child(even) { border-left: 1px solid var(--border); }
+  .cite-pattern-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); margin-bottom: 8px; }
+  .cite-pattern-format { background: var(--vellum); border: 1px solid var(--border); border-radius: 5px; padding: 8px 14px; margin-bottom: 10px; font-family: 'Lora', serif; font-size: 12.5px; color: var(--ink-warm); line-height: 1.6; }
+  .cite-pattern-example { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-style: italic; color: var(--ink-mid); line-height: 1.65; }
+  .cite-pattern-note { font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); line-height: 1.5; margin-top: 8px; font-style: normal; }
+  .cite-pattern-note strong { color: var(--ink-mid); }
+
+  /* QUICK REFERENCE TABLE */
+  .quickref { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 28px 0; }
+  .quickref-row { display: grid; grid-template-columns: 90px 1fr 1.4fr; align-items: center; border-top: 1px solid var(--border); background: var(--paper); }
+  .quickref-row:first-child { border-top: none; background: var(--vellum); }
+  .quickref-row .col { padding: 14px 18px; }
+  .quickref-row .label { font-family: 'Lora', serif; font-size: 12px; font-weight: 700; color: var(--umber); letter-spacing: 0.08em; text-transform: uppercase; }
+  .quickref-row .desc { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--ink-mid); line-height: 1.55; }
+  .quickref-row .example { font-family: 'Lora', serif; font-size: 13px; color: var(--ink-warm); line-height: 1.55; border-left: 1px solid var(--border); }
+  .quickref-row.head .col { font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-warm); padding: 12px 18px; }
+
+  /* ERROR PAIR */
+  .error-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
+  .error-card { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .error-card-head { padding: 10px 16px; font-family: 'Lora', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; }
+  .error-card-head.bad  { background: var(--plum-wash); color: var(--plum); border-bottom: 1px solid var(--plum-pale); }
+  .error-card-head.good { background: var(--moss-wash); color: var(--moss); border-bottom: 1px solid var(--moss-pale); }
+  .error-card-body { padding: 16px 18px; background: var(--paper); }
+  .error-card-body p { font-family: 'Crimson Pro', serif; font-size: 15.5px; font-style: italic; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+  .error-card-body .annotation { margin-top: 10px; font-style: normal; font-family: 'Crimson Pro', serif; font-size: 13.5px; color: var(--faded); line-height: 1.55; }
+  .error-card-body .annotation strong { color: var(--ink-mid); }
+
+  /* SIGNAL VERB CHIPS */
+  .verb-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 8px; }
+  .verb-cloud span { font-family: 'Lora', serif; font-size: 13px; color: var(--umber-dark); background: var(--umber-wash); border: 1px solid var(--umber-pale); border-radius: 14px; padding: 4px 12px; }
+
+  /* PART HEADER */
+  .part-header { background: var(--ink-warm); color: var(--paper); padding: 14px 24px; border-radius: 8px; margin: 40px 0 28px; font-family: 'Lora', serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .part-header .part-num { font-size: 11px; color: var(--umber-pale); background: rgba(255,255,255,0.10); padding: 3px 9px; border-radius: 3px; letter-spacing: 0.12em; }
+
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  @media (max-width: 720px) {
+    .hero-inner { padding: 36px 24px; }
+    .page-body  { padding: 36px 24px 60px; }
+    .toc-list, .cite-pattern-grid, .error-pair { grid-template-columns: 1fr; }
+    .quickref-row { grid-template-columns: 1fr; }
+    .quickref-row .example { border-left: none; border-top: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="120" cy="60" rx="60" ry="28" stroke="#dfc8a8" stroke-width="0.7" fill="none" opacity="0.6" transform="rotate(-35 120 60)"/>
+    <ellipse cx="120" cy="60" rx="45" ry="18" stroke="#dfc8a8" stroke-width="0.5" fill="none" opacity="0.4" transform="rotate(-35 120 60)"/>
+    <line x1="120" y1="60" x2="40" y2="160" stroke="#dfc8a8" stroke-width="0.8" opacity="0.5"/>
+    <line x1="40" y1="160" x2="36" y2="168" stroke="#dfc8a8" stroke-width="1.5" opacity="0.7" stroke-linecap="round"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-module-tag">MLA Documentation &middot; Module Seven</span>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">Quoting from<br><em>Secondary Sources</em></h1>
+    <p class="hero-subtitle">How to quote from scholarly articles: signal phrases, the four citation patterns, and the most common errors to avoid.</p>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <p class="prose">Secondary sources, the scholarly articles and web reviews you bring into your essay alongside the poem itself, follow a small set of conventions when you quote from them. The conventions depend on two simple variables: <strong>the source format</strong> (PDF article with fixed page numbers, or HTML article without them) and <strong>where you place the author's name</strong> (in the signal phrase, or inside the parenthetical citation). Together those variables produce the four patterns you will use throughout your essay. The second half of the page covers the most common quoting errors to watch for during proofreading.</p>
+
+  <div class="toc">
+    <p class="toc-label">On This Page</p>
+    <ol class="toc-list">
+      <li><a href="#sec-signal">Signal Phrases for Secondary Sources</a></li>
+      <li><a href="#sec-pattern-a">Pattern A: PDF, Author in Citation</a></li>
+      <li><a href="#sec-pattern-b">Pattern B: PDF, Author in Signal Phrase</a></li>
+      <li><a href="#sec-pattern-c">Pattern C: HTML, Author in Citation</a></li>
+      <li><a href="#sec-pattern-d">Pattern D: HTML, Author in Signal Phrase</a></li>
+      <li><a href="#sec-no-author">Articles With No Identified Author</a></li>
+      <li><a href="#sec-quickref">Quick Reference: The Four Patterns</a></li>
+      <li><a href="#err-floating">Common Error: Floating Quotes</a></li>
+      <li><a href="#err-comma">Common Error: Comma Splices</a></li>
+      <li><a href="#err-colon">Common Error: Colon Misuse</a></li>
+      <li><a href="#err-punct">Common Error: Punctuation Inside Quotes</a></li>
+      <li><a href="#err-twice">Common Error: Author Named Twice</a></li>
+      <li><a href="#err-end">Common Error: Missing End Punctuation</a></li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       PART ONE: CORE SKILLS
+  ═══════════════════════════════════ -->
+  <div class="part-header">
+    <span class="part-num">Part One</span>
+    Core Skills
+  </div>
+
+  <!-- Section 1: Signal Phrases -->
+  <section class="section" id="sec-signal">
+    <p class="section-label">Section One</p>
+    <h2 class="section-title">Signal Phrases <em>for Secondary Sources</em></h2>
+
+    <p class="prose">A <strong>signal phrase</strong> introduces a quotation by naming the author or providing context before the quoted words appear. For secondary sources, strong signal phrases establish the scholar's identity and authority. It is generally preferable to name the scholar in the signal phrase rather than hiding their name inside the parenthetical citation. Naming the scholar gives them credit explicitly and makes the sentence read more naturally. Alternate between placing the name in the signal phrase and placing it in the parenthetical so that your paragraphs do not become repetitive.</p>
+
+    <p class="prose"><strong>Signal verbs for secondary sources, vary these throughout your essay:</strong></p>
+    <div class="verb-cloud">
+      <span>argues</span><span>claims</span><span>contends</span><span>maintains</span><span>suggests</span><span>observes</span><span>notes</span><span>explains</span><span>writes</span><span>points out</span><span>concludes</span><span>asserts</span><span>demonstrates</span><span>shows</span>
+    </div>
+
+    <div class="callout indigo">
+      <div class="callout-label">Present Tense, Always</div>
+      <p>Always use present tense for signal verbs with literary criticism: &ldquo;Westling <strong>argues</strong>,&rdquo; not &ldquo;Westling <strong>argued</strong>.&rdquo; Scholars' arguments remain active in the present, even if the article was published decades ago.</p>
+    </div>
+
+    <h3 class="subsection-title">Two patterns, alternate between them</h3>
+
+    <div class="cite-section-body" style="border-radius: 10px; border-top: 1px solid var(--border); margin-top: 14px;">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern" style="border-top: none;">
+          <div class="cite-pattern-label">&#10003; Author named in signal phrase</div>
+          <p class="cite-pattern-example">Literary critic Louise Westling argues that &ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position&rdquo; (48).</p>
+          <p class="cite-pattern-note">Naming the scholar and identifying their field establishes their authority and makes the source feel purposeful rather than decorative.</p>
+        </div>
+        <div class="cite-pattern" style="border-top: none;">
+          <div class="cite-pattern-label">&#10003; Author named in parenthetical instead</div>
+          <p class="cite-pattern-example">Scholars of O'Connor have noted that Hulga's adoption of nihilism &ldquo;functions as a defense mechanism rather than a genuine philosophical position&rdquo; (Westling 48).</p>
+          <p class="cite-pattern-note">Name omitted from signal phrase, so it must appear in the parenthetical citation before the page number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pattern A -->
+  <section class="section" id="sec-pattern-a">
+    <p class="section-label">Section Two</p>
+    <h2 class="section-title">Pattern A: PDF Article, <em>Author's Name in the Citation</em></h2>
+
+    <p class="prose">When your secondary source is a PDF article (fixed page numbers) and you have not named the author in the signal phrase, include both the author's last name and the page number inside the parenthetical citation. <strong>No comma</strong> separates the name from the number. The period falls after the closing parenthesis.</p>
+
+    <div class="cite-section-head">
+      <span class="src-label">Pattern A</span>
+      <span>Format: &ldquo;quotation&rdquo; (LastName PageNumber).</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label" style="color: var(--plum);">&#10007; Comma between name and page</div>
+          <p class="cite-pattern-example">Scholars of O'Connor have noted that Hulga's nihilism &ldquo;functions as a defense mechanism rather than a genuine philosophical position&rdquo; (Westling, 48).</p>
+          <p class="cite-pattern-note">Never place a comma between the author's name and the page number in MLA format.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; Correct: no comma</div>
+          <p class="cite-pattern-example">Scholars of O'Connor have noted that Hulga's nihilism &ldquo;functions as a defense mechanism rather than a genuine philosophical position&rdquo; (Westling 48).</p>
+          <p class="cite-pattern-note">Last name and page number, separated only by a single space.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Two Author Sources</div>
+      <p>If a PDF article has two authors, use both last names connected with &ldquo;and&rdquo;: <em>(Lawrence and Jewett 29)</em>.</p>
+    </div>
+  </section>
+
+  <!-- Pattern B -->
+  <section class="section" id="sec-pattern-b">
+    <p class="section-label">Section Three</p>
+    <h2 class="section-title">Pattern B: PDF Article, <em>Author's Name in the Signal Phrase</em></h2>
+
+    <p class="prose">When your secondary source is a PDF article and you have already named the author in the signal phrase, the parenthetical citation contains the <strong>page number only</strong>. The author's name is not repeated inside the parentheses.</p>
+
+    <div class="cite-section-head">
+      <span class="src-label">Pattern B</span>
+      <span>Format: Author argues that &ldquo;quotation&rdquo; (PageNumber).</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label" style="color: var(--plum);">&#10007; Name repeated in citation</div>
+          <p class="cite-pattern-example">Literary critic Louise Westling argues that &ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position&rdquo; (Westling 48).</p>
+          <p class="cite-pattern-note">Author named in signal phrase, so the name should not be repeated. Page number only.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; Correct: page number only</div>
+          <p class="cite-pattern-example">Literary critic Louise Westling argues that &ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position&rdquo; (48).</p>
+          <p class="cite-pattern-note">Single number in the parenthetical. Period after the closing parenthesis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pattern C -->
+  <section class="section" id="sec-pattern-c">
+    <p class="section-label">Section Four</p>
+    <h2 class="section-title">Pattern C: HTML Article, <em>Author's Name in the Citation</em></h2>
+
+    <p class="prose">When your secondary source is an HTML article (no fixed page numbers) and you have not named the author in the signal phrase, include only the author's last name in the parenthetical citation. There is no page number. <strong>Do not invent or estimate one.</strong></p>
+
+    <div class="cite-section-head">
+      <span class="src-label">Pattern C</span>
+      <span>Format: &ldquo;quotation&rdquo; (LastName).</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label" style="color: var(--plum);">&#10007; Invented page number</div>
+          <p class="cite-pattern-example">Scholars of O'Connor have observed that the mother daughter relationship &ldquo;functions as a stalemate between two equally limited ways of seeing&rdquo; (Asals 7).</p>
+          <p class="cite-pattern-note">HTML articles have no fixed pages. Do not estimate, count, or invent a page number.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; Correct: author only</div>
+          <p class="cite-pattern-example">Scholars of O'Connor have observed that the mother daughter relationship &ldquo;functions as a stalemate between two equally limited ways of seeing&rdquo; (Asals).</p>
+          <p class="cite-pattern-note">Last name alone in the parenthetical. No page number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pattern D -->
+  <section class="section" id="sec-pattern-d">
+    <p class="section-label">Section Five</p>
+    <h2 class="section-title">Pattern D: HTML Article, <em>Author's Name in the Signal Phrase</em></h2>
+
+    <p class="prose">When your secondary source is an HTML article and you have named the author in the signal phrase, <strong>no parenthetical citation is needed at all</strong>. The reader can find the full source on the Works Cited page under the author's name. End the sentence with a period after the closing quotation mark.</p>
+
+    <div class="cite-section-head">
+      <span class="src-label">Pattern D</span>
+      <span>Format: Author argues that &ldquo;quotation.&rdquo;</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label" style="color: var(--plum);">&#10007; Unnecessary citation added</div>
+          <p class="cite-pattern-example">O'Connor scholar Frederick Asals has observed that the mother daughter relationship &ldquo;functions as a stalemate between two equally limited ways of seeing&rdquo; (Asals).</p>
+          <p class="cite-pattern-note">Author already named in signal phrase, so the parenthetical citation is redundant. Remove it.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; Correct: no parenthetical</div>
+          <p class="cite-pattern-example">O'Connor scholar Frederick Asals has observed that the mother daughter relationship &ldquo;functions as a stalemate between two equally limited ways of seeing.&rdquo;</p>
+          <p class="cite-pattern-note">No citation. Period goes inside the closing quotation mark, since this is the one situation where no parenthetical follows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout indigo">
+      <div class="callout-label">A Note on Final Punctuation</div>
+      <p>When there is <strong>no parenthetical citation</strong>, American English convention places the period <strong>inside</strong> the closing quotation mark: <em>&ldquo;quotation.&rdquo;</em> This is the one situation where a period appears inside the quotation marks. When a parenthetical citation follows, the period always goes <strong>after</strong> the closing parenthesis: <em>&ldquo;quotation&rdquo; (Author Page).</em></p>
+    </div>
+  </section>
+
+  <!-- No author -->
+  <section class="section" id="sec-no-author">
+    <p class="section-label">Section Six</p>
+    <h2 class="section-title">Articles With <em>No Identified Author</em></h2>
+
+    <p class="prose">Occasionally, an article in an academic database will not list a named author. In that case, use the first one to three significant words of the article's title inside the parenthetical citation, in quotation marks. These sources are relatively rare in ENC 1102, and it is generally preferable to choose sources with identifiable authors when possible. Named scholars carry more scholarly weight. If your source is a PDF and has a page number, include the page number after the title fragment.</p>
+
+    <div class="cite-section-head">
+      <span class="src-label">No Author</span>
+      <span>Format: &ldquo;quotation&rdquo; (&ldquo;First Words&rdquo;) for HTML, or (&ldquo;First Words&rdquo; PageNumber) for PDF</span>
+    </div>
+    <div class="cite-section-body">
+      <div class="cite-pattern-grid">
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; HTML source, no author</div>
+          <p class="cite-pattern-example">One overview of O'Connor's fiction notes that her characters consistently &ldquo;experience moments of violent grace that strip away comfortable illusions&rdquo; (&ldquo;Overview of O'Connor&rdquo;).</p>
+          <p class="cite-pattern-note">No author identified, so the first significant words of the title appear in quotation marks. HTML article: no page number.</p>
+        </div>
+        <div class="cite-pattern">
+          <div class="cite-pattern-label">&#10003; PDF source, no author (page included)</div>
+          <p class="cite-pattern-example">Critics have noted that O'Connor uses physical disability &ldquo;as an outward sign of a character's spiritual condition and resistance to grace&rdquo; (&ldquo;Disability in O'Connor&rdquo; 38).</p>
+          <p class="cite-pattern-note">PDF article with no author: title fragment in quotation marks, followed by the page number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Reference -->
+  <section class="section" id="sec-quickref">
+    <p class="section-label">Quick Reference</p>
+    <h2 class="section-title">The Four Patterns <em>at a Glance</em></h2>
+
+    <div class="quickref">
+      <div class="quickref-row head">
+        <div class="col">Pattern</div>
+        <div class="col">When to Use</div>
+        <div class="col">Example</div>
+      </div>
+      <div class="quickref-row">
+        <div class="col label">A</div>
+        <div class="col desc">PDF source, author named in citation</div>
+        <div class="col example">&ldquo;&hellip;&rdquo; (Westling 48).</div>
+      </div>
+      <div class="quickref-row">
+        <div class="col label">B</div>
+        <div class="col desc">PDF source, author named in signal phrase</div>
+        <div class="col example">Westling argues that &ldquo;&hellip;&rdquo; (48).</div>
+      </div>
+      <div class="quickref-row">
+        <div class="col label">C</div>
+        <div class="col desc">HTML source, author named in citation</div>
+        <div class="col example">&ldquo;&hellip;&rdquo; (Asals).</div>
+      </div>
+      <div class="quickref-row">
+        <div class="col label">D</div>
+        <div class="col desc">HTML source, author named in signal phrase</div>
+        <div class="col example">Asals notes that &ldquo;&hellip;.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="callout plum">
+      <div class="callout-label">The Most Common Error</div>
+      <p>By far the most common error is repeating the author's name in <strong>both</strong> the signal phrase and the citation. Pick one location for the name and use it there only. See the &ldquo;Author Named Twice&rdquo; section below.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       PART TWO: COMMON ERRORS
+  ═══════════════════════════════════ -->
+  <div class="part-header">
+    <span class="part-num">Part Two</span>
+    Common Quoting Errors
+  </div>
+
+  <!-- Floating Quotes -->
+  <section class="section" id="err-floating">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Floating <em>Quotes</em></h2>
+
+    <p class="prose">A <strong>floating quote</strong> is a quotation that stands alone as its own sentence without being introduced by a signal phrase or integrated into your own prose. Every quotation from a secondary source must be attached to your own words, both before and after: a signal phrase establishes who is speaking and why their words matter, and your own analysis after the quote explains what the evidence contributes to your argument.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Floating quote</div>
+        <div class="error-card-body">
+          <p>Hulga's nihilism protects her from genuine feeling. &ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position&rdquo; (Westling 48). O'Connor uses this to show her flaws.</p>
+          <p class="annotation">The quote stands alone as its own sentence with no signal phrase introducing it and only a vague sentence following it.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Quote introduced and analyzed</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that &ldquo;Hulga's adoption of nihilism functions as a defense mechanism rather than a genuine philosophical position, a way of preempting rejection by rejecting everything first&rdquo; (48). Westling's reading clarifies what the story's opening pages establish: Hulga's nihilism is not the conclusion of rigorous reasoning but the emotional response of someone who found the world painful.</p>
+          <p class="annotation">Signal phrase, quoted material, and follow up analysis all in place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout moss">
+      <div class="callout-label">The Signal, Quote, Analysis Pattern</div>
+      <p>Every secondary source use should follow the same three part structure: (1) a <strong>signal phrase</strong> that names the scholar and establishes context, (2) the <strong>quoted or paraphrased material</strong>, and (3) your own <strong>sentence or two of analysis</strong> connecting the scholar's point to your argument. The analysis is not optional. A quote dropped in without your interpretation does not advance your thesis.</p>
+    </div>
+  </section>
+
+  <!-- Comma Splice -->
+  <section class="section" id="err-comma">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Comma Splices <em>Involving Quotes</em></h2>
+
+    <p class="prose">A common quoting error is using a comma to join your own complete independent clause to a quotation. If your lead in is a complete sentence, use a <strong>colon</strong>, not a comma. Alternatively, restructure the lead in so the quotation flows naturally from an incomplete construction and no colon is needed at all. The second option is usually more elegant.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Comma between complete clause and quote</div>
+        <div class="error-card-body">
+          <p>Westling makes an important point about this scene, &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">&ldquo;Westling makes an important point&rdquo; is a complete sentence. A comma cannot join it to the quotation.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Colon after a complete lead in</div>
+        <div class="error-card-body">
+          <p>Westling makes an important point about this scene: &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">A colon can introduce the quotation when the lead in is a complete sentence on its own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Restructured: incomplete lead in</div>
+        <div class="error-card-body">
+          <p>Westling connects this moment to O'Connor's broader theological concerns, arguing that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">&ldquo;arguing that&rdquo; is incomplete on its own. The quote flows naturally from it. No colon needed.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; The most natural form</div>
+        <div class="error-card-body">
+          <p>Louise Westling argues that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">Author named in the lead in, incomplete construction, page number only in the citation. Pattern B.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colon -->
+  <section class="section" id="err-colon">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Colon Before a Quote: <em>Lead In Must Be a Complete Sentence</em></h2>
+
+    <p class="prose">A colon may introduce a quotation only when the signal phrase is a complete sentence (subject and predicate, capable of standing alone). If your lead in is an incomplete construction such as &ldquo;Westling notes that&rdquo; or &ldquo;according to Kaminski,&rdquo; do not use a colon. Let the quotation flow directly from your words instead.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Colon after incomplete lead in</div>
+        <div class="error-card-body">
+          <p>Kaminski notes that: &ldquo;the refusal of the call was the stage Lucas worked hardest to dramatize authentically&rdquo; (172).</p>
+          <p class="annotation">&ldquo;Kaminski notes that&rdquo; is not a complete sentence. A colon cannot follow it.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; No colon, quote flows naturally</div>
+        <div class="error-card-body">
+          <p>Kaminski notes that &ldquo;the refusal of the call was the stage Lucas worked hardest to dramatize authentically&rdquo; (172).</p>
+          <p class="annotation">Incomplete lead in, no colon needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Colon correct after complete sentence</div>
+        <div class="error-card-body">
+          <p>Kaminski identifies the key dramatic challenge Lucas faced: &ldquo;the refusal of the call was the stage Lucas worked hardest to dramatize authentically&rdquo; (172).</p>
+          <p class="annotation">&ldquo;Kaminski identifies the key dramatic challenge Lucas faced&rdquo; is a complete sentence on its own.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Same idea, no colon at all</div>
+        <div class="error-card-body">
+          <p>For Kaminski, the dramatic challenge Lucas faced was clear, since &ldquo;the refusal of the call was the stage Lucas worked hardest to dramatize authentically&rdquo; (172).</p>
+          <p class="annotation">Restructured so the quote flows from a connector. Often the most elegant move.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Punctuation inside -->
+  <section class="section" id="err-punct">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Punctuation Left <em>Inside the Quotation Marks</em></h2>
+
+    <p class="prose">When a quotation is followed by a parenthetical citation, do not leave the original text's ending punctuation inside the closing quotation mark. Periods, commas, semicolons, and colons from the original text should be dropped before the closing quotation mark. The citation and your own closing punctuation handle the end of the sentence. The exceptions are <strong>question marks and exclamation marks</strong> that belong to the quoted material itself; those stay inside.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Original period left inside</div>
+        <div class="error-card-body">
+          <p>Westling argues that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace.&rdquo; (54).</p>
+          <p class="annotation">The period from the original text should not appear inside the quotation marks. It also creates double punctuation with the period after the citation.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Original period removed</div>
+        <div class="error-card-body">
+          <p>Westling argues that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">Clean closing quotation mark, citation, then a single period.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Exception: question mark stays inside</div>
+        <div class="error-card-body">
+          <p>Gentry poses a central question about the story: &ldquo;Does Hulga's nihilism differ in any meaningful way from Pointer's?&rdquo; (113).</p>
+          <p class="annotation">Question marks from the original text stay inside the quotation marks. The period after the citation still closes your sentence.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Same rule for exclamation marks</div>
+        <div class="error-card-body">
+          <p>The Misfit's flat declaration carries the weight of the story's theology: &ldquo;No pleasure but meanness!&rdquo; (O'Connor 5).</p>
+          <p class="annotation">If an exclamation mark is part of the original quoted material, keep it inside.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author named twice -->
+  <section class="section" id="err-twice">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Author's Name Appearing <em>in Both Signal Phrase and Citation</em></h2>
+
+    <p class="prose">The author's name belongs in <strong>one place only</strong>: either in the signal phrase or in the parenthetical citation. Never both. When the name appears in the signal phrase, the citation contains only the page number (for PDF sources) or nothing (for HTML sources). When the name appears in the citation, the signal phrase introduces the quote without naming the author. Repeating the name in both places is redundant and counts as a citation error.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Name repeated in both places</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (Westling 54).</p>
+          <p class="annotation">Author named in signal phrase, so remove the name from the citation. Page number only: <em>(54)</em>.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Name in signal phrase only</div>
+        <div class="error-card-body">
+          <p>Literary critic Louise Westling argues that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (54).</p>
+          <p class="annotation">Pattern B in action. Single page number in the citation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Name in citation only</div>
+        <div class="error-card-body">
+          <p>One critic connects this moment to O'Connor's theological vision, arguing that &ldquo;the violation of Hulga's prosthesis enacts O'Connor's characteristic use of violent grace&rdquo; (Westling 54).</p>
+          <p class="annotation">No name in signal phrase, so the last name appears in the citation with the page number. Pattern A.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; HTML version of the same rule</div>
+        <div class="error-card-body">
+          <p>One critic argues that O'Connor's mother daughter scenes function as &ldquo;a stalemate between two equally limited ways of seeing&rdquo; (Asals).</p>
+          <p class="annotation">HTML source, no name in signal phrase, so the last name alone appears in the citation. Pattern C.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missing end punctuation -->
+  <section class="section" id="err-end">
+    <p class="section-label">Common Error</p>
+    <h2 class="section-title">Missing End Punctuation <em>After a Quote</em></h2>
+
+    <p class="prose">When a quotation ends your sentence, the sentence still needs its own closing punctuation, a period (or semicolon, or colon), placed <strong>after</strong> the parenthetical citation. Students frequently omit this punctuation entirely. The period after the citation is not optional. When there is no parenthetical citation (HTML source, author in signal phrase), the period goes inside the closing quotation mark instead.</p>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head bad">&#10007; Missing period after citation</div>
+        <div class="error-card-body">
+          <p>Kaminski notes that the act of switching off the targeting computer was designed to be &ldquo;the single most important gesture in the film, the moment Luke stops performing heroism and actually becomes a hero&rdquo; (198)</p>
+          <p class="annotation">The sentence ends after the closing parenthesis with no period.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Period after citation</div>
+        <div class="error-card-body">
+          <p>Kaminski notes that the act of switching off the targeting computer was designed to be &ldquo;the single most important gesture in the film, the moment Luke stops performing heroism and actually becomes a hero&rdquo; (198).</p>
+          <p class="annotation">Citation, then a single period closing the sentence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="error-pair">
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; Semicolon after citation: joining clauses</div>
+        <div class="error-card-body">
+          <p>Gentry argues that both characters carry &ldquo;systems of belief emptied of genuine content and filled with something self serving&rdquo; (113); this framing explains why their encounter is a collision rather than a seduction.</p>
+          <p class="annotation">A semicolon after the citation is correct when joining two independent clauses.</p>
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-card-head good">&#10003; HTML source: period inside the quotes</div>
+        <div class="error-card-body">
+          <p>O'Connor scholar Frederick Asals has observed that the mother daughter conflict &ldquo;refuses to endorse either as a reliable window onto reality.&rdquo;</p>
+          <p class="annotation">No parenthetical citation, so the period goes inside the closing quotation mark.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout moss">
+      <div class="callout-label">Quick Self Check Before You Submit</div>
+      <p>For every secondary source quotation in your draft, check three things: (1) the <strong>format</strong> of the source (PDF or HTML) determines whether you need a page number, (2) the author's name appears <strong>once</strong>, in either the signal phrase or the citation but not both, and (3) the sentence ends with <strong>one</strong> piece of closing punctuation, in the right place for the citation pattern you used. Most secondary source citation problems are caught by those three quick checks.</p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
